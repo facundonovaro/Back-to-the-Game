@@ -12,5 +12,5 @@ const findAllProducts = (req, res) =>{
     })
 }
 
-module.exports = { findAllProducts, findProduct }
+module.exports = {findAllProducts, findProduct}
 
