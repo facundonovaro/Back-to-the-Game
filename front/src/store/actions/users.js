@@ -7,7 +7,7 @@ const loginUser = (user) => ({
     user,
 });
 
-const logOutUser = (user) => ({
+const logoutUser = (user) => ({
     type: LOGOUT_USER,
     user,
 });
@@ -23,13 +23,12 @@ export const userLogin  = function (user) {
     };
 };
 
-export const userLogin = function (user) {
+export const userLogout = function (user) {
     return function (dispatch) {
         axios
-            .post('/api/users/login', user)
-            .then((res) => {
-                dispatch(loginUser(res.data))
-            })
-
+        .post("/api/users/logout", user)
+        .then(() => {
+            dispatch(logoutUser({}));
+        });
     };
 };
