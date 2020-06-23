@@ -8,7 +8,7 @@ const session = require("express-session");
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const { User } = require("./models/index");
-const router = require("./routes/index");
+const router = require("./routes/users");
 
 app.use(
   session({
@@ -77,7 +77,7 @@ app.use(function (err, req, res, next) {
 });
 
 //SERVER
-db.sync({ force: true })
+db.sync({ force: false })
   .then(() => {
     console.log("Conectado a la base de datos");
     app.listen(1337, console.log("Escuchando el puerto 1337"));

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import Login from "../components/Login";
-import { loginUser } from "../store/actions/users";
+import { userLogin } from "../store/actions/users";
 
 const mapStateToProps = function (state, ownProps) {
   return {
@@ -11,7 +11,7 @@ const mapStateToProps = function (state, ownProps) {
 
 const mapDispatchToProps = function (dispatch) {
   return {
-   loginUser: (userData) => dispatch(loginUser(userData)),
+    userLogin: (userData) => dispatch(userLogin(userData)),
   };
 };
 
@@ -35,7 +35,7 @@ class LoginContainer extends Component {
 
   handleSubmit(evt) {
     evt.preventDefault();
-    this.props.loginUser(this.state);
+    this.props.userLogin(this.state);
     this.props.history.push("/");
   }
   render() {
