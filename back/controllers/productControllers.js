@@ -1,5 +1,12 @@
 const { Product } = require('../models')
 
-export const findProduct = (req, res) => {
-    Product.findByPk
+const findProduct = (req, res) => {
+    Product.findByPk({
+        where: {
+            id: req.params.id
+        }
+    })
+    .then(product => res.send(product))
 }
+
+module.exports = findProduct

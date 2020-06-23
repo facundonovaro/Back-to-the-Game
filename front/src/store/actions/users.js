@@ -19,7 +19,6 @@ export const userLogin  = function (user) {
         .then((res)=>{
             dispatch(loginUser(res.data))
         })
-            
     };
 };
 

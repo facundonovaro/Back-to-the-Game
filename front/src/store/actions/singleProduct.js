@@ -1,4 +1,5 @@
 import { GET_PRODUCT } from '../constants';
+import axios from "axios";
 
 const getProduct = (product) => {
     return {
@@ -8,5 +9,5 @@ const getProduct = (product) => {
 }
 
 export const fetchProduct = id => dispatch => 
-    axios.get('/api/product/:id')
+    axios.get('/api/products/:id')
     .then(product => dispatch(getProduct(product.data)))
