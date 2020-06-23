@@ -3,7 +3,12 @@
 const express = require("express");
 const router = express.Router();
 const passport = require('passport');
+const User = require("../models/User")
 
+router.post("/users/register", (req, res) => {
+    User.create(req.body)
+        .then((user) => res.status(200).send(user))
+})
 
 router.post("/users/login", passport.authenticate('local'), (req, res, next) => {
     res.status(201).send(req.user)
