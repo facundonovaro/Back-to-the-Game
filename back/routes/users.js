@@ -1,20 +1,14 @@
-// import { findUsers } from "../controllers/userControllers";
-// router.get("/", findUsers());
+
 const express = require("express");
 const router = express.Router();
 const passport = require('passport');
+const  {registerUser, userLogin, userLogout} = require('../controllers/userControllers')
 
 
-router.post("/users/login", passport.authenticate('local'), (req, res, next) => {
-    res.status(201).send(req.user)
-});
+router.post("/register", registerUser);
 
-router.post("/users/logout", (req, res, next) => {
-    if (req.isAuthenticated()) {
-        req.logOut()
-    }
-    res.status(201).send('DESLOGEADO');
-});
+router.post("/login", passport.authenticate('local'),userLogin )
 
+router.post("/logout", userLogout)
 
 module.exports = router
