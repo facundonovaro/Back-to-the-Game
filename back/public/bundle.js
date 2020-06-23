@@ -39093,8 +39093,8 @@ var mapStateToProps = function mapStateToProps(state, ownProps) {
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
-    loginUser: function loginUser(userData) {
-      return dispatch(Object(_store_actions_users__WEBPACK_IMPORTED_MODULE_3__["loginUser"])(userData));
+    userLogin: function userLogin(user) {
+      return dispatch(Object(_store_actions_users__WEBPACK_IMPORTED_MODULE_3__["userLogin"])(user));
     }
   };
 };
@@ -39128,13 +39128,18 @@ var LoginContainer = /*#__PURE__*/function (_Component) {
     key: "handleSubmit",
     value: function handleSubmit(evt) {
       evt.preventDefault();
-      this.props.loginUser(this.state);
+      this.props.userLogin(this.state);
       this.props.history.push("/");
     }
   }, {
     key: "render",
     value: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Login__WEBPACK_IMPORTED_MODULE_2__["default"], null);
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Login__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        handleChange: this.handleChange,
+        handleSubmit: this.handleSubmit,
+        username: this.state.username,
+        password: this.state.password
+      });
     }
   }]);
 
@@ -39278,19 +39283,19 @@ var composeEnhancers = window.REDUX_DEVTOOLS_EXTENSION_COMPOSE || redux__WEBPACK
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/index.js");
-/* harmony import */ var _users_reducers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./users-reducers */ "./src/store/reducers/users-reducers.js");
+/* harmony import */ var _users_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./users-reducer */ "./src/store/reducers/users-reducer.js");
 
 
 /* harmony default export */ __webpack_exports__["default"] = (Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
-  users: _users_reducers__WEBPACK_IMPORTED_MODULE_1__["default"]
+  users: _users_reducer__WEBPACK_IMPORTED_MODULE_1__["default"]
 }));
 
 /***/ }),
 
-/***/ "./src/store/reducers/users-reducers.js":
-/*!**********************************************!*\
-  !*** ./src/store/reducers/users-reducers.js ***!
-  \**********************************************/
+/***/ "./src/store/reducers/users-reducer.js":
+/*!*********************************************!*\
+  !*** ./src/store/reducers/users-reducer.js ***!
+  \*********************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
