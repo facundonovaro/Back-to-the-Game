@@ -8,7 +8,7 @@ const session = require("express-session");
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const { User } = require("./models/index");
-const router = require("./routes/users");
+const router = require("./routes/index");
 
 app.use(
   session({
@@ -27,7 +27,7 @@ app.use(morgan("dev"));
 app.use(express.json());
 app.use(express.urlencoded());
 
-app.use("/api", router);
+
 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -64,6 +64,9 @@ passport.deserializeUser((user, done) => {
     })
     .catch(done);
 });
+
+
+app.use("/api", router);
 
 //VIEW
 app.get("/*", function (req, res) {

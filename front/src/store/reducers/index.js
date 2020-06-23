@@ -7,5 +7,6 @@ export default combineReducers({
     productReducer,
     productsReducer,
     usersReducer,
+
 });
 
