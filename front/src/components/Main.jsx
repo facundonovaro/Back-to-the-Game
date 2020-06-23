@@ -2,6 +2,7 @@ import React from "react";
 import LoginContainer from '../containers/LoginContainer'
 import ProductsContainer from "../containers/ProductsContainer"
 import RegisterContainer from "../containers/RegisterContainer"
+import SingleProductContainer from "../containers/SingleProductContainer";
 import { Switch, Route, Redirect } from "react-router-dom";
 import SingleProductContainer from '../containers/SingleProductContainer';
 
