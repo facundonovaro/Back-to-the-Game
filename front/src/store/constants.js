@@ -1,12 +1,9 @@
 // Users
 export const LOGIN_USER = 'LOGIN_USER';
-
 export const LOGOUT_USER = 'LOGOUT_USER';
 
 // Products
+export const GET_ALL_PRODUCTS = 'GET_ALL_PRODUCTS';
 
-export const GET_ALL_PRODUCTS = 'GET_ALL_PRODUCTS' 
-
-//Single Produc
+// Single Product
 export const GET_PRODUCT = 'GET_PRODUCT';
-
