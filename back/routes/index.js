@@ -6,6 +6,6 @@ const productRouter = require('./products')
   res.sendStatus(200);
 });*/
 
-router.get('/products', productRouter)
+router.use('/products', productRouter)
 
 module.exports = router;

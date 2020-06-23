@@ -24,8 +24,14 @@ class SingleProductContainer extends React.component {
 const mapStateToProps = (state, ownProps) => {
     return {
         id: ownProps.match.params.id,
-        product: state.product.product
+        product: state.productReducer.product
     }
 }
 
-export default connect(mapStateToProps,null)(SingleProductContainer)
+const mapDispatchToProps = (dispatch) => {
+    return {
+        fetchProduct: (id) => {dispatch(fetchProduct(id))}
+    }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(SingleProductContainer)

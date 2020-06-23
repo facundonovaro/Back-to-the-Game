@@ -10,6 +10,7 @@ export default () => (
       <Route path='/products' component={ProductsContainer}/>
       <Route path="/users/register" component={RegisterContainer} />
       <Route path="/users/login" component={LoginContainer} />
+      <Route path='/products/:id' component={SingleProductContainer}/>
       <Redirect to="/"></Redirect>
     </Switch>
   </div>
