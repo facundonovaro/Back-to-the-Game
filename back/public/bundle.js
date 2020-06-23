@@ -39220,8 +39220,8 @@ var mapStateToProps = function mapStateToProps(state, ownProps) {
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
-    userLogin: function userLogin(userData) {
-      return dispatch(Object(_store_actions_users__WEBPACK_IMPORTED_MODULE_3__["userLogin"])(userData));
+    userLogin: function userLogin(user) {
+      return dispatch(Object(_store_actions_users__WEBPACK_IMPORTED_MODULE_3__["userLogin"])(user));
     }
   };
 };
@@ -39255,13 +39255,17 @@ var LoginContainer = /*#__PURE__*/function (_Component) {
     key: "handleSubmit",
     value: function handleSubmit(evt) {
       evt.preventDefault();
-      this.props.userLogin(this.state);
-      this.props.history.push("/");
+      this.props.userLogin(this.state); //this.props.history.push("/");
     }
   }, {
     key: "render",
     value: function render() {
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Login__WEBPACK_IMPORTED_MODULE_2__["default"], null);
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Login__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        handleChange: this.handleChange,
+        handleSubmit: this.handleSubmit,
+        username: this.state.username,
+        password: this.state.password
+      });
     }
   }]);
 

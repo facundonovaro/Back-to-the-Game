@@ -17,8 +17,7 @@ class RegisterContainer extends React.Component {
 
     submit(e) {
         e.preventDefault()
-        this.props.registerUser(
-            this.state)
+        this.props.registerUser(this.state)
         // this.props.history.push("/")
     }
 
