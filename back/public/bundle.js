@@ -39817,7 +39817,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ "./node_modules/redux/es/index.js");
 /* harmony import */ var _product_reducer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./product-reducer */ "./src/store/reducers/product-reducer.js");
 /* harmony import */ var _products_reducer__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./products-reducer */ "./src/store/reducers/products-reducer.js");
-/* harmony import */ var _users_reducers__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./users-reducers */ "./src/store/reducers/users-reducers.js");
+/* harmony import */ var _users_reducer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./users-reducer */ "./src/store/reducers/users-reducer.js");
 
 
 
@@ -39825,7 +39825,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = (Object(redux__WEBPACK_IMPORTED_MODULE_0__["combineReducers"])({
   productReducer: _product_reducer__WEBPACK_IMPORTED_MODULE_1__["default"],
   productsReducer: _products_reducer__WEBPACK_IMPORTED_MODULE_2__["default"],
-  usersReducer: _users_reducers__WEBPACK_IMPORTED_MODULE_3__["default"]
+  usersReducer: _users_reducer__WEBPACK_IMPORTED_MODULE_3__["default"]
 }));
 
 /***/ }),
@@ -39910,14 +39910,45 @@ var producstReducer = function producstReducer() {
 
 /***/ }),
 
-/***/ "./src/store/reducers/users-reducers.js":
-/*!**********************************************!*\
-  !*** ./src/store/reducers/users-reducers.js ***!
-  \**********************************************/
+/***/ "./src/store/reducers/users-reducer.js":
+/*!*********************************************!*\
+  !*** ./src/store/reducers/users-reducer.js ***!
+  \*********************************************/
 /*! exports provided: default */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nError: ENOENT: no such file or directory, open '/home/flavia/Bootcamp/Back-to-the-Game/front/src/store/reducers/users-reducers.js'");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../constants */ "./src/store/constants.js");
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+var initialState = {
+  user: {}
+};
+/* harmony default export */ __webpack_exports__["default"] = (function () {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+
+  switch (action.type) {
+    case _constants__WEBPACK_IMPORTED_MODULE_0__["LOGIN_USER"]:
+      return _objectSpread(_objectSpread({}, state), {}, {
+        user: action.user
+      });
+
+    case _constants__WEBPACK_IMPORTED_MODULE_0__["LOGOUT_USER"]:
+      return _objectSpread(_objectSpread({}, state), {}, {
+        user: action.user
+      });
+
+    default:
+      return state;
+  }
+});
 
 /***/ })
 
