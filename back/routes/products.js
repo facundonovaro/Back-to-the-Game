@@ -1,8 +1,12 @@
 const express = require("express");
 const router = express.Router();
-const { findProduct } = require('../controllers/productControllers')
+const {findProduct,findAllProducts }= require('../controllers/productControllers')
+
 // /api/products
 
 router.get('/:id', findProduct)
 
-module.exports= router
+router.get('/', findAllProducts)
+
+module.exports =  router
+

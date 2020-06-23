@@ -14,12 +14,10 @@ const logoutUser = (user) => ({
 
 export const userLogin = function (user) {
     return function (dispatch) {
-        axios
-            .post('/api/users/login', user)
-            .then((res) => {
-                dispatch(loginUser(res.data))
-            })
-
+        axios.post('/api/users/login', user)
+        .then((res)=>{
+            dispatch(loginUser(res.data))
+        })
     };
 };
 
