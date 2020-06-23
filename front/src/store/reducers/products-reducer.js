@@ -4,7 +4,7 @@ const initialState = {
     list: []
 }
 
-export default ( state = initialState, action) =>{
+const producstReducer  = ( state = initialState, action) =>{
     switch(action.type){
         case GET_ALL_PRODUCTS:
             return {...state, list: action.products}
@@ -12,3 +12,4 @@ export default ( state = initialState, action) =>{
                 return state
     }
 }
+export default producstReducer;
