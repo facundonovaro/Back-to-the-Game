@@ -4,7 +4,6 @@ import ProductsContainer from "../containers/ProductsContainer"
 import RegisterContainer from "../containers/RegisterContainer"
 import SingleProductContainer from "../containers/SingleProductContainer";
 import { Switch, Route, Redirect } from "react-router-dom";
-import SingleProductContainer from '../containers/SingleProductContainer';
 
 export default () => (
   <div id="main" className="container-fluid">

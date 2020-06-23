@@ -23,7 +23,7 @@ class ProductsContainer extends React.Component{
    handlerSubmit(){
      const {fetchProducts} = this.props
      event.preventDefault();
-     fetchProducts(this.state.inputValue)
+     fetchProducts()
    }
 
 render(){
@@ -32,7 +32,7 @@ render(){
         <div>
            <Products
            handlerSubmit={this.handlerSubmit}
-           products={this.props.products}
+           products={products}
            />
         </div>
     )
@@ -53,4 +53,4 @@ const mapDispatchToProps = (dispatch) =>{
   }
 }
 
-export default connect (mapStateToProps, mapDispatchToProps) (ProductsContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(ProductsContainer)
