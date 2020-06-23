@@ -34,6 +34,6 @@ export const userLogout = function (user) {
 export const registerUser = function (user) {
     return function () {
         axios
-            .post('/api/users/register', user)
+        .post('/api/users/register', user)
     };
 };

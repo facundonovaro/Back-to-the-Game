@@ -27,7 +27,7 @@ app.use(morgan("dev"));
 app.use(express.json());
 app.use(express.urlencoded());
 
-app.use("/api", router);
+
 
 app.use(passport.initialize());
 app.use(passport.session());
@@ -64,6 +64,9 @@ passport.deserializeUser((user, done) => {
     })
     .catch(done);
 });
+
+
+app.use("/api", router);
 
 //VIEW
 app.get("/*", function (req, res) {

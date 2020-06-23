@@ -1,15 +1,9 @@
 const { Product } = require('../models')
 
-
 const findProduct = (req, res) => {
-    Product.findByPk({
-        where: {
-            id: req.params.id
-        }
-    })
+    Product.findByPk(req.params.id)
     .then(product => res.send(product))
 }
-
 
 const findAllProducts = (req, res) =>{
     Product.findAll()

@@ -11,7 +11,7 @@ const mapStateToProps = function (state, ownProps) {
 
 const mapDispatchToProps = function (dispatch) {
   return {
-    userLogin: (userData) => dispatch(userLogin(userData)),
+    userLogin: (user) => dispatch(userLogin(user)),
   };
 };
 
@@ -36,10 +36,17 @@ class LoginContainer extends Component {
   handleSubmit(evt) {
     evt.preventDefault();
     this.props.userLogin(this.state);
-    this.props.history.push("/");
+    //this.props.history.push("/");
   }
   render() {
-    return <Login />;
+    return (
+      <Login
+        handleChange={this.handleChange}
+        handleSubmit={this.handleSubmit}
+        username={this.state.username}
+        password={this.state.password}
+      />
+    );
   }
 }
 
