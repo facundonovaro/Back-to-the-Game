@@ -6,7 +6,8 @@ const allProducts = (products) =>({
     products 
 });
 
-export const fetchProducts = (products) => dispatch =>
+export const fetchProducts = () => dispatch =>
  axios.get('/api/products')
- .then(res => res.data)
+ .then(res => { console.log(res.data)
+     return res.data} )
  .then(products => dispatch(allProducts(products)))
