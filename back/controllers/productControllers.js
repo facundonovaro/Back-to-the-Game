@@ -1,14 +1,9 @@
 const { Product } = require('../models')
 
-
 const findProduct = (req, res) => {
-    Product.findByPk(
-        req.params.id
-    )
+    Product.findByPk(req.params.id)
     .then(product => res.send(product))
 }
-
-
 
 const findAllProducts = (req, res) =>{
     Product.findAll()
@@ -17,5 +12,5 @@ const findAllProducts = (req, res) =>{
     })
 }
 
-module.exports = {findAllProducts, findProduct}
+module.exports = { findAllProducts, findProduct }
 
