@@ -3,6 +3,19 @@ import { connect } from 'react-redux';
 import Register from "../components/Register"
 import { registerUser } from "../store/actions/users"
 
+const mapStateToProps = (state, ownProps) => {
+    return{
+    history: ownProps.history
+    }
+}
+const mapDispatchToProps = (dispatch) => {
+    return {
+        registerUser: (user) => (dispatch(registerUser(user))
+
+        )
+    }
+}
+
 class RegisterContainer extends React.Component {
     constructor() {
         super()
@@ -18,7 +31,7 @@ class RegisterContainer extends React.Component {
     submit(e) {
         e.preventDefault()
         this.props.registerUser(this.state)
-        // this.props.history.push("/")
+        this.props.history.push("/users/login")
     }
 
     render() {
@@ -33,19 +46,8 @@ class RegisterContainer extends React.Component {
         )
     }
 }
-/*const mapStateToProps = (state, ownProps) => {
-    history: ownProps.history
-}*/
 
-const mapDispatchToProps = (dispatch) => {
-
-    return {
-        registerUser: (user) => (dispatch(registerUser(user))
-
-        )
-    }
-}
 
 export default connect(
-    null,
+    mapStateToProps,
     mapDispatchToProps)(RegisterContainer)

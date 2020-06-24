@@ -1,6 +1,7 @@
 import React from "react"
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form'
+import { Link } from 'react-router-dom'
 
 
 
@@ -37,9 +38,12 @@ export default ({ firstName, lastName, username, password, handlerChange, submit
                 <Form.Group controlId="formBasicCheckbox">
                     <Form.Check type="checkbox" label="Check me out" />
                 </Form.Group>
+
+               
                 <Button variant="primary" type="submit">
                     Submit
-</Button>
+                </Button>
+               
             </Form>
 
         </div>
