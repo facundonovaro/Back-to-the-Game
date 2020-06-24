@@ -4,14 +4,14 @@ const initialState = {
     list: []
 }
 
-const producstReducer  = ( state = initialState, action) =>{
+const productsReducer  = ( state = initialState, action) =>{
     switch(action.type){
         case GET_ALL_PRODUCTS:
             return {...state, list: action.products}
         case ADD_PRODUCT: 
             return {list: [...state.list, action.product]}
-            default:
-                return state
+        default:
+            return state
     }
 }
-export default producstReducer;
+export default productsReducer;
