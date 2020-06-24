@@ -65,6 +65,7 @@ class AddProductContainer extends React.Component {
             img1Url: image1Input,
             img2Url: image2Input
         })
+        this.props.history.push('/products')
     }
 
     render(){
@@ -83,10 +84,16 @@ class AddProductContainer extends React.Component {
         )}
 }
 
+const mapStateToProps = (state, ownProps) => {
+    return {
+        history: ownProps.history 
+    }
+}
+
 const mapDispatchToProps = (dispatch) => {
     return {
        newProduct: (product) => {dispatch(newProduct(product))} 
     }
 }
 
-export default connect(null,mapDispatchToProps)(AddProductContainer);
+export default connect(mapStateToProps,mapDispatchToProps)(AddProductContainer);
