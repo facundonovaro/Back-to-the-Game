@@ -39279,7 +39279,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var SingleProduct = function SingleProduct(_ref) {
   var product = _ref.product;
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "SingleProduct View");
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, product.name, product.description, product.price, product.stock, product.img1Url, product.img2Url ? product.img2Url : null);
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (SingleProduct);
@@ -39880,7 +39880,7 @@ var getProduct = function getProduct(product) {
 
 var fetchProduct = function fetchProduct(id) {
   return function (dispatch) {
-    return axios__WEBPACK_IMPORTED_MODULE_1___default.a.get('/api/products/:id').then(function (product) {
+    return axios__WEBPACK_IMPORTED_MODULE_1___default.a.get("/api/products/".concat(id)).then(function (product) {
       return dispatch(getProduct(product.data));
     });
   };
