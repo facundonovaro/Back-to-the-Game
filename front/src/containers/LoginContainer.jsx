@@ -36,7 +36,7 @@ class LoginContainer extends Component {
   handleSubmit(evt) {
     evt.preventDefault();
     this.props.userLogin(this.state);
-    //this.props.history.push("/");
+    this.props.history.push(`/products`);
   }
   render() {
     return (
