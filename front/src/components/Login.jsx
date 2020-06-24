@@ -1,9 +1,8 @@
 import React from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import { Link } from "react-router-dom";
 
-export default ({ handleChange, handleSubmit, username, password }) => {
+export default ({ handleChange, handleSubmit, user, username, password }) => {
   return (
     <div>
       <h2>Login</h2>
@@ -32,11 +31,9 @@ export default ({ handleChange, handleSubmit, username, password }) => {
             name="password"
           />
         </Form.Group>
+
         <Button variant="primary" type="submit">
           Login
-        </Button>
-        <Button variant="primary">
-          <Link to="/cart">ir al carrito</Link>
         </Button>
       </Form>
     </div>
