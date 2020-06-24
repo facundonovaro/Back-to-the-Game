@@ -8,7 +8,6 @@ const addToCart = (req, res) => {
     Order.findOne({
       where: { productId: req.body.id, userId: req.body.userId },
     }).then((foundProduct) => {
-      console.log("FOUND PRODUCT", foundProduct);
       if (foundProduct) res.status(200).send("Already added");
       if (!foundProduct) {
         Order.create({ total: req.body.price }).then((orderCreated) => {
