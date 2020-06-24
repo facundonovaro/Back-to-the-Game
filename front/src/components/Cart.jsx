@@ -8,7 +8,6 @@ const Cart = ({ deleteCart, updateCart, cart, user }) => {
         cart.map((product) => (
           <div key={product.id}>
             <h2>{product.product.name}</h2>
-            <h2>{product.product.quantity}</h2>
             <button
               onClick={() => {
                 updateCart({
@@ -20,6 +19,7 @@ const Cart = ({ deleteCart, updateCart, cart, user }) => {
             >
               + 1
             </button>
+            <h2>{product.quantity}</h2>
             <button
               onClick={() => {
                 updateCart({
