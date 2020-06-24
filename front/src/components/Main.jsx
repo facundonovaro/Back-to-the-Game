@@ -11,7 +11,7 @@ import SingleuserContainer from "../containers/SingleuserContainer";
 export default () => (
   <div id="main" className="container-fluid">
     <div>
-    <NavBarContainer/>
+    <Route path='/' component={NavBarContainer} />
     </div>
     <Switch>
       <Route exact path='/products' component={ProductsContainer} />
@@ -20,7 +20,7 @@ export default () => (
       <Route exact path='/products/add' component={AddProductContainer}/>
       <Route path="/products/:id" component={SingleProductContainer}/>
       <Route path="/users/:id" component={SingleuserContainer} />
-      {/* <Redirect to="/"></Redirect> */}
+      <Redirect to="/products"></Redirect>
     </Switch>
   </div>
 );

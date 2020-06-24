@@ -2,6 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import NavBar  from '../components/Navbar'
 import {fetchProducts} from '../store/actions/products'
+import {userLogout} from '../store/actions/users'
 
 class ProductsContainer extends React.Component{
 
@@ -12,6 +13,15 @@ class ProductsContainer extends React.Component{
      }
      this.handlerChange = this.handlerChange.bind(this)
      this.handlerSubmit = this.handlerSubmit.bind(this)
+     this.userLogoutEvent =  this.userLogoutEvent.bind(this)
+   }
+
+   userLogoutEvent(){
+    this.props.userLogout()
+    this.props.history.push('/products')
+    
+    
+    console.log('Esta sirviendo el userLogout')
    }
 
    componentDidMount(){
@@ -37,15 +47,19 @@ render(){
            <NavBar
            handlerChange={this.handlerChange}
            handlerSubmit={this.handlerSubmit}
+           userLogout={this.userLogoutEvent}
+           user={this.props.user}
            />
         </div>
     )
   }
 }
 
-const mapStateToProps = (state) =>{
+const mapStateToProps = (state, ownProps) =>{
   return{
-      products: state.productsReducer.list
+      products: state.productsReducer.list,
+      user: state.usersReducer.user,
+      history: ownProps.history
   }
 }
 
@@ -53,6 +67,9 @@ const mapDispatchToProps = (dispatch) =>{
   return{
     fetchProducts : (name)=>{
       dispatch(fetchProducts(name))
+    },
+    userLogout : () =>{
+      dispatch(userLogout())
     }
   }
 }
