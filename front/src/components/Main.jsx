@@ -23,6 +23,7 @@ export default () => (
       <Route path="/products/:id/edit" component={EditProductContainer} />
       <Route path="/products/:id" component={SingleProductContainer} />
       <Route path="/users/:id" component={SingleuserContainer} />
+      <Route exact path="/cart" component={CartContainer} />
       <Redirect to="/products"></Redirect>
     </Switch>
   </div>
