@@ -91,12 +91,10 @@ const audio = Category.create({
 });
 
 Promise.all([juegoGhost, juegos, ps4]).then(([juegoGhost, juegos, ps4]) => {
-  console.log("JUEGO GHOST", juegoGhost);
   juegoGhost.addCategory([juegos, ps4]);
 });
 
 Promise.all([juegoFifa, juegos, ps4]).then(([juegoFifa, juegos, ps4]) => {
-  console.log("JUEGO GHOST", juegoGhost);
   juegoFifa.addCategory([juegos, ps4]);
 });
 
