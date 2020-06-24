@@ -27,8 +27,6 @@ app.use(morgan("dev"));
 app.use(express.json());
 app.use(express.urlencoded());
 
-app.use("/api", router);
-
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -65,6 +63,8 @@ passport.deserializeUser((user, done) => {
     .catch(done);
 });
 
+app.use("/api", router);
+
 //VIEW
 app.get("/*", function (req, res) {
   res.sendFile(path.join(__dirname, "./public/index.html"));
@@ -77,7 +77,7 @@ app.use(function (err, req, res, next) {
 });
 
 //SERVER
-db.sync({ force: true })
+db.sync({ force: false })
   .then(() => {
     console.log("Conectado a la base de datos");
     app.listen(1337, console.log("Escuchando el puerto 1337"));

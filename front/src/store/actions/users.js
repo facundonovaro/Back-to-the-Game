@@ -1,5 +1,5 @@
 import axios from "axios";
-import { LOGIN_USER , LOGOUT_USER } from "../constants";
+import { LOGIN_USER, LOGOUT_USER } from "../constants";
 
 
 const loginUser = (user) => ({
@@ -7,29 +7,33 @@ const loginUser = (user) => ({
     user,
 });
 
-const logOutUser = (user) => ({
+const logoutUser = (user) => ({
     type: LOGOUT_USER,
     user,
 });
 
-export const userLogin  = function (user) {
+export const userLogin = function (user) {
     return function (dispatch) {
-        axios
-        .post('/api/users/login', user)
+        axios.post('/api/users/login', user)
         .then((res)=>{
             dispatch(loginUser(res.data))
         })
-            
     };
 };
 
-export const userLogin = function (user) {
+export const userLogout = function (user) {
     return function (dispatch) {
         axios
-            .post('/api/users/login', user)
-            .then((res) => {
-                dispatch(loginUser(res.data))
-            })
+            .post("/api/users/logout", user)
+            .then(() => {
+                dispatch(logoutUser({}));
+            });
+    };
+};
 
+export const registerUser = function (user) {
+    return function () {
+        axios
+        .post('/api/users/register', user)
     };
 };

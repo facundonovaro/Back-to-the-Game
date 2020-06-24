@@ -8,10 +8,12 @@ Order.init(
     quantity: {
       type: S.INTEGER,
       allowNull: false,
+      defaultValue: 1,
     },
     date: {
       type: S.DATE,
       allowNull: false,
+      defaultValue: S.NOW,
     },
     state: {
       type: S.ENUM(["pending", "completed"]),
@@ -19,7 +21,7 @@ Order.init(
     },
     address: {
       type: S.STRING,
-      allowNull: false,
+      defaultValue: "incomplete",
     },
     total: {
       type: S.INTEGER,
