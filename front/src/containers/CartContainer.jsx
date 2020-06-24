@@ -35,8 +35,8 @@ const mapDispatchToProps = (dispatch) => {
     fetchCart: (user) => {
       dispatch(fetchCart(user));
     },
-    deleteCart: (orderId) => {
-      dispatch(deleteCart(orderId));
+    deleteCart: (orderId, userId) => {
+      dispatch(deleteCart(orderId, userId));
     },
     updateCart: (order) => {
       dispatch(updateCart(order));

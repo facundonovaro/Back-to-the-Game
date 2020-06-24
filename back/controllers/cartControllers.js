@@ -5,12 +5,20 @@ const addToCart = (req, res) => {
   const product = Product.findByPk(req.body.id);
   const user = User.findByPk(req.body.userId);
   Promise.all([product, user]).then(([product, user]) => {
-    Order.create({ total: req.body.price }).then((orderCreated) => {
-      const order = orderCreated;
-      order.setProduct(product);
-      order.setUser(user).then((orderCreated) => {
-        res.status(201).send(orderCreated);
-      });
+    Order.findOne({
+      where: { productId: req.body.id, userId: req.body.userId },
+    }).then((foundProduct) => {
+      console.log("FOUND PRODUCT", foundProduct);
+      if (foundProduct) res.status(200).send("Already added");
+      if (!foundProduct) {
+        Order.create({ total: req.body.price }).then((orderCreated) => {
+          const order = orderCreated;
+          order.setProduct(product);
+          order.setUser(user).then((orderCreated) => {
+            res.status(201).send(orderCreated);
+          });
+        });
+      }
     });
   });
 };
