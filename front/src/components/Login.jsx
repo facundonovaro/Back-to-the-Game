@@ -37,13 +37,7 @@ export default ({ handleChange, handleSubmit, user, username, password }) => {
         <Button variant="primary" type="submit">
           Login
         </Button>
-
-        <Link to={`/users/2`}>
-          <Button variant="primary" type="submit">
-            Perfil
-        </Button>
-        </Link>
-
+       
       </Form>
     </div>
   );
