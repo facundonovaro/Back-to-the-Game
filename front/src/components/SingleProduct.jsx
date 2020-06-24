@@ -1,16 +1,40 @@
-import React from 'react'; 
+import React from "react";
+import { Carousel } from 'react-bootstrap'; 
 
 const SingleProduct = ({ product }) => {
-    return (
-        <div>
-            {product.name}
-            {product.description}
-            {product.price}
-            {product.stock}
-            {product.img1Url}
-            {product.img2Url ? product.img2Url : null}
+  return (
+    <div className="container-fluid" style={{ width: "80%" }}>
+      <div className="card mb-3">
+        <div className="row no-gutters">
+          <div className="col-md-4">
+            <Carousel>
+              <Carousel.Item>
+                <img
+                  className="d-block w-100"
+                  src={product.img1Url}
+                />
+              </Carousel.Item>
+              {product.img2Url ? 
+              <Carousel.Item>
+                <img
+                  className="d-block w-100"
+                  src={product.img2Url}
+                />
+              </Carousel.Item> : null}
+            </Carousel>
+          </div>
+          <div className="col-md-8">
+            <div className="card-body">
+              <h5 className="card-title">{product.name}</h5>
+              <p className="card-text">{product.description}</p>
+              <p className="card-text">$ {product.price}</p>
+              <small className="text-muted">Stock: {product.stock}</small>
+            </div>
+          </div>
         </div>
-    )
-}
+      </div>
+    </div>
+  );
+};
 
-export default SingleProduct
+export default SingleProduct;
