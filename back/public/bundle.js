@@ -39463,6 +39463,7 @@ var AddProductContainer = /*#__PURE__*/function (_React$Component) {
         img1Url: image1Input,
         img2Url: image2Input
       });
+      this.props.history.push('/products');
     }
   }, {
     key: "render",
@@ -39482,6 +39483,12 @@ var AddProductContainer = /*#__PURE__*/function (_React$Component) {
   return AddProductContainer;
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
+var mapStateToProps = function mapStateToProps(state, ownProps) {
+  return {
+    history: ownProps.history
+  };
+};
+
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     newProduct: function newProduct(product) {
@@ -39490,7 +39497,7 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   };
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(null, mapDispatchToProps)(AddProductContainer));
+/* harmony default export */ __webpack_exports__["default"] = (Object(react_redux__WEBPACK_IMPORTED_MODULE_1__["connect"])(mapStateToProps, mapDispatchToProps)(AddProductContainer));
 
 /***/ }),
 
@@ -40017,13 +40024,14 @@ react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render( /*#__PURE__*/react__WEB
 /*!***************************************!*\
   !*** ./src/store/actions/products.js ***!
   \***************************************/
-/*! exports provided: fetchProducts, newProduct */
+/*! exports provided: fetchProducts, newProduct, patchProduct */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchProducts", function() { return fetchProducts; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "newProduct", function() { return newProduct; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "patchProduct", function() { return patchProduct; });
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../constants */ "./src/store/constants.js");
@@ -40040,6 +40048,13 @@ var allProducts = function allProducts(products) {
 var addProduct = function addProduct(product) {
   return {
     type: _constants__WEBPACK_IMPORTED_MODULE_1__["ADD_PRODUCT"],
+    product: product
+  };
+};
+
+var editProduct = function editProduct(product) {
+  return {
+    type: _constants__WEBPACK_IMPORTED_MODULE_1__["EDIT_PRODUCT"],
     product: product
   };
 };
@@ -40061,6 +40076,19 @@ var newProduct = function newProduct(product) {
     });
   };
 };
+var patchProduct = id = function (_id) {
+  function id(_x) {
+    return _id.apply(this, arguments);
+  }
+
+  id.toString = function () {
+    return _id.toString();
+  };
+
+  return id;
+}(function (dispatch) {
+  return axios__WEBPACK_IMPORTED_MODULE_0___default.a.patch("/api/products/".concat(id), product);
+});
 
 /***/ }),
 
@@ -40155,7 +40183,7 @@ var registerUser = function registerUser(user) {
 /*!********************************!*\
   !*** ./src/store/constants.js ***!
   \********************************/
-/*! exports provided: LOGIN_USER, LOGOUT_USER, GET_ALL_PRODUCTS, GET_PRODUCT, ADD_PRODUCT */
+/*! exports provided: LOGIN_USER, LOGOUT_USER, GET_ALL_PRODUCTS, GET_PRODUCT, ADD_PRODUCT, EDIT_PRODUCT */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -40165,6 +40193,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GET_ALL_PRODUCTS", function() { return GET_ALL_PRODUCTS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GET_PRODUCT", function() { return GET_PRODUCT; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ADD_PRODUCT", function() { return ADD_PRODUCT; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "EDIT_PRODUCT", function() { return EDIT_PRODUCT; });
 // Users
 var LOGIN_USER = 'LOGIN_USER';
 var LOGOUT_USER = 'LOGOUT_USER'; // Products
@@ -40173,6 +40202,7 @@ var GET_ALL_PRODUCTS = 'GET_ALL_PRODUCTS'; // Single Product
 
 var GET_PRODUCT = 'GET_PRODUCT';
 var ADD_PRODUCT = 'ADD_PRODUCT';
+var EDIT_PRODUCT = 'EDIT_PRODUCT';
 
 /***/ }),
 

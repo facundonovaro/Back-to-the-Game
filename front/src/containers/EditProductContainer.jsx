@@ -1,9 +1,8 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import { newProduct } from '../store/actions/products';
-import AddProduct from '../components/AddProduct';
+import React from 'react'; 
+import { connect } from 'react-redux'; 
+import EditProduct from '../components/EditProduct'; 
 
-class AddProductContainer extends React.Component {
+class EditProductContainer extends React.Component {
     constructor(props){
         super(props);
         this.state = {
@@ -55,7 +54,7 @@ class AddProductContainer extends React.Component {
 
     handleSubmit(){
         event.preventDefault();
-        confirm('Are you sure you want to add this product?')
+        confirm('Are you sure you want to change this product info?')
         const { nameInput, descriptionInput, priceInput, stockInput, image1Input, image2Input } = this.state
         this.props.newProduct({
             name: nameInput, 
@@ -67,33 +66,25 @@ class AddProductContainer extends React.Component {
         })
         this.props.history.push('/products')
     }
-
     render(){
         return (
-        <div>
-            <AddProduct 
-            handleName={this.handleNameChange}
-            handleDescription={this.handleDescriptionChange}
-            handlePrice={this.handlePriceChange}
-            handleStock={this.handleStockChange}
-            hangleImage1={this.hangleImage1Change}
-            handleImage2={this.handleImage2Change}
-            handleSubmit={this.handleSubmit}
-            />
-        </div>
-        )}
+            <div>
+                <EditProduct/>
+            </div>
+        )
+    }
 }
 
-const mapStateToProps = (state, ownProps) => {
+const mapStateToProps = (state) => {
     return {
-        history: ownProps.history 
+
     }
 }
 
 const mapDispatchToProps = (dispatch) => {
     return {
-       newProduct: (product) => {dispatch(newProduct(product))} 
+        
     }
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(AddProductContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(EditProductContainer)
