@@ -53,4 +53,4 @@ const mapDispatchToProps = (dispatch) =>{
   }
 }
 
-export default connect (mapStateToProps, mapDispatchToProps) (ProductsContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(ProductsContainer)

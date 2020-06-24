@@ -6,7 +6,6 @@ import SingleProductContainer from "../containers/SingleProductContainer";
 import { Switch, Route, Redirect } from "react-router-dom";
 import SingleuserContainer from "../containers/SingleuserContainer";
 
-
 export default () => (
   <div id="main" className="container-fluid">
     <Switch>
