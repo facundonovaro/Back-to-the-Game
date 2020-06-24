@@ -13,7 +13,7 @@ import CartContainer from "../containers/CartContainer";
 export default () => (
   <div id="main" className="container-fluid">
     <div>
-      <NavBarContainer />
+    <Route path='/' component={NavBarContainer} />
     </div>
     <Switch>
       <Route exact path="/products" component={ProductsContainer} />
@@ -23,9 +23,7 @@ export default () => (
       <Route path="/products/:id/edit" component={EditProductContainer} />
       <Route path="/products/:id" component={SingleProductContainer} />
       <Route path="/users/:id" component={SingleuserContainer} />
-      <Route exact path="/cart" component={CartContainer} />
-
-      {/* <Redirect to="/"></Redirect> */}
+      <Redirect to="/products"></Redirect>
     </Switch>
   </div>
 );

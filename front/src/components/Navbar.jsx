@@ -1,7 +1,7 @@
 import React from 'react'
-// import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 
-const NavBar = ({handlerChange, handlerSubmit}) =>(
+const NavBar = ({handlerChange, handlerSubmit, userLogout, user}) =>(
 <div>
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
     <a className="navbar-brand" href="#">Back To The Game</a>
@@ -25,12 +25,14 @@ const NavBar = ({handlerChange, handlerSubmit}) =>(
             <a className="dropdown-item" href="#">Something else here</a>
             </div>
         </li>
-        <li className="nav-item">
-            <a className="nav-link" href="#">Entrar</a>
+        {user['firstName'] ? <div> <li className="nav-item" onClick={userLogout}>
+            <Link to={'/users/logout'} className="nav-link">Salir</Link>
+        </li></div> : <div> <li className="nav-item">
+            <Link to={'/users/login'} className="nav-link">Entrar</Link>
         </li>
         <li className="nav-item">
-            <a className="nav-link" href="#">Registrarse</a>
-        </li>
+            <Link to={'/users/register'} className="nav-link">Registrarse</Link>
+        </li></div>}
         </ul>
         <form className="form-inline my-2 my-lg-0" onSubmit={handlerSubmit}>
         <input 
