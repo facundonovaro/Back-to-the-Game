@@ -37,3 +37,10 @@ export const registerUser = function (user) {
         .post('/api/users/register', user)
     };
 };
+
+export const cookieLogger = function () {
+  return function (dispatch) {
+    axios.get("/api/users/cookieuser")
+    .then(res=>{dispatch(loginUser(res.data))})
+  };
+};

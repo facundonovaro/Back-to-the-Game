@@ -10,13 +10,18 @@ const userLogin = (req,res)=>{
 
 const userLogout = (req,res) => {
 
-     if (req.isAuthenticated()) {
        req.logOut();
-     }
+    
      res.status(201).send("DESLOGEADO");
-
 }
 
+const userCookie = (req, res) => {
+  if (req.isAuthenticated()) {
+    res.json(req.user);
+  }
+  else {res.json({})}
+};
 
 
-module.exports = {registerUser,userLogin, userLogout}
+
+module.exports = {registerUser,userLogin, userLogout, userCookie}
