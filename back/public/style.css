@@ -1,3 +1,29 @@
+.containerProd {
+  padding-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  margin: auto 0;
+}
+.cards {
+  padding: 10px;
+}
+
+.imgProd {
+  max-width: 250px;
+  height: 250px;
+  margin: 10px;
+  object-fit: cover;
+}
+
+.descrCard {
+  height: 100px;
+}
+
+.titleCard {
+  height: 70px;
+}
 .contProd {
   display: flex;
 }
@@ -34,17 +60,14 @@
   text-decoration: none;
   color: #c1c1c1;
 }
-
 .navbar-links:hover {
   text-decoration: none;
   color: #7e7e7e;
 }
-
 #navbar-dropdown {
   text-decoration: none;
   color: #c1c1c1;
 }
-
 #navbar-links:hover {
   text-decoration: none;
   color: #7e7e7e;
@@ -86,4 +109,31 @@
   display: flex;
   align-items: center;
   text-align: center;
+}
+.loginForm {
+  width: 50rem;
+  margin: 5rem auto;
+  /* margin-top: "5rem"; */
+  padding: 3rem;
+  border: solid 1px;
+  border-color: #0f0f1a;
+  border-radius: 0.25rem;
+  background-color: #0f0f1a;
+  opacity: 95%;
+}
+
+.titulo-login {
+  color: white;
+  font-size: 2rem;
+  padding-bottom: 1rem;
+}
+
+.login {
+  background-image: url("fondo-login.jpg");
+  height: 800px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  align-items: flex-start;
+  display: flex;
 }

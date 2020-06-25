@@ -8,20 +8,20 @@ import SingleProductContainer from "../containers/SingleProductContainer";
 import AddProductContainer from "../containers/AddProductContainer";
 import SingleuserContainer from "../containers/SingleuserContainer";
 import EditProductContainer from "../containers/EditProductContainer";
+import SearchContainer from "../containers/SearchContainer"
 import CartContainer from "../containers/CartContainer";
-import {connect} from 'react-redux';
-import {cookieLogger} from '../store/actions/users';
-import { LinkContainer } from "react-router-bootstrap";
+import { connect } from 'react-redux';
+import { cookieLogger } from '../store/actions/users';
 
-class Main extends React.Component{
-  constructor(props){
+class Main extends React.Component {
+  constructor(props) {
     super(props)
   }
-  componentDidMount(){
+  componentDidMount() {
     this.props.cookieLogger()
   }
 
-  render(){
+  render() {
 
     return (
       <div id="main" className="container-fluid">
@@ -29,6 +29,7 @@ class Main extends React.Component{
           <Route path="/" component={NavBarContainer} />
         </div>
         <Switch>
+          <Route path="/search" component={SearchContainer} />
           <Route exact path="/products" component={ProductsContainer} />
           <Route path="/users/register" component={RegisterContainer} />
           <Route path="/users/login" component={LoginContainer} />
@@ -37,7 +38,7 @@ class Main extends React.Component{
           <Route path="/products/:id" component={SingleProductContainer} />
           <Route path="/users/:id" component={SingleuserContainer} />
           <Route exact path="/cart" component={CartContainer} />
-          <Redirect to="/products"></Redirect>
+          {/* <Redirect to="/products"></Redirect> */}
         </Switch>
       </div>
     );
@@ -46,12 +47,12 @@ class Main extends React.Component{
 }
 const mapStateToProps = function (state, ownProps) {
   return {
-    
+
   };
 };
 const mapDispatchToProps = function (dispatch) {
   return {
-    cookieLogger: ()=> dispatch(cookieLogger())
+    cookieLogger: () => dispatch(cookieLogger())
   };
 };
 

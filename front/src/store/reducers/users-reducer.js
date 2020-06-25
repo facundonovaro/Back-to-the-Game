@@ -2,6 +2,7 @@ import { LOGIN_USER, LOGOUT_USER, ERROR_MESSAGE} from "../constants";
 
 const initialState = {
     user: {},
+    
 };
 
 export default (state = initialState, action) => {

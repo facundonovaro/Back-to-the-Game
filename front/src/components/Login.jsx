@@ -4,47 +4,41 @@ import Button from "react-bootstrap/Button";
 
 export default ({ handleChange, handleSubmit, user, username, password, message, error }) => {
   return (
-    
-   <div>
-      <h2>Login</h2>
-      <Form onSubmit={handleSubmit}>
-        <Form.Group controlId="formBasicEmail">
-          <Form.Label>email</Form.Label>
+    <div className='login'>
+      <Form className="loginForm" onSubmit={handleSubmit}>
+        <Form.Label class="titulo-login">
+          Hola! Ingresá tu e-mail y clave
+        </Form.Label>
+        <Form.Group >
           <Form.Control
             type="email"
-            placeholder="Aca va tu email"
+            placeholder="E-mail"
             onChange={handleChange}
             value={username}
             name="username"
           />
-          <Form.Text className="text-muted">
-            No vamos a compartir tu email con nadie.Nunca.
+          <Form.Text style={{color:"white"}} >
+            No vamos a compartir tu e-mail con nadie. Nunca. Quedate tranquilo, en serio.
           </Form.Text>
         </Form.Group>
-
-        <Form.Group controlId="formBasicPassword">
-          <Form.Label>Contraseña</Form.Label>
+        <Form.Group >
+          <Form.Label></Form.Label>
           <Form.Control
             type="password"
-            placeholder="Contraseña"
+            placeholder="Clave"
             onChange={handleChange}
             value={password}
             name="password"
           />
-         { error?
-            (<Form.Text className='error' style={{ color: 'red' }}>
-            {message}
-          </Form.Text>): (null)
-          }
+          {error ? (
+            <Form.Text className="error" style={{ color: "red" }}>
+              {message}
+            </Form.Text>
+          ) : null}
         </Form.Group>
-
         <Button variant="primary" type="submit">
           Login
         </Button>
       </Form>
     </div>
-
-  
-
-   
-  )};
+  );};
