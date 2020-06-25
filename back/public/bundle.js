@@ -52999,7 +52999,9 @@ __webpack_require__.r(__webpack_exports__);
       handleSubmit = _ref.handleSubmit,
       user = _ref.user,
       username = _ref.username,
-      password = _ref.password;
+      password = _ref.password,
+      message = _ref.message,
+      error = _ref.error;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Login"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_1__["default"], {
     onSubmit: handleSubmit
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_1__["default"].Group, {
@@ -53020,7 +53022,12 @@ __webpack_require__.r(__webpack_exports__);
     onChange: handleChange,
     value: password,
     name: "password"
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_2__["default"], {
+  }), error ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_1__["default"].Text, {
+    className: "error",
+    style: {
+      color: 'red'
+    }
+  }, message) : null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_2__["default"], {
     variant: "primary",
     type: "submit"
   }, "Login")));
@@ -53232,21 +53239,25 @@ var NavBar = function NavBar(_ref) {
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
     className: "dropdown-item",
     href: "#"
+<<<<<<< HEAD
+  }, "Something else here"))), user["firstName"] ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+=======
   }, "Something else here"))), user['firstName'] ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+>>>>>>> ec76c6e3a3a235f9fa5bd311ebee1a7072db541f
     className: "nav-item",
     onClick: userLogout
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-    to: '/users/logout',
+    to: "/users/logout",
     className: "nav-link"
   }, "Salir")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Bienvenido ".concat(user.firstName))) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
     className: "nav-item"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-    to: '/users/login',
+    to: "/users/login",
     className: "nav-link"
   }, "Entrar")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
     className: "nav-item"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-    to: '/users/register',
+    to: "/users/register",
     className: "nav-link"
   }, "Registrarse")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
     className: "form-inline my-2 my-lg-0",
@@ -53286,10 +53297,16 @@ __webpack_require__.r(__webpack_exports__);
 
 var Products = function Products(_ref) {
   var products = _ref.products,
+<<<<<<< HEAD
+      handlerSubmitCart = _ref.handlerSubmitCart,
+      userId = _ref.userId;
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, products.map(function (product) {
+=======
       handlerSubmitCart = _ref.handlerSubmitCart;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "contProd"
   }, products.map(function (product) {
+>>>>>>> ec76c6e3a3a235f9fa5bd311ebee1a7072db541f
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       key: product.id,
       className: "contProds"
@@ -53301,6 +53318,16 @@ var Products = function Products(_ref) {
       to: "/products/".concat(product.id)
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
       src: product.img1Url,
+<<<<<<< HEAD
+      width: "500"
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Descripti\xF3n: ".concat(product.description)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Price: ".concat(product.price)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h4", null, "Stock: ".concat(product.stock))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      type: "button",
+      className: "btn btn-dark",
+      onClick: function onClick() {
+        handlerSubmitCart(product.id, userId, product.price);
+      }
+    }, "Agregar al carrito"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null));
+=======
       className: "card-img-top"
     })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Card"].Body, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Card"].Title, null, product.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Card"].Text, null, "Descripti\xF3n: ".concat(product.description))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["ListGroup"], {
       className: "list-group-flush"
@@ -53308,6 +53335,7 @@ var Products = function Products(_ref) {
       variant: "primary",
       onClick: handlerSubmitCart
     }, "Add to Cart"), ' ')));
+>>>>>>> ec76c6e3a3a235f9fa5bd311ebee1a7072db541f
   }));
 };
 
@@ -53380,7 +53408,8 @@ __webpack_require__.r(__webpack_exports__);
       username = _ref.username,
       password = _ref.password,
       handlerChange = _ref.handlerChange,
-      submit = _ref.submit;
+      submit = _ref.submit,
+      passwordValidate = _ref.passwordValidate;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "REGISTER"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_2__["default"], {
     onSubmit: submit
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_2__["default"].Group, {
@@ -53421,12 +53450,12 @@ __webpack_require__.r(__webpack_exports__);
     name: "password",
     onChange: handlerChange,
     value: password
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_2__["default"].Group, {
-    controlId: "formBasicCheckbox"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_2__["default"].Check, {
-    type: "checkbox",
-    label: "Check me out"
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_1__["default"], {
+  }), passwordValidate ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_2__["default"].Text, {
+    className: "error",
+    style: {
+      color: 'red'
+    }
+  }, "La contrase\xF1a es insegura. Debe contener:", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "1 o m\xE1s letras may\xFAsculas"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "1 o m\xE1s letras min\xEDsculas"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "1 o m\xE1s n\xFAmeros"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "M\xE1s de 4 car\xE1cteres")) : null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_1__["default"], {
     variant: "primary",
     type: "submit"
   }, "Submit")));
@@ -53482,13 +53511,21 @@ var SingleProduct = function SingleProduct(_ref) {
     className: "card-text"
   }, "$ ", product.price), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("small", {
     className: "text-muted"
+<<<<<<< HEAD
+  }, "Stock: ", product.stock), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+=======
   }, "Stock: ", product.stock), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+>>>>>>> ec76c6e3a3a235f9fa5bd311ebee1a7072db541f
     type: "button",
     className: "btn btn-dark",
     onClick: function onClick() {
       handlerSubmitCart(product.id, userId, product.price);
     }
+<<<<<<< HEAD
+  }, "Agregar al carrito"))))));
+=======
   }, "Add to Cart")))))));
+>>>>>>> ec76c6e3a3a235f9fa5bd311ebee1a7072db541f
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (SingleProduct);
@@ -54028,7 +54065,8 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 var mapStateToProps = function mapStateToProps(state, ownProps) {
   return {
-    history: ownProps.history
+    history: ownProps.history,
+    message: state.usersReducer.message
   };
 };
 
@@ -54053,7 +54091,8 @@ var LoginContainer = /*#__PURE__*/function (_Component) {
     _this = _super.call(this, props);
     _this.state = {
       username: "",
-      password: ""
+      password: "",
+      error: false
     };
     _this.handleChange = _this.handleChange.bind(_assertThisInitialized(_this));
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
@@ -54068,9 +54107,14 @@ var LoginContainer = /*#__PURE__*/function (_Component) {
   }, {
     key: "handleSubmit",
     value: function handleSubmit(evt) {
+      var _this2 = this;
+
       evt.preventDefault();
-      this.props.userLogin(this.state);
-      this.props.history.push("/products");
+      this.props.userLogin(this.state).then(function (data) {
+        !data.message ? _this2.props.history.push("/products") : _this2.setState({
+          error: true
+        });
+      });
     }
   }, {
     key: "render",
@@ -54079,7 +54123,9 @@ var LoginContainer = /*#__PURE__*/function (_Component) {
         handleChange: this.handleChange,
         handleSubmit: this.handleSubmit,
         username: this.state.username,
-        password: this.state.password
+        password: this.state.password,
+        message: this.props.message,
+        error: this.state.error
       });
     }
   }]);
@@ -54394,7 +54440,8 @@ var RegisterContainer = /*#__PURE__*/function (_React$Component) {
       firstName: "",
       lastName: "",
       username: "",
-      password: ""
+      password: "",
+      passwordValidate: false
     };
     _this.handlerChange = _this.handlerChange.bind(_assertThisInitialized(_this));
     _this.submit = _this.submit.bind(_assertThisInitialized(_this));
@@ -54405,13 +54452,24 @@ var RegisterContainer = /*#__PURE__*/function (_React$Component) {
     key: "handlerChange",
     value: function handlerChange(evt) {
       this.setState(_defineProperty({}, evt.target.name, evt.target.value));
+      console.log('STATEEE', this.state);
     }
   }, {
     key: "submit",
     value: function submit(e) {
       e.preventDefault();
-      this.props.registerUser(this.state);
-      this.props.history.push("/users/login");
+      var strongRegex = new RegExp(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,32}$/gm); //(1 mayus, 1 minus, 1 numero, mas de 4 caracteres)
+
+      var password = this.state.password;
+
+      if (password.match(strongRegex)) {
+        this.props.registerUser(this.state);
+        this.props.history.push("/users/login");
+      } else {
+        this.setState({
+          passwordValidate: true
+        });
+      }
     }
   }, {
     key: "render",
@@ -54422,7 +54480,8 @@ var RegisterContainer = /*#__PURE__*/function (_React$Component) {
         email: this.state.username,
         password: this.state.password,
         handlerChange: this.handlerChange,
-        submit: this.submit
+        submit: this.submit,
+        passwordValidate: this.state.passwordValidate
       });
     }
   }]);
@@ -54829,10 +54888,19 @@ var logoutUser = function logoutUser(user) {
   };
 };
 
+var errorMessage = function errorMessage(message) {
+  return {
+    type: _constants__WEBPACK_IMPORTED_MODULE_1__["ERROR_MESSAGE"],
+    message: message
+  };
+};
+
 var userLogin = function userLogin(user) {
   return function (dispatch) {
-    axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/api/users/login', user).then(function (res) {
-      dispatch(loginUser(res.data));
+    return axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/api/users/login', user).then(function (res) {
+      return dispatch(loginUser(res.data));
+    })["catch"](function (err) {
+      return dispatch(errorMessage('El usuario o contraseña no existe'));
     });
   };
 };
@@ -54862,13 +54930,14 @@ var cookieLogger = function cookieLogger() {
 /*!********************************!*\
   !*** ./src/store/constants.js ***!
   \********************************/
-/*! exports provided: LOGIN_USER, LOGOUT_USER, GET_ALL_PRODUCTS, GET_PRODUCT, ADD_PRODUCT, ADD_TO_CART, GET_ALL_CART, UPDATE_CART */
+/*! exports provided: LOGIN_USER, LOGOUT_USER, ERROR_MESSAGE, GET_ALL_PRODUCTS, GET_PRODUCT, ADD_PRODUCT, ADD_TO_CART, GET_ALL_CART, UPDATE_CART */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LOGIN_USER", function() { return LOGIN_USER; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LOGOUT_USER", function() { return LOGOUT_USER; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ERROR_MESSAGE", function() { return ERROR_MESSAGE; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GET_ALL_PRODUCTS", function() { return GET_ALL_PRODUCTS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GET_PRODUCT", function() { return GET_PRODUCT; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ADD_PRODUCT", function() { return ADD_PRODUCT; });
@@ -54877,7 +54946,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UPDATE_CART", function() { return UPDATE_CART; });
 // Users
 var LOGIN_USER = "LOGIN_USER";
-var LOGOUT_USER = "LOGOUT_USER"; // Products
+var LOGOUT_USER = "LOGOUT_USER";
+var ERROR_MESSAGE = 'ERROR_MESSAGE'; // Products
 
 var GET_ALL_PRODUCTS = "GET_ALL_PRODUCTS"; // Single Product
 
@@ -55111,6 +55181,11 @@ var initialState = {
     case _constants__WEBPACK_IMPORTED_MODULE_0__["LOGOUT_USER"]:
       return _objectSpread(_objectSpread({}, state), {}, {
         user: action.user
+      });
+
+    case _constants__WEBPACK_IMPORTED_MODULE_0__["ERROR_MESSAGE"]:
+      return _objectSpread(_objectSpread({}, state), {}, {
+        message: action.message
       });
 
     default:
