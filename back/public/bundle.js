@@ -45368,6 +45368,256 @@ function warning(message) {
 
 /***/ }),
 
+/***/ "./node_modules/react-router-bootstrap/lib/IndexLinkContainer.js":
+/*!***********************************************************************!*\
+  !*** ./node_modules/react-router-bootstrap/lib/IndexLinkContainer.js ***!
+  \***********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+exports.IndexLinkContainer = undefined;
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouterDom = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
+
+var _LinkContainer = __webpack_require__(/*! ./LinkContainer */ "./node_modules/react-router-bootstrap/lib/LinkContainer.js");
+
+var _LinkContainer2 = _interopRequireDefault(_LinkContainer);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+// Don't use a stateless function, to allow users to set a ref.
+/* eslint-disable react/prefer-stateless-function */
+var IndexLinkContainer = exports.IndexLinkContainer = function (_React$Component) {
+  _inherits(IndexLinkContainer, _React$Component);
+
+  function IndexLinkContainer() {
+    _classCallCheck(this, IndexLinkContainer);
+
+    return _possibleConstructorReturn(this, _React$Component.apply(this, arguments));
+  }
+
+  IndexLinkContainer.prototype.render = function render() {
+    return _react2.default.createElement(_LinkContainer2.default, _extends({}, this.props, { exact: true }));
+  };
+
+  return IndexLinkContainer;
+}(_react2.default.Component);
+/* eslint-enable react/prefer-stateless-function */
+
+exports.default = (0, _reactRouterDom.withRouter)(IndexLinkContainer);
+
+/***/ }),
+
+/***/ "./node_modules/react-router-bootstrap/lib/LinkContainer.js":
+/*!******************************************************************!*\
+  !*** ./node_modules/react-router-bootstrap/lib/LinkContainer.js ***!
+  \******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+exports.LinkContainer = undefined;
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+var _react = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _propTypes = __webpack_require__(/*! prop-types */ "./node_modules/prop-types/index.js");
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
+var _reactRouterDom = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var isModifiedEvent = function isModifiedEvent(event) {
+  return !!(event.metaKey || event.altKey || event.ctrlKey || event.shiftKey);
+};
+
+var LinkContainer = exports.LinkContainer = function (_Component) {
+  _inherits(LinkContainer, _Component);
+
+  function LinkContainer() {
+    var _temp, _this, _ret;
+
+    _classCallCheck(this, LinkContainer);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, _Component.call.apply(_Component, [this].concat(args))), _this), _this.handleClick = function (event) {
+      var _this$props = _this.props,
+          children = _this$props.children,
+          onClick = _this$props.onClick;
+
+
+      if (children.props.onClick) {
+        children.props.onClick(event);
+      }
+
+      if (onClick) {
+        onClick(event);
+      }
+
+      if (!event.defaultPrevented && // onClick prevented default
+      event.button === 0 && // ignore right clicks
+      !isModifiedEvent(event) // ignore clicks with modifier keys
+      ) {
+          event.preventDefault();
+
+          var _this$props2 = _this.props,
+              replace = _this$props2.replace,
+              to = _this$props2.to,
+              history = _this$props2.history;
+
+
+          if (replace) {
+            history.replace(to);
+          } else {
+            history.push(to);
+          }
+        }
+    }, _temp), _possibleConstructorReturn(_this, _ret);
+  }
+
+  LinkContainer.prototype.render = function render() {
+    var _this2 = this;
+
+    var _props = this.props,
+        history = _props.history,
+        _location = _props.location,
+        _match = _props.match,
+        _staticContext = _props.staticContext,
+        children = _props.children,
+        replace = _props.replace,
+        to = _props.to,
+        exact = _props.exact,
+        strict = _props.strict,
+        activeClassName = _props.activeClassName,
+        className = _props.className,
+        activeStyle = _props.activeStyle,
+        style = _props.style,
+        getIsActive = _props.isActive,
+        props = _objectWithoutProperties(_props, ['history', 'location', 'match', 'staticContext', 'children', 'replace', 'to', 'exact', 'strict', 'activeClassName', 'className', 'activeStyle', 'style', 'isActive']);
+
+    var href = history.createHref(typeof to === 'string' ? { pathname: to } : to);
+
+    var child = _react2.default.Children.only(children);
+
+    return _react2.default.createElement(_reactRouterDom.Route, {
+      path: (typeof to === 'undefined' ? 'undefined' : _typeof(to)) === 'object' ? to.pathname : to,
+      exact: exact,
+      strict: strict,
+      children: function children(_ref) {
+        var location = _ref.location,
+            match = _ref.match;
+
+        var isActive = !!(getIsActive ? getIsActive(match, location) : match);
+
+        return _react2.default.cloneElement(child, _extends({}, props, {
+          className: [className, child.props.className, isActive ? activeClassName : null].join(' ').trim(),
+          style: isActive ? _extends({}, style, activeStyle) : style,
+          href: href,
+          onClick: _this2.handleClick
+        }));
+      }
+    });
+  };
+
+  return LinkContainer;
+}(_react.Component);
+
+LinkContainer.propTypes = {
+  history: _propTypes2.default.shape({
+    push: _propTypes2.default.func.isRequired,
+    replace: _propTypes2.default.func.isRequired,
+    createHref: _propTypes2.default.func.isRequired
+  }).isRequired,
+  location: _propTypes2.default.object,
+  match: _propTypes2.default.object,
+  staticContext: _propTypes2.default.object,
+  children: _propTypes2.default.element.isRequired,
+  onClick: _propTypes2.default.func,
+  replace: _propTypes2.default.bool,
+  to: _propTypes2.default.oneOfType([_propTypes2.default.string, _propTypes2.default.object]).isRequired,
+  exact: _propTypes2.default.bool,
+  strict: _propTypes2.default.bool,
+  className: _propTypes2.default.string,
+  activeClassName: _propTypes2.default.string,
+  style: _propTypes2.default.object,
+  activeStyle: _propTypes2.default.object,
+  isActive: _propTypes2.default.func
+};
+LinkContainer.defaultProps = {
+  replace: false,
+  exact: false,
+  strict: false,
+  activeClassName: 'active'
+};
+exports.default = (0, _reactRouterDom.withRouter)(LinkContainer);
+
+/***/ }),
+
+/***/ "./node_modules/react-router-bootstrap/lib/index.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/react-router-bootstrap/lib/index.js ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+exports.LinkContainer = exports.IndexLinkContainer = undefined;
+
+var _IndexLinkContainer2 = __webpack_require__(/*! ./IndexLinkContainer */ "./node_modules/react-router-bootstrap/lib/IndexLinkContainer.js");
+
+var _IndexLinkContainer3 = _interopRequireDefault(_IndexLinkContainer2);
+
+var _LinkContainer2 = __webpack_require__(/*! ./LinkContainer */ "./node_modules/react-router-bootstrap/lib/LinkContainer.js");
+
+var _LinkContainer3 = _interopRequireDefault(_LinkContainer2);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.IndexLinkContainer = _IndexLinkContainer3.default;
+exports.LinkContainer = _LinkContainer3.default;
+
+/***/ }),
+
 /***/ "./node_modules/react-router-dom/es/BrowserRouter.js":
 /*!***********************************************************!*\
   !*** ./node_modules/react-router-dom/es/BrowserRouter.js ***!
@@ -52757,6 +53007,19 @@ module.exports = function(originalModule) {
 
 /***/ }),
 
+/***/ "./src/assets/logo.png":
+/*!*****************************!*\
+  !*** ./src/assets/logo.png ***!
+  \*****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "4fabbd3a2224c35302cbc34fa7b89b2f.png");
+
+/***/ }),
+
 /***/ "./src/components/AddProduct.jsx":
 /*!***************************************!*\
   !*** ./src/components/AddProduct.jsx ***!
@@ -53058,6 +53321,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _containers_CartContainer__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../containers/CartContainer */ "./src/containers/CartContainer.jsx");
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _store_actions_users__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../store/actions/users */ "./src/store/actions/users.js");
+/* harmony import */ var react_router_bootstrap__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! react-router-bootstrap */ "./node_modules/react-router-bootstrap/lib/index.js");
+/* harmony import */ var react_router_bootstrap__WEBPACK_IMPORTED_MODULE_13___default = /*#__PURE__*/__webpack_require__.n(react_router_bootstrap__WEBPACK_IMPORTED_MODULE_13__);
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -53079,6 +53344,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
 
 
 
@@ -53183,6 +53449,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
+/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/index.js");
+/* harmony import */ var _assets_logo_png__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../assets/logo.png */ "./src/assets/logo.png");
+
+
 
 
 
@@ -53191,29 +53461,56 @@ var NavBar = function NavBar(_ref) {
       handlerSubmit = _ref.handlerSubmit,
       userLogout = _ref.userLogout,
       user = _ref.user;
-  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("nav", {
-    className: "navbar navbar-expand-lg navbar-dark bg-dark"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("a", {
-    className: "navbar-brand",
-    href: "#"
-  }, "Back To The Game"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    className: "navbar-toggler",
-    type: "button",
-    "data-toggle": "collapse",
-    "data-target": "#navbarSupportedContent",
-    "aria-controls": "navbarSupportedContent",
-    "aria-expanded": "false",
-    "aria-label": "Toggle navigation"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-    className: "navbar-toggler-icon"
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "collapse navbar-collapse",
-    id: "navbarSupportedContent"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", {
-    className: "navbar-nav mr-auto"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
-    className: "nav-item"
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Navbar"], {
+    bg: "dark",
+    expand: "lg",
+    className: "navbar-container"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+<<<<<<< HEAD
+    to: "/products"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Navbar"].Brand, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    src: _assets_logo_png__WEBPACK_IMPORTED_MODULE_3__["default"],
+    width: "100",
+    height: "100",
+    className: "d-inline-block align-top"
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Navbar"].Toggle, {
+    "aria-controls": "basic-navbar-nav"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Navbar"].Collapse, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Nav"], {
+    className: "mr-auto"
+  }, user.id ? null : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Nav"].Link, {
+    className: "navbar-links"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    to: "/users/register",
+    className: "navbar-links"
+  }, "Register")), user.id ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Navbar"].Brand, {
+    onClick: userLogout,
+    className: "navbar-links"
+  }, " Welcome ", user.firstName) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Nav"].Link, {
+    className: "navbar-links"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    to: "/users/login",
+    className: "navbar-links"
+  }, "Login")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Nav"].Link, {
+    className: "navbar-links"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    to: "/cart",
+    className: "navbar-links"
+  }, "Orders")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["NavDropdown"], {
+    title: "Categor\xEDas",
+    id: "navbar-dropdown"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["NavDropdown"].Item, {
+    href: "#action/3.1"
+  }, "Games"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["NavDropdown"].Item, {
+    href: "#action/3.2"
+  }, "Play Station 4"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["NavDropdown"].Item, {
+    href: "#action/3.3"
+  }, "Xbox"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["NavDropdown"].Item, {
+    href: "#action/3.4"
+  }, "Consoles"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["NavDropdown"].Item, {
+    href: "#action/3.5"
+  }, "Audio"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Form"], {
+    inline: true,
+=======
     to: "/cart"
   }, "Ordenes")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
     className: "nav-item dropdown"
@@ -53261,17 +53558,16 @@ var NavBar = function NavBar(_ref) {
     className: "nav-link"
   }, "Registrarse")))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
     className: "form-inline my-2 my-lg-0",
+>>>>>>> 1294a028905ebdea0a1cb65ddb32bcdbcc1e3f2a
     onSubmit: handlerSubmit
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-    className: "form-control mr-sm-2",
-    type: "search",
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["FormControl"], {
+    onChange: handlerChange,
+    type: "text",
     placeholder: "Search",
-    "aria-label": "Search",
-    onChange: handlerChange
-  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    className: "btn btn-outline-success my-2 my-sm-0",
-    type: "submit"
-  }, "Buscar")))));
+    className: "mr-sm-2"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Button"], {
+    variant: "outline-success"
+  }, "Search"))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (NavBar);
@@ -54211,7 +54507,7 @@ var ProductsContainer = /*#__PURE__*/function (_React$Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       var fetchProducts = this.props.fetchProducts;
-      fetchProducts(this.state.inputValue);
+      fetchProducts(this.state.inputValue); // agregar loginuser?
     }
   }, {
     key: "handlerChange",
@@ -54801,7 +55097,6 @@ var addProduct = function addProduct(product) {
 var fetchProducts = function fetchProducts() {
   return function (dispatch) {
     return axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/api/products').then(function (res) {
-      console.log(res.data);
       return res.data;
     }).then(function (products) {
       return dispatch(allProducts(products));
