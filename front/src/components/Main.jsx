@@ -10,8 +10,8 @@ import SingleuserContainer from "../containers/SingleuserContainer";
 import EditProductContainer from "../containers/EditProductContainer";
 import SearchContainer from "../containers/SearchContainer"
 import CartContainer from "../containers/CartContainer";
-import {connect} from 'react-redux'
-import {cookieLogger} from '../store/actions/users'
+import {connect} from 'react-redux';
+import {cookieLogger} from '../store/actions/users';
 
 class Main extends React.Component{
   constructor(props){
