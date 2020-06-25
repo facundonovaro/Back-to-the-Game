@@ -2,9 +2,10 @@ import React from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 
-export default ({ handleChange, handleSubmit, user, username, password }) => {
+export default ({ handleChange, handleSubmit, user, username, password, message, error }) => {
   return (
-    <div>
+    
+   <div>
       <h2>Login</h2>
       <Form onSubmit={handleSubmit}>
         <Form.Group controlId="formBasicEmail">
@@ -30,6 +31,11 @@ export default ({ handleChange, handleSubmit, user, username, password }) => {
             value={password}
             name="password"
           />
+         { error?
+            (<Form.Text className='error' style={{ color: 'red' }}>
+            {message}
+          </Form.Text>): (null)
+          }
         </Form.Group>
 
         <Button variant="primary" type="submit">
@@ -37,5 +43,8 @@ export default ({ handleChange, handleSubmit, user, username, password }) => {
         </Button>
       </Form>
     </div>
-  );
-};
+
+  
+
+   
+  )};
