@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Navbar, Nav, NavDropdown, Form, FormControl, Button } from 'react-bootstrap';
 import logo from '../assets/logo.png';
+import { FaShoppingCart, FaSearch } from "react-icons/fa"
 
 const NavBar = ({ handlerChange, handlerSubmit, userLogout, user }) => (
 
@@ -28,9 +29,6 @@ const NavBar = ({ handlerChange, handlerSubmit, userLogout, user }) => (
       </div> :
       <Nav.Link className="navbar-links"><Link to='/users/login' className="navbar-links">Login</Link></Nav.Link>
       }
-
-      <Nav.Link className="navbar-links"><Link to='/cart'className="navbar-links">Orders</Link></Nav.Link>
-
       <NavDropdown title="Categorías" id="navbar-dropdown">
         <NavDropdown.Item href="#action/3.1">Games</NavDropdown.Item>
         <NavDropdown.Item href="#action/3.2">Play Station 4</NavDropdown.Item>
@@ -38,10 +36,11 @@ const NavBar = ({ handlerChange, handlerSubmit, userLogout, user }) => (
         <NavDropdown.Item href="#action/3.4">Consoles</NavDropdown.Item>
         <NavDropdown.Item href="#action/3.5">Audio</NavDropdown.Item>
       </NavDropdown>
+      <Nav.Link className="navbar-links"><Link to='/cart'className="navbar-links"><FaShoppingCart/></Link></Nav.Link>
     </Nav>
     <Form inline onSubmit={handlerSubmit}>
       <FormControl onChange={handlerChange} type="text" placeholder="Search" className="mr-sm-2" />
-      <Button variant="outline-success">Search</Button>
+      <Button variant="outline-success"><FaSearch/></Button>
     </Form>
   </Navbar.Collapse>
 </Navbar>
