@@ -1,80 +1,82 @@
 import React from 'react'
-import {connect} from 'react-redux'
-import NavBar  from '../components/Navbar'
-import {fetchProducts} from '../store/actions/products'
-import {searchProducts} from '../store/actions/products'
-import {userLogout} from '../store/actions/users'
+import { connect } from 'react-redux'
+import NavBar from '../components/Navbar'
+import { fetchProducts } from '../store/actions/products'
+import { searchProducts } from '../store/actions/search'
+import { userLogout } from '../store/actions/users'
 
-class ProductsContainer extends React.Component{
+class NavbarContainer extends React.Component {
 
-   constructor(){
-     super()
-     this.state = {
-       inputValue : ''
-     }
-     this.handlerChange = this.handlerChange.bind(this)
-     this.handlerSubmitSearch = this.handlerSubmitSearch.bind(this)
-     this.userLogoutEvent =  this.userLogoutEvent.bind(this)
-   }
+  constructor() {
+    super()
+    this.state = {
+      inputValue: ''
+    }
+    this.handlerChange = this.handlerChange.bind(this)
+    this.handlerSubmitSearch = this.handlerSubmitSearch.bind(this)
+    this.userLogoutEvent = this.userLogoutEvent.bind(this)
+  }
 
-   userLogoutEvent(){
+  userLogoutEvent() {
     this.props.userLogout()
     this.props.history.push('/products')
-   }
+  }
 
-   componentDidMount(){
-    const {fetchProducts} = this.props
+  componentDidMount() {
+    const { fetchProducts } = this.props
     fetchProducts(this.state.inputValue)
     // agregar loginuser?
-   }
+  }
 
-   handlerChange(evt){
-     console.log(this.state)
-     const value = evt.target.value
-     this.setState({inputValue : value})
-   }
+  handlerChange(evt) {
+    const value = evt.target.value
+    this.setState({ inputValue: value })
+  }
 
-   handlerSubmitSearch(){
-    const {fetchProducts} = this.props
+  handlerSubmitSearch() {
+    const { searchProducts } = this.props
     event.preventDefault();
     searchProducts(this.state.inputValue)
-     console.log('Este click anda')
-   }
+      .then(() => {
+        this.props.history.push("/search")
+      })
+    console.log('Este click anda')
 
-render(){
-   const { user } =  this.props
-    return(
-        <div>
-           <NavBar
-           handlerChange={this.handlerChange}
-           handlerSubmitSearch={this.handlerSubmitSearch}
-           userLogout={this.userLogoutEvent}
-           user={user}
-           />
-        </div>
+  }
+
+  render() {
+    const { user } = this.props
+    return (
+      <div>
+        <NavBar
+          handlerChange={this.handlerChange}
+          handlerSubmitSearch={this.handlerSubmitSearch}
+          userLogout={this.userLogoutEvent}
+          user={user}
+        />
+      </div>
     )
   }
 }
 
-const mapStateToProps = (state, ownProps) =>{
-  return{
-      user: state.usersReducer.user,
-      history: ownProps.history
+const mapStateToProps = (state, ownProps) => {
+  return {
+    user: state.usersReducer.user,
+    history: ownProps.history
   }
 }
 
-const mapDispatchToProps = (dispatch) =>{
-  return{
-    fetchProducts : (name)=>{
+const mapDispatchToProps = (dispatch) => {
+  return {
+    fetchProducts: (name) => {
       dispatch(fetchProducts(name))
     },
-    userLogout : () =>{
+    userLogout: () => {
       dispatch(userLogout())
     },
-    searchProducts:(title)=>{
-      dispatch(searchProducts(title))
-    }
+    searchProducts: (name) => dispatch(searchProducts(name))
+
   }
 }
 
-export default connect (mapStateToProps, mapDispatchToProps) (ProductsContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(NavbarContainer)
