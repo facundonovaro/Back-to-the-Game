@@ -1,5 +1,5 @@
 import axios from "axios";
-import { LOGIN_USER, LOGOUT_USER } from "../constants";
+import { LOGIN_USER, LOGOUT_USER, ERROR_MESSAGE } from "../constants";
 
 
 const loginUser = (user) => ({
@@ -12,14 +12,22 @@ const logoutUser = (user) => ({
     user,
 });
 
+const errorMessage = (message) =>({
+    type: ERROR_MESSAGE,
+    message,
+})
+
 export const userLogin = function (user) {
     return function (dispatch) {
-        axios.post('/api/users/login', user)
+        return axios.post('/api/users/login', user)
         .then((res)=>{
-            dispatch(loginUser(res.data))
+            return dispatch(loginUser(res.data))
         })
+        .catch(err=>dispatch(errorMessage('El usuario o contraseña no existe')))
+            
+    }
     };
-};
+
 
 export const userLogout = function (user) {
     return function (dispatch) {

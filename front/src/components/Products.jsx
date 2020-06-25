@@ -1,30 +1,36 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import {Link} from 'react-router-dom'
+import {Card, ListGroupItem, ListGroup, Button, Row, Col} from 'react-bootstrap'
 
-const Products = ({ products, handlerSubmitCart, userId }) => {
-  return (
-    <div>
-      {products.map((product) => (
-        <div key={product.id}>
-          <Link to={`/products/${product.id}`}>
-            <h2>{product.name}</h2>
-            <img src={product.img1Url} width="500" />
-            <hr />
-            <h4>{`Descriptión: ${product.description}`}</h4>
-            <h4>{`Price: ${product.price}`}</h4>
-            <h4>{`Stock: ${product.stock}`}</h4>
-          </Link>
-          <button
-            type="button"
-            className="btn btn-dark"
-            onClick={() => {
-              handlerSubmitCart(product.id, userId, product.price);
-            }}
-          >
-            Agregar al carrito
-          </button>
-          <hr />
-          <br />
+const Products = ({ products, handlerSubmitCart}) => {
+	return(
+       
+     <div className="containerProd">
+        {products.map(product=>(
+     <div key={product.id} className="cards">
+        <Card style={{ width: '18rem' }}>
+        <Link to={`/products/${product.id}`}><img src={product.img1Url} className="card-img-top" className="imgProd"/></Link>
+        <Card.Body>
+            <Card.Title className="titleCard">{product.name}</Card.Title>
+            <Card.Text className="descrCard">
+            {`Descriptión: ${product.description}`}
+            </Card.Text>
+        </Card.Body>
+        <ListGroup className="list-group-flush">
+            <ListGroupItem>{`Price: ${product.price}`}</ListGroupItem>
+            <ListGroupItem>{`Stock: ${product.stock}`}</ListGroupItem>
+        </ListGroup>
+        <Card.Body>
+        <Button
+                variant="primary"
+                onClick={() => {
+                  handlerSubmitCart(product.id, userId, product.price);
+                }}
+              >
+                Add to Cart
+              </Button>{" "}
+        </Card.Body>
+        </Card>
         </div>
       ))}
     </div>
@@ -32,3 +38,4 @@ const Products = ({ products, handlerSubmitCart, userId }) => {
 };
 
 export default Products;
+
