@@ -25,15 +25,21 @@ const NavBar = ({handlerChange, handlerSubmit, userLogout, user}) =>(
             <a className="dropdown-item" href="#">Something else here</a>
             </div>
         </li>
-        {user['firstName'] ? <div> <li className="nav-item" onClick={userLogout}>
-            <Link to={'/users/logout'} className="nav-link">Salir</Link>
-        </li></div> : <div> <li className="nav-item">
-            <Link to={'/users/login'} className="nav-link">Entrar</Link>
-        </li>
-        <li className="nav-item">
-            <Link to={'/users/register'} className="nav-link">Registrarse</Link>
-        </li></div>}
-        </ul>
+        {user['firstName'] ? 
+            <div> 
+            <li className="nav-item" onClick={userLogout}>
+                <Link to={'/users/logout'} className="nav-link">Salir</Link>
+            </li>
+            <h4>{`Bienvenido ${user.firstName}`}</h4>
+            </div> : 
+            <div> <li className="nav-item">
+                <Link to={'/users/login'} className="nav-link">Entrar</Link>
+            </li>
+                <li className="nav-item">
+                    <Link to={'/users/register'} className="nav-link">Registrarse</Link>
+                </li>
+            </div>}
+            </ul>
         <form className="form-inline my-2 my-lg-0" onSubmit={handlerSubmit}>
         <input 
         className="form-control mr-sm-2" 
