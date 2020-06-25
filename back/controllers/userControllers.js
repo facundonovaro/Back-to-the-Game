@@ -1,7 +1,23 @@
 const User = require("../models/User"); 
+const { findAll, findOne } = require("../models/User");
 
 const registerUser = (req,res) =>{
-User.create(req.body).then((user) => res.status(200).send(user));
+  User.findOne({
+    where:{
+      username: req.body.username
+    }
+  })
+  .then((foundUser)=>{
+
+    if(!foundUser){
+      User.create(req.body).then((user) => res.status(200).send(user));
+    }
+
+    if(foundUser){
+      res.sendStatus(401)
+    }
+
+  })
 }
 
 const userLogin = (req,res)=>{
@@ -9,9 +25,7 @@ const userLogin = (req,res)=>{
 }
 
 const userLogout = (req,res) => {
-
        req.logOut();
-    
      res.status(201).send("DESLOGEADO");
 }
 

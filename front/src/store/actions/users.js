@@ -28,7 +28,6 @@ export const userLogin = function (user) {
     }
     };
 
-
 export const userLogout = function (user) {
     return function (dispatch) {
         axios
@@ -40,10 +39,12 @@ export const userLogout = function (user) {
 };
 
 export const registerUser = function (user) {
-    return function () {
-        axios
-        .post('/api/users/register', user)
-    };
+    return function (dispatch) {
+        return axios
+          .post("/api/users/register", user)
+          .catch((err) => dispatch(errorMessage("Ese email ya esta en uso por un usuario")));
+        
+    }
 };
 
 export const cookieLogger = function () {
