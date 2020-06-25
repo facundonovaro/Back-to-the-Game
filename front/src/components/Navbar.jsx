@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Navbar, Nav, NavDropdown, Form, FormControl, Button } from 'react-bootstrap';
-import logo from '../assets/logo.png';
+import logo from '../assets/logo.png' ;
 import { FaShoppingCart, FaSearch } from "react-icons/fa"
 
 const NavBar = ({ handlerChange, handlerSubmitSearch, userLogout, user }) => (
