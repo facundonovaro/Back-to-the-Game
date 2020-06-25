@@ -1,15 +1,20 @@
-import React from 'react';
-import { Link } from 'react-router-dom'
-import { Card, ListGroupItem, ListGroup, Button, userId } from 'react-bootstrap'
+import React from "react";
+import { Link } from "react-router-dom";
+import { Card, ListGroupItem, ListGroup, Button } from "react-bootstrap";
 
-const Products = ({ products, handlerSubmitCart }) => {
+const Products = ({ products, handlerSubmitCart, userId }) => {
   return (
-
     <div className="containerProd">
-      {products.map(product => (
+      {products.map((product) => (
         <div key={product.id} className="cards">
-          <Card style={{ width: '18rem' }}>
-            <Link to={`/products/${product.id}`}><img src={product.img1Url} className="card-img-top" className="imgProd" /></Link>
+          <Card style={{ width: "18rem" }}>
+            <Link to={`/products/${product.id}`}>
+              <img
+                src={product.img1Url}
+                className="card-img-top"
+                className="imgProd"
+              />
+            </Link>
             <Card.Body>
               <Card.Title className="titleCard">{product.name}</Card.Title>
               <Card.Text className="descrCard">
@@ -38,4 +43,3 @@ const Products = ({ products, handlerSubmitCart }) => {
 };
 
 export default Products;
-
