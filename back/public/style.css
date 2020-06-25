@@ -19,3 +19,26 @@
   align-items: center;
   border: none;
 }
+.navbar-container {
+  height: 70px;
+}
+
+.navbar-links {
+  text-decoration: none;
+  color: #c1c1c1;
+}
+
+.navbar-links:hover {
+  text-decoration: none;
+  color: #7e7e7e;
+}
+
+#navbar-dropdown {
+  text-decoration: none;
+  color: #c1c1c1;
+}
+
+#navbar-links:hover {
+  text-decoration: none;
+  color: #7e7e7e;
+}

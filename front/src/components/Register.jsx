@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 
 
 
-export default ({ firstName, lastName, username, password, handlerChange, submit }) => {
+export default ({ firstName, lastName, username, password, handlerChange, submit,passwordValidate }) => {
     return (
         <div>
             <h2>REGISTER</h2>
@@ -34,11 +34,17 @@ export default ({ firstName, lastName, username, password, handlerChange, submit
                 <Form.Group controlId="formBasicPassword">
                     <Form.Label >Password</Form.Label>
                     <Form.Control type="password" placeholder="Password" name="password" onChange={handlerChange} value={password} />
-                </Form.Group>
-                <Form.Group controlId="formBasicCheckbox">
-                    <Form.Check type="checkbox" label="Check me out" />
-                </Form.Group>
 
+                    {passwordValidate ?
+                        (<Form.Text className='error' style={{color:'red'}}>
+                            La contraseña es insegura. Debe contener:
+                            <li>1 o más letras mayúsculas</li>
+                            <li>1 o más letras minísculas</li>
+                            <li>1 o más números</li>
+                            <li>Más de 4 carácteres</li>
+                        </Form.Text>) : (null)
+                    }
+                </Form.Group>
                
                 <Button variant="primary" type="submit">
                     Submit
