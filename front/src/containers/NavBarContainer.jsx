@@ -27,6 +27,7 @@ class ProductsContainer extends React.Component{
    componentDidMount(){
     const {fetchProducts} = this.props
     fetchProducts(this.state.inputValue)
+    // agregar loginuser?
    }
 
    handlerChange(evt){

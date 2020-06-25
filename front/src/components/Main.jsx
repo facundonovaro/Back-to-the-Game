@@ -9,8 +9,9 @@ import AddProductContainer from "../containers/AddProductContainer";
 import SingleuserContainer from "../containers/SingleuserContainer";
 import EditProductContainer from "../containers/EditProductContainer";
 import CartContainer from "../containers/CartContainer";
-import {connect} from 'react-redux'
-import {cookieLogger} from '../store/actions/users'
+import {connect} from 'react-redux';
+import {cookieLogger} from '../store/actions/users';
+import { LinkContainer } from "react-router-bootstrap";
 
 class Main extends React.Component{
   constructor(props){

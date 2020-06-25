@@ -7,3 +7,26 @@
     flex-direction: row;
   }
 
+.navbar-container {
+  height: 70px;
+}
+
+.navbar-links {
+  text-decoration: none;
+  color: #C1C1C1; 
+}
+
+.navbar-links:hover {
+  text-decoration: none;
+  color: #7E7E7E
+}
+
+#navbar-dropdown {
+  text-decoration: none;
+  color: #C1C1C1; 
+}
+
+#navbar-links:hover {
+  text-decoration: none;
+  color: #7E7E7E
+}
