@@ -7,14 +7,13 @@ import { Link } from 'react-router-dom'
 
 export default ({ firstName, lastName, username, password, handlerChange, submit,passwordValidate,error,message }) => {
     return (
-      <div>
-        <h2>REGISTER</h2>
-        <Form onSubmit={submit}>
-          <Form.Group controlId="formBasicEmail">
-            <Form.Label>First Name</Form.Label>
+      <div className="login">
+        <Form className="loginForm" onSubmit={submit}>
+          <Form.Label class="titulo-login">Completá tus datos</Form.Label>
+          <Form.Group>
             <Form.Control
               type="text"
-              placeholder="Enter First Name"
+              placeholder="Nombre"
               name="firstName"
               onChange={handlerChange}
               value={firstName}
@@ -22,11 +21,11 @@ export default ({ firstName, lastName, username, password, handlerChange, submit
             <Form.Text className="text-muted"></Form.Text>
           </Form.Group>
 
-          <Form.Group controlId="formBasicEmail">
-            <Form.Label>lastName</Form.Label>
+          <Form.Group>
+            <Form.Label></Form.Label>
             <Form.Control
               type="text"
-              placeholder="Enter Last Name"
+              placeholder="Apellido"
               name="lastName"
               onChange={handlerChange}
               value={lastName}
@@ -34,11 +33,11 @@ export default ({ firstName, lastName, username, password, handlerChange, submit
             <Form.Text className="text-muted"></Form.Text>
           </Form.Group>
 
-          <Form.Group controlId="formBasicEmail">
-            <Form.Label>Email</Form.Label>
+          <Form.Group>
+            <Form.Label></Form.Label>
             <Form.Control
               type="email"
-              placeholder="Enter E-Mail/Username"
+              placeholder="E-mail"
               name="username"
               onChange={handlerChange}
               value={username}
@@ -51,11 +50,11 @@ export default ({ firstName, lastName, username, password, handlerChange, submit
             ) : null}
           </Form.Group>
 
-          <Form.Group controlId="formBasicPassword">
-            <Form.Label>Password</Form.Label>
+          <Form.Group>
+            <Form.Label></Form.Label>
             <Form.Control
               type="password"
-              placeholder="Password"
+              placeholder="Clave"
               name="password"
               onChange={handlerChange}
               value={password}
@@ -73,7 +72,7 @@ export default ({ firstName, lastName, username, password, handlerChange, submit
           </Form.Group>
 
           <Button variant="primary" type="submit">
-            Submit
+            Continuar
           </Button>
         </Form>
       </div>

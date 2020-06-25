@@ -55,17 +55,20 @@ class RegisterContainer extends React.Component {
 
     render() {
         return (
-          <Register
-            firstName={this.state.firstName}
-            lastName={this.state.lastName}
-            email={this.state.username}
-            password={this.state.password}
-            handlerChange={this.handlerChange}
-            submit={this.submit}
-            passwordValidate={this.state.passwordValidate}
-            error={this.state.error}
-            message={this.props.message}
-          />
+          
+            <Register
+              
+              firstName={this.state.firstName}
+              lastName={this.state.lastName}
+              email={this.state.username}
+              password={this.state.password}
+              handlerChange={this.handlerChange}
+              submit={this.submit}
+              passwordValidate={this.state.passwordValidate}
+              error={this.state.error}
+              message={this.props.message}
+            />
+        
         );
     }
 }
