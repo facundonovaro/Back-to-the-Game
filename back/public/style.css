@@ -1,28 +1,27 @@
-.containerProd{
-    padding-top: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: center;
-    margin: auto 0;
-    
-  }
-.cards{
+.containerProd {
+  padding-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  margin: auto 0;
+}
+.cards {
   padding: 10px;
 }
 
-.imgProd{
+.imgProd {
   max-width: 250px;
   height: 250px;
   margin: 10px;
-  object-fit: cover;  
+  object-fit: cover;
 }
 
-.descrCard{
+.descrCard {
   height: 100px;
 }
 
-.titleCard{
+.titleCard {
   height: 70px;
 }
 .contProd {
@@ -37,6 +36,12 @@
 #productCart {
   display: flex;
   flex-direction: row;
+  margin: 5px;
+  padding: 5px;
+  height: 100px;
+  width: 700px;
+  border-radius: 0.25rem;
+  background-color: white;
 }
 
 #listGroupCart {
@@ -45,6 +50,7 @@
   flex-direction: row;
   align-items: center;
   border: none;
+  justify-content: space-between;
 }
 .navbar-container {
   height: 70px;
@@ -67,6 +73,43 @@
   color: #7e7e7e;
 }
 
+#cartContainer {
+  border-radius: 0.25rem;
+  background: #f6fff8;
+  display: flex;
+  justify-content: space-around;
+  padding-top: 10px;
+  align-items: center;
+}
+
+#buttonsCart {
+  display: flex;
+  flex-direction: row;
+  margin: 3px;
+  width: 200px;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+#totalCart {
+  width: 150px;
+  height: 60px;
+  border-radius: 0.25rem;
+  background-color: #1923ae;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+}
+
+#subTotalCart {
+  width: 200px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
 .loginForm {
   width: 50rem;
   margin: 5rem auto;
@@ -80,19 +123,17 @@
 }
 
 .titulo-login {
-  color:white;
+  color: white;
   font-size: 2rem;
   padding-bottom: 1rem;
 }
 
-.login{
-  background-image: url('fondo-login.jpg');
-  height: 800px; 
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    align-items: flex-start;
-    display: flex;
-    
-
+.login {
+  background-image: url("fondo-login.jpg");
+  height: 800px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  align-items: flex-start;
+  display: flex;
 }
