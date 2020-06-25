@@ -1,4 +1,6 @@
 const { Product } = require('../models')
+const { Op } = require("sequelize")
+
 
 const findProduct = (req, res) => {
     Product.findByPk(req.params.id)
@@ -11,6 +13,7 @@ const findAllProducts = (req, res) =>{
       res.json(products)
     })
 }
+
 
 const addProduct = (req, res) => {
   Product.create(req.body)
