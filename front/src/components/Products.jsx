@@ -1,46 +1,45 @@
-import React from 'react';
-import {Link} from 'react-router-dom'
-import {Card, ListGroupItem, ListGroup, Button} from 'react-bootstrap'
+import React from "react";
+import { Link } from "react-router-dom";
+import { Card, ListGroupItem, ListGroup, Button } from "react-bootstrap";
 
-const Products = ({ products, handlerSubmitCart}) => {
-	return(
-
-     <div className="contProd">
-        {products.map(product=>(
-     <div key={product.id} className="contProds">
-        <Card style={{ width: '18rem' }}>
-        <Link to={`/products/${product.id}`}><img src={product.img1Url} className="card-img-top"/></Link>
-        <Card.Body>
-            <Card.Title>{product.name}</Card.Title>
-            <Card.Text>
-            {`Descriptión: ${product.description}`}
-            </Card.Text>
-        </Card.Body>
-        <ListGroup className="list-group-flush">
-            <ListGroupItem>{`Price: ${product.price}`}</ListGroupItem>
-            <ListGroupItem>{`Stock: ${product.stock}`}</ListGroupItem>
-        </ListGroup>
-        <Card.Body>
-        <Button variant="primary" onClick={handlerSubmitCart}>Add to Cart</Button>{' '}
-        </Card.Body>
-        </Card>
+const Products = ({ products, handlerSubmitCart, userId }) => {
+  return (
+    <div className="contProd">
+      {products.map((product) => (
+        <div key={product.id} className="contProds">
+          <Card style={{ width: "18rem" }}>
+            <Link to={`/products/${product.id}`}>
+              <img src={product.img1Url} className="card-img-top" />
+            </Link>
+            <Card.Body>
+              <Card.Title>{product.name}</Card.Title>
+              <Card.Text>{`Descriptión: ${product.description}`}</Card.Text>
+            </Card.Body>
+            <ListGroup className="list-group-flush">
+              <ListGroupItem>{`Price: ${product.price}`}</ListGroupItem>
+              <ListGroupItem>{`Stock: ${product.stock}`}</ListGroupItem>
+            </ListGroup>
+            <Card.Body>
+              <Button
+                variant="primary"
+                onClick={() => {
+                  handlerSubmitCart(product.id, userId, product.price);
+                }}
+              >
+                Add to Cart
+              </Button>{" "}
+            </Card.Body>
+          </Card>
         </div>
-        ))}
-     </div>
-
-) 
+      ))}
+    </div>
+  );
 };
-
 
 export default Products;
 
-
-
-
-
-
-
-{/* <div>
+{
+  /* <div>
 {products.map(product=>(
 <div className="card" width="18rem" key={product.id}>
     <Link to={`/products/${product.id}`}>
@@ -61,9 +60,11 @@ export default Products;
 ))}
 </div>
 ) 
-}; */}
+}; */
+}
 
-{/* <div>
+{
+  /* <div>
             {products.map(product=>(
                 <div key={product.id}>
                     <Link to={`/products/${product.id}`}>
@@ -77,4 +78,5 @@ export default Products;
                 </div>
                  
                 ))}
-            </div> */}
+            </div> */
+}
