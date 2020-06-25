@@ -22,8 +22,10 @@ const NavBar = ({ handlerChange, handlerSubmit, userLogout, user }) => (
       
       {user.id ? null : <Nav.Link className="navbar-links"><Link to='/users/register' className="navbar-links">Register</Link></Nav.Link>}
       
-      {user.id ? 
-      <Navbar.Brand onClick={userLogout} className="navbar-links"> Welcome {user.firstName}</Navbar.Brand> :
+      {user.id ? <div style={{display: 'flex'}}>
+      <Navbar.Brand className="navbar-links"> Welcome {user.firstName}</Navbar.Brand> 
+      <Nav.Link onClick={userLogout} className="navbar-links"><Link to='/products' className="navbar-links">Logout</Link></Nav.Link>
+      </div> :
       <Nav.Link className="navbar-links"><Link to='/users/login' className="navbar-links">Login</Link></Nav.Link>
       }
 
