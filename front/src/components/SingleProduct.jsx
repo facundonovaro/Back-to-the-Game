@@ -24,15 +24,16 @@ const SingleProduct = ({ product, handlerSubmitCart, userId }) => {
               <p className="card-text">{product.description}</p>
               <p className="card-text">$ {product.price}</p>
               <small className="text-muted">Stock: {product.stock}</small>
-              <button
-                type="button"
-                className="btn btn-dark"
-                onClick={() => {
-                  handlerSubmitCart(product.id, userId, product.price);
-                }}
-              >
-                Agregar al carrito
-              </button>
+              <div><br></br><br></br>
+                <button
+                  type="button"
+                  className="btn btn-dark"
+                  onClick={() => {
+                    handlerSubmitCart(product.id, userId, product.price);
+                  }}>
+                  Add to Cart
+                </button>
+              </div>
             </div>
           </div>
         </div>

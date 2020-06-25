@@ -21,7 +21,7 @@ const Products = ({ products, handlerSubmitCart}) => {
             <ListGroupItem>{`Stock: ${product.stock}`}</ListGroupItem>
         </ListGroup>
         <Card.Body>
-        <Button variant="primary" onClick={handlerSubmitCart}>Agregar al carrito</Button>{' '}
+        <Button variant="primary" onClick={handlerSubmitCart}>Add to Cart</Button>{' '}
         </Card.Body>
         </Card>
         </div>
