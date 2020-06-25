@@ -53628,7 +53628,9 @@ __webpack_require__.r(__webpack_exports__);
       password = _ref.password,
       handlerChange = _ref.handlerChange,
       submit = _ref.submit,
-      passwordValidate = _ref.passwordValidate;
+      passwordValidate = _ref.passwordValidate,
+      error = _ref.error,
+      message = _ref.message;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "REGISTER"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_2__["default"], {
     onSubmit: submit
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_2__["default"].Group, {
@@ -53661,7 +53663,12 @@ __webpack_require__.r(__webpack_exports__);
     value: username
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_2__["default"].Text, {
     className: "text-muted"
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_2__["default"].Group, {
+  }), error ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_2__["default"].Text, {
+    className: "error",
+    style: {
+      color: "red"
+    }
+  }, message) : null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_2__["default"].Group, {
     controlId: "formBasicPassword"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_2__["default"].Label, null, "Password"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_2__["default"].Control, {
     type: "password",
@@ -53672,7 +53679,7 @@ __webpack_require__.r(__webpack_exports__);
   }), passwordValidate ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Form__WEBPACK_IMPORTED_MODULE_2__["default"].Text, {
     className: "error",
     style: {
-      color: 'red'
+      color: "red"
     }
   }, "La contrase\xF1a es insegura. Debe contener:", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "1 o m\xE1s letras may\xFAsculas"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "1 o m\xE1s letras min\xEDsculas"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "1 o m\xE1s n\xFAmeros"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "M\xE1s de 4 car\xE1cteres")) : null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_1__["default"], {
     variant: "primary",
@@ -54653,7 +54660,8 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 var mapStateToProps = function mapStateToProps(state, ownProps) {
   return {
-    history: ownProps.history
+    history: ownProps.history,
+    message: state.usersReducer.message
   };
 };
 
@@ -54681,7 +54689,8 @@ var RegisterContainer = /*#__PURE__*/function (_React$Component) {
       lastName: "",
       username: "",
       password: "",
-      passwordValidate: false
+      passwordValidate: false,
+      error: false
     };
     _this.handlerChange = _this.handlerChange.bind(_assertThisInitialized(_this));
     _this.submit = _this.submit.bind(_assertThisInitialized(_this));
@@ -54692,19 +54701,23 @@ var RegisterContainer = /*#__PURE__*/function (_React$Component) {
     key: "handlerChange",
     value: function handlerChange(evt) {
       this.setState(_defineProperty({}, evt.target.name, evt.target.value));
-      console.log('STATEEE', this.state);
     }
   }, {
     key: "submit",
     value: function submit(e) {
+      var _this2 = this;
+
       e.preventDefault();
       var strongRegex = new RegExp(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,32}$/gm); //(1 mayus, 1 minus, 1 numero, mas de 4 caracteres)
 
       var password = this.state.password;
 
       if (password.match(strongRegex)) {
-        this.props.registerUser(this.state);
-        this.props.history.push("/users/login");
+        this.props.registerUser(this.state).then(function (data) {
+          !data.message ? _this2.props.history.push("/users/login") : _this2.setState({
+            error: true
+          });
+        });
       } else {
         this.setState({
           passwordValidate: true
@@ -54721,7 +54734,9 @@ var RegisterContainer = /*#__PURE__*/function (_React$Component) {
         password: this.state.password,
         handlerChange: this.handlerChange,
         submit: this.submit,
-        passwordValidate: this.state.passwordValidate
+        passwordValidate: this.state.passwordValidate,
+        error: this.state.error,
+        message: this.props.message
       });
     }
   }]);
@@ -55151,8 +55166,10 @@ var userLogout = function userLogout(user) {
   };
 };
 var registerUser = function registerUser(user) {
-  return function () {
-    axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/api/users/register', user);
+  return function (dispatch) {
+    return axios__WEBPACK_IMPORTED_MODULE_0___default.a.post("/api/users/register", user)["catch"](function (err) {
+      return dispatch(errorMessage("Ese email ya esta en uso por un usuario"));
+    });
   };
 };
 var cookieLogger = function cookieLogger() {
