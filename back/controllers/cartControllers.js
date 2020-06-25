@@ -30,6 +30,7 @@ const findAllCart = (req, res) => {
         model: Product,
       },
     ],
+    order: [["id", "DESC"]],
   }).then((cart) => {
     res.send(cart);
   });
@@ -46,6 +47,7 @@ const deleteOrder = (req, res) => {
           model: Product,
         },
       ],
+      order: [["id", "DESC"]],
     }).then((cart) => {
       res.send(cart);
     });
@@ -67,6 +69,7 @@ const updateOrder = (req, res) => {
           model: Product,
         },
       ],
+      order: [["id", "DESC"]],
     }).then((cart) => {
       res.send(cart);
     });
