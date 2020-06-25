@@ -1,0 +1,9 @@
+.contProd{
+    display: flex;
+  }
+
+  .contProds{
+    padding: 10px;
+    flex-direction: row;
+  }
+
