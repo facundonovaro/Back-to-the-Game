@@ -1,9 +1,21 @@
-.contProd{
-    display: flex;
-  }
+.contProd {
+  display: flex;
+}
 
-  .contProds{
-    padding: 10px;
-    flex-direction: row;
-  }
+.contProds {
+  padding: 10px;
+  flex-direction: row;
+}
 
+#productCart {
+  display: flex;
+  flex-direction: row;
+}
+
+#listGroupCart {
+  width: 1000px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border: none;
+}
