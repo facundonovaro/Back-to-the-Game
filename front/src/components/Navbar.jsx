@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const NavBar = ({ handlerChange, handlerSubmit, userLogout, user }) => (
+const NavBar = ({ handlerChange, handlerSubmitSearch, userLogout, user }) => (
   <div>
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <a className="navbar-brand" href="#">
@@ -64,7 +64,7 @@ const NavBar = ({ handlerChange, handlerSubmit, userLogout, user }) => (
                 </li>
             </div>}
             </ul>
-        <form className="form-inline my-2 my-lg-0" onSubmit={handlerSubmit}>
+        <form className="form-inline my-2 my-lg-0" onSubmit={handlerSubmitSearch}>
           <input
             className="form-control mr-sm-2"
             type="search"

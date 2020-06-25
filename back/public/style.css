@@ -1,9 +1,27 @@
-.contProd{
+.containerProd{
+    padding-top: 20px;
     display: flex;
-  }
-
-  .contProds{
-    padding: 10px;
+    flex-wrap: wrap;
     flex-direction: row;
+    justify-content: center;
+    margin: auto 0;
+    
   }
+.cards{
+  padding: 10px;
+}
 
+.imgProd{
+  max-width: 250px;
+  height: 250px;
+  margin: 10px;
+  object-fit: cover;  
+}
+
+.descrCard{
+  height: 100px;
+}
+
+.titleCard{
+  height: 70px;
+}

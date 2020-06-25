@@ -4,6 +4,7 @@ export const LOGOUT_USER = "LOGOUT_USER";
 
 // Products
 export const GET_ALL_PRODUCTS = "GET_ALL_PRODUCTS";
+export const SEARCH_PRODUCTS = "SEARCH_PRODUCTS"
 
 // Single Product
 export const GET_PRODUCT = "GET_PRODUCT";

@@ -1,18 +1,18 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
-import {Card, ListGroupItem, ListGroup, Button} from 'react-bootstrap'
+import {Card, ListGroupItem, ListGroup, Button, Row, Col} from 'react-bootstrap'
 
 const Products = ({ products, handlerSubmitCart}) => {
 	return(
-
-     <div className="contProd">
+       
+     <div className="containerProd">
         {products.map(product=>(
-     <div key={product.id} className="contProds">
+     <div key={product.id} className="cards">
         <Card style={{ width: '18rem' }}>
-        <Link to={`/products/${product.id}`}><img src={product.img1Url} className="card-img-top"/></Link>
+        <Link to={`/products/${product.id}`}><img src={product.img1Url} className="card-img-top" className="imgProd"/></Link>
         <Card.Body>
-            <Card.Title>{product.name}</Card.Title>
-            <Card.Text>
+            <Card.Title className="titleCard">{product.name}</Card.Title>
+            <Card.Text className="descrCard">
             {`Descriptión: ${product.description}`}
             </Card.Text>
         </Card.Body>
