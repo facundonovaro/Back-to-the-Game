@@ -8,6 +8,7 @@ import SingleProductContainer from "../containers/SingleProductContainer";
 import AddProductContainer from "../containers/AddProductContainer";
 import SingleuserContainer from "../containers/SingleuserContainer";
 import EditProductContainer from "../containers/EditProductContainer";
+import SearchContainer from "../containers/SearchContainer"
 import CartContainer from "../containers/CartContainer";
 import {connect} from 'react-redux';
 import {cookieLogger} from '../store/actions/users';
@@ -28,6 +29,7 @@ class Main extends React.Component{
           <Route path="/" component={NavBarContainer} />
         </div>
         <Switch>
+          <Route path="/products/search/:name" component={SearchContainer}/>
           <Route exact path="/products" component={ProductsContainer} />
           <Route path="/users/register" component={RegisterContainer} />
           <Route path="/users/login" component={LoginContainer} />
@@ -36,7 +38,7 @@ class Main extends React.Component{
           <Route path="/products/:id" component={SingleProductContainer} />
           <Route path="/users/:id" component={SingleuserContainer} />
           <Route exact path="/cart" component={CartContainer} />
-          <Redirect to="/products"></Redirect>
+          {/* <Redirect to="/products"></Redirect> */}
         </Switch>
       </div>
     );
