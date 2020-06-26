@@ -31,7 +31,7 @@ const SingleProduct = ({ product, handlerSubmitCart, userId }) => {
                   onClick={() => {
                     handlerSubmitCart(product.id, userId, product.price);
                   }}>
-                  Add to Cart
+                  Comprar
                 </button>
               </div>
             </div>

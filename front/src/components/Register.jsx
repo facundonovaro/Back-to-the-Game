@@ -22,9 +22,13 @@ export default ({ firstName,
     return (
       <div className="login">
         <Form className="loginForm" onSubmit={submit}>
+<<<<<<< HEAD
          
           <Form.Label class="titulo-login">Completá tus datos</Form.Label>
           <Form.Text style={{ color: "white" }}>*campos requeridos</Form.Text>
+=======
+          <Form.Label className="titulo-login">Completá tus datos</Form.Label>
+>>>>>>> de8c5d632d06818acf6a2329dd9e65b894e1a89d
           <Form.Group>
             <Form.Control
             required

@@ -57,12 +57,16 @@
 }
 
 .navbar-links {
+  display: flex;
+  flex-direction: column;
   text-decoration: none;
-  color: #c1c1c1;
+  color: #c1c1c1 !important;
 }
 .navbar-links:hover {
+  display: flex;
+  flex-direction: column;
   text-decoration: none;
-  color: #7e7e7e;
+  color: #7e7e7e !important;
 }
 #navbar-dropdown {
   text-decoration: none;
@@ -138,6 +142,52 @@
   display: flex;
 }
 
+.buttonSeparator{
+  margin: 10px;
+
+}
+.buttonLoginRegister{
+  margin: 10px;
+  background-color: green !important;
+border-color: green !important;
+}
+.search-button {
+  color: #c1c1c1;
+  width: 72px;
+  height: 72px;
+  padding: 0;
+  border: 0;
+  background: 0 0;
+  font-family: inherit;
+  line-height: 0;
+  cursor: pointer;
+  z-index: 5;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.search-button:hover {
+  color: #7e7e7e;
+  width: 72px;
+  height: 72px;
+  padding: 0;
+  border: 0;
+  background: 0 0;
+  font-family: inherit;
+  line-height: 0;
+  cursor: pointer;
+  z-index: 5;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.shoppingCart-icon {
+  color: #c1c1c1;
+  width: 30px;
+  height: 30px;
+  outline: none !important;
+  box-shadow: none !important;
+}
 .messagePasswordLogin{
   color:white;
 }

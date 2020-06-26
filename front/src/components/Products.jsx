@@ -27,12 +27,13 @@ const Products = ({ products, handlerSubmitCart, userId }) => {
             </ListGroup>
             <Card.Body>
               <Button
+                className="btn btn-dark"
                 variant="primary"
                 onClick={() => {
                   handlerSubmitCart(product.id, userId, product.price);
                 }}
               >
-                Add to Cart
+                Comprar
               </Button>{" "}
             </Card.Body>
           </Card>
