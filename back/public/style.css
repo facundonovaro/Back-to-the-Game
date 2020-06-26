@@ -150,6 +150,7 @@
   margin: 10px;
   background-color: green !important;
 border-color: green !important;
+}
 .search-button {
   color: #c1c1c1;
   width: 72px;
@@ -186,4 +187,18 @@ border-color: green !important;
   height: 30px;
   outline: none !important;
   box-shadow: none !important;
+}
+.messagePasswordLogin{
+  color:white;
+}
+
+.passwordLowSecure{
+color:red
+}
+.passwordMediumSecure{
+color:yellow
+}
+.passwordHighSecure{
+  color:green
+
 }
