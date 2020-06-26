@@ -1,19 +1,35 @@
 import React from "react"
 import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form'
+import {Form, ProgressBar} from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
 
 
-export default ({ firstName, lastName, username, password, handlerChange, submit,passwordValidate,error,message }) => {
+export default ({ firstName,
+   lastName, 
+   username, 
+   password,
+    handlerChange,
+     submit,
+     passwordValidate,
+     error,
+     message,
+  passwordBarNow,
+  passwordBarVariant,
+  passwordSecurity,
+  passwordSecurityClass,
+   }) => {
     return (
       <div className="login">
         <Form className="loginForm" onSubmit={submit}>
+         
           <Form.Label class="titulo-login">Completá tus datos</Form.Label>
+          <Form.Text style={{ color: "white" }}>*campos requeridos</Form.Text>
           <Form.Group>
             <Form.Control
+            required
               type="text"
-              placeholder="Nombre"
+              placeholder="Nombre*"
               name="firstName"
               onChange={handlerChange}
               value={firstName}
@@ -24,8 +40,9 @@ export default ({ firstName, lastName, username, password, handlerChange, submit
           <Form.Group>
             <Form.Label></Form.Label>
             <Form.Control
+              required
               type="text"
-              placeholder="Apellido"
+              placeholder="Apellido*"
               name="lastName"
               onChange={handlerChange}
               value={lastName}
@@ -36,8 +53,9 @@ export default ({ firstName, lastName, username, password, handlerChange, submit
           <Form.Group>
             <Form.Label></Form.Label>
             <Form.Control
+            required
               type="email"
-              placeholder="E-mail"
+              placeholder="E-mail*"
               name="username"
               onChange={handlerChange}
               value={username}
@@ -53,24 +71,28 @@ export default ({ firstName, lastName, username, password, handlerChange, submit
           <Form.Group>
             <Form.Label></Form.Label>
             <Form.Control
+              
               type="password"
               placeholder="Clave"
               name="password"
               onChange={handlerChange}
               value={password}
             />
+            <Form.Text className={passwordSecurityClass}>{passwordSecurity}</Form.Text>
+            <ProgressBar now={passwordBarNow} variant={passwordBarVariant} />
+            <Form.Text className='messagePasswordLogin' >
+              <p> Aumentá la seguridad de tu clave agregando: mayúsculas, minúsculas, números y algún carácter especial (!,@,#,\,$,%)</p>
+            </Form.Text>
 
             {passwordValidate ? (
-              <Form.Text className="error" style={{ color: "red" }}>
-                La contraseña es insegura. Debe contener:
-                <li>1 o más letras mayúsculas</li>
-                <li>1 o más letras minísculas</li>
-                <li>1 o más números</li>
-                <li>Más de 4 carácteres</li>
+              <Form.Text  style={{ color: "red" }}>
+                La contraseña debe tener un mínimo de 4 carácteres
+                
               </Form.Text>
-            ) : null}
+            ) : null} 
           </Form.Group>
-
+         
+            
           <Button variant="primary" type="submit">
             Continuar
           </Button>

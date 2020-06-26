@@ -137,3 +137,18 @@
   align-items: flex-start;
   display: flex;
 }
+
+.messagePasswordLogin{
+  color:white;
+}
+
+.passwordLowSecure{
+color:red
+}
+.passwordMediumSecure{
+color:yellow
+}
+.passwordHighSecure{
+  color:green
+
+}

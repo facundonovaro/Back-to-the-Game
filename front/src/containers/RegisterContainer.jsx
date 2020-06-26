@@ -27,17 +27,39 @@ class RegisterContainer extends React.Component {
           password: "",
           passwordValidate: false,
           error:false,
+          passwordBarVariant: 'danger',
+          passwordBarNow: 10,
+          passwordSecurity:'',
+          passwordSecurityClass:'',
+          
+
         };
         this.handlerChange = this.handlerChange.bind(this)
         this.submit = this.submit.bind(this)
     }
     handlerChange(evt) {
+
+        
+
         this.setState({ [evt.target.name]: evt.target.value })
+        const strongRegex = new RegExp(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/gm);
+        const mediumRegex = new RegExp(/^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})/gm);
+
+        if(evt.target.name === 'password'){
+            console.log(evt.target.value)
+        if (strongRegex.test(evt.target.value)) {
+            this.setState({ passwordBarNow:100, passwordBarVariant:'success',passwordSecurity:'Muy segura',passwordSecurityClass:'passwordHighSecure' });
+        } else if (mediumRegex.test(evt.target.value)) {
+            this.setState({ passwordBarNow: 60, passwordBarVariant: 'warning', passwordSecurity: 'Medianamente segura', passwordSecurityClass: 'passwordMediumSecure' });
+        } else {
+            this.setState({ passwordBarNow: 30, passwordBarVariant: 'danger', passwordSecurity: 'Poco segura', passwordSecurityClass: 'passwordLowSecure' });
+        }
+    }
     }
 
     submit(e) {
         e.preventDefault()
-        let strongRegex = new RegExp(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{4,32}$/gm) ;//(1 mayus, 1 minus, 1 numero, mas de 4 caracteres)
+        let strongRegex = new RegExp(/^.{4,32}$/gm) ;//(4 digitos cualquiera)
         let password= this.state.password
 
         if(password.match(strongRegex)){
@@ -67,6 +89,10 @@ class RegisterContainer extends React.Component {
               passwordValidate={this.state.passwordValidate}
               error={this.state.error}
               message={this.props.message}
+                passwordBarNow={this.state.passwordBarNow}
+                passwordBarVariant={this.state.passwordBarVariant}
+                passwordSecurity={this.state.passwordSecurity}
+                passwordSecurityClass={this.state.passwordSecurityClass}
             />
         
         );
