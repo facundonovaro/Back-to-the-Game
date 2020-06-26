@@ -137,3 +137,13 @@
   align-items: flex-start;
   display: flex;
 }
+
+.buttonSeparator{
+  margin: 10px;
+
+}
+.buttonLoginRegister{
+  margin: 10px;
+  background-color: green !important;
+border-color: green !important;
+}
