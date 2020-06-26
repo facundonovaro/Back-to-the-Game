@@ -1,15 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import {
-  Navbar,
-  Nav,
-  NavDropdown,
-  Form,
-  FormControl,
-  Button,
-} from "react-bootstrap";
-import logo from "../assets/logo.png";
-import { FaShoppingCart, FaSearch } from "react-icons/fa";
+import { Navbar, Nav, NavDropdown, Form, FormControl, Button } from 'react-bootstrap';
+import logo from '../assets/logo.png';
+import { FaShoppingCart, FaSearch } from "react-icons/fa"
 
 const NavBar = ({ handlerChange, handlerSubmitSearch, userLogout, user }) => (
   <Navbar bg="dark" expand="lg" className="navbar-container">
@@ -38,14 +31,14 @@ const NavBar = ({ handlerChange, handlerSubmitSearch, userLogout, user }) => (
               Hola {user.firstName}!
             </Navbar.Brand>
             <Link onClick={userLogout} className="navbar-links" to="/products">
-              Logout
+              Cerrar Sesión
             </Link>
           </div>
         ) : (
-          <Link className="navbar-links" to="/users/login">
-            Ingresar
-          </Link>
-        )}
+            <Link className="navbar-links" to="/users/login">
+              Iniciar Sesión
+            </Link>
+          )}
         <NavDropdown title="Categorías" id="navbar-dropdown">
           <NavDropdown.Item href="#action/3.1">Juegos</NavDropdown.Item>
           <NavDropdown.Item href="#action/3.2">Play Station 4</NavDropdown.Item>
@@ -62,7 +55,7 @@ const NavBar = ({ handlerChange, handlerSubmitSearch, userLogout, user }) => (
         <FormControl
           onChange={handlerChange}
           type="text"
-          placeholder="Search"
+          placeholder="Quiero buscar..."
           className="mr-sm-2"
         />
         <button type="submit" className="search-button">

@@ -2,7 +2,7 @@ import React from "react";
 
 const AddProduct = ({ handleName, handleDescription, handlePrice, handleStock, hangleImage1, handleImage2, handleSubmit }) => {
   return (
-    <div className='container-fluid' style={{width: '60%'}}>
+    <div className='container-fluid' style={{ width: '60%' }}>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <label>Name</label>
