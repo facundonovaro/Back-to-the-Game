@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Navbar, Nav, NavDropdown, Form, FormControl, Button } from 'react-bootstrap';
-import logo from '../assets/logo.png' ;
+import logo from '../assets/logo.png';
 import { FaShoppingCart, FaSearch } from "react-icons/fa"
 
 const NavBar = ({ handlerChange, handlerSubmitSearch, userLogout, user }) => (
@@ -21,26 +21,26 @@ const NavBar = ({ handlerChange, handlerSubmitSearch, userLogout, user }) => (
     <Navbar.Collapse>
       <Nav className="mr-auto">
 
-        {user.id ? null : <Nav.Link className="navbar-links"><Link to='/users/register' className="navbar-links">Register</Link></Nav.Link>}
+        {user.id ? null : <Nav.Link className="navbar-links"><Link to='/users/register' className="navbar-links">Regístro</Link></Nav.Link>}
 
         {user.id ? <div style={{ display: 'flex' }}>
-          <Navbar.Brand className="navbar-links"> Welcome {user.firstName}</Navbar.Brand>
-          <Nav.Link onClick={userLogout} className="navbar-links"><Link to='/products' className="navbar-links">Logout</Link></Nav.Link>
+          <Navbar.Brand className="navbar-links"> Bienvenid@ {user.firstName}</Navbar.Brand>
+          <Nav.Link onClick={userLogout} className="navbar-links"><Link to='/products' className="navbar-links">Cerar Sesión</Link></Nav.Link>
         </div> :
-          <Nav.Link className="navbar-links"><Link to='/users/login' className="navbar-links">Login</Link></Nav.Link>
+          <Nav.Link className="navbar-links"><Link to='/users/login' className="navbar-links">Iniciar Sesión</Link></Nav.Link>
         }
         <NavDropdown title="Categorías" id="navbar-dropdown">
-          <NavDropdown.Item href="#action/3.1">Games</NavDropdown.Item>
+          <NavDropdown.Item href="#action/3.1">Juegos</NavDropdown.Item>
           <NavDropdown.Item href="#action/3.2">Play Station 4</NavDropdown.Item>
           <NavDropdown.Item href="#action/3.3">Xbox</NavDropdown.Item>
-          <NavDropdown.Item href="#action/3.4">Consoles</NavDropdown.Item>
+          <NavDropdown.Item href="#action/3.4">Consolas</NavDropdown.Item>
           <NavDropdown.Item href="#action/3.5">Audio</NavDropdown.Item>
         </NavDropdown>
         <Nav.Link className="navbar-links"><Link to='/cart' className="navbar-links"><FaShoppingCart /></Link></Nav.Link>
       </Nav>
       <Form inline >
 
-        <FormControl onChange={handlerChange} type="text" placeholder="Search" className="mr-sm-2" />
+        <FormControl onChange={handlerChange} type="text" placeholder="Quiero Buscar..." className="mr-sm-2" />
         <Button onClick={handlerSubmitSearch} variant="outline-success"><FaSearch /></Button>
       </Form>
     </Navbar.Collapse>
