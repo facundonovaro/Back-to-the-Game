@@ -6,7 +6,7 @@ export default ({ handleChange, handleSubmit, user, username, password, message,
   return (
     <div className='login'>
       <Form className="loginForm" onSubmit={handleSubmit}>
-        <Form.Label class="titulo-login">
+        <Form.Label className="titulo-login">
           Hola! Ingresá tu e-mail y clave
         </Form.Label>
         <Form.Group >

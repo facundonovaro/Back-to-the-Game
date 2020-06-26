@@ -38,13 +38,12 @@ class Main extends React.Component {
           <Route path="/products/:id" component={SingleProductContainer} />
           <Route path="/users/:id" component={SingleuserContainer} />
           <Route exact path="/cart" component={CartContainer} />
-          {/* <Redirect to="/products"></Redirect> */}
+          <Redirect to="/products"></Redirect>
         </Switch>
       </div>
-    );
-
-  }
+    )}
 }
+
 const mapStateToProps = function (state, ownProps) {
   return {
 

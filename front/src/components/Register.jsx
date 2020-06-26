@@ -9,7 +9,7 @@ export default ({ firstName, lastName, username, password, handlerChange, submit
     return (
       <div className="login">
         <Form className="loginForm" onSubmit={submit}>
-          <Form.Label class="titulo-login">Completá tus datos</Form.Label>
+          <Form.Label className="titulo-login">Completá tus datos</Form.Label>
           <Form.Group>
             <Form.Control
               type="text"
