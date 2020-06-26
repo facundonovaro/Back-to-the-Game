@@ -6,6 +6,7 @@ import { userLogin } from "../store/actions/users";
 const mapStateToProps = function (state, ownProps) {
   return {
     history: ownProps.history,
+    message: state.usersReducer.message,
   };
 };
 
@@ -21,6 +22,7 @@ class LoginContainer extends Component {
     this.state = {
       username: "",
       password: "",
+      error:false,
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -34,17 +36,27 @@ class LoginContainer extends Component {
   }
 
   handleSubmit(evt) {
+
     evt.preventDefault();
-    this.props.userLogin(this.state);
-    this.props.history.push(`/products`);
+    this.props.userLogin(this.state)
+    .then((data)=>{
+      !data.message ? this.props.history.push(`/products`) : this.setState({error:true})
+    })
+   
+    
+    
   }
   render() {
     return (
       <Login
+        
         handleChange={this.handleChange}
         handleSubmit={this.handleSubmit}
         username={this.state.username}
         password={this.state.password}
+        message={this.props.message}
+        error={this.state.error}
+
       />
     );
   }
