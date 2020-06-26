@@ -1,6 +1,6 @@
-import React from 'react';
-import {Link} from 'react-router-dom'
-import {Card, ListGroupItem, ListGroup, Button, Row, Col} from 'react-bootstrap'
+import React from "react";
+import { Link } from "react-router-dom";
+import { Card, ListGroupItem, ListGroup, Button } from "react-bootstrap";
 
 const Products = ({ products, handlerSubmitCart, userId}) => {
 	return(
@@ -29,8 +29,8 @@ const Products = ({ products, handlerSubmitCart, userId}) => {
               >
                 Add to Cart
               </Button>{" "}
-        </Card.Body>
-        </Card>
+            </Card.Body>
+          </Card>
         </div>
       ))}
     </div>
@@ -38,4 +38,3 @@ const Products = ({ products, handlerSubmitCart, userId}) => {
 };
 
 export default Products;
-
