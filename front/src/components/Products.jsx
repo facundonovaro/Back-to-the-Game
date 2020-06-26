@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom'
 import {Card, ListGroupItem, ListGroup, Button, Row, Col} from 'react-bootstrap'
 
-const Products = ({ products, handlerSubmitCart}) => {
+const Products = ({ products, handlerSubmitCart, userId}) => {
 	return(
        
      <div className="containerProd">

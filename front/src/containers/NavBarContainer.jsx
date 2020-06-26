@@ -5,7 +5,7 @@ import {fetchProducts} from '../store/actions/products'
 import {searchProducts} from '../store/actions/products'
 import {userLogout} from '../store/actions/users'
 
-class ProductsContainer extends React.Component{
+class NavBarContainer extends React.Component{
 
    constructor(){
      super()
@@ -77,4 +77,4 @@ const mapDispatchToProps = (dispatch) =>{
   }
 }
 
-export default connect (mapStateToProps, mapDispatchToProps) (ProductsContainer)
+export default connect (mapStateToProps, mapDispatchToProps) (NavBarContainer)
