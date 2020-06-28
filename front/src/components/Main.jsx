@@ -8,21 +8,20 @@ import SingleProductContainer from "../containers/SingleProductContainer";
 import AddProductContainer from "../containers/AddProductContainer";
 import SingleuserContainer from "../containers/SingleuserContainer";
 import EditProductContainer from "../containers/EditProductContainer";
-import SearchContainer from "../containers/SearchContainer"
+import SearchContainer from "../containers/SearchContainer";
 import CartContainer from "../containers/CartContainer";
-import { connect } from 'react-redux';
-import { cookieLogger } from '../store/actions/users';
+import { connect } from "react-redux";
+import { cookieLogger } from "../store/actions/users";
 
 class Main extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
   }
   componentDidMount() {
-    this.props.cookieLogger()
+    this.props.cookieLogger();
   }
 
   render() {
-
     return (
       <div id="main" className="container-fluid">
         <div>
@@ -38,21 +37,18 @@ class Main extends React.Component {
           <Route path="/products/:id" component={SingleProductContainer} />
           <Route path="/users/:id" component={SingleuserContainer} />
           <Route exact path="/cart" component={CartContainer} />
-          {/* <Redirect to="/products"></Redirect> */}
+          <Redirect to="/products"></Redirect>
         </Switch>
       </div>
     );
-
   }
 }
 const mapStateToProps = function (state, ownProps) {
-  return {
-
-  };
+  return {};
 };
 const mapDispatchToProps = function (dispatch) {
   return {
-    cookieLogger: () => dispatch(cookieLogger())
+    cookieLogger: () => dispatch(cookieLogger()),
   };
 };
 

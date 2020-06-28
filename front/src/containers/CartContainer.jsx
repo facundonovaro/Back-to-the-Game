@@ -12,7 +12,7 @@ class CartContainer extends React.Component {
   }
   componentDidMount() {
     let total = 0;
-    this.props.fetchCart(this.props.user);
+    this.props.fetchCart();
     this.props.cart.map((product) => {
       total = total + product.quantity * product.product.price;
     });
@@ -55,11 +55,11 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchCart: (user) => {
-      dispatch(fetchCart(user));
+    fetchCart: () => {
+      dispatch(fetchCart());
     },
-    deleteCart: (orderId, userId) => {
-      dispatch(deleteCart(orderId, userId));
+    deleteCart: (productId) => {
+      dispatch(deleteCart(productId));
     },
     updateCart: (order) => {
       dispatch(updateCart(order));

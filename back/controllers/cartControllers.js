@@ -1,47 +1,52 @@
-const { Order, User } = require("../models");
+const { Order } = require("../models");
 const { Product } = require("../models");
 
 const addToCart = (req, res) => {
-  const product = Product.findByPk(req.body.id);
-  const user = User.findByPk(req.body.userId);
-  Promise.all([product, user]).then(([product, user]) => {
-    Order.findOne({
-      where: { productId: req.body.id, userId: req.body.userId },
-    }).then((foundProduct) => {
-      if (foundProduct) res.status(200).send("Already added");
-      if (!foundProduct) {
-        Order.create({ total: req.body.price }).then((orderCreated) => {
-          const order = orderCreated;
-          order.setProduct(product);
-          order.setUser(user).then((orderCreated) => {
-            res.status(201).send(orderCreated);
-          });
+  Product.findByPk(req.body.id).then((productFound) => {
+    const product = productFound;
+    Order.create({ total: req.body.price }).then((orderCreated) => {
+      const order = orderCreated;
+      order.setProduct(product);
+      order.setUser(req.user).then(() => {
+        Order.findAll({
+          where: { userId: req.user.id, state: "pending" },
+          include: [
+            {
+              model: Product,
+            },
+          ],
+          order: [["id", "DESC"]],
+        }).then((cart) => {
+          res.send(cart);
         });
-      }
+      });
     });
   });
 };
 
+//Esto está medio hardocdeado para que no se rompa si no hay req.user. Arreglar cuando se haga el carrito no loggeado.
 const findAllCart = (req, res) => {
-  Order.findAll({
-    where: { userId: req.params.id, state: "pending" },
-    include: [
-      {
-        model: Product,
-      },
-    ],
-    order: [["id", "DESC"]],
-  }).then((cart) => {
-    res.send(cart);
-  });
+  if (req.user) {
+    Order.findAll({
+      where: { userId: req.user.id, state: "pending" },
+      include: [
+        {
+          model: Product,
+        },
+      ],
+      order: [["id", "DESC"]],
+    }).then((cart) => {
+      res.send(cart);
+    });
+  } else res.send([]);
 };
 
 const deleteOrder = (req, res) => {
   Order.destroy({
-    where: { id: req.params.orderId },
+    where: { productId: req.params.productId, userId: req.user.id },
   }).then(() => {
     Order.findAll({
-      where: { userId: req.params.userId, state: "pending" },
+      where: { userId: req.user.id, state: "pending" },
       include: [
         {
           model: Product,
@@ -55,15 +60,12 @@ const deleteOrder = (req, res) => {
 };
 
 const updateOrder = (req, res) => {
-  Order.update(
-    { quantity: req.body.quantity },
-    {
-      returning: true,
-      where: { id: req.body.orderId },
-    }
-  ).then(() => {
+  Order.update(req.body, {
+    returning: true,
+    where: { id: req.body.orderId },
+  }).then(() => {
     Order.findAll({
-      where: { userId: req.body.userId, state: "pending" },
+      where: { userId: req.user.id, state: "pending" },
       include: [
         {
           model: Product,

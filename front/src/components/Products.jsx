@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Card, ListGroupItem, ListGroup, Button } from "react-bootstrap";
 
-const Products = ({ products, handlerSubmitCart, userId }) => {
+const Products = ({ products, handlerSubmitCart, handleDeleteCart, cart }) => {
   return (
     <div className="containerProd">
       {products.map((product) => (
@@ -26,14 +26,25 @@ const Products = ({ products, handlerSubmitCart, userId }) => {
               <ListGroupItem>{`Stock: ${product.stock}`}</ListGroupItem>
             </ListGroup>
             <Card.Body>
-              <Button
-                variant="primary"
-                onClick={() => {
-                  handlerSubmitCart(product.id, userId, product.price);
-                }}
-              >
-                Add to Cart
-              </Button>{" "}
+              {cart.includes(product.id) ? (
+                <Button
+                  variant="primary"
+                  onClick={() => {
+                    handleDeleteCart(product.id);
+                  }}
+                >
+                  Remove from Cart
+                </Button>
+              ) : (
+                <Button
+                  variant="primary"
+                  onClick={() => {
+                    handlerSubmitCart(product.id, product.price);
+                  }}
+                >
+                  Add to Cart
+                </Button>
+              )}
             </Card.Body>
           </Card>
         </div>
