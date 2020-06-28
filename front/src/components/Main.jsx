@@ -43,6 +43,7 @@ class Main extends React.Component {
     );
   }
 }
+
 const mapStateToProps = function (state, ownProps) {
   return {};
 };

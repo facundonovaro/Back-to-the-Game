@@ -4,6 +4,7 @@ import NavBar from '../components/Navbar'
 import { fetchProducts } from '../store/actions/products'
 import { searchProducts } from '../store/actions/search'
 import { userLogout } from '../store/actions/users'
+import logo from '../assets/logo.png';
 
 class NavbarContainer extends React.Component {
 
@@ -53,6 +54,7 @@ class NavbarContainer extends React.Component {
           handlerSubmitSearch={this.handlerSubmitSearch}
           userLogout={this.userLogoutEvent}
           user={user}
+          logo={logo}
         />
       </div>
     )
