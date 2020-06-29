@@ -2,30 +2,37 @@ import React from "react";
 import { connect } from "react-redux";
 import SingleProduct from "../components/SingleProduct";
 import { fetchProduct } from "../store/actions/singleProduct";
-import { addToCart } from "../store/actions/cart";
+import { addToCart, deleteCart, fetchCart } from "../store/actions/cart";
 
 class SingleProductContainer extends React.Component {
   constructor() {
     super();
     this.handlerSubmitCart = this.handlerSubmitCart.bind(this);
+    this.handleDeleteCart = this.handleDeleteCart.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchProduct(this.props.id);
+    this.props.fetchCart();
   }
 
-  handlerSubmitCart(id, userId, price) {
-    this.props.addToCart({ id: id, userId: userId, price: price });
+  handlerSubmitCart(id, price) {
+    this.props.addToCart({ id: id, price: price });
+  }
+
+  handleDeleteCart(orderId) {
+    this.props.deleteCart(orderId);
   }
 
   render() {
-    const { product, userId } = this.props;
+    const { product, cart } = this.props;
     return (
       <div>
         <SingleProduct
           product={product}
-          userId={userId}
           handlerSubmitCart={this.handlerSubmitCart}
+          handleDeleteCart={this.handleDeleteCart}
+          cart={cart}
         />
       </div>
     );
@@ -36,7 +43,7 @@ const mapStateToProps = (state, ownProps) => {
   return {
     id: ownProps.match.params.id,
     product: state.productReducer.product,
-    userId: state.usersReducer.user.id,
+    cart: state.cartReducer.list,
   };
 };
 
@@ -45,8 +52,14 @@ const mapDispatchToProps = (dispatch) => {
     fetchProduct: (id) => {
       dispatch(fetchProduct(id));
     },
-    addToCart: (productAndUserID) => {
-      dispatch(addToCart(productAndUserID));
+    addToCart: (product) => {
+      dispatch(addToCart(product));
+    },
+    deleteCart: (orderId) => {
+      dispatch(deleteCart(orderId));
+    },
+    fetchCart: () => {
+      dispatch(fetchCart());
     },
   };
 };

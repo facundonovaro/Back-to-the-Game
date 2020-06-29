@@ -18,11 +18,11 @@
 }
 
 .descrCard {
-  height: 100px;
+  height: 65px;
 }
 
 .titleCard {
-  height: 70px;
+  height: 30px;
 }
 .contProd {
   display: flex;
@@ -38,10 +38,10 @@
   flex-direction: row;
   margin: 5px;
   padding: 5px;
-  height: 100px;
   width: 700px;
   border-radius: 0.25rem;
   background-color: white;
+  color: #23272b;
 }
 
 #listGroupCart {
@@ -68,6 +68,7 @@
   text-decoration: none;
   color: #7e7e7e !important;
 }
+
 #navbar-dropdown {
   text-decoration: none;
   color: #c1c1c1;
@@ -79,7 +80,7 @@
 
 #cartContainer {
   border-radius: 0.25rem;
-  background: #f6fff8;
+  background: #f8f9fa;
   display: flex;
   justify-content: space-around;
   padding-top: 10px;
@@ -99,7 +100,7 @@
   width: 150px;
   height: 60px;
   border-radius: 0.25rem;
-  background-color: #1923ae;
+  background-color: #23272b;
   display: flex;
   align-items: center;
   text-align: center;
@@ -142,16 +143,31 @@
   display: flex;
 }
 
-.buttonSeparator{
-  margin: 10px;
-
+#checkoutCart {
+  font-weight: bold;
 }
-.buttonLoginRegister{
+
+#totalCardCart {
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+#titleCart {
+  font-weight: bold;
+  margin-top: 3px;
+}
+.buttonSeparator {
+  margin: 10px;
+}
+.buttonLoginRegister {
   margin: 10px;
   background-color: green !important;
-border-color: green !important;
+  border-color: green !important;
 }
-.search-button{
+
+.search-button {
   color: #c1c1c1;
   width: 72px;
   height: 72px;
@@ -191,4 +207,17 @@ border-color: green !important;
 
 .textProductsForce {
   text-transform: capitalize;
+}
+.messagePasswordLogin {
+  color: white;
+}
+
+.passwordLowSecure {
+  color: red;
+}
+.passwordMediumSecure {
+  color: yellow;
+}
+.passwordHighSecure {
+  color: green;
 }

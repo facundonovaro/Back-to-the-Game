@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Card, ListGroupItem, ListGroup, Button } from "react-bootstrap";
 
-const Products = ({ products, handlerSubmitCart, userId }) => {
+const Products = ({ products, handlerSubmitCart, handleDeleteCart, cart }) => {
   return (
     <div className="containerProd textProductsForce">
       {products.map((product) => (
@@ -16,9 +16,9 @@ const Products = ({ products, handlerSubmitCart, userId }) => {
               />
             </Link>
             <Card.Body>
-              <Card.Title className="titleCard">{product.name}</Card.Title>
+              <Card.Title className="titleCard">{product.snippet}</Card.Title>
               <Card.Text className="descrCard">
-                {`Descriptión: ${product.description}`}
+                {`Descriptión: ${product.snippetDesc}`}
               </Card.Text>
             </Card.Body>
             <ListGroup className="list-group-flush">
@@ -26,15 +26,25 @@ const Products = ({ products, handlerSubmitCart, userId }) => {
               <ListGroupItem>{`Stock: ${product.stock}`}</ListGroupItem>
             </ListGroup>
             <Card.Body>
-              <Button
-                className="btn btn-dark"
-                variant="primary"
-                onClick={() => {
-                  handlerSubmitCart(product.id, userId, product.price);
-                }}
-              >
-                Comprar
-              </Button>{" "}
+              {cart.includes(product.id) ? (
+                <Button
+                  variant="primary"
+                  onClick={() => {
+                    handleDeleteCart(product.id);
+                  }}
+                >
+                  Remove from Cart
+                </Button>
+              ) : (
+                <Button
+                  variant="primary"
+                  onClick={() => {
+                    handlerSubmitCart(product.id, product.price);
+                  }}
+                >
+                 Añadir a la cesta
+                </Button>
+              )}
             </Card.Body>
           </Card>
         </div>

@@ -6,10 +6,10 @@ const juegoGhost = Product.create({
   description:
     "Ghost of Tsushima - Playstation 4 - Launch Edition. Incluye contenido bonus",
   price: 7500,
-  img1Url: "https://m.media-amazon.com/images/I/51onBpjF4eL.jpg",
+  img1Url: "https://i.ibb.co/WDWqFTg/GOT.jpg",
   img2Url:
-    "https://bolavip.com/__export/1589660699843/sites/bolavip/img/2020/05/16/ghostoftsushima_crop1589660699052.jpg_423682103.jpg",
-  stock: 1000,
+    "",
+  stock: 15,
 });
 
 const juegoFifa = Product.create({
@@ -17,10 +17,10 @@ const juegoFifa = Product.create({
   description: "FIFA 21 - Playstation 4 - EA Sports",
   price: 9500,
   img1Url:
-    "https://media.contentapi.ea.com/content/dam/ea/fifa/fifa-21/global_assets/common/featured_images/fifa-21-grid-tile-generic-16x9.jpg.adapt.crop191x100.1200w.jpg",
+    "https://i.ibb.co/Y0Ft2WR/FIFA21.jpg",
   img2Url:
-    "https://images.mediotiempo.com/JO_phCazam1MZUt36kC6KdGX9Jc=/958x596/uploads/media/2020/06/18/fifa-captura-de-pantalla.jpg",
-  stock: 1000,
+    "https://i.ibb.co/BcVRbvJ/FIFA21-2.jpg",
+  stock: 20,
 });
 
 const consolaPs4 = Product.create({
@@ -28,22 +28,22 @@ const consolaPs4 = Product.create({
   description: "Play Station 4 + 1 control + Call of Duty Black Ops",
   price: 70000,
   img1Url:
-    "https://psmedia.playstation.com/is/image/psmedia/ps4-slim-black-two-column-buy-01-en-13nov18_1542102620416?$Icon$",
+    "https://i.ibb.co/rFB30z6/Playstation4.jpg",
   img2Url:
-    "https://arsonyb2c.vteximg.com.br/arquivos/ids/289623-1000-1000/711719528852_PS4_OM_MEGA_V6_1.jpg?v=637093179884300000",
-  stock: 1000,
+    "https://i.ibb.co/fpVGBqg/Playstation4-2.jpg",
+  stock: 14,
 });
 
 const consolaXbox = Product.create({
   name: "xbox one",
   description:
-    "Microsoft - Xbox One S 1TB All-Digital Edition Consola con mando inalámbrico Xbox One",
+    "Xbox One S 1TB All-Digital Edition Consola con mando inalámbrico Xbox One",
   price: 70000,
   img1Url:
-    "https://images-na.ssl-images-amazon.com/images/I/61p7mgi0GAL._AC_SY355_.jpg",
+    "https://i.ibb.co/TtbBFwj/XboxOne.jpg",
   img2Url:
-    "https://compass-ssl.xbox.com/assets/05/b0/05b01a46-58eb-4927-ad21-3c43b545ebaf.jpg?n=X1S-2019_Panes-2-Up-1084_111_570x400.jpg",
-  stock: 1000,
+    "",
+  stock: 9,
 });
 
 const audioHeadPhones = Product.create({
@@ -52,10 +52,10 @@ const audioHeadPhones = Product.create({
     "Auricular Gamer Gadnic A-37 Pro Luces Ps4 Pc Gaming. Incluyen bluetooth y micrófono ",
   price: 10000,
   img1Url:
-    "https://http2.mlstatic.com/auricular-gamer-gadnic-a-37-pro-luces-ps4-pc-gaming-D_NQ_NP_903652-MLA32158222050_092019-F.jpg",
+    "https://i.ibb.co/Cs33n8w/Gadnic.jpg",
   img2Url:
-    "https://www.bidcom.com.ar/publicacionesML/productos/ABLUE037/1000x1000-ABLUE037-1.jpg",
-  stock: 1000,
+    "https://i.ibb.co/MNJnHQj/Gadnic2.jpg",
+  stock: 20,
 });
 
 const audioOtherHeadPhones = Product.create({
@@ -64,10 +64,10 @@ const audioOtherHeadPhones = Product.create({
     "Auriculares Gamer DragonWar Inalámbricos. Incluyen bluetooth y micrófono ",
   price: 10000,
   img1Url:
-    "https://ledvideojuegosycomputacion.com.ar/685-large_default/auriculares-gamer-dragonwar-inalambricos.jpg",
+    "https://i.ibb.co/cwW78vz/Dragon-War.jpg",
   img2Url:
-    "https://http2.mlstatic.com/auricular-pc-ps3-ps4-dragon-war-aegis-inalambrico-bravil-D_NQ_NP_722573-MLA26369321689_112017-F.jpg",
-  stock: 1000,
+    "https://i.ibb.co/KxrCb08/Dragon-War2.jpg",
+  stock: 17,
 });
 
 const juegos = Category.create({
