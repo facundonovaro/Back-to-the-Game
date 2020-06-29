@@ -4,6 +4,7 @@ import NavBar from '../components/Navbar'
 import { fetchProducts } from '../store/actions/products'
 import { searchProducts } from '../store/actions/search'
 import { userLogout } from '../store/actions/users'
+import logo from '../assets/logo.png';
 
 class NavBarContainer extends React.Component{
 
@@ -58,6 +59,7 @@ class NavBarContainer extends React.Component{
           userLogout={this.userLogoutEvent}
           user={user}
           disable={this.state.disable}
+          logo={logo}
         />
       </div>
     )

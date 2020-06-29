@@ -17,7 +17,7 @@ export default ({ handleChange, handleSubmit, user, username, password, message,
             value={username}
             name="username"
           />
-          <Form.Text style={{color:"white"}} >
+          <Form.Text style={{ color: "white" }} >
             No vamos a compartir tu e-mail con nadie. Nunca. Quedate tranquilo, en serio.
           </Form.Text>
         </Form.Group>
@@ -35,10 +35,16 @@ export default ({ handleChange, handleSubmit, user, username, password, message,
               {message}
             </Form.Text>
           ) : null}
-        </Form.Group>
-        <Button variant="primary" type="submit">
-          Login
+        </Form.Group >
+        <Button className="buttonSeparator" variant="primary" type="submit" >
+          Ingresá
         </Button>
+
+        <Button href="/users/register" className="buttonLoginRegister" variant="primary" type="submit">
+          Crea un Usuario
+        </Button>
+
       </Form>
     </div>
-  );};
+  );
+};

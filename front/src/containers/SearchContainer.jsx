@@ -1,48 +1,61 @@
 import React from "react";
 import { connect } from "react-redux";
-import Products from '../components/Products';
-import { addToCart } from "../store/actions/cart";
+import Products from "../components/Products";
+import { addToCart, deleteCart, fetchCart } from "../store/actions/cart";
 
 class SearchContainer extends React.Component {
-    constructor() {
-        super();
-        this.handlerSubmitCart = this.handlerSubmitCart.bind(this);
-    }
+  constructor() {
+    super();
+    this.handlerSubmitCart = this.handlerSubmitCart.bind(this);
+    this.handleDeleteCart = this.handleDeleteCart.bind(this);
+  }
 
-    handlerSubmitCart(id, userId, price) {
-        this.props.addToCart({ id: id, userId: userId, price: price });
-    }
+  componentDidMount() {
+    this.props.fetchCart();
+  }
 
-    render() {
-        const { searchedList, userId } = this.props
-        return (
-            <div>
-                <Products
-                    products={searchedList}
-                    handlerSubmitCart={this.handlerSubmitCart}
-                    userId={userId}
-                />
-            </div>
+  handlerSubmitCart(id, userId, price) {
+    this.props.addToCart({ id: id, userId: userId, price: price });
+  }
 
-        )
-    }
-}
+  handleDeleteCart(orderId) {
+    this.props.deleteCart(orderId);
+  }
 
-const mapStateToProps = (state) => {
-    return {
-        searchedList: state.searchReducer.list,
-        userId: state.usersReducer.user.id,
-
-
-    };
-};
-
-const mapDispatchToProps = (dispatch) => {
-    return {
-        addToCart: (productAndUserID) => {
-            dispatch(addToCart(productAndUserID))
-    }
+  render() {
+    const { searchedList, cart } = this.props;
+    return (
+      <div>
+        <Products
+          products={searchedList}
+          handlerSubmitCart={this.handlerSubmitCart}
+          handleDeleteCart={this.handleDeleteCart}
+          cart={cart}
+        />
+      </div>
+    );
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(SearchContainer)
+const mapStateToProps = (state) => {
+  return {
+    searchedList: state.searchReducer.list,
+    cart: state.cartReducer.list,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addToCart: (product) => {
+      dispatch(addToCart(product));
+    },
+    deleteCart: (orderId) => {
+      dispatch(deleteCart(orderId));
+    },
+    fetchCart: () => {
+      dispatch(fetchCart());
+    },
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(SearchContainer);

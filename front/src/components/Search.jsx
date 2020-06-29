@@ -1,6 +1,6 @@
-import React from 'react';
-import { Link } from 'react-router-dom'
-import { Card, ListGroupItem, ListGroup, Button } from 'react-bootstrap'
+import React from "react";
+import { Link } from "react-router-dom";
+import { Card, ListGroupItem, ListGroup, Button } from "react-bootstrap";
 
 const Search = ({ searchedList, handlerSubmitCart, userId }) => {
     
@@ -30,8 +30,6 @@ const Search = ({ searchedList, handlerSubmitCart, userId }) => {
                 </div>
             ))}
         </div>
-
-    )
-};
+      )};
 
 export default Search;
