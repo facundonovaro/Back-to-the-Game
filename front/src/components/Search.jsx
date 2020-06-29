@@ -2,7 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom'
 import { Card, ListGroupItem, ListGroup, Button } from 'react-bootstrap'
 
-const Search = ({ searchedList, handlerSubmitCart }) => {
+const Search = ({ searchedList, handlerSubmitCart, userId }) => {
+    
     return (
 
         <div className="containerProd">
@@ -21,7 +22,9 @@ const Search = ({ searchedList, handlerSubmitCart }) => {
                             <ListGroupItem>{`Stock: ${productSearched.stock}`}</ListGroupItem>
                         </ListGroup>
                         <Card.Body>
-                            <Button variant="primary" onClick={handlerSubmitCart}>Agregar al carrito</Button>{' '}
+                            <Button variant="primary"  onClick={() => {
+                           handlerSubmitCart(productSearched.id, userId, productSearched.price);
+                          }}>Agregar al carrito</Button>{' '}
                         </Card.Body>
                     </Card>
                 </div>

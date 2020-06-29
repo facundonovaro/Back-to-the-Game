@@ -4,7 +4,7 @@ import { Navbar, Nav, NavDropdown, Form, FormControl, Button } from 'react-boots
 import logo from '../assets/logo.png' ;
 import { FaShoppingCart, FaSearch } from "react-icons/fa"
 
-const NavBar = ({ handlerChange, handlerSubmitSearch, userLogout, user }) => (
+const NavBar = ({ handlerChange, handlerSubmitSearch, userLogout, user, disable }) => (
 
   <Navbar bg="dark" expand="lg" className='navbar-container'>
     <Link to='/products'>
@@ -36,12 +36,11 @@ const NavBar = ({ handlerChange, handlerSubmitSearch, userLogout, user }) => (
           <NavDropdown.Item href="#action/3.4">Consoles</NavDropdown.Item>
           <NavDropdown.Item href="#action/3.5">Audio</NavDropdown.Item>
         </NavDropdown>
-        <Nav.Link className="navbar-links"><Link to='/cart' className="navbar-links"><FaShoppingCart /></Link></Nav.Link>
+        <Nav.Link className="navbar-links"><Link to='/cart' className="navbar-links"><FaShoppingCart className="shoppingCart-icon" /></Link></Nav.Link>
       </Nav>
-      <Form inline >
-
+      <Form onSubmit={handlerSubmitSearch} inline >
         <FormControl onChange={handlerChange} type="text" placeholder="Search" className="mr-sm-2" />
-        <Button onClick={handlerSubmitSearch} variant="outline-success"><FaSearch /></Button>
+        <button disabled={disable} type="submit" className="search-button"><FaSearch /></button>
       </Form>
     </Navbar.Collapse>
   </Navbar>

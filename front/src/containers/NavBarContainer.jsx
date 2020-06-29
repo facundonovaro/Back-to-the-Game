@@ -10,7 +10,8 @@ class NavBarContainer extends React.Component{
   constructor() {
     super()
     this.state = {
-      inputValue: ''
+      inputValue: '',
+      disable:  true
     }
     this.handlerChange = this.handlerChange.bind(this)
     this.handlerSubmitSearch = this.handlerSubmitSearch.bind(this)
@@ -31,6 +32,9 @@ class NavBarContainer extends React.Component{
   handlerChange(evt) {
     const value = evt.target.value
     this.setState({ inputValue: value })
+    if(value.length > 0){this.setState({disable:false})}
+    if(value.length === 0){this.setState({disable: true})}
+
   }
 
   handlerSubmitSearch() {
@@ -53,6 +57,7 @@ class NavBarContainer extends React.Component{
           handlerSubmitSearch={this.handlerSubmitSearch}
           userLogout={this.userLogoutEvent}
           user={user}
+          disable={this.state.disable}
         />
       </div>
     )

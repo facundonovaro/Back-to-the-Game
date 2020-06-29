@@ -14,12 +14,13 @@ class SearchContainer extends React.Component {
     }
 
     render() {
-        const { searchedList } = this.props
+        const { searchedList, userId } = this.props
         return (
             <div>
                 <Products
                     products={searchedList}
                     handlerSubmitCart={this.handlerSubmitCart}
+                    userId={userId}
                 />
             </div>
 
@@ -30,11 +31,18 @@ class SearchContainer extends React.Component {
 const mapStateToProps = (state) => {
     return {
         searchedList: state.searchReducer.list,
-        addToCart: (productAndUserID) => {
-            dispatch(addToCart(productAndUserID));
-        }
+        userId: state.usersReducer.user.id,
+
+
     };
 };
 
+const mapDispatchToProps = (dispatch) => {
+    return {
+        addToCart: (productAndUserID) => {
+            dispatch(addToCart(productAndUserID))
+    }
+  }
+}
 
-export default connect(mapStateToProps, null)(SearchContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(SearchContainer)
