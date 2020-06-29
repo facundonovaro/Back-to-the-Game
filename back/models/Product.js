@@ -6,7 +6,7 @@ class Product extends S.Model {}
 Product.init(
   {
     name: {
-      type: S.STRING(),
+      type: S.STRING,
       allowNull: false,
     },
     description: {
