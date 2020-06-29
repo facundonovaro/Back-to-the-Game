@@ -6,7 +6,7 @@ import { FaTrash, FaCartPlus, FaCartArrowDown } from "react-icons/fa";
 const Cart = ({ deleteCart, updateCart, cart, user, totalQuantity }) => {
   return (
     <div>
-      <h1>Tu Carrito</h1>
+      <h1 id="titleCart">Mi Carrito</h1>
       {cart.length !== 0 ? (
         <div id="cartContainer">
           <div id="productsCartContainer">
@@ -27,8 +27,8 @@ const Cart = ({ deleteCart, updateCart, cart, user, totalQuantity }) => {
                       onClick={() => {
                         updateCart({
                           quantity: product.quantity + 1,
+                          total: (product.quantity + 1) * product.product.price,
                           orderId: product.id,
-                          userId: user.id,
                         });
                       }}
                       disabled={product.quantity >= product.product.stock}
@@ -45,8 +45,8 @@ const Cart = ({ deleteCart, updateCart, cart, user, totalQuantity }) => {
                       onClick={() => {
                         updateCart({
                           quantity: product.quantity - 1,
+                          total: (product.quantity + 1) * product.product.price,
                           orderId: product.id,
-                          userId: user.id,
                         });
                       }}
                       disabled={product.quantity <= 1}
@@ -57,7 +57,7 @@ const Cart = ({ deleteCart, updateCart, cart, user, totalQuantity }) => {
                     <Button
                       variant="dark"
                       onClick={() => {
-                        deleteCart(product.id, user.id);
+                        deleteCart(product.productId);
                       }}
                     >
                       <FaTrash />
@@ -67,7 +67,17 @@ const Cart = ({ deleteCart, updateCart, cart, user, totalQuantity }) => {
               </div>
             ))}
           </div>
-          <div id="totalCart">Total del Carrito - ${totalQuantity}</div>
+          <div id="totalCardCart">
+            <div id="totalCart">Total del Carrito - ${totalQuantity}</div>
+            <div>
+              <Link to="/checkout">
+                <Button id="checkoutCart" variant="dark">
+                  {" "}
+                  Finalizar Compra
+                </Button>
+              </Link>
+            </div>
+          </div>
         </div>
       ) : (
         <div>
