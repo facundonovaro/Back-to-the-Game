@@ -1,13 +1,26 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Navbar, Nav, NavDropdown, Form, FormControl, Button } from 'react-bootstrap';
-import logo from '../assets/logo.png';
-import { FaShoppingCart, FaSearch } from "react-icons/fa"
+import {
+  Navbar,
+  Nav,
+  NavDropdown,
+  Form,
+  FormControl,
+  Button,
+} from "react-bootstrap";
+import logo from "../assets/logo.png";
+import { FaShoppingCart, FaSearch } from "react-icons/fa";
 
-const NavBar = ({ handlerChange, handlerSubmitSearch, userLogout, user, disable }) => (
-
-  <Navbar bg="dark" expand="lg" className='navbar-container'>
-    <Link to='/products'>
+const NavBar = ({
+  handlerChange,
+  handlerSubmitSearch,
+  userLogout,
+  user,
+  disable,
+  inputValue,
+}) => (
+  <Navbar bg="dark" expand="lg" className="navbar-container">
+    <Link to="/products">
       <Navbar.Brand>
         <img
           src={logo}
@@ -36,10 +49,10 @@ const NavBar = ({ handlerChange, handlerSubmitSearch, userLogout, user, disable 
             </Link>
           </div>
         ) : (
-            <Link className="navbar-links" to="/users/login">
-              Iniciar Sesión
-            </Link>
-          )}
+          <Link className="navbar-links" to="/users/login">
+            Iniciar Sesión
+          </Link>
+        )}
         <NavDropdown title="Categorías" id="navbar-dropdown">
           <NavDropdown.Item href="#action/3.1">Juegos</NavDropdown.Item>
           <NavDropdown.Item href="#action/3.2">Play Station 4</NavDropdown.Item>
@@ -58,6 +71,7 @@ const NavBar = ({ handlerChange, handlerSubmitSearch, userLogout, user, disable 
           type="text"
           placeholder="Quiero buscar..."
           className="mr-sm-2"
+          value={inputValue}
         />
         <button disabled={disable} type="submit" className="search-button">
           <FaSearch />

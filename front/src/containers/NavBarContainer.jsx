@@ -1,56 +1,58 @@
-import React from 'react'
-import { connect } from 'react-redux'
-import NavBar from '../components/Navbar'
-import { fetchProducts } from '../store/actions/products'
-import { searchProducts } from '../store/actions/search'
-import { userLogout } from '../store/actions/users'
-import logo from '../assets/logo.png';
+import React from "react";
+import { connect } from "react-redux";
+import NavBar from "../components/Navbar";
+import { fetchProducts } from "../store/actions/products";
+import { searchProducts } from "../store/actions/search";
+import { userLogout } from "../store/actions/users";
+import logo from "../assets/logo.png";
 
-class NavBarContainer extends React.Component{
-
+class NavBarContainer extends React.Component {
   constructor() {
-    super()
+    super();
     this.state = {
-      inputValue: '',
-      disable:  true
-    }
-    this.handlerChange = this.handlerChange.bind(this)
-    this.handlerSubmitSearch = this.handlerSubmitSearch.bind(this)
-    this.userLogoutEvent = this.userLogoutEvent.bind(this)
+      inputValue: "",
+      disable: true,
+    };
+    this.handlerChange = this.handlerChange.bind(this);
+    this.handlerSubmitSearch = this.handlerSubmitSearch.bind(this);
+    this.userLogoutEvent = this.userLogoutEvent.bind(this);
   }
 
   userLogoutEvent() {
-    this.props.userLogout()
-    this.props.history.push('/products')
+    this.props.userLogout();
+    this.props.history.push("/products");
   }
 
   componentDidMount() {
-    const { fetchProducts } = this.props
-    fetchProducts(this.state.inputValue)
+    const { fetchProducts } = this.props;
+    fetchProducts(this.state.inputValue);
     // agregar loginuser?
   }
 
   handlerChange(evt) {
-    const value = evt.target.value
-    this.setState({ inputValue: value })
-    if(value.length > 0){this.setState({disable:false})}
-    if(value.length === 0){this.setState({disable: true})}
-
+    const value = evt.target.value;
+    this.setState({ inputValue: value });
+    if (value.length > 0) {
+      this.setState({ disable: false });
+    }
+    if (value.length === 0) {
+      this.setState({ disable: true });
+    }
   }
 
   handlerSubmitSearch() {
-    const { searchProducts } = this.props
+    const { searchProducts } = this.props;
     event.preventDefault();
-    searchProducts(this.state.inputValue)
-      .then(() => {
-        this.props.history.push("/search")
-      })
-    console.log('Este click anda')
-
+    searchProducts(this.state.inputValue).then(() => {
+      this.props.history.push("/search");
+    });
+    this.setState({
+      inputValue: "",
+    });
   }
 
   render() {
-    const { user } = this.props
+    const { user } = this.props;
     return (
       <div>
         <NavBar
@@ -60,30 +62,30 @@ class NavBarContainer extends React.Component{
           user={user}
           disable={this.state.disable}
           logo={logo}
+          inputValue={this.state.inputValue}
         />
       </div>
-    )
+    );
   }
 }
 
 const mapStateToProps = (state, ownProps) => {
   return {
     user: state.usersReducer.user,
-    history: ownProps.history
-  }
-}
+    history: ownProps.history,
+  };
+};
 
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchProducts: (name) => {
-      dispatch(fetchProducts(name))
+      dispatch(fetchProducts(name));
     },
     userLogout: () => {
-      dispatch(userLogout())
+      dispatch(userLogout());
     },
-    searchProducts: (name) => dispatch(searchProducts(name))
+    searchProducts: (name) => dispatch(searchProducts(name)),
+  };
+};
 
-  }
-}
-
-export default connect (mapStateToProps, mapDispatchToProps) (NavBarContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(NavBarContainer);
