@@ -42,7 +42,7 @@ const Products = ({ products, handlerSubmitCart, handleDeleteCart, cart }) => {
                     handlerSubmitCart(product.id, product.price);
                   }}
                 >
-                  Add to Cart
+                 Añadir a la cesta
                 </Button>
               )}
             </Card.Body>
