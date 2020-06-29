@@ -61336,8 +61336,9 @@ var NavBar = function NavBar(_ref) {
     style: {
       display: "flex"
     }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Navbar"].Brand, {
-    className: "navbar-links"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    className: "navbar-links",
+    to: "/products"
   }, " ", "Hola ", user.firstName, "!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     onClick: userLogout,
     className: "navbar-links",
@@ -61449,9 +61450,98 @@ var Products = function Products(_ref) {
   !*** ./src/components/Register.jsx ***!
   \*************************************/
 /*! exports provided: default */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /home/flavia/Bootcamp/Back-to-the-Game/front/src/components/Register.jsx: Unexpected token (25:1)\n\n\u001b[0m \u001b[90m 23 | \u001b[39m      \u001b[33m<\u001b[39m\u001b[33mdiv\u001b[39m className\u001b[33m=\u001b[39m\u001b[32m\"login\"\u001b[39m\u001b[33m>\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 24 | \u001b[39m        \u001b[33m<\u001b[39m\u001b[33mForm\u001b[39m className\u001b[33m=\u001b[39m\u001b[32m\"loginForm\"\u001b[39m onSubmit\u001b[33m=\u001b[39m{submit}\u001b[33m>\u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 25 | \u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<\u001b[39m \u001b[33mHEAD\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m    | \u001b[39m \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 26 | \u001b[39m         \u001b[0m\n\u001b[0m \u001b[90m 27 | \u001b[39m          \u001b[33m<\u001b[39m\u001b[33mForm\u001b[39m\u001b[33m.\u001b[39m\u001b[33mLabel\u001b[39m \u001b[36mclass\u001b[39m\u001b[33m=\u001b[39m\u001b[32m\"titulo-login\"\u001b[39m\u001b[33m>\u001b[39m\u001b[33mCompletá\u001b[39m tus datos\u001b[33m<\u001b[39m\u001b[33m/\u001b[39m\u001b[33mForm\u001b[39m\u001b[33m.\u001b[39m\u001b[33mLabel\u001b[39m\u001b[33m>\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 28 | \u001b[39m          \u001b[33m<\u001b[39m\u001b[33mForm\u001b[39m\u001b[33m.\u001b[39m\u001b[33mText\u001b[39m style\u001b[33m=\u001b[39m{{ color\u001b[33m:\u001b[39m \u001b[32m\"white\"\u001b[39m }}\u001b[33m>\u001b[39m\u001b[33m*\u001b[39mcampos requeridos\u001b[33m<\u001b[39m\u001b[33m/\u001b[39m\u001b[33mForm\u001b[39m\u001b[33m.\u001b[39m\u001b[33mText\u001b[39m\u001b[33m>\u001b[39m\u001b[0m\n    at Object._raise (/home/flavia/Bootcamp/Back-to-the-Game/front/node_modules/@babel/parser/lib/index.js:754:17)\n    at Object.raiseWithData (/home/flavia/Bootcamp/Back-to-the-Game/front/node_modules/@babel/parser/lib/index.js:747:17)\n    at Object.raise (/home/flavia/Bootcamp/Back-to-the-Game/front/node_modules/@babel/parser/lib/index.js:741:17)\n    at Object.unexpected (/home/flavia/Bootcamp/Back-to-the-Game/front/node_modules/@babel/parser/lib/index.js:8844:16)\n    at Object.jsxParseIdentifier (/home/flavia/Bootcamp/Back-to-the-Game/front/node_modules/@babel/parser/lib/index.js:4432:12)\n    at Object.jsxParseNamespacedName (/home/flavia/Bootcamp/Back-to-the-Game/front/node_modules/@babel/parser/lib/index.js:4442:23)\n    at Object.jsxParseElementName (/home/flavia/Bootcamp/Back-to-the-Game/front/node_modules/@babel/parser/lib/index.js:4453:21)\n    at Object.jsxParseOpeningElementAt (/home/flavia/Bootcamp/Back-to-the-Game/front/node_modules/@babel/parser/lib/index.js:4539:22)\n    at Object.jsxParseElementAt (/home/flavia/Bootcamp/Back-to-the-Game/front/node_modules/@babel/parser/lib/index.js:4572:33)\n    at Object.jsxParseElementAt (/home/flavia/Bootcamp/Back-to-the-Game/front/node_modules/@babel/parser/lib/index.js:4588:32)\n    at Object.jsxParseElementAt (/home/flavia/Bootcamp/Back-to-the-Game/front/node_modules/@babel/parser/lib/index.js:4588:32)\n    at Object.jsxParseElement (/home/flavia/Bootcamp/Back-to-the-Game/front/node_modules/@babel/parser/lib/index.js:4646:17)\n    at Object.parseExprAtom (/home/flavia/Bootcamp/Back-to-the-Game/front/node_modules/@babel/parser/lib/index.js:4653:19)\n    at Object.parseExprSubscripts (/home/flavia/Bootcamp/Back-to-the-Game/front/node_modules/@babel/parser/lib/index.js:9693:23)\n    at Object.parseMaybeUnary (/home/flavia/Bootcamp/Back-to-the-Game/front/node_modules/@babel/parser/lib/index.js:9673:21)\n    at Object.parseExprOps (/home/flavia/Bootcamp/Back-to-the-Game/front/node_modules/@babel/parser/lib/index.js:9543:23)\n    at Object.parseMaybeConditional (/home/flavia/Bootcamp/Back-to-the-Game/front/node_modules/@babel/parser/lib/index.js:9516:23)\n    at Object.parseMaybeAssign (/home/flavia/Bootcamp/Back-to-the-Game/front/node_modules/@babel/parser/lib/index.js:9471:21)\n    at Object.parseParenAndDistinguishExpression (/home/flavia/Bootcamp/Back-to-the-Game/front/node_modules/@babel/parser/lib/index.js:10304:28)\n    at Object.parseExprAtom (/home/flavia/Bootcamp/Back-to-the-Game/front/node_modules/@babel/parser/lib/index.js:10044:21)\n    at Object.parseExprAtom (/home/flavia/Bootcamp/Back-to-the-Game/front/node_modules/@babel/parser/lib/index.js:4658:20)\n    at Object.parseExprSubscripts (/home/flavia/Bootcamp/Back-to-the-Game/front/node_modules/@babel/parser/lib/index.js:9693:23)\n    at Object.parseMaybeUnary (/home/flavia/Bootcamp/Back-to-the-Game/front/node_modules/@babel/parser/lib/index.js:9673:21)\n    at Object.parseExprOps (/home/flavia/Bootcamp/Back-to-the-Game/front/node_modules/@babel/parser/lib/index.js:9543:23)\n    at Object.parseMaybeConditional (/home/flavia/Bootcamp/Back-to-the-Game/front/node_modules/@babel/parser/lib/index.js:9516:23)\n    at Object.parseMaybeAssign (/home/flavia/Bootcamp/Back-to-the-Game/front/node_modules/@babel/parser/lib/index.js:9471:21)\n    at Object.parseExpression (/home/flavia/Bootcamp/Back-to-the-Game/front/node_modules/@babel/parser/lib/index.js:9423:23)\n    at Object.parseReturnStatement (/home/flavia/Bootcamp/Back-to-the-Game/front/node_modules/@babel/parser/lib/index.js:11560:28)\n    at Object.parseStatementContent (/home/flavia/Bootcamp/Back-to-the-Game/front/node_modules/@babel/parser/lib/index.js:11241:21)\n    at Object.parseStatement (/home/flavia/Bootcamp/Back-to-the-Game/front/node_modules/@babel/parser/lib/index.js:11193:17)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-bootstrap/Button */ "./node_modules/react-bootstrap/esm/Button.js");
+/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
+
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = (function (_ref) {
+  var firstName = _ref.firstName,
+      lastName = _ref.lastName,
+      username = _ref.username,
+      password = _ref.password,
+      handlerChange = _ref.handlerChange,
+      submit = _ref.submit,
+      passwordValidate = _ref.passwordValidate,
+      error = _ref.error,
+      message = _ref.message,
+      passwordBarNow = _ref.passwordBarNow,
+      passwordBarVariant = _ref.passwordBarVariant,
+      passwordSecurity = _ref.passwordSecurity,
+      passwordSecurityClass = _ref.passwordSecurityClass;
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "login"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Form"], {
+    className: "loginForm",
+    onSubmit: submit
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Form"].Label, {
+    "class": "titulo-login"
+  }, "Complet\xE1 tus datos"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Form"].Text, {
+    style: {
+      color: "white"
+    }
+  }, "*campos requeridos"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Form"].Group, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Form"].Control, {
+    required: true,
+    type: "text",
+    placeholder: "Nombre*",
+    name: "firstName",
+    onChange: handlerChange,
+    value: firstName
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Form"].Text, {
+    className: "text-muted"
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Form"].Group, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Form"].Label, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Form"].Control, {
+    required: true,
+    type: "text",
+    placeholder: "Apellido*",
+    name: "lastName",
+    onChange: handlerChange,
+    value: lastName
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Form"].Text, {
+    className: "text-muted"
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Form"].Group, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Form"].Label, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Form"].Control, {
+    required: true,
+    type: "email",
+    placeholder: "E-mail*",
+    name: "username",
+    onChange: handlerChange,
+    value: username
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Form"].Text, {
+    className: "text-muted"
+  }), error ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Form"].Text, {
+    className: "error",
+    style: {
+      color: "red"
+    }
+  }, message) : null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Form"].Group, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Form"].Label, null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Form"].Control, {
+    type: "password",
+    placeholder: "Clave",
+    name: "password",
+    onChange: handlerChange,
+    value: password
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Form"].Text, {
+    className: passwordSecurityClass
+  }, passwordSecurity), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["ProgressBar"], {
+    now: passwordBarNow,
+    variant: passwordBarVariant
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Form"].Text, {
+    className: "messagePasswordLogin"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, " Aument\xE1 la seguridad de tu clave agregando: may\xFAsculas, min\xFAsculas, n\xFAmeros y alg\xFAn car\xE1cter especial (!,@,#,\\,$,%)")), passwordValidate ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Form"].Text, {
+    style: {
+      color: "red"
+    }
+  }, "La contrase\xF1a debe tener un m\xEDnimo de 4 car\xE1cteres") : null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    variant: "primary",
+    type: "submit"
+  }, "Continuar")));
+});
 
 /***/ }),
 
