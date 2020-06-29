@@ -6,12 +6,13 @@ import { searchProducts } from '../store/actions/search'
 import { userLogout } from '../store/actions/users'
 import logo from '../assets/logo.png';
 
-class NavbarContainer extends React.Component {
+class NavBarContainer extends React.Component{
 
   constructor() {
     super()
     this.state = {
-      inputValue: ''
+      inputValue: '',
+      disable:  true
     }
     this.handlerChange = this.handlerChange.bind(this)
     this.handlerSubmitSearch = this.handlerSubmitSearch.bind(this)
@@ -32,6 +33,9 @@ class NavbarContainer extends React.Component {
   handlerChange(evt) {
     const value = evt.target.value
     this.setState({ inputValue: value })
+    if(value.length > 0){this.setState({disable:false})}
+    if(value.length === 0){this.setState({disable: true})}
+
   }
 
   handlerSubmitSearch() {
@@ -54,6 +58,7 @@ class NavbarContainer extends React.Component {
           handlerSubmitSearch={this.handlerSubmitSearch}
           userLogout={this.userLogoutEvent}
           user={user}
+          disable={this.state.disable}
           logo={logo}
         />
       </div>
@@ -81,4 +86,4 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(NavbarContainer)
+export default connect (mapStateToProps, mapDispatchToProps) (NavBarContainer)

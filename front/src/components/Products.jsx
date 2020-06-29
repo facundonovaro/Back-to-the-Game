@@ -16,9 +16,9 @@ const Products = ({ products, handlerSubmitCart, handleDeleteCart, cart }) => {
               />
             </Link>
             <Card.Body>
-              <Card.Title className="titleCard">{product.name}</Card.Title>
+              <Card.Title className="titleCard">{product.snippet}</Card.Title>
               <Card.Text className="descrCard">
-                {`Descriptión: ${product.description}`}
+                {`Descriptión: ${product.snippetDesc}`}
               </Card.Text>
             </Card.Body>
             <ListGroup className="list-group-flush">
@@ -42,7 +42,7 @@ const Products = ({ products, handlerSubmitCart, handleDeleteCart, cart }) => {
                     handlerSubmitCart(product.id, product.price);
                   }}
                 >
-                  Add to Cart
+                 Añadir a la cesta
                 </Button>
               )}
             </Card.Body>
