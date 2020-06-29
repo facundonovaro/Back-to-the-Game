@@ -9,9 +9,9 @@ const {
 
 router.post("/", addToCart);
 
-router.get("/:id", findAllCart);
+router.get("/", findAllCart);
 
-router.delete("/:orderId/:userId", deleteOrder);
+router.delete("/:productId", deleteOrder);
 
 router.patch("/", updateOrder);
 
