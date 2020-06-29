@@ -5,6 +5,7 @@ const userRouter = require("./users");
 const cartRouter = require("./cart");
 const searchRouter = require("./search")
 
+// /api
 router.use("/products", productRouter);
 router.use("/users", userRouter);
 router.use("/cart", cartRouter);
