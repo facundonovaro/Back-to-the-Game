@@ -57,6 +57,7 @@ const NavBar = ({ handlerChange, handlerSubmitSearch, userLogout, user }) => (
           type="text"
           placeholder="Quiero buscar..."
           className="mr-sm-2"
+
         />
         <button type="submit" className="search-button">
           <FaSearch />

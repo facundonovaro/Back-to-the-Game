@@ -2,7 +2,7 @@ const { Product } = require("./models/index");
 const { Category } = require("./models/index");
 
 const juegoGhost = Product.create({
-  name: "Ghost of Tsushima - Playstation 4 (Preventa)",
+  name: "ghost of tsushima - playstation 4 (preventa)",
   description:
     "Ghost of Tsushima - Playstation 4 - Launch Edition. Incluye contenido bonus",
   price: 7500,
@@ -13,7 +13,7 @@ const juegoGhost = Product.create({
 });
 
 const juegoFifa = Product.create({
-  name: "FIFA 21 - Playstation 4 (Preventa)",
+  name: "fifa 21 - playstation 4 (preventa)",
   description: "FIFA 21 - Playstation 4 - EA Sports",
   price: 9500,
   img1Url:
@@ -24,7 +24,7 @@ const juegoFifa = Product.create({
 });
 
 const consolaPs4 = Product.create({
-  name: "Playstation 4",
+  name: "playstation 4",
   description: "Play Station 4 + 1 control + Call of Duty Black Ops",
   price: 70000,
   img1Url:
@@ -35,7 +35,7 @@ const consolaPs4 = Product.create({
 });
 
 const consolaXbox = Product.create({
-  name: "Xbox One",
+  name: "xbox one",
   description:
     "Microsoft - Xbox One S 1TB All-Digital Edition Consola con mando inalámbrico Xbox One",
   price: 70000,
@@ -47,7 +47,7 @@ const consolaXbox = Product.create({
 });
 
 const audioHeadPhones = Product.create({
-  name: "Auricular Gamer Gadnic A-37 Pro Luces Ps4 Pc Gaming ",
+  name: "auricular gamer gadnic a-37 pro luces ps4 pc gaming ",
   description:
     "Auricular Gamer Gadnic A-37 Pro Luces Ps4 Pc Gaming. Incluyen bluetooth y micrófono ",
   price: 10000,
@@ -59,7 +59,7 @@ const audioHeadPhones = Product.create({
 });
 
 const audioOtherHeadPhones = Product.create({
-  name: "Auriculares Gamer DragonWar Inalámbricos",
+  name: "auriculares gamer dragonWar inalámbricos",
   description:
     "Auriculares Gamer DragonWar Inalámbricos. Incluyen bluetooth y micrófono ",
   price: 10000,
