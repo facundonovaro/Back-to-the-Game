@@ -4,7 +4,7 @@ import { Card, ListGroupItem, ListGroup, Button } from "react-bootstrap";
 
 const Products = ({ products, handlerSubmitCart, handleDeleteCart, cart }) => {
   return (
-    <div className="containerProd">
+    <div className="containerProd textProductsForce">
       {products.map((product) => (
         <div key={product.id} className="cards">
           <Card style={{ width: "18rem" }}>
