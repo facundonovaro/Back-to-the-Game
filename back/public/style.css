@@ -205,6 +205,9 @@
   box-shadow: none !important;
 }
 
+.textProductsForce {
+  text-transform: capitalize;
+}
 .messagePasswordLogin {
   color: white;
 }
