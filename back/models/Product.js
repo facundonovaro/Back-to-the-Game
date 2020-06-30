@@ -31,7 +31,7 @@ Product.init(
     snippet : {
       type : S.VIRTUAL,
       get (){
-        if(this.name.length <= 30){return this.name}
+        if(this.name.length <= 20){return this.name}
         else{return this.name.slice(0, 21) + '...'}
   }
 },

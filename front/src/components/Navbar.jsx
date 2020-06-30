@@ -58,6 +58,7 @@ const NavBar = ({ handlerChange, handlerSubmitSearch, userLogout, user, disable 
           type="text"
           placeholder="Quiero buscar..."
           className="mr-sm-2"
+          // value={inputValue}
         />
         <button disabled={disable} type="submit" className="search-button">
           <FaSearch />

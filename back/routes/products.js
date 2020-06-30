@@ -14,7 +14,5 @@ router.patch('/:id', updateProduct)
 
 router.delete('/:id', deleteProduct)
 
-router.post("/:id/reviews", addReview)
-
 module.exports =  router
 
