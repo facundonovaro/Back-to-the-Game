@@ -14,3 +14,8 @@ export const ADD_PRODUCT = "ADD_PRODUCT";
 //Cart
 export const ADD_TO_CART = "ADD_TO_CART";
 export const GET_ALL_CART = "GET_ALL_CART";
+export const TOTAL_CART = "TOTAL_CART";
+
+//Checkout
+export const GET_LAST_ORDERS = "GET_LAST_ORDERS";
+

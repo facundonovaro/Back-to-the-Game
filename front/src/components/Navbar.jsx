@@ -51,6 +51,12 @@ const NavBar = ({ handlerChange, handlerSubmitSearch, userLogout, user, disable 
         <Link className="navbar-links" to="/cart">
           <FaShoppingCart className="shoppingCart-icon" />
         </Link>
+        <Link to="/checkout">
+          <Button id="checkoutCart" variant="dark">
+            {" "}
+                  Ordenes
+                </Button>
+        </Link>
       </Nav>
       <Form onSubmit={handlerSubmitSearch} inline>
         <FormControl

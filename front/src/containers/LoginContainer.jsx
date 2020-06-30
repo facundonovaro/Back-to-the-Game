@@ -42,8 +42,6 @@ class LoginContainer extends Component {
     .then((data)=>{
       !data.message ? this.props.history.push(`/products`) : this.setState({error:true})
     })
-   
-    
     
   }
   render() {
