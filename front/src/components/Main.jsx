@@ -10,6 +10,9 @@ import SingleuserContainer from "../containers/SingleuserContainer";
 import EditProductContainer from "../containers/EditProductContainer";
 import SearchContainer from "../containers/SearchContainer";
 import CartContainer from "../containers/CartContainer";
+import CheckoutContainer from "../containers/CheckoutContainer";
+import ThankYouContainer from "../containers/ThankYouContainer";
+import LastOrdersContainer from "../containers/LastOrdersContainer";
 import { connect } from "react-redux";
 import { cookieLogger } from "../store/actions/users";
 import { CategoryContainer } from "../containers/CategoryContainer";
@@ -44,6 +47,9 @@ class Main extends React.Component {
         </div>
         <Switch>
           <Route path="/search" component={SearchContainer} />
+          <Route path="/checkout" component={CheckoutContainer} />
+          <Route path="/thankyou" component={ThankYouContainer} />
+          <Route path="/lastorders" component={LastOrdersContainer} />
           <Route exact path="/products" component={ProductsContainer} />
           <Route path="/users/register" component={RegisterContainer} />
           <Route path="/users/login" component={LoginContainer} />

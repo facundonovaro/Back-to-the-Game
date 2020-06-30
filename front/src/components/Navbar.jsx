@@ -61,24 +61,29 @@ const NavBar = ({
             <NavDropdown.Item href="#action/3.5">Audio</NavDropdown.Item>
           </NavDropdown>
 
-          <Link className="navbar-links" to="/cart">
-            <FaShoppingCart className="shoppingCart-icon" />
-          </Link>
-        </Nav>
-        <Form onSubmit={handlerSubmitSearch} inline>
-          <FormControl
-            onChange={handlerChange}
-            type="text"
-            placeholder="Quiero buscar..."
-            className="mr-sm-2"
-            value={inputValue}
-          />
-          <button disabled={disable} type="submit" className="search-button">
-            <FaSearch />
-          </button>
-        </Form>
-      </Navbar.Collapse>
-    </Navbar>
-  );
+        <Link className="navbar-links" to="/cart">
+          <FaShoppingCart className="shoppingCart-icon" />
+        </Link>
+        <Link to="/checkout">
+          <Button id="checkoutCart" variant="dark">
+            {" "}
+                  Ordenes
+                </Button>
+        </Link>
+      </Nav>
+      <Form onSubmit={handlerSubmitSearch} inline>
+        <FormControl
+          onChange={handlerChange}
+          type="text"
+          placeholder="Quiero buscar..."
+          className="mr-sm-2"
+        />
+        <button disabled={disable} type="submit" className="search-button">
+          <FaSearch />
+        </button>
+      </Form>
+    </Navbar.Collapse>
+  </Navbar>
+);
 
 export default NavBar;
