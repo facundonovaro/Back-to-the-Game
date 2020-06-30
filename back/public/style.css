@@ -58,13 +58,15 @@
 
 .navbar-links {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  padding: 15px;
   text-decoration: none;
   color: #c1c1c1 !important;
 }
 .navbar-links:hover {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  padding: 15px;
   text-decoration: none;
   color: #7e7e7e !important;
 }
@@ -72,10 +74,15 @@
 #navbar-dropdown {
   text-decoration: none;
   color: #c1c1c1;
+  flex-direction: row;
+  padding: 15px;
 }
+
 #navbar-links:hover {
   text-decoration: none;
   color: #7e7e7e;
+  flex-direction: row;
+  padding: 15px;
 }
 
 #cartContainer {

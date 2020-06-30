@@ -1,17 +1,16 @@
 const express = require("express");
 const router = express.Router();
-const {
-  addToCart,
-  findAllCart,
-  deleteOrder,
-  updateOrder,
-} = require("../controllers/cartControllers");
+const { addToCart, findAllCart, deleteOrder, updateOrder, assignCart } = require("../controllers/cartControllers");
+
+// /api/cart
 
 router.post("/", addToCart);
 
+router.post("/local", assignCart)
+
 router.get("/", findAllCart);
 
-router.delete("/:productId", deleteOrder);
+router.delete("/:orderId", deleteOrder);
 
 router.patch("/", updateOrder);
 
