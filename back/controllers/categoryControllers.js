@@ -1,13 +1,14 @@
 const { Category, Product } = require('../models');
 
 const getCategory = (req, res) => {
-    Category.findOne({
+    Category.findAll({
         where: {
             name: req.params.category,
-            include: [{
+        },
+        include: [{
                 model: Product,
             }]
-        }})
+    })
     .then(products => res.send(products))
 }
 

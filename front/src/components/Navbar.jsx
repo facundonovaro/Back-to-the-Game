@@ -26,10 +26,10 @@ const NavBar = ({ handlerChange, handlerSubmitSearch, userLogout, user }) => (
         )}
         {user.id ? (
           <div style={{ display: "flex" }}>
-            <Navbar.Brand className="navbar-links">
+            <Link className="navbar-links" to='/products'>
               {" "}
               Hola {user.firstName}!
-            </Navbar.Brand>
+            </Link>
             <Link onClick={userLogout} className="navbar-links" to="/products">
               Cerrar Sesión
             </Link>
@@ -40,11 +40,11 @@ const NavBar = ({ handlerChange, handlerSubmitSearch, userLogout, user }) => (
             </Link>
           )}
         <NavDropdown title="Categorías" id="navbar-dropdown">
-          <NavDropdown.Item href="#action/3.1">Juegos</NavDropdown.Item>
-          <NavDropdown.Item href="#action/3.2">Play Station 4</NavDropdown.Item>
-          <NavDropdown.Item href="#action/3.3">Xbox</NavDropdown.Item>
-          <NavDropdown.Item href="#action/3.4">Consolas</NavDropdown.Item>
-          <NavDropdown.Item href="#action/3.5">Audio</NavDropdown.Item>
+          <NavDropdown.Item href="/Games">Juegos</NavDropdown.Item>
+          <NavDropdown.Item href="/Play Station 4">Play Station 4</NavDropdown.Item>
+          <NavDropdown.Item href="/Xbox">Xbox</NavDropdown.Item>
+          <NavDropdown.Item href="/Consoles">Consolas</NavDropdown.Item>
+          <NavDropdown.Item href="Audio">Audio</NavDropdown.Item>
         </NavDropdown>
 
         <Link className="navbar-links" to="/cart">

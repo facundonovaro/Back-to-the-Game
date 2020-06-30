@@ -3,7 +3,8 @@ import { Alert, ListGroup, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { FaTrash, FaCartPlus, FaCartArrowDown } from "react-icons/fa";
 
-const Cart = ({ deleteCart, updateCart, cart, user, totalQuantity }) => {
+const Cart = ({ deleteCart, cart, user, totalQuantity, handleUpdateCart, handleDeleteCart }) => {
+  console.log('CART ', cart)
   return (
     <div>
       <h1 id="titleCart">Mi Carrito</h1>
@@ -14,41 +15,38 @@ const Cart = ({ deleteCart, updateCart, cart, user, totalQuantity }) => {
               <div key={product.id} id="productCart">
                 <div id="listGroupCart">
                   <div>
-                    <h3>{product.product.name}</h3>
-                    <p>Precio individual - ${product.product.price}</p>
+                    <h3>{product.name}</h3>
+                    <p>Precio individual - ${product.price}</p>
                   </div>
-
                   <div id="subTotalCart">
-                    Sub Total - ${product.quantity * product.product.price}
+                    Sub Total - ${product.quantity * product.price}
                   </div>
                   <div id="buttonsCart">
                     <Button
                       variant="dark"
-                      onClick={() => {
-                        updateCart({
-                          quantity: product.quantity + 1,
-                          total: (product.quantity + 1) * product.product.price,
-                          orderId: product.id,
-                        });
+                      onClick={() => {   
+                       handleUpdateCart({quantity: product.quantity + 1,
+                        total: (product.quantity + 1) * product.price,
+                        orderId: product.orderId,
+                        id: product.id})
                       }}
-                      disabled={product.quantity >= product.product.stock}
+                      disabled={product.quantity >= product.stock}
                     >
                       <FaCartPlus />
                     </Button>
                     <div>{product.quantity}</div>
-                    {product.quantity >= product.product.stock ? (
+                    {product.quantity >= product.stock ? (
                       <Alert variant="primary">Llegaste al máximo stock</Alert>
                     ) : null}
 
                     <Button
                       variant="dark"
-                      onClick={() => {
-                        updateCart({
-                          quantity: product.quantity - 1,
-                          total: (product.quantity + 1) * product.product.price,
-                          orderId: product.id,
-                        });
-                      }}
+                      onClick={() => {   
+                        handleUpdateCart({quantity: product.quantity - 1,
+                         total: (product.quantity - 1) * product.price,
+                         orderId: product.orderId,
+                         id: product.id})
+                       }}
                       disabled={product.quantity <= 1}
                     >
                       <FaCartArrowDown />
@@ -57,7 +55,8 @@ const Cart = ({ deleteCart, updateCart, cart, user, totalQuantity }) => {
                     <Button
                       variant="dark"
                       onClick={() => {
-                        deleteCart(product.productId);
+                        deleteCart(product.orderId);
+                        handleDeleteCart(product.id)
                       }}
                     >
                       <FaTrash />

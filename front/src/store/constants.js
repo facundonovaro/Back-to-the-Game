@@ -11,6 +11,9 @@ export const SEARCH_PRODUCTS = "SEARCH_PRODUCTS";
 export const GET_PRODUCT = "GET_PRODUCT";
 export const ADD_PRODUCT = "ADD_PRODUCT";
 
-//Cart
+// Cart
 export const ADD_TO_CART = "ADD_TO_CART";
 export const GET_ALL_CART = "GET_ALL_CART";
+
+// Category
+export const SET_CATEGORY = "SET_CATEOGORY"

@@ -1,20 +1,10 @@
 const express = require("express");
 const router = express.Router();
 const { Category, Product } = require('../models')
-const { getCategory } = require('../controllers/categoryControllers')
+const getCategory = require('../controllers/categoryControllers')
 
-router.get('/:category', (req, res) => {
-    
+// /api/category
 
-    Category.findOne({
-        where: {
-            name: req.params.category,
-            include: [{
-                model: Product,
-            }]
-        }
-    })
-    .then(products => res.send(products))
-})
+router.get('/:category', getCategory)
 
 module.exports = router;
