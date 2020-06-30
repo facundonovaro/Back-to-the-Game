@@ -1,21 +1,31 @@
 import React from "react";
 import { connect } from "react-redux";
 import Products from "../components/Products";
-import { addToCart, deleteCart, fetchCart } from "../store/actions/cart";
+import { addToCart, deleteCart, fetchCart, addLocalStorage } from "../store/actions/cart";
 
 class ProductsContainer extends React.Component {
   constructor() {
     super();
+
     this.handlerSubmitCart = this.handlerSubmitCart.bind(this);
     this.handleDeleteCart = this.handleDeleteCart.bind(this);
   }
 
-  componentDidMount() {
-    this.props.fetchCart();
-  }
-
-  handlerSubmitCart(id, price) {
-    this.props.addToCart({ id: id, price: price });
+  handlerSubmitCart(id, name, description, price, stock, img1Url, img2Url) {
+    if(this.props.userId){
+      this.props.addToCart({ id: id, price: price });
+    }
+    else {
+      let product = {id, name, description, price, stock, img1Url, img2Url, quantity: 1}
+      localStorage.setItem(id, JSON.stringify(product))
+      var products = []
+      for(var i = 0, len = localStorage.length; i < len; i++) {
+        var key = localStorage.key(i);
+        var value = JSON.parse(localStorage[key]);  
+        products.push(value);
+    }
+      this.props.addLocalStorage(products)
+    }
   }
 
   handleDeleteCart(orderId) {
@@ -54,6 +64,7 @@ const mapDispatchToProps = (dispatch) => {
     fetchCart: () => {
       dispatch(fetchCart());
     },
+    addLocalStorage: (products) => {dispatch(addLocalStorage(products))}
   };
 };
 

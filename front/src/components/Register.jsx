@@ -3,22 +3,7 @@ import Button from 'react-bootstrap/Button';
 import {Form, ProgressBar} from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
-
-
-export default ({ firstName,
-   lastName, 
-   username, 
-   password,
-    handlerChange,
-     submit,
-     passwordValidate,
-     error,
-     message,
-  passwordBarNow,
-  passwordBarVariant,
-  passwordSecurity,
-  passwordSecurityClass,
-   }) => {
+export default ({ firstName, lastName, username, password, handlerChange, submit, passwordValidate, error, message,   passwordBarNow, passwordBarVariant, passwordSecurity, passwordSecurityClass, }) => {
     return (
       <div className="login">
         <Form className="loginForm" onSubmit={submit}>
@@ -98,5 +83,4 @@ export default ({ firstName,
           </Button>
         </Form>
       </div>
-    );
-}
+    )}
