@@ -18,11 +18,11 @@
 }
 
 .descrCard {
-  height: 100px;
+  height: 65px;
 }
 
 .titleCard {
-  height: 70px;
+  height: 30px;
 }
 .contProd {
   display: flex;
@@ -70,6 +70,7 @@
   text-decoration: none;
   color: #7e7e7e !important;
 }
+
 #navbar-dropdown {
   text-decoration: none;
   color: #c1c1c1;
@@ -209,6 +210,10 @@
   height: 30px;
   outline: none !important;
   box-shadow: none !important;
+}
+
+.textProductsForce {
+  text-transform: capitalize;
 }
 .messagePasswordLogin {
   color: white;

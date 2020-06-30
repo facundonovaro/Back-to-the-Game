@@ -1,13 +1,24 @@
 import React from "react";
 import { Carousel } from "react-bootstrap";
+import { ListGroupItem, ListGroup, Form, Button } from "react-bootstrap"
 
 const SingleProduct = ({
   product,
   handlerSubmitCart,
   handleDeleteCart,
   cart,
+  reviews,
+  description,
+  rate,
+  handlerDescriptionChange,
+  handlerRateChange,
+  handlerReviewSubmit,
+  rateAverage
+
 }) => {
+  
   return (
+  <div>
     <div className="container-fluid" style={{ width: "80%" }}>
       <div className="card mb-3">
         <div className="row no-gutters">
@@ -50,15 +61,64 @@ const SingleProduct = ({
                       handlerSubmitCart(product.id, product.price);
                     }}
                   >
-                    Add to Cart
+                    Añadir al carro
                   </button>
                 )}
               </div>
             </div>
           </div>
         </div>
+        <div id="subTotalCart">
+                    {`Calificación promedio: ${rateAverage}`}
+                  </div>
       </div>
+      
+      <div>
+      <ListGroup className="list-group-flush">
+        <div>{reviews.length >=1 ? reviews.map((review)=>(
+         <div key={review.id}> <ListGroupItem>{`Calificación: ${review.rate} - Descripción: ${review.description}`}</ListGroupItem>
+        </div>
+        )) : <div><h5>Este productor aún no tiene calificaciones</h5></div>}
+        </div>
+        </ListGroup>
+      </div>
+      <hr/>
+     
+
+     <div>
+     <Form onSubmit={(event)=>handlerReviewSubmit(event, product.id)}>
+  <Form.Group controlId="exampleForm.ControlSelect2">
+    <Form.Label>Califica el producto</Form.Label>
+    <Form.Control 
+    as="select" multiple 
+    onChange={handlerRateChange} 
+    value={rate} >
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </Form.Control>
+  </Form.Group>
+  <Form.Group controlId="exampleForm.ControlTextarea1">
+    <Form.Label>Escribe una pequeña reseña</Form.Label>
+    <Form.Control 
+    as="textarea" 
+    rows="3"
+    onChange={handlerDescriptionChange}
+    value={description}/>
+  </Form.Group>
+  <Button 
+  type="submit" 
+  className="btn btn-dark" 
+  >Calificar</Button>
+</Form>
+     </div>
+
+
     </div>
+</div>
+
   );
 };
 

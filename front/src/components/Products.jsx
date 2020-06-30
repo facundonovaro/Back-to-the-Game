@@ -4,7 +4,7 @@ import { Card, ListGroupItem, ListGroup, Button } from "react-bootstrap";
 
 const Products = ({ products, handlerSubmitCart, handleDeleteCart, cart }) => {
   return (
-    <div className="containerProd">
+    <div className="containerProd textProductsForce">
       {products.map((product) => (
         <div key={product.id} className="cards">
           <Card style={{ width: "18rem" }}>
@@ -16,9 +16,9 @@ const Products = ({ products, handlerSubmitCart, handleDeleteCart, cart }) => {
               />
             </Link>
             <Card.Body>
-              <Card.Title className="titleCard">{product.name}</Card.Title>
+              <Card.Title className="titleCard">{product.snippet}</Card.Title>
               <Card.Text className="descrCard">
-                {`Descriptión: ${product.description}`}
+                {`Descriptión: ${product.snippetDesc}`}
               </Card.Text>
             </Card.Body>
             <ListGroup className="list-group-flush">
@@ -42,7 +42,7 @@ const Products = ({ products, handlerSubmitCart, handleDeleteCart, cart }) => {
                     handlerSubmitCart(product.id, product.name, product.description, product.price, product.stock, product.img1Url, product.img2Url);
                   }}
                 >
-                  Add to Cart
+                 Añadir a la cesta
                 </Button>
               )}
             </Card.Body>
