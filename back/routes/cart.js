@@ -10,7 +10,7 @@ router.post("/local", assignCart)
 
 router.get("/", findAllCart);
 
-router.delete("/:productId", deleteOrder);
+router.delete("/:orderId", deleteOrder);
 
 router.patch("/", updateOrder);
 

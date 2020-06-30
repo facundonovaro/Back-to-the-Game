@@ -27,14 +27,33 @@ const addToCart = (req, res) => {
 
 const assignCart = (req, res) => {
   req.body.map(order => {
+    console.log('ORDER ', order)
     Product.findByPk(order.id)
     .then((productFound)=> {
       const product = productFound;
-      Order.create({ total: order.price})
-      .then((orderCreated) => {
-        const orden = orderCreated
-        orden.setProduct(product)
-        orden.setUser(req.user)
+      return Order.findOne({
+        where: {
+          productId: order.id,
+          state: "pending",
+          userId: req.user.id
+        }
+      })
+      .then(orderFound => {
+        if(!orderFound){
+          return Order.create({
+            total: order.price
+          })
+          .then((orderCreated) => {
+            const orden = orderCreated
+            orden.setProduct(product)
+            orden.setUser(req.user)
+          })
+        }
+        else{
+          orderFound.update({
+            quantity: order.quantity
+          })
+        }
       })
     })
   })
@@ -69,7 +88,7 @@ const findAllCart = (req, res) => {
 
 const deleteOrder = (req, res) => {
   Order.destroy({
-    where: { productId: req.params.productId, userId: req.user.id },
+    where: { id: req.params.orderId },
   }).then(() => {
     Order.findAll({
       where: { userId: req.user.id, state: "pending" },
