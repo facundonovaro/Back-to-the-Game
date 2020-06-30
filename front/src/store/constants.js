@@ -14,3 +14,6 @@ export const ADD_PRODUCT = "ADD_PRODUCT";
 //Cart
 export const ADD_TO_CART = "ADD_TO_CART";
 export const GET_ALL_CART = "GET_ALL_CART";
+//Review
+export const SHOW_ALL_REVIEWS = "SHOW_ALL_REVIEWS"
+export const ADD_REVIEW = "ADD_REVIEW"

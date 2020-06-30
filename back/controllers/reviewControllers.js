@@ -1,23 +1,38 @@
-const {Review} = require ('../models/Review')
-const {Product} = require('../models/Product')
-const {User} = require('../models/User')
+const {Review} = require ('../models/index')
+const {Product} = require('../models/index')
 
-const addReview = (req, res)=>{
- const product =  Product.findByPk(req.params.id)
- const user = User.findByPk(req.body.id)
-   Promise.all([product, user]).then(([product, user])=>{
-         Review.create({
-             description: req.body.description,
-             rate: req.body.rate})
-              .then((review)=>{
-              product.addReview(review)
-              user.setReview(review)
-               .then((productRated)=>{
-                   res.status(200).json(productRated)
-               })
-    })
+
+const findAllProductReviews = (req, res)=>{
+  Review.findAll({where:{
+    productId: req.params.id}})
+  .then((reviews)=>{
+    res.json(reviews).status(200)
   })
 }
 
 
-module.exports = { addReview }
+const addReview = (req, res)=>{
+  console.log('REQ.BODY', req.body)
+  console.log('req.body.productId', req.body.productId)
+  Product.findOne({where:{
+    id: req.body.productId
+  }}).then((productFound)=>{
+  const product = productFound
+  Review.create({
+    description: req.body.description,
+    rate: req.body.rate})
+     .then((review)=>{
+     product.addReview(review)
+     review.setUser(req.body.userId)
+    }).then(()=>{
+      Review.findAll({where:{
+        productId: req.body.productId}})
+      .then((reviews)=>{
+        res.json(reviews).status(200)
+      })
+    })
+ })
+}
+
+
+module.exports = { addReview, findAllProductReviews }
