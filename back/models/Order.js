@@ -7,12 +7,10 @@ Order.init(
   {
     quantity: {
       type: S.INTEGER,
-      allowNull: false,
       defaultValue: 1,
     },
     date: {
       type: S.DATE,
-      allowNull: false,
       defaultValue: S.NOW,
     },
     state: {

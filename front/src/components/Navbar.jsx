@@ -64,12 +64,12 @@ const NavBar = ({
         <Link className="navbar-links" to="/cart">
           <FaShoppingCart className="shoppingCart-icon" />
         </Link>
-        <Link to="/checkout">
+       { user.id ? (<Link to="/lastorders">
           <Button id="checkoutCart" variant="dark">
             {" "}
                   Ordenes
                 </Button>
-        </Link>
+        </Link>) : null}
       </Nav>
       <Form onSubmit={handlerSubmitSearch} inline>
         <FormControl
