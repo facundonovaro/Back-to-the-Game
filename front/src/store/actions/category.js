@@ -22,6 +22,5 @@ export const setCategory = (category) => (dispatch) => {
 
 export const getCategories = () => (dispatch) =>
     axios.get('/api/category')
-    .then((categories) => {
-        console.log('CATEGORIES DEL BACK ', categories)
-        dispatch(setCategories(categories.data))})
+    .then(categories =>
+        dispatch(setCategories(categories.data)))
