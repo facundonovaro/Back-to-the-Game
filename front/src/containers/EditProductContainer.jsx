@@ -81,7 +81,7 @@ class EditProductContainer extends React.Component {
   handleSubmit() {
     event.preventDefault();
     confirm("Are you sure you want to change this product info?");
-    editProduct(this.props.product.id, this.state);
+    this.props.editProduct(this.props.product.id, this.state);
     this.setState({
       name: "",
       description: "",
@@ -133,6 +133,10 @@ const mapDispatchToProps = (dispatch) => {
     },
     fetchProduct: (id) => {
       dispatch(fetchProduct(id));
+    },
+
+    editProduct: (id, edit) => {
+      dispatch(editProduct(id, edit));
     },
   };
 };

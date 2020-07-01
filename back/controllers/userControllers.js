@@ -40,10 +40,41 @@ const findAllUsers = (req, res) => {
   });
 };
 
+const findSingleUser = (req, res) => {
+  User.findByPk(req.params.id).then((user) => {
+    res.send(user);
+  });
+};
+
+const editUser = (req, res) => {
+  User.update(
+    { role: req.body.role },
+    {
+      where: { id: req.params.id },
+      returning: true,
+    }
+  ).then(() => {
+    res.sendStatus(200);
+  });
+};
+
+const deleteUser = (req, res) => {
+  User.destroy({
+    where: {
+      id: req.params.id,
+    },
+  }).then(() => {
+    res.sendStatus(200);
+  });
+};
+
 module.exports = {
   registerUser,
   userLogin,
   userLogout,
   userCookie,
   findAllUsers,
+  findSingleUser,
+  editUser,
+  deleteUser,
 };
