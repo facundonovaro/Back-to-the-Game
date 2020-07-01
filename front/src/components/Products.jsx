@@ -30,19 +30,19 @@ const Products = ({ products, handlerSubmitCart, handleDeleteCart, cart }) => {
                 <Button
                   variant="primary"
                   onClick={() => {
-                    handleDeleteCart(product.id);
+                    handleDeleteCart(product.id)
                   }}
                 >
-                  Remove from Cart
+                  Remover del Carrito
                 </Button>
               ) : (
                 <Button
                   variant="primary"
                   onClick={() => {
-                    handlerSubmitCart(product.id, product.price);
+                    handlerSubmitCart(product.id, product.name, product.description, product.price, product.stock, product.img1Url, product.img2Url);
                   }}
                 >
-                 Añadir a la cesta
+                 Añadir al Carrito
                 </Button>
               )}
             </Card.Body>

@@ -1,32 +1,21 @@
 import React from "react";
 import { connect } from "react-redux";
-import EditProduct from "../components/EditProduct";
-import { fetchProduct, editProduct } from "../store/actions/singleProduct";
-import { fetchProducts } from "../store/actions/products";
+import Admin from "../components/Admin";
+import { fetchUsers } from "../store/actions/users";
 
-class EditProductContainer extends React.Component {
+class AdminContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       name: "",
-      description: "",
-      price: "",
-      stock: "",
-      img1Url: "",
-      img2Url: "",
     };
     this.handleNameChange = this.handleNameChange.bind(this);
-    this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
-    this.handlePriceChange = this.handlePriceChange.bind(this);
-    this.handleStockChange = this.handleStockChange.bind(this);
-    this.hangleImage1Change = this.hangleImage1Change.bind(this);
-    this.handleImage2Change = this.handleImage2Change.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChooseProduct = this.handleChooseProduct.bind(this);
   }
 
   componentDidMount() {
-    this.props.fetchProducts();
+    this.props.fetchUsers();
   }
 
   componentDidUpdate(prevProps) {
@@ -96,7 +85,7 @@ class EditProductContainer extends React.Component {
     const { name, description, price, stock, img1Url, img2Url } = this.state;
     return (
       <div>
-        <EditProduct
+        <Admin
           products={products}
           handleChooseProduct={this.handleChooseProduct}
           handleSubmit={this.handleSubmit}
@@ -128,8 +117,8 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchProducts: () => {
-      dispatch(fetchProducts());
+    fetchUsers: () => {
+      dispatch(fetchUsers());
     },
     fetchProduct: (id) => {
       dispatch(fetchProduct(id));
@@ -140,4 +129,4 @@ const mapDispatchToProps = (dispatch) => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(EditProductContainer);
+)(AdminContainer);

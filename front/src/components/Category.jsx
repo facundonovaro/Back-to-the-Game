@@ -2,15 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Card, ListGroupItem, ListGroup, Button } from "react-bootstrap";
 
-const Search = ({
-  searchedList,
-  handlerSubmitCart,
-  handleDeleteCart,
-  cart,
-}) => {
+const Category = ({ products, handlerSubmitCart, handleDeleteCart, cart }) => {
+
   return (
-    <div className="containerProd">
-      {searchedList.map((product) => (
+    <div className="containerProd textProductsForce">
+    {products.length ? products.map((product) => {
+        return(
         <div key={product.id} className="cards">
           <Card style={{ width: "18rem" }}>
             <Link to={`/products/${product.id}`}>
@@ -21,11 +18,9 @@ const Search = ({
               />
             </Link>
             <Card.Body>
-              <Card.Title className="titleCard">
-                {product.name}
-              </Card.Title>
+              <Card.Title className="titleCard">{product.snippet}</Card.Title>
               <Card.Text className="descrCard">
-                {`Descriptión: ${product.description}`}
+                {`Descriptión: ${product.snippetDesc}`}
               </Card.Text>
             </Card.Body>
             <ListGroup className="list-group-flush">
@@ -40,7 +35,7 @@ const Search = ({
                     handleDeleteCart(product.id)
                   }}
                 >
-                  Remove from Cart
+                  Remover del Carrito
                 </Button>
               ) : (
                 <Button
@@ -49,15 +44,16 @@ const Search = ({
                     handlerSubmitCart(product.id, product.name, product.description, product.price, product.stock, product.img1Url, product.img2Url);
                   }}
                 >
-                  Agregar al carrito
+                 Añadir al Carrito
                 </Button>
               )}
             </Card.Body>
           </Card>
         </div>
-      ))}
+      )}) : null}
+      
     </div>
   );
 };
 
-export default Search;
+export default Category;

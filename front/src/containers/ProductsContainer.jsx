@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import Products from "../components/Products";
-import { addToCart, deleteCart, fetchCart } from "../store/actions/cart";
+import { addToCart, deleteCart, fetchCart, addLocalStorage } from "../store/actions/cart";
 
 class ProductsContainer extends React.Component {
   constructor() {
@@ -10,17 +10,39 @@ class ProductsContainer extends React.Component {
     this.handleDeleteCart = this.handleDeleteCart.bind(this);
   }
 
-  componentDidMount() {
-    this.props.fetchCart();
+  handlerSubmitCart(id, name, description, price, stock, img1Url, img2Url) {
+    if(this.props.userId){
+      this.props.addToCart({ id: id, price: price });
+    }
+    else {
+      let product = {id, name, description, price, stock, img1Url, img2Url, quantity: 1}
+      localStorage.setItem(id, JSON.stringify(product))
+      var products = []
+      for(var i = 0, len = localStorage.length; i < len; i++) {
+        var key = localStorage.key(i);
+        var value = JSON.parse(localStorage[key]);  
+        products.push(value);
+      }
+      this.props.addLocalStorage(products)
+    }
   }
 
-  handlerSubmitCart(id, price) {
-    this.props.addToCart({ id: id, price: price });
+  handleDeleteCart(productId){
+    if(this.props.userId){
+      this.props.deleteCart(productId);
+    }
+    else{
+      localStorage.removeItem(productId)
+      var products = []
+      for(var i = 0, len = localStorage.length; i < len; i++){
+        var key = localStorage.key(i);
+        var value = JSON.parse(localStorage[key]);  
+        products.push(value);
+    }
+      this.props.addLocalStorage(products)
+    }
   }
 
-  handleDeleteCart(orderId) {
-    this.props.deleteCart(orderId);
-  }
   render() {
     const { products, cart } = this.props;
     return (
@@ -54,6 +76,7 @@ const mapDispatchToProps = (dispatch) => {
     fetchCart: () => {
       dispatch(fetchCart());
     },
+    addLocalStorage: (products) => {dispatch(addLocalStorage(products))}
   };
 };
 

@@ -40,10 +40,10 @@ const NavBar = ({
           )}
           {user.id ? (
             <div style={{ display: "flex" }}>
-              <Navbar.Brand className="navbar-links">
+              <Link to='/products' className="navbar-links">
                 {" "}
               Hola {user.firstName}!
-            </Navbar.Brand>
+            </Link>
               <Link onClick={userLogout} className="navbar-links" to="/products">
                 Cerrar Sesión
             </Link>
@@ -54,31 +54,36 @@ const NavBar = ({
               </Link>
             )}
           <NavDropdown title="Categorías" id="navbar-dropdown">
-            <NavDropdown.Item href="#action/3.1">Juegos</NavDropdown.Item>
-            <NavDropdown.Item href="#action/3.2">Play Station 4</NavDropdown.Item>
-            <NavDropdown.Item href="#action/3.3">Xbox</NavDropdown.Item>
-            <NavDropdown.Item href="#action/3.4">Consolas</NavDropdown.Item>
-            <NavDropdown.Item href="#action/3.5">Audio</NavDropdown.Item>
+            <Link to='/category/Games' className='dropdown-links'>Juegos</Link>
+            <Link to='/category/Play Station 4' className='dropdown-links'>Play Station 4</Link>
+            <Link to='/category/Xbox' className='dropdown-links'>Xbox</Link>
+            <Link to='/category/Consoles' className='dropdown-links'>Consolas</Link>
+            <Link to='/category/Audio' className='dropdown-links'>Audio</Link>
           </NavDropdown>
 
-          <Link className="navbar-links" to="/cart">
-            <FaShoppingCart className="shoppingCart-icon" />
-          </Link>
-        </Nav>
-        <Form onSubmit={handlerSubmitSearch} inline>
-          <FormControl
-            onChange={handlerChange}
-            type="text"
-            placeholder="Quiero buscar..."
-            className="mr-sm-2"
-            value={inputValue}
-          />
-          <button disabled={disable} type="submit" className="search-button">
-            <FaSearch />
-          </button>
-        </Form>
-      </Navbar.Collapse>
-    </Navbar>
-  );
+        <Link className="navbar-links" to="/cart">
+          <FaShoppingCart className="shoppingCart-icon" />
+        </Link>
+       { user.id ? (<Link to="/lastorders">
+          <Button id="checkoutCart" variant="dark">
+            {" "}
+                  Ordenes
+                </Button>
+        </Link>) : null}
+      </Nav>
+      <Form onSubmit={handlerSubmitSearch} inline>
+        <FormControl
+          onChange={handlerChange}
+          type="text"
+          placeholder="Quiero buscar..."
+          className="mr-sm-2"
+        />
+        <button disabled={disable} type="submit" className="search-button">
+          <FaSearch />
+        </button>
+      </Form>
+    </Navbar.Collapse>
+  </Navbar>
+);
 
 export default NavBar;
