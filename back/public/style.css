@@ -201,6 +201,10 @@
   border-color: green !important;
 }
 
+.buttonManageUser {
+  margin: 10px;
+}
+
 .search-button {
   color: #c1c1c1;
   width: 72px;

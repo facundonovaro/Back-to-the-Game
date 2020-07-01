@@ -1,9 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
-import EditProduct from "../components/EditProduct";
+import Admin from "../components/Admin";
 import { fetchUsers } from "../store/actions/users";
 
-class EditProductContainer extends React.Component {
+class AdminContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -85,7 +85,7 @@ class EditProductContainer extends React.Component {
     const { name, description, price, stock, img1Url, img2Url } = this.state;
     return (
       <div>
-        <EditProduct
+        <Admin
           products={products}
           handleChooseProduct={this.handleChooseProduct}
           handleSubmit={this.handleSubmit}
@@ -129,4 +129,4 @@ const mapDispatchToProps = (dispatch) => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(EditProductContainer);
+)(AdminContainer);
