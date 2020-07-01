@@ -5,6 +5,7 @@ import { fetchProducts } from "../store/actions/products";
 import { searchProducts } from "../store/actions/search";
 import { userLogout } from "../store/actions/users";
 import logo from "../assets/logo.png";
+import { getCategories } from "../store/actions/category";
 
 class NavBarContainer extends React.Component {
   constructor() {
@@ -24,6 +25,7 @@ class NavBarContainer extends React.Component {
   }
 
   componentDidMount() {
+    this.props.getCategories();
     const { fetchProducts } = this.props;
     fetchProducts(this.state.inputValue);
     // agregar loginuser?
@@ -51,9 +53,8 @@ class NavBarContainer extends React.Component {
     });
   }
 
-
   render() {
-    const { user } = this.props;
+    const { user, categories } = this.props;
     return (
       <div>
         <NavBar
@@ -64,6 +65,7 @@ class NavBarContainer extends React.Component {
           disable={this.state.disable}
           logo={logo}
           inputValue={this.state.inputValue}
+          categories={categories}
         />
       </div>
     );
@@ -74,6 +76,7 @@ const mapStateToProps = (state, ownProps) => {
   return {
     user: state.usersReducer.user,
     history: ownProps.history,
+    categories: state.categoryReducer.categories
   };
 };
 
@@ -85,7 +88,8 @@ const mapDispatchToProps = (dispatch) => {
     userLogout: () => {
       dispatch(userLogout());
     },
-    searchProducts: (name) => dispatch(searchProducts(name)),
+    searchProducts: (name) => {dispatch(searchProducts(name))},
+    getCategories: () => {dispatch(getCategories())}
   };
 };
 
