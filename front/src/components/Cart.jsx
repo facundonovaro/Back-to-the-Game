@@ -80,7 +80,7 @@ const Cart = ({ cart, totalQuantity, handleAddCart, handleSubstractCart, handleD
         <div>
           <p>No hay elementos en el Carrito</p>
           <Button variant="dark">
-            <Link to="/products">Ver Productos </Link>
+            <Link to="/products" className="boton-verProductos">Ver Productos </Link>
           </Button>
         </div>
       )}

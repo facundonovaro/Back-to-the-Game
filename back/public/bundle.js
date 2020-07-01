@@ -60998,11 +60998,75 @@ var Cart = function Cart(_ref) {
   }, " ", "Finalizar Compra"))))) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "No hay elementos en el Carrito"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Button"], {
     variant: "dark"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
-    to: "/products"
+    to: "/products",
+    className: "boton-verProductos"
   }, "Ver Productos "))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Cart);
+
+/***/ }),
+
+/***/ "./src/components/Category.jsx":
+/*!*************************************!*\
+  !*** ./src/components/Category.jsx ***!
+  \*************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
+/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/index.js");
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+
+
+
+
+var Category = function Category(_ref) {
+  var products = _ref.products,
+      handlerSubmitCart = _ref.handlerSubmitCart,
+      handleDeleteCart = _ref.handleDeleteCart,
+      cart = _ref.cart;
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "containerProd textProductsForce"
+  }, products.length ? products.map(function (product) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      key: product.id,
+      className: "cards"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Card"], {
+      style: {
+        width: "18rem"
+      }
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+      to: "/products/".concat(product.id)
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", _defineProperty({
+      src: product.img1Url,
+      className: "card-img-top"
+    }, "className", "imgProd"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Card"].Body, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Card"].Title, {
+      className: "titleCard"
+    }, product.snippet), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Card"].Text, {
+      className: "descrCard"
+    }, "Descripti\xF3n: ".concat(product.snippetDesc))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["ListGroup"], {
+      className: "list-group-flush"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["ListGroupItem"], null, "Price: ".concat(product.price)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["ListGroupItem"], null, "Stock: ".concat(product.stock))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Card"].Body, null, cart.includes(product.id) ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Button"], {
+      variant: "primary",
+      onClick: function onClick() {
+        handleDeleteCart(product.id);
+      }
+    }, "Remover del Carrito") : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Button"], {
+      variant: "primary",
+      onClick: function onClick() {
+        handlerSubmitCart(product.id, product.name, product.description, product.price, product.stock, product.img1Url, product.img2Url);
+      }
+    }, "A\xF1adir al Carrito"))));
+  }) : null);
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (Category);
 
 /***/ }),
 
@@ -61609,7 +61673,7 @@ var NavBar = function NavBar(_ref) {
     title: "Categor\xEDas",
     id: "navbar-dropdown"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-    to: "/category/Juegos",
+    to: "/category/Games",
     className: "dropdown-links"
   }, "Juegos"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     to: "/category/Play Station 4",
@@ -61618,7 +61682,7 @@ var NavBar = function NavBar(_ref) {
     to: "/category/Xbox",
     className: "dropdown-links"
   }, "Xbox"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-    to: "/category/Consolas",
+    to: "/category/Consoles",
     className: "dropdown-links"
   }, "Consolas"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     to: "/category/Audio",
@@ -62362,6 +62426,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Products__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/Products */ "./src/components/Products.jsx");
 /* harmony import */ var _store_actions_category__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../store/actions/category */ "./src/store/actions/category.js");
 /* harmony import */ var _store_actions_cart__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../store/actions/cart */ "./src/store/actions/cart.js");
+/* harmony import */ var _components_Category__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/Category */ "./src/components/Category.jsx");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -62383,6 +62448,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Date.prototype.toString.call(Reflect.construct(Date, [], function () {})); return true; } catch (e) { return false; } }
 
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
 
 
 
@@ -62439,8 +62505,21 @@ var CategoryContainer = /*#__PURE__*/function (_React$Component) {
     }
   }, {
     key: "handleDeleteCart",
-    value: function handleDeleteCart(orderId) {
-      this.props.deleteCart(orderId);
+    value: function handleDeleteCart(productId) {
+      if (this.props.userId) {
+        this.props.deleteCart(productId);
+      } else {
+        localStorage.removeItem(productId);
+        var products = [];
+
+        for (var i = 0, len = localStorage.length; i < len; i++) {
+          var key = localStorage.key(i);
+          var value = JSON.parse(localStorage[key]);
+          products.push(value);
+        }
+
+        this.props.addLocalStorage(products);
+      }
     }
   }, {
     key: "componentDidMount",
@@ -62448,15 +62527,21 @@ var CategoryContainer = /*#__PURE__*/function (_React$Component) {
       this.props.setCategory(this.props.category);
     }
   }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate(prevProps) {
+      if (this.props.category !== prevProps.category) this.props.setCategory(this.props.category);
+    }
+  }, {
     key: "render",
     value: function render() {
       var _this$props = this.props,
           products = _this$props.products,
           cart = _this$props.cart;
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Products__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Category__WEBPACK_IMPORTED_MODULE_5__["default"], {
         products: products,
         handlerSubmitCart: this.handlerSubmitCart,
-        handleDeleteCart: this.handleDeleteCart
+        handleDeleteCart: this.handleDeleteCart,
+        cart: cart
       }));
     }
   }]);
@@ -64446,7 +64531,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var CatProds = function CatProds(products) {
+var cartProds = function cartProds(products) {
   return {
     type: _constants__WEBPACK_IMPORTED_MODULE_1__["SET_CATEGORY"],
     products: products
@@ -64455,8 +64540,8 @@ var CatProds = function CatProds(products) {
 
 var setCategory = function setCategory(category) {
   return function (dispatch) {
-    return axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api/category/".concat(category)).then(function (category) {
-      return dispatch(searchCategory(category.products));
+    axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api/category/".concat(category)).then(function (category) {
+      dispatch(cartProds(category.data[0].products));
     });
   };
 };
@@ -64916,18 +65001,6 @@ var cartReducer = function cartReducer() {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _constants__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../constants */ "./src/store/constants.js");
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
-
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
-
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
 
 var initialState = {
   products: []
@@ -64940,7 +65013,7 @@ var categoryReducer = function categoryReducer() {
   switch (action.type) {
     case _constants__WEBPACK_IMPORTED_MODULE_0__["SET_CATEGORY"]:
       return {
-        products: [].concat(_toConsumableArray(state.products), [action.products])
+        products: action.products
       };
 
     default:
