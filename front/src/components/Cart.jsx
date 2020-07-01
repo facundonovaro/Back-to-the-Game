@@ -3,8 +3,7 @@ import { Alert, ListGroup, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { FaTrash, FaCartPlus, FaCartArrowDown } from "react-icons/fa";
 
-const Cart = ({ deleteCart, cart, user, totalQuantity, handleUpdateCart, handleDeleteCart }) => {
-  console.log('CART ', cart)
+const Cart = ({ cart, totalQuantity, handleAddCart, handleSubstractCart, handleDeleteCart }) => {
   return (
     <div>
       <h1 id="titleCart">Mi Carrito</h1>
@@ -25,7 +24,7 @@ const Cart = ({ deleteCart, cart, user, totalQuantity, handleUpdateCart, handleD
                     <Button
                       variant="dark"
                       onClick={() => {   
-                       handleUpdateCart({quantity: product.quantity + 1,
+                        handleAddCart({quantity: product.quantity + 1,
                         total: (product.quantity + 1) * product.price,
                         orderId: product.orderId,
                         id: product.id})
@@ -42,7 +41,7 @@ const Cart = ({ deleteCart, cart, user, totalQuantity, handleUpdateCart, handleD
                     <Button
                       variant="dark"
                       onClick={() => {   
-                        handleUpdateCart({quantity: product.quantity - 1,
+                        handleSubstractCart({quantity: product.quantity - 1,
                          total: (product.quantity - 1) * product.price,
                          orderId: product.orderId,
                          id: product.id})
@@ -55,7 +54,6 @@ const Cart = ({ deleteCart, cart, user, totalQuantity, handleUpdateCart, handleD
                     <Button
                       variant="dark"
                       onClick={() => {
-                        deleteCart(product.orderId);
                         handleDeleteCart(product.id)
                       }}
                     >

@@ -30,7 +30,7 @@ const Products = ({ products, handlerSubmitCart, handleDeleteCart, cart }) => {
                 <Button
                   variant="primary"
                   onClick={() => {
-                    handleDeleteCart(product.id);
+                    handleDeleteCart(product.id)
                   }}
                 >
                   Remover del Carrito

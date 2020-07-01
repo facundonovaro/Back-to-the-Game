@@ -16,7 +16,7 @@ import LastOrdersContainer from "../containers/LastOrdersContainer";
 import { connect } from "react-redux";
 import { cookieLogger } from "../store/actions/users";
 import DeleteProductContainer from "../containers/DeleteProductContainer";
-import { CategoryContainer } from "../containers/CategoryContainer";
+import CategoryContainer from "../containers/CategoryContainer";
 import { addLocalStorage, fetchCart } from "../store/actions/cart";
 
 class Main extends React.Component {

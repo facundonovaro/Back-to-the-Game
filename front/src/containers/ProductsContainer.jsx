@@ -22,14 +22,28 @@ class ProductsContainer extends React.Component {
         var key = localStorage.key(i);
         var value = JSON.parse(localStorage[key]);  
         products.push(value);
+      }
+      this.props.addLocalStorage(products)
+      
+    }
+  }
+
+  handleDeleteCart(productId){
+    if(this.props.userId){
+      this.props.deleteCart(productId);
+    }
+    else{
+      localStorage.removeItem(productId)
+      var products = []
+      for(var i = 0, len = localStorage.length; i < len; i++){
+        var key = localStorage.key(i);
+        var value = JSON.parse(localStorage[key]);  
+        products.push(value);
     }
       this.props.addLocalStorage(products)
     }
   }
 
-  handleDeleteCart(orderId) {
-    this.props.deleteCart(orderId);
-  }
   render() {
     const { products, cart } = this.props;
     return (
