@@ -5,7 +5,7 @@ import {
   ERROR_MESSAGE,
   GET_USERS,
 } from "../constants";
-import { allCart } from './cart';
+import { allCart } from "./cart";
 
 const loginUser = (user) => ({
   type: LOGIN_USER,
@@ -44,7 +44,7 @@ export const userLogout = function (user) {
   return function (dispatch) {
     axios.post("/api/users/logout", user).then(() => {
       dispatch(logoutUser({}));
-      dispatch(allCart([]))
+      dispatch(allCart([]));
     });
   };
 };
@@ -59,13 +59,10 @@ export const registerUser = function (user) {
   };
 };
 
-export const cookieLogger = function () {
-  return function (dispatch) {
-    axios.get("/api/users/cookieuser").then((res) => {
-      dispatch(loginUser(res.data));
-    });
-  };
-};
+export const cookieLogger = () => (dispatch) =>
+  axios.get("/api/users/cookieuser").then((res) => {
+    dispatch(loginUser(res.data));
+  });
 
 export const fetchUsers = function () {
   return function (dispatch) {

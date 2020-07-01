@@ -25,18 +25,19 @@ class Main extends React.Component {
   }
 
   componentDidMount() {
-    this.props.cookieLogger();
-    if (this.props.userId) {
-      this.props.fetchCart();
-    } else {
-      var products = [];
-      for (var i = 0, len = localStorage.length; i < len; i++) {
-        var key = localStorage.key(i);
-        var value = JSON.parse(localStorage[key]);
-        products.push(value);
+    this.props.cookieLogger().then(() => {
+      if (this.props.userId) {
+        this.props.fetchCart();
+      } else {
+        var products = [];
+        for (var i = 0, len = localStorage.length; i < len; i++) {
+          var key = localStorage.key(i);
+          var value = JSON.parse(localStorage[key]);
+          products.push(value);
+        }
+        this.props.addLocalStorage(products);
       }
-      this.props.addLocalStorage(products);
-    }
+    });
   }
 
   render() {

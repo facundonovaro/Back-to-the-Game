@@ -51,7 +51,6 @@ class NavBarContainer extends React.Component {
     });
   }
 
-
   render() {
     const { user } = this.props;
     return (
