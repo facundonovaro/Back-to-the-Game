@@ -16,17 +16,17 @@ export default({cart,
 
             {( cart.length !==0 ? (
                 <div>
-                    {cart.map(order => {
+                    {cart.map(cart => {
                         return (
-                            <div key={order.product.id}>
+                            <div key={cart.orderId}>
                             <Card style={{ width: '12rem' }} >
-                            <Card.Img variant="top" src={order.product.img1Url} />
+                            <Card.Img variant="top" src={cart.img1Url} />
                             <Card.Body>
-                                <Card.Title>{order.product.name}</Card.Title>
+                                <Card.Title>{cart.name}</Card.Title>
                                 <Card.Text>
-                                        {order.product.description}
+                                        {cart.description}
                                 </Card.Text>
-                            <Card.Subtitle>$ {order.product.price}</Card.Subtitle>
+                            <Card.Subtitle>$ {cart.price}</Card.Subtitle>
                             </Card.Body>
                         </Card>
                         </div>

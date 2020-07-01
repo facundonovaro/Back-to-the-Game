@@ -24,7 +24,6 @@ class ProductsContainer extends React.Component {
         products.push(value);
       }
       this.props.addLocalStorage(products)
-      
     }
   }
 

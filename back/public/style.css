@@ -264,5 +264,15 @@
 }
 
 .boton-verProductos{
+  text-decoration: none;
+  color: #c1c1c1
+}
+
+.boton-verProductos:hover{
+  text-decoration: none;
+  color: #7e7e7e;
+}
+
+.cart-container{
   
 }

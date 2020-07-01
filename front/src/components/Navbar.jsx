@@ -54,22 +54,22 @@ const NavBar = ({
               </Link>
             )}
           <NavDropdown title="Categorías" id="navbar-dropdown">
-            <Link to='/category/Juegos' className='dropdown-links'>Juegos</Link>
+            <Link to='/category/Games' className='dropdown-links'>Juegos</Link>
             <Link to='/category/Play Station 4' className='dropdown-links'>Play Station 4</Link>
             <Link to='/category/Xbox' className='dropdown-links'>Xbox</Link>
-            <Link to='/category/Consolas' className='dropdown-links'>Consolas</Link>
+            <Link to='/category/Consoles' className='dropdown-links'>Consolas</Link>
             <Link to='/category/Audio' className='dropdown-links'>Audio</Link>
           </NavDropdown>
 
         <Link className="navbar-links" to="/cart">
           <FaShoppingCart className="shoppingCart-icon" />
         </Link>
-        <Link to="/checkout">
+       { user.id ? (<Link to="/lastorders">
           <Button id="checkoutCart" variant="dark">
             {" "}
                   Ordenes
                 </Button>
-        </Link>
+        </Link>) : null}
       </Nav>
       <Form onSubmit={handlerSubmitSearch} inline>
         <FormControl
