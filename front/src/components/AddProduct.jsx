@@ -1,61 +1,85 @@
 import React from "react";
 
-const AddProduct = ({ handleName, handleDescription, handlePrice, handleStock, hangleImage1, handleImage2, handleSubmit }) => {
+const AddProduct = ({
+  handleSubmit,
+  handleImage2Change,
+  hangleImage1Change,
+  handleStockChange,
+  handlePriceChange,
+  handleDescriptionChange,
+  handleNameChange,
+  nameInput,
+  descriptionInput,
+  priceInput,
+  stockInput,
+  image1Input,
+  image2Input,
+}) => {
   return (
-    <div className='container-fluid' style={{ width: '60%' }}>
+    <div className="container-fluid" style={{ width: "60%" }}>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
-          <label>Name</label>
+          <legend>Add Product</legend>
+        </div>
+        <div className="form-group">
+          <label>Name of Product</label>
           <input
-            onChange={handleName}
+            value={nameInput}
+            placeholder={nameInput}
+            onChange={handleNameChange}
             type="text"
             className="form-control"
-            id="name"
+            name="name"
           />
         </div>
         <div className="form-group">
           <label>Description</label>
           <input
-            onChange={handleDescription}
+            value={descriptionInput}
+            onChange={handleDescriptionChange}
             type="text"
             className="form-control"
-            id="description"
+            name="description"
           />
         </div>
         <div className="form-group">
           <label>Price</label>
           <input
-            onChange={handlePrice}
+            value={priceInput}
+            onChange={handlePriceChange}
             type="number"
             className="form-control"
-            id="price"
+            name="price"
           />
         </div>
         <div className="form-group">
           <label>Stock</label>
           <input
-            onChange={handleStock}
+            value={stockInput}
+            onChange={handleStockChange}
             type="number"
             className="form-control"
-            id="stock"
+            name="stock"
           />
         </div>
         <div className="form-group">
           <label>Image 1</label>
           <input
-            onChange={hangleImage1}
+            value={image1Input}
+            onChange={hangleImage1Change}
             type="text"
             className="form-control"
-            id="img1Url"
+            name="img1Url"
           />
         </div>
         <div className="form-group">
           <label>Image 2</label>
           <input
-            onChange={handleImage2}
+            value={image2Input}
+            onChange={handleImage2Change}
             type="text"
             className="form-control"
-            id="img2Url"
+            name="img2Url"
           />
         </div>
         <button type="submit" className="btn btn-primary">
@@ -63,7 +87,7 @@ const AddProduct = ({ handleName, handleDescription, handlePrice, handleStock, h
         </button>
       </form>
     </div>
-  )
-}
+  );
+};
 
 export default AddProduct;

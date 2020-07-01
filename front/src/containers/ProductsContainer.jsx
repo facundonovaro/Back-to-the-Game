@@ -6,7 +6,6 @@ import { addToCart, deleteCart, fetchCart, addLocalStorage } from "../store/acti
 class ProductsContainer extends React.Component {
   constructor() {
     super();
-
     this.handlerSubmitCart = this.handlerSubmitCart.bind(this);
     this.handleDeleteCart = this.handleDeleteCart.bind(this);
   }
