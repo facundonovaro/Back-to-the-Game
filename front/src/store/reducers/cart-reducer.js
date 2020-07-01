@@ -1,8 +1,8 @@
 import { GET_ALL_CART, ADD_TO_CART } from "../constants";
 
 const initialState = {
-  cart: [],
-  list: [],
+  cart: [], // array de objetos (ordenes)
+  list: [], // array de id's
 };
 
 const cartReducer = (state = initialState, action) => {

@@ -1,5 +1,5 @@
-import axios from 'axios'
-import { SEARCH_PRODUCTS } from '../constants'
+import axios from 'axios';
+import { SEARCH_PRODUCTS } from '../constants';
 
 const allSearchProducts = (searchedList) => ({
     type: SEARCH_PRODUCTS,

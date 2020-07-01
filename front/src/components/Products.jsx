@@ -4,7 +4,7 @@ import { Card, ListGroupItem, ListGroup, Button } from "react-bootstrap";
 
 const Products = ({ products, handlerSubmitCart, handleDeleteCart, cart }) => {
   return (
-    <div className="containerProd">
+    <div className="containerProd textProductsForce">
       {products.map((product) => (
         <div key={product.id} className="cards">
           <Card style={{ width: "18rem" }}>
@@ -39,7 +39,7 @@ const Products = ({ products, handlerSubmitCart, handleDeleteCart, cart }) => {
                 <Button
                   variant="primary"
                   onClick={() => {
-                    handlerSubmitCart(product.id, product.price);
+                    handlerSubmitCart(product.id, product.name, product.description, product.price, product.stock, product.img1Url, product.img2Url);
                   }}
                 >
                  Añadir a la cesta

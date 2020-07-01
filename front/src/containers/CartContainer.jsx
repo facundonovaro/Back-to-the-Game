@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import Cart from "../components/Cart";
-import { fetchCart, deleteCart, updateCart } from "../store/actions/cart";
+import { fetchCart, deleteCart, updateCart, addLocalStorage } from "../store/actions/cart";
 
 class CartContainer extends React.Component {
   constructor() {
@@ -9,12 +9,16 @@ class CartContainer extends React.Component {
     this.state = {
       totalQuantity: 0,
     };
+    this.handleUpdateCart = this.handleUpdateCart.bind(this)
+    this.handleDeleteCart = this.handleDeleteCart.bind(this)
   }
   componentDidMount() {
+    if(this.props.user.id){
+      this.props.fetchCart();
+    }
     let total = 0;
-    this.props.fetchCart();
     this.props.cart.map((product) => {
-      total = total + product.quantity * product.product.price;
+      total = total + product.quantity * product.price;
     });
     this.setState({ totalQuantity: total });
   }
@@ -23,23 +27,55 @@ class CartContainer extends React.Component {
     let total = 0;
     if (this.props.cart !== prevProps.cart) {
       this.props.cart.map((product) => {
-        total = total + product.quantity * product.product.price;
+        total = total + product.quantity * product.price;
       });
       this.setState({ totalQuantity: total });
     }
   }
 
+  handleUpdateCart(order){
+    if(this.props.user.id){
+      this.props.updateCart(order)
+    }
+    else {
+      let newProduct = JSON.parse(localStorage.getItem(order.id))
+      newProduct.quantity ++
+      localStorage.setItem(order.id, JSON.stringify(newProduct))
+      var products = []
+      for(var i = 0, len = localStorage.length; i < len; i++){
+        var key = localStorage.key(i);
+        var value = JSON.parse(localStorage[key]);  
+        products.push(value);
+    }
+      this.props.addLocalStorage(products)
+    }
+  }
+
+  handleDeleteCart(orderId){
+    if(!this.props.user.id){
+      localStorage.removeItem(orderId)
+      var products = []
+      for(var i = 0, len = localStorage.length; i < len; i++){
+        var key = localStorage.key(i);
+        var value = JSON.parse(localStorage[key]);  
+        products.push(value);
+    }
+      this.props.addLocalStorage(products)
+    }
+  }
+
   render() {
-    const { deleteCart, updateCart, cart, user } = this.props;
+    const { deleteCart, cart, user } = this.props;
     const { totalQuantity } = this.state;
     return (
       <div>
         <Cart
           deleteCart={deleteCart}
-          updateCart={updateCart}
           cart={cart}
           user={user}
           totalQuantity={totalQuantity}
+          handleUpdateCart={this.handleUpdateCart}
+          handleDeleteCart={this.handleDeleteCart}
         />
       </div>
     );
@@ -58,12 +94,13 @@ const mapDispatchToProps = (dispatch) => {
     fetchCart: () => {
       dispatch(fetchCart());
     },
-    deleteCart: (productId) => {
-      dispatch(deleteCart(productId));
+    deleteCart: (orderId) => {
+      dispatch(deleteCart(orderId));
     },
     updateCart: (order) => {
       dispatch(updateCart(order));
     },
+    addLocalStorage: (newCart) => {dispatch(addLocalStorage(newCart))}
   };
 };
 

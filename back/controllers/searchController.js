@@ -1,17 +1,21 @@
 const { Product } = require('../models')
 const { Op } = require("sequelize")
 
-const findAllSearchedProducts = (req, res) =>{
-    Product.findAll({
-      where: {
-        name: {
-          [Op.like]: `%${req.params.name}%`
-        }
+const findAllSearchedProducts = (req, res) => {
+  const searchLower = req.params.name
+  let palabra = searchLower.toLowerCase()
+  console.log(palabra, "palabra min")
+  Product.findAll({
+    where: {
+      name: {
+        [Op.like]: `%${palabra}%`
+
       }
-    })
-    .then((products)=>{
+    }
+  })
+    .then((products) => {
       res.json(products)
     })
-  }
+}
 
-  module.exports = findAllSearchedProducts
+module.exports = findAllSearchedProducts
