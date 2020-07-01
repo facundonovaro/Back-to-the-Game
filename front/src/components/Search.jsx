@@ -10,34 +10,34 @@ const Search = ({
 }) => {
   return (
     <div className="containerProd">
-      {searchedList.map((productSearched) => (
-        <div key={productSearched.id} className="cards">
+      {searchedList.map((product) => (
+        <div key={product.id} className="cards">
           <Card style={{ width: "18rem" }}>
-            <Link to={`/products/${productSearched.id}`}>
+            <Link to={`/products/${product.id}`}>
               <img
-                src={productSearched.img1Url}
+                src={product.img1Url}
                 className="card-img-top"
                 className="imgProd"
               />
             </Link>
             <Card.Body>
               <Card.Title className="titleCard">
-                {productSearched.name}
+                {product.name}
               </Card.Title>
               <Card.Text className="descrCard">
-                {`Descriptión: ${productSearched.description}`}
+                {`Descriptión: ${product.description}`}
               </Card.Text>
             </Card.Body>
             <ListGroup className="list-group-flush">
-              <ListGroupItem>{`Price: ${productSearched.price}`}</ListGroupItem>
-              <ListGroupItem>{`Stock: ${productSearched.stock}`}</ListGroupItem>
+              <ListGroupItem>{`Price: ${product.price}`}</ListGroupItem>
+              <ListGroupItem>{`Stock: ${product.stock}`}</ListGroupItem>
             </ListGroup>
             <Card.Body>
               {cart.includes(product.id) ? (
                 <Button
                   variant="primary"
                   onClick={() => {
-                    handleDeleteCart(productSearched.id);
+                    handleDeleteCart(product.id)
                   }}
                 >
                   Remove from Cart
@@ -46,10 +46,7 @@ const Search = ({
                 <Button
                   variant="primary"
                   onClick={() => {
-                    handlerSubmitCart(
-                      productSearched.id,
-                      productSearched.price
-                    );
+                    handlerSubmitCart(product.id, product.name, product.description, product.price, product.stock, product.img1Url, product.img2Url);
                   }}
                 >
                   Agregar al carrito

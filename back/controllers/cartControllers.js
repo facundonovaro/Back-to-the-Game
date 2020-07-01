@@ -26,8 +26,8 @@ const addToCart = (req, res) => {
 };
 
 const assignCart = (req, res) => {
+  console.log('REQ.BODY ', req.body)
   req.body.map(order => {
-    console.log('ORDER ', order)
     Product.findByPk(order.id)
     .then((productFound)=> {
       const product = productFound;
@@ -35,13 +35,14 @@ const assignCart = (req, res) => {
         where: {
           productId: order.id,
           state: "pending",
-          userId: req.user.id
+          userId: req.user.id,
         }
       })
       .then(orderFound => {
         if(!orderFound){
           return Order.create({
-            total: order.price
+            total: order.price,
+            quantity: order.quantity
           })
           .then((orderCreated) => {
             const orden = orderCreated
@@ -57,15 +58,15 @@ const assignCart = (req, res) => {
       })
     })
   })
-    Order.findAll({
-      where: { userId: req.user.id, state: "pending" },
-      include: [{
-          model: Product,
-        }],
-          order: [["id", "DESC"]],
-    }).then((cart) => {
-      res.send(cart);
-    });
+      Order.findAll({
+        where: { userId: req.user.id, state: "pending" },
+        include: [{
+            model: Product,
+          }],
+            order: [["id", "DESC"]],
+      }).then((cart) => {
+        res.send(cart);
+      })
   }
 
 //Esto está medio hardocdeado para que no se rompa si no hay req.user. Arreglar cuando se haga el carrito no loggeado.
@@ -87,8 +88,13 @@ const findAllCart = (req, res) => {
 };
 
 const deleteOrder = (req, res) => {
+  console.log('REQ.PARAMS ', req.params)
   Order.destroy({
-    where: { id: req.params.orderId },
+    where: { 
+      userId: req.user.id,
+      productId: req.params.productId,
+      state: "pending"
+    },
   }).then(() => {
     Order.findAll({
       where: { userId: req.user.id, state: "pending" },

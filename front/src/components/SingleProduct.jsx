@@ -48,20 +48,20 @@ const SingleProduct = ({
                     type="button"
                     className="btn btn-dark"
                     onClick={() => {
-                      handleDeleteCart(product.id);
+                      handleDeleteCart(product.id)
                     }}
                   >
-                    Remove from Cart
+                    Remover del Carrito
                   </button>
                 ) : (
                   <button
                     type="button"
                     className="btn btn-dark"
                     onClick={() => {
-                      handlerSubmitCart(product.id, product.price);
+                      handlerSubmitCart(product.id, product.name, product.description, product.price, product.stock, product.img1Url, product.img2Url);
                     }}
                   >
-                    Añadir al carro
+                    Añadir al Carrito
                   </button>
                 )}
               </div>
