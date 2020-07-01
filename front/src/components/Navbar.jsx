@@ -7,6 +7,7 @@ import {
   Form,
   FormControl,
   Button,
+  inputValue,
 } from "react-bootstrap";
 import logo from "../assets/logo.png";
 import { FaShoppingCart, FaSearch } from "react-icons/fa";
@@ -17,7 +18,7 @@ const NavBar = ({
   userLogout,
   user,
   disable,
-  inputValue,
+  categories,
 }) => (
   <Navbar bg="dark" expand="lg" className="navbar-container">
     <Link to="/products">
@@ -54,23 +55,17 @@ const NavBar = ({
           </Link>
         )}
         <NavDropdown title="Categorías" id="navbar-dropdown">
-          <Link to="/category/Games" className="dropdown-links">
-            Juegos
-          </Link>
-          <Link to="/category/Play Station 4" className="dropdown-links">
-            Play Station 4
-          </Link>
-          <Link to="/category/Xbox" className="dropdown-links">
-            Xbox
-          </Link>
-          <Link to="/category/Consoles" className="dropdown-links">
-            Consolas
-          </Link>
-          <Link to="/category/Audio" className="dropdown-links">
-            Audio
-          </Link>
+          {categories &&
+            categories.map((category) => (
+              <Link
+                key={category.id}
+                to={`/category/${category.name}`}
+                className="dropdown-links"
+              >
+                {category.name}
+              </Link>
+            ))}
         </NavDropdown>
-
         <Link className="navbar-links" to="/cart">
           <FaShoppingCart className="shoppingCart-icon" />
         </Link>
@@ -89,13 +84,9 @@ const NavBar = ({
           type="text"
           placeholder="Quiero buscar..."
           className="mr-sm-2"
-        />
-        <button
-          disabled={disable}
-          type="submit"
-          className="search-button"
           value={inputValue}
-        >
+        />
+        <button disabled={disable} type="submit" className="search-button">
           <FaSearch />
         </button>
       </Form>
