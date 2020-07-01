@@ -7,7 +7,7 @@ const initialState = {
 const categoryReducer = (state = initialState, action)=> {
     switch(action.type){
         case SET_CATEGORY:
-            return {products: [...state.products, action.products]}
+            return {products: action.products}
         default:
             return state;
     }
