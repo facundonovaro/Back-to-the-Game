@@ -7,6 +7,7 @@ const mapStateToProps = function (state, ownProps) {
     return {
 
         user: state.usersReducer.user,
+        orders: state.checkoutReducer.orders
 
     };
 };
@@ -34,7 +35,7 @@ class LastOrdersContainer extends Component {
         
         return (
             <LastOrders
-            
+            orders={this.props.orders}
             />
         )
     }

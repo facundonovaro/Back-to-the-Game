@@ -42,10 +42,11 @@ class CheckoutContainer extends Component {
     }
 
     componentDidMount(){
+
         let total = 0;
         this.props.fetchCart();
         this.props.cart.map((product) => {
-            total = total + product.quantity * product.product.price;
+            total = total + product.quantity * product.price;
         });
         this.setState({ totalQuantity: total });
     }
