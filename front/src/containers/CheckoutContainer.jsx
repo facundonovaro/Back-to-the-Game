@@ -2,7 +2,9 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import Checkout from '../components/Checkout'
 import { fetchCart } from "../store/actions/cart";
-import { updateOrderStatus, updateOrderAdress } from '../store/actions/checkout';
+import { updateOrderStatus, updateOrderAdress, updateStock } from '../store/actions/checkout';
+import { fetchProducts } from '../store/actions/products';
+
 
 
 const mapStateToProps = function (state, ownProps) {
@@ -19,6 +21,8 @@ const mapDispatchToProps = function (dispatch) {
         fetchCart: () => {dispatch(fetchCart())},
         updateOrderAdress: (order) => dispatch(updateOrderAdress(order)),
         updateOrderStatus: (order) => dispatch(updateOrderStatus(order)) ,
+        updateStock : (cart)=> dispatch(updateStock(cart)),
+        fetchProducts:() => dispatch(fetchProducts())
         
     };
 };
@@ -63,6 +67,13 @@ class CheckoutContainer extends Component {
         this.props.updateOrderAdress(this.state)
         .then(()=>{
             this.props.updateOrderStatus(this.state)
+        })
+        .then(()=>{
+            this.props.updateStock(this.props.cart)
+        })
+
+        .then(()=>{
+            this.props.fetchProducts();
         })
         .then(()=>{
             this.props.history.push('/thankyou')

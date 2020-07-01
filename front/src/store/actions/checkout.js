@@ -19,6 +19,9 @@ axios.patch("/api/checkout/status", order)
     dispatch(cartList([]))
 })
 
+export const updateStock = (cart) => () =>
+axios.patch('/api/checkout/stock', cart)
+
 
 export const fetchLastOrders = () => (dispatch) =>
 axios.get("/api/checkout/lastorders")
