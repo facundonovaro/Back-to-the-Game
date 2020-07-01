@@ -19,6 +19,7 @@ import { connect } from "react-redux";
 import { cookieLogger } from "../store/actions/users";
 import DeleteProductContainer from "../containers/DeleteProductContainer";
 import { addLocalStorage, fetchCart } from "../store/actions/cart";
+import ManageUsersContainer from "../containers/ManageUsersContainer";
 
 class Main extends React.Component {
   constructor(props) {
@@ -58,6 +59,7 @@ class Main extends React.Component {
           <Route exact path="/admin" component={AdminContainer} />
           <Route path="/admin/add-product" component={AddProductContainer} />
           <Route path="/admin/edit-product" component={EditProductContainer} />
+          <Route path="/admin/manage-users" component={ManageUsersContainer} />
           <Route
             path="/admin/delete-product"
             component={DeleteProductContainer}
