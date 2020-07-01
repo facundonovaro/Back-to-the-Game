@@ -13,9 +13,9 @@ import CartContainer from "../containers/CartContainer";
 import CheckoutContainer from "../containers/CheckoutContainer";
 import ThankYouContainer from "../containers/ThankYouContainer";
 import LastOrdersContainer from "../containers/LastOrdersContainer";
+import CategoryContainer from "../containers/CategoryContainer";
 import { connect } from "react-redux";
 import { cookieLogger } from "../store/actions/users";
-import { CategoryContainer } from "../containers/CategoryContainer";
 import { addLocalStorage, fetchCart } from "../store/actions/cart";
 
 class Main extends React.Component {
