@@ -15,6 +15,7 @@ import ThankYouContainer from "../containers/ThankYouContainer";
 import LastOrdersContainer from "../containers/LastOrdersContainer";
 import { connect } from "react-redux";
 import { cookieLogger } from "../store/actions/users";
+import DeleteProductContainer from "../containers/DeleteProductContainer";
 import { CategoryContainer } from "../containers/CategoryContainer";
 import { addLocalStorage, fetchCart } from "../store/actions/cart";
 
@@ -24,18 +25,17 @@ class Main extends React.Component {
   }
 
   componentDidMount() {
-    this.props.cookieLogger()
-    if(this.props.userId){
-    this.props.fetchCart();
-    }
-    else {
-      var products = []
-      for(var i = 0, len = localStorage.length; i < len; i++){
+    this.props.cookieLogger();
+    if (this.props.userId) {
+      this.props.fetchCart();
+    } else {
+      var products = [];
+      for (var i = 0, len = localStorage.length; i < len; i++) {
         var key = localStorage.key(i);
-        var value = JSON.parse(localStorage[key]);  
+        var value = JSON.parse(localStorage[key]);
         products.push(value);
-    }
-      this.props.addLocalStorage(products)
+      }
+      this.props.addLocalStorage(products);
     }
   }
 
@@ -53,12 +53,16 @@ class Main extends React.Component {
           <Route exact path="/products" component={ProductsContainer} />
           <Route path="/users/register" component={RegisterContainer} />
           <Route path="/users/login" component={LoginContainer} />
-          <Route exact path="/products/add" component={AddProductContainer} />
-          <Route path="/products/:id/edit" component={EditProductContainer} />
+          <Route path="/admin/add-product" component={AddProductContainer} />
+          <Route path="/admin/edit-product" component={EditProductContainer} />
+          <Route
+            path="/admin/delete-product"
+            component={DeleteProductContainer}
+          />
           <Route path="/products/:id" component={SingleProductContainer} />
           <Route path="/users/:id" component={SingleuserContainer} />
           <Route exact path="/cart" component={CartContainer} />
-          <Route path="/category/:name" component={CategoryContainer}/>
+          <Route path="/category/:name" component={CategoryContainer} />
           <Redirect to="/products"></Redirect>
         </Switch>
       </div>
@@ -68,14 +72,14 @@ class Main extends React.Component {
 
 const mapStateToProps = function (state, ownProps) {
   return {
-    user: state.usersReducer.user
+    user: state.usersReducer.user,
   };
 };
 const mapDispatchToProps = function (dispatch) {
   return {
     cookieLogger: () => dispatch(cookieLogger()),
     fetchCart: () => dispatch(fetchCart()),
-    addLocalStorage: (newCart) => dispatch(addLocalStorage(newCart))
+    addLocalStorage: (newCart) => dispatch(addLocalStorage(newCart)),
   };
 };
 
