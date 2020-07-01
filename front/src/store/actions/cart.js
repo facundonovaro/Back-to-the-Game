@@ -8,7 +8,7 @@ export const allCart = (cart) => {
   };
 };
 
-const cartList = (products) => {
+export const cartList = (products) => {
   return {
     type: ADD_TO_CART,
     products,

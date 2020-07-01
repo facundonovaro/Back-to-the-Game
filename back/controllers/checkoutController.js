@@ -6,7 +6,8 @@ const updateOrderAdress = (req,res) => {
     Order.update({ address: req.body.orderAdress }, {
         where:  {userId: req.body.userId,
                 state:"pending",
-        }
+        },
+        returning: true,
     })
    .then(()=>{
         res.sendStatus(201)
@@ -16,7 +17,8 @@ const updateOrderAdress = (req,res) => {
 const updateOrderStatus = (req, res) => {
     Order.update({ state: "completed" }, {
         where: { userId: req.body.userId,
-        state:'pending' }
+        state:'pending' },
+        returning:true,
     })
     .then(()=>{
         res.sendStatus(201)
@@ -32,7 +34,7 @@ const getLastOrders = (req, res) => {
                     required: true
                 },
             ],
-            order: [["updatedAt", "ASC"]],
+            order: [["updatedAt", "DESC"]],
         }).then((cart) => {
 
             let updatedAtGroups = _.groupBy(cart,function(obj){
