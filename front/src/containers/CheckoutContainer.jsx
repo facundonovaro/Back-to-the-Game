@@ -42,6 +42,7 @@ class CheckoutContainer extends Component {
     }
 
     componentDidMount(){
+
         let total = 0;
         this.props.fetchCart();
         this.props.cart.map((product) => {

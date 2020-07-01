@@ -1,13 +1,12 @@
 const { Order } = require("../models");
 const { Product } = require("../models");
+const _ = require('lodash')
 
 const updateOrderAdress = (req,res) => {
-    console.log(req.body, 'REQBODY')
     Order.update({ address: req.body.orderAdress }, {
         where:  {userId: req.body.userId,
                 state:"pending",
         }
-
     })
    .then(()=>{
         res.sendStatus(201)
@@ -16,7 +15,8 @@ const updateOrderAdress = (req,res) => {
 
 const updateOrderStatus = (req, res) => {
     Order.update({ state: "completed" }, {
-        where: { userId: req.body.userId }
+        where: { userId: req.body.userId,
+        state:'pending' }
     })
     .then(()=>{
         res.sendStatus(201)
@@ -29,11 +29,16 @@ const getLastOrders = (req, res) => {
             include: [
                 {
                     model: Product,
+                    required: true
                 },
             ],
-            order: [["id", "DESC"]],
+            order: [["updatedAt", "ASC"]],
         }).then((cart) => {
-            res.send(cart);
+
+            let updatedAtGroups = _.groupBy(cart,function(obj){
+                return obj.updatedAt
+            })
+            res.send(updatedAtGroups);
         });
     } else res.send([]);
 };
