@@ -18,9 +18,7 @@ export const searchReviews = (productId) => dispatch =>
 
 
   export const addReview = (review) => dispatch =>
-   axios.post(`/api/reviews`, review).then((res)=>{
-    console.log('DATAAAAA', res.data)   
-    dispatch(addReviews(res.data))
-   })
-
-     
+   axios.post(`/api/reviews`, review)
+   .then((res) => { console.log('RES.DATA', res.data)
+       return res.data})
+   .then(reviews => dispatch(addReviews(reviews)))

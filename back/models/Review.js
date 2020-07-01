@@ -17,9 +17,5 @@ Review.init(
   { sequelize: db, modelName: "review" }
 );
 
-// Review.prototype.rateAverage = function(){
-//   counter = 0;
-
-// }
 
 module.exports = Review;

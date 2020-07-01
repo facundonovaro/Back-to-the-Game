@@ -221,3 +221,28 @@
 .passwordHighSecure {
   color: green;
 }
+
+.reviewCards {
+  padding: 20px;
+  border-radius: 30px;
+}
+
+.reviewCard {
+  display: flex;
+  border-radius: 30px;
+  border: 2px solid black;
+  width: 80%;
+  padding: 15px;
+  margin: 0 auto;
+  background-color: #f8f9fa
+}
+
+.reviewCardCont{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 20px;
+}
+
+
+
