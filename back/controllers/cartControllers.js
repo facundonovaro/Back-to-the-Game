@@ -111,7 +111,10 @@ const deleteOrder = (req, res) => {
 };
 
 const updateOrder = (req, res) => {
-  Order.update(req.body, {
+  console.log(req.body, 'REQBODY')
+  Order.update({total:req.body.total,
+                quantity:req.body.quantity,
+               }, {
     returning: true,
     where: { id: req.body.orderId },
   }).then(() => {

@@ -13,10 +13,11 @@ import CartContainer from "../containers/CartContainer";
 import CheckoutContainer from "../containers/CheckoutContainer";
 import ThankYouContainer from "../containers/ThankYouContainer";
 import LastOrdersContainer from "../containers/LastOrdersContainer";
+import AdminContainer from "../containers/AdminContainer";
+import CategoryContainer from "../containers/CategoryContainer";
 import { connect } from "react-redux";
 import { cookieLogger } from "../store/actions/users";
 import DeleteProductContainer from "../containers/DeleteProductContainer";
-import CategoryContainer from "../containers/CategoryContainer";
 import { addLocalStorage, fetchCart } from "../store/actions/cart";
 
 class Main extends React.Component {
@@ -54,6 +55,7 @@ class Main extends React.Component {
           <Route exact path="/products" component={ProductsContainer} />
           <Route path="/users/register" component={RegisterContainer} />
           <Route path="/users/login" component={LoginContainer} />
+          <Route exact path="/admin" component={AdminContainer} />
           <Route path="/admin/add-product" component={AddProductContainer} />
           <Route path="/admin/edit-product" component={EditProductContainer} />
           <Route

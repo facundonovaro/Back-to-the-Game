@@ -54,7 +54,7 @@ const NavBar = ({
           </Link>
         )}
         <NavDropdown title="Categorías" id="navbar-dropdown">
-          <Link to="/category/Juegos" className="dropdown-links">
+          <Link to="/category/Games" className="dropdown-links">
             Juegos
           </Link>
           <Link to="/category/Play Station 4" className="dropdown-links">
@@ -63,7 +63,7 @@ const NavBar = ({
           <Link to="/category/Xbox" className="dropdown-links">
             Xbox
           </Link>
-          <Link to="/category/Consolas" className="dropdown-links">
+          <Link to="/category/Consoles" className="dropdown-links">
             Consolas
           </Link>
           <Link to="/category/Audio" className="dropdown-links">
@@ -74,12 +74,14 @@ const NavBar = ({
         <Link className="navbar-links" to="/cart">
           <FaShoppingCart className="shoppingCart-icon" />
         </Link>
-        <Link to="/checkout">
-          <Button id="checkoutCart" variant="dark">
-            {" "}
-            Ordenes
-          </Button>
-        </Link>
+        {user.id ? (
+          <Link to="/lastorders">
+            <Button id="checkoutCart" variant="dark">
+              {" "}
+              Ordenes
+            </Button>
+          </Link>
+        ) : null}
       </Nav>
       <Form onSubmit={handlerSubmitSearch} inline>
         <FormControl
