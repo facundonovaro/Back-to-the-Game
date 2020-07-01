@@ -60939,7 +60939,8 @@ var Cart = function Cart(_ref) {
       totalQuantity = _ref.totalQuantity,
       handleAddCart = _ref.handleAddCart,
       handleSubstractCart = _ref.handleSubstractCart,
-      handleDeleteCart = _ref.handleDeleteCart;
+      handleDeleteCart = _ref.handleDeleteCart,
+      user = _ref.user;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
     id: "titleCart"
   }, "Mi Carrito"), cart.length !== 0 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -60991,7 +60992,7 @@ var Cart = function Cart(_ref) {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     id: "totalCart"
   }, "Total del Carrito - $", totalQuantity), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
-    to: "/checkout"
+    to: user.id ? "/checkout" : "/users/login"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Button"], {
     id: "checkoutCart",
     variant: "dark"
@@ -62512,6 +62513,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_Checkout__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/Checkout */ "./src/components/Checkout.jsx");
 /* harmony import */ var _store_actions_cart__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../store/actions/cart */ "./src/store/actions/cart.js");
 /* harmony import */ var _store_actions_checkout__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../store/actions/checkout */ "./src/store/actions/checkout.js");
+/* harmony import */ var _store_actions_products__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../store/actions/products */ "./src/store/actions/products.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -62542,6 +62544,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+
 var mapStateToProps = function mapStateToProps(state, ownProps) {
   return {
     cart: state.cartReducer.cart,
@@ -62559,6 +62562,12 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     },
     updateOrderStatus: function updateOrderStatus(order) {
       return dispatch(Object(_store_actions_checkout__WEBPACK_IMPORTED_MODULE_4__["updateOrderStatus"])(order));
+    },
+    updateStock: function updateStock(cart) {
+      return dispatch(Object(_store_actions_checkout__WEBPACK_IMPORTED_MODULE_4__["updateStock"])(cart));
+    },
+    fetchProducts: function fetchProducts() {
+      return dispatch(Object(_store_actions_products__WEBPACK_IMPORTED_MODULE_5__["fetchProducts"])());
     }
   };
 };
@@ -62610,6 +62619,10 @@ var CheckoutContainer = /*#__PURE__*/function (_Component) {
       evt.preventDefault();
       this.props.updateOrderAdress(this.state).then(function () {
         _this2.props.updateOrderStatus(_this2.state);
+      }).then(function () {
+        _this2.props.updateStock(_this2.props.cart);
+      }).then(function () {
+        _this2.props.fetchProducts();
       }).then(function () {
         _this2.props.history.push('/thankyou');
       });
@@ -64467,13 +64480,14 @@ var setCategory = function setCategory(category) {
 /*!***************************************!*\
   !*** ./src/store/actions/checkout.js ***!
   \***************************************/
-/*! exports provided: updateOrderAdress, updateOrderStatus, fetchLastOrders */
+/*! exports provided: updateOrderAdress, updateOrderStatus, updateStock, fetchLastOrders */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateOrderAdress", function() { return updateOrderAdress; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateOrderStatus", function() { return updateOrderStatus; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateStock", function() { return updateStock; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchLastOrders", function() { return fetchLastOrders; });
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
@@ -64502,6 +64516,11 @@ var updateOrderStatus = function updateOrderStatus(order) {
     }).then(function () {
       dispatch(Object(_actions_cart__WEBPACK_IMPORTED_MODULE_2__["cartList"])([]));
     });
+  };
+};
+var updateStock = function updateStock(cart) {
+  return function () {
+    return axios__WEBPACK_IMPORTED_MODULE_0___default.a.patch('/api/checkout/stock', cart);
   };
 };
 var fetchLastOrders = function fetchLastOrders() {

@@ -24,6 +24,20 @@ const updateOrderStatus = (req, res) => {
         res.sendStatus(201)
     })
 }
+
+const updateStock = (req, res) => {
+    console.log(req.body, 'REQBODYYYY')
+    
+    const array = req.body.map(product=>{
+       return Product.update({stock: product.stock - product.quantity},
+           { where:{id:product.id}
+            })
+    })
+    Promise.all(array)
+        .then(() => res.sendStatus(201))
+}
+
+
 const getLastOrders = (req, res) => {
     if (req.user) {
         Order.findAll({
@@ -50,4 +64,4 @@ const getLastOrders = (req, res) => {
 
 
 
-module.exports = { updateOrderAdress, updateOrderStatus, getLastOrders };
+module.exports = { updateOrderAdress, updateOrderStatus, getLastOrders, updateStock };
