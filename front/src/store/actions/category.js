@@ -1,13 +1,26 @@
 import axios from 'axios';
-import { SET_CATEGORY } from '../constants';
+import { SET_CATEGORY, GET_CATEGORIES } from '../constants';
 
-const CatProds = (products) => {
+const cartProds = (products) => {
     return {
         type: SET_CATEGORY,
         products,
     }
 }
 
-export const setCategory = (category) => (dispatch) => 
+const setCategories = (categories) => {
+    return {
+        type: GET_CATEGORIES,
+        categories,
+    }
+}
+
+export const setCategory = (category) => (dispatch) => {
     axios.get(`/api/category/${category}`)
-    .then(category => dispatch(searchCategory(category.products)))
+    .then(category => {
+        dispatch(cartProds(category.data[0].products))})}
+
+export const getCategories = () => (dispatch) =>
+    axios.get('/api/category')
+    .then(categories =>
+        dispatch(setCategories(categories.data)))

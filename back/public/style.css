@@ -201,6 +201,10 @@
   border-color: green !important;
 }
 
+.buttonManageUser {
+  margin: 10px;
+}
+
 .search-button {
   color: #c1c1c1;
   width: 72px;
@@ -260,5 +264,12 @@
 }
 
 .boton-verProductos{
-  
+  text-decoration: none;
+  color: #c1c1c1
 }
+
+.boton-verProductos:hover{
+  text-decoration: none;
+  color: #7e7e7e;
+}
+
