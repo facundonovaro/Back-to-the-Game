@@ -64836,8 +64836,7 @@ var setCategory = function setCategory(category) {
 var getCategories = function getCategories() {
   return function (dispatch) {
     return axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/api/category').then(function (categories) {
-      console.log('CATEGORIES DEL BACK ', categories);
-      dispatch(setCategories(categories.data));
+      return dispatch(setCategories(categories.data));
     });
   };
 };
