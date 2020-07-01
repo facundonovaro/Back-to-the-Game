@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import SingleProduct from "../components/SingleProduct";
 import { fetchProduct } from "../store/actions/singleProduct";
-import { addToCart, deleteCart, fetchCart } from "../store/actions/cart";
+import { addToCart, deleteCart, fetchCart, addLocalStorage } from "../store/actions/cart";
 import {searchReviews, addReview} from "../store/actions/reviews"
 
 class SingleProductContainer extends React.Component {
@@ -22,10 +22,11 @@ class SingleProductContainer extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchProduct(this.props.id);
-    this.props.fetchCart();
+    if(this.props.userId){
+      this.props.fetchCart();
+    }
+    this.props.fetchProduct(this.props.id)
     this.props.searchReviews(this.props.id)
-    
     .then(()=>{
       let total = 0;
       let counter= 0
@@ -50,12 +51,37 @@ class SingleProductContainer extends React.Component {
     }
   }
 
-  handlerSubmitCart(id, price) {
-    this.props.addToCart({ id: id, price: price });
+  handlerSubmitCart(id, name, description, price, stock, img1Url, img2Url) {
+    if(this.props.userId){
+      this.props.addToCart({ id: id, price: price });
+    }
+    else {
+      let product = {id, name, description, price, stock, img1Url, img2Url, quantity: 1}
+      localStorage.setItem(id, JSON.stringify(product))
+      var products = []
+      for(var i = 0, len = localStorage.length; i < len; i++) {
+        var key = localStorage.key(i);
+        var value = JSON.parse(localStorage[key]);  
+        products.push(value);
+    }
+      this.props.addLocalStorage(products)
+    }
   }
 
-  handleDeleteCart(orderId) {
-    this.props.deleteCart(orderId);
+  handleDeleteCart(productId){
+    if(this.props.userId){
+      this.props.deleteCart(productId);
+    }
+    else{
+      localStorage.removeItem(productId)
+      var products = []
+      for(var i = 0, len = localStorage.length; i < len; i++){
+        var key = localStorage.key(i);
+        var value = JSON.parse(localStorage[key]);  
+        products.push(value);
+    }
+      this.props.addLocalStorage(products)
+    }
   }
 
 // Review
@@ -81,9 +107,6 @@ class SingleProductContainer extends React.Component {
       this.setState({local: !this.state.local})
     })
   }
-  
-
-// Render
 
   render() {
     const { product, cart, reviews } = this.props;
@@ -111,6 +134,7 @@ const mapStateToProps = (state, ownProps) => {
     product: state.productReducer.product,
     cart: state.cartReducer.list,
     reviews: state.reviewsReducer.list,
+    userId: state.usersReducer.user.id,
   };
 };
 
@@ -128,6 +152,8 @@ const mapDispatchToProps = (dispatch) => {
     fetchCart: () => {
       dispatch(fetchCart());
     },
+    addLocalStorage: (products) => {dispatch(addLocalStorage(products))
+    },
     searchReviews: (id) => {
       return dispatch(searchReviews(id));
     },
@@ -142,13 +168,3 @@ export default connect(
   mapDispatchToProps
 )(SingleProductContainer);
 
-
-// componentDidUpdate(prevProps ,prevState){
-//   if(prevState.local !== this.state.local){return this.props.searchReviews(this.props.id) }
-//   let total= 0
-//   this.props.searchReviews.map((review)=>{
-//      total = total + review.rate
-//   })
-//   this.setState({rateAverage: total})
-
-// }

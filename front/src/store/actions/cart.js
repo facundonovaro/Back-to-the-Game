@@ -1,7 +1,7 @@
 import { GET_ALL_CART, ADD_TO_CART } from "../constants";
 import axios from "axios";
 
-const allCart = (cart) => {
+export const allCart = (cart) => {
   return {
     type: GET_ALL_CART,
     cart,
@@ -15,8 +15,14 @@ const cartList = (products) => {
   };
 };
 
-export const addLocalStorage = (products) => (dispatch) =>
+export const addLocalStorage = (products) => (dispatch) => {
 dispatch(allCart(products))
+let list = [];
+    products.map((product) => {
+      list.push(product.id);
+    })
+    dispatch(cartList(list))
+}
 
 export const assignCart = (carrito) => (dispatch) => 
   axios.post('/api/cart/local', carrito)
@@ -25,15 +31,17 @@ export const assignCart = (carrito) => (dispatch) =>
 export const addToCart = (product) => (dispatch) =>
   axios.post("/api/cart", product).then((res) => {
     let productList = [];
+    let productCart = [];
     res.data.map((order) => {
-      productList.push(order.product);
+      productList.push(order.product.id);
+      productCart.push(order.product)
     });
     dispatch(cartList(productList));
+    dispatch(allCart(productCart))
   });
 
 export const fetchCart = () => (dispatch) =>
   axios.get(`/api/cart`).then((res) => {
-    console.log('RES DATA ', res.data)
     let productList = [];
     let productCart = []
     res.data.map((order) => {

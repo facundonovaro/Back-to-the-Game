@@ -9,7 +9,8 @@ class CartContainer extends React.Component {
     this.state = {
       totalQuantity: 0,
     };
-    this.handleUpdateCart = this.handleUpdateCart.bind(this)
+    this.handleAddCart = this.handleAddCart.bind(this)
+    this.handleSubstractCart = this.handleSubstractCart.bind(this)
     this.handleDeleteCart = this.handleDeleteCart.bind(this)
   }
   componentDidMount() {
@@ -33,7 +34,7 @@ class CartContainer extends React.Component {
     }
   }
 
-  handleUpdateCart(order){
+  handleAddCart(order){
     if(this.props.user.id){
       this.props.updateCart(order)
     }
@@ -51,9 +52,30 @@ class CartContainer extends React.Component {
     }
   }
 
-  handleDeleteCart(orderId){
-    if(!this.props.user.id){
-      localStorage.removeItem(orderId)
+  handleSubstractCart(order){
+    if(this.props.user.id){
+      this.props.updateCart(order)
+    }
+    else {
+      let newProduct = JSON.parse(localStorage.getItem(order.id))
+      newProduct.quantity --
+      localStorage.setItem(order.id, JSON.stringify(newProduct))
+      var products = []
+      for(var i = 0, len = localStorage.length; i < len; i++){
+        var key = localStorage.key(i);
+        var value = JSON.parse(localStorage[key]);  
+        products.push(value);
+    }
+      this.props.addLocalStorage(products)
+    }
+  }
+
+  handleDeleteCart(productId){
+    if(this.props.user.id){
+      this.props.deleteCart(productId);
+    }
+    else{
+      localStorage.removeItem(productId)
       var products = []
       for(var i = 0, len = localStorage.length; i < len; i++){
         var key = localStorage.key(i);
@@ -74,7 +96,8 @@ class CartContainer extends React.Component {
           cart={cart}
           user={user}
           totalQuantity={totalQuantity}
-          handleUpdateCart={this.handleUpdateCart}
+          handleAddCart={this.handleAddCart}
+          handleSubstractCart={this.handleSubstractCart}
           handleDeleteCart={this.handleDeleteCart}
         />
       </div>

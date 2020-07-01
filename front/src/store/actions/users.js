@@ -5,6 +5,7 @@ import {
   ERROR_MESSAGE,
   GET_USERS,
 } from "../constants";
+import { allCart } from './cart';
 
 const loginUser = (user) => ({
   type: LOGIN_USER,
@@ -43,6 +44,7 @@ export const userLogout = function (user) {
   return function (dispatch) {
     axios.post("/api/users/logout", user).then(() => {
       dispatch(logoutUser({}));
+      dispatch(allCart([]))
     });
   };
 };
