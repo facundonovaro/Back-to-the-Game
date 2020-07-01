@@ -33,7 +33,7 @@ const Products = ({ products, handlerSubmitCart, handleDeleteCart, cart }) => {
                     handleDeleteCart(product.id);
                   }}
                 >
-                  Remove from Cart
+                  Remover del Carrito
                 </Button>
               ) : (
                 <Button
@@ -42,7 +42,7 @@ const Products = ({ products, handlerSubmitCart, handleDeleteCart, cart }) => {
                     handlerSubmitCart(product.id, product.name, product.description, product.price, product.stock, product.img1Url, product.img2Url);
                   }}
                 >
-                 Añadir a la cesta
+                 Añadir al Carrito
                 </Button>
               )}
             </Card.Body>
