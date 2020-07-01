@@ -12,4 +12,14 @@ const getCategory = (req, res) => {
     .then(products => res.send(products))
 }
 
-module.exports = getCategory;
+const addCategory = (req, res) => {
+    Category.create(req.body)
+    .then(category => res.send(category))
+}
+
+const getCategories = (req, res) => {
+    Category.findAll()
+    .then(categories => res.send(categories))
+}
+
+module.exports = { getCategory, addCategory, getCategories };
