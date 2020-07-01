@@ -1,23 +1,30 @@
-import axios from 'axios'
-import { GET_ALL_PRODUCTS, ADD_PRODUCT } from '../constants'
+import axios from "axios";
+import { GET_ALL_PRODUCTS, ADD_PRODUCT } from "../constants";
 
 const allProducts = (products) => ({
-    type: GET_ALL_PRODUCTS,
-    products
-})
+  type: GET_ALL_PRODUCTS,
+  products,
+});
 
 const addProduct = (product) => {
-    return {
-        type: ADD_PRODUCT,
-        product,
-    }
-}
+  return {
+    type: ADD_PRODUCT,
+    product,
+  };
+};
 
-export const fetchProducts = () => dispatch =>
-    axios.get('/api/products')
-        .then(res => res.data)
-        .then(products => dispatch(allProducts(products)))
+export const fetchProducts = () => (dispatch) =>
+  axios
+    .get("/api/products")
+    .then((res) => res.data)
+    .then((products) => dispatch(allProducts(products)));
 
-export const newProduct = product => dispatch =>
-    axios.post('/api/products', product)
-        .then(product => dispatch(addProduct(product.data)))
+export const newProduct = (product) => (dispatch) =>
+  axios
+    .post("/api/products", product)
+    .then((product) => dispatch(addProduct(product.data)));
+
+export const deleteProduct = (id) => (dispatch) =>
+  axios.delete(`/api/products/${id}`).then((res) => {
+    dispatch(allProducts(res.data));
+  });

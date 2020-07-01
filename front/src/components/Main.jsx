@@ -12,6 +12,7 @@ import SearchContainer from "../containers/SearchContainer";
 import CartContainer from "../containers/CartContainer";
 import { connect } from "react-redux";
 import { cookieLogger } from "../store/actions/users";
+import DeleteProductContainer from "../containers/DeleteProductContainer";
 
 class Main extends React.Component {
   constructor(props) {
@@ -32,8 +33,12 @@ class Main extends React.Component {
           <Route exact path="/products" component={ProductsContainer} />
           <Route path="/users/register" component={RegisterContainer} />
           <Route path="/users/login" component={LoginContainer} />
-          <Route exact path="/products/add" component={AddProductContainer} />
-          <Route path="/products/:id/edit" component={EditProductContainer} />
+          <Route path="/admin/add-product" component={AddProductContainer} />
+          <Route path="/admin/edit-product" component={EditProductContainer} />
+          <Route
+            path="/admin/delete-product"
+            component={DeleteProductContainer}
+          />
           <Route path="/products/:id" component={SingleProductContainer} />
           <Route path="/users/:id" component={SingleuserContainer} />
           <Route exact path="/cart" component={CartContainer} />

@@ -2,6 +2,7 @@
 export const LOGIN_USER = "LOGIN_USER";
 export const LOGOUT_USER = "LOGOUT_USER";
 export const ERROR_MESSAGE = "ERROR_MESSAGE";
+export const GET_USERS = "GET_USERS";
 
 // Products
 export const GET_ALL_PRODUCTS = "GET_ALL_PRODUCTS";
