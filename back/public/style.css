@@ -88,28 +88,28 @@
 .dropdown-links {
   display: block;
   width: 100%;
-  padding: .25rem 1.5rem;
+  padding: 0.25rem 1.5rem;
   clear: both;
   font-weight: 400;
   color: #212529;
   text-align: inherit;
   white-space: nowrap;
   background-color: transparent;
-  border: 0
+  border: 0;
 }
 
 .dropdown-links:hover {
   display: block;
   text-decoration: none;
   width: 100%;
-  padding: .25rem 1.5rem;
+  padding: 0.25rem 1.5rem;
   clear: both;
   font-weight: 400;
   color: #212529;
   text-align: inherit;
   white-space: nowrap;
-  background-color: #F2F4F5;
-  border: 0
+  background-color: #f2f4f5;
+  border: 0;
 }
 
 #cartContainer {
@@ -263,13 +263,17 @@
   color: green;
 }
 
-.boton-verProductos{
+.boton-verProductos {
   text-decoration: none;
-  color: #c1c1c1
+  color: #c1c1c1;
 }
 
-.boton-verProductos:hover{
+.boton-verProductos:hover {
   text-decoration: none;
   color: #7e7e7e;
 }
 
+#imgNotFound {
+  margin: auto;
+  display: flex;
+}
