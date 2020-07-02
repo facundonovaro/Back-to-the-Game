@@ -33,12 +33,6 @@ class AddProductContainer extends React.Component {
     this.props.getCategories();
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    if (this.state.local !== prevState.local) {
-      this.props.getCategories();
-    }
-  }
-
   handleCategoryChange(event) {
     const value = event.target.value;
     if (this.state.category.includes(value)) {
@@ -153,6 +147,7 @@ class AddProductContainer extends React.Component {
           handleSubmitNewCat={this.handleSubmitNewCat}
           addCat={this.state.addCat}
           handleNewCat={this.handleNewCat}
+          user={this.props.user}
         />
       </div>
     );
@@ -162,6 +157,7 @@ class AddProductContainer extends React.Component {
 const mapStateToProps = (state) => {
   return {
     categories: state.categoryReducer.categories,
+    user: state.usersReducer.user,
   };
 };
 

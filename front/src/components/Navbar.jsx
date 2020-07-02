@@ -16,7 +16,7 @@ const NavBar = ({
   userLogout,
   user,
   disable,
-  categories,
+  categories, 
   inputValue,
 }) => (
   <Navbar bg="dark" expand="lg" className="navbar-container">
@@ -67,13 +67,17 @@ const NavBar = ({
         </NavDropdown>
         {user.id ? (
           <Link className="navbar-links" to="/lastorders">
-              Ordenes
+            Ordenes
+          </Link>
+        ) : null}
+        {user.id && user.role !== "user" ? (
+          <Link className="navbar-links" to="/admin">
+            Admin
           </Link>
         ) : null}
         <Link className="navbar-links" to="/cart">
           <FaShoppingCart className="shoppingCart-icon" />
         </Link>
-        
       </Nav>
       <Form onSubmit={handlerSubmitSearch} inline>
         <FormControl
