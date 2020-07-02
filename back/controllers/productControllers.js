@@ -6,7 +6,7 @@ const findProduct = (req, res) => {
 };
 
 const findAllProducts = (req, res) => {
-  Product.findAll().then((products) => {
+  Product.findAll({order: [["name", "ASC"]]}).then((products) => {
     res.json(products);
   });
 };
@@ -35,7 +35,7 @@ const deleteProduct = (req, res) => {
   Product.findByPk(req.params.id)
     .then((product) => product.destroy())
     .then(() => {
-      Product.findAll().then((products) => {
+      Product.findAll({ order: [["name", "ASC"]] }).then((products) => {
         res.json(products);
       });
     });
