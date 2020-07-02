@@ -22,7 +22,8 @@ const Cart = ({ cart, totalQuantity, handleAddCart, handleSubstractCart, handleD
                   </div>
                   <div id="buttonsCart">
                     <Button
-                      variant="dark"
+                      className= "cart-buttons"
+                      variant="light"
                       onClick={() => {   
                         handleAddCart({quantity: product.quantity + 1,
                         total: (product.quantity + 1) * product.price,
@@ -31,15 +32,17 @@ const Cart = ({ cart, totalQuantity, handleAddCart, handleSubstractCart, handleD
                       }}
                       disabled={product.quantity >= product.stock}
                     >
-                      <FaCartPlus />
+                      <FaCartPlus 
+                      size={30}
+                      />
                     </Button>
                     <div>{product.quantity}</div>
                     {product.quantity >= product.stock ? (
-                      <Alert variant="primary">Llegaste al máximo stock</Alert>
+                      <Alert variant="primary">Llegaste al máximo stock</Alert>	
                     ) : null}
-
                     <Button
-                      variant="dark"
+                      className="cart-buttons"
+                      variant="light"
                       onClick={() => {   
                         handleSubstractCart({quantity: product.quantity - 1,
                          total: (product.quantity - 1) * product.price,
@@ -48,16 +51,21 @@ const Cart = ({ cart, totalQuantity, handleAddCart, handleSubstractCart, handleD
                        }}
                       disabled={product.quantity <= 1}
                     >
-                      <FaCartArrowDown />
+                      <FaCartArrowDown 
+                      size={30}
+                      />
                     </Button>
 
                     <Button
-                      variant="dark"
+                      className="cart-buttons"
+                      variant="ligth"
                       onClick={() => {
                         handleDeleteCart(product.id)
                       }}
                     >
-                      <FaTrash />
+                      <FaTrash 
+                      size={30}
+                      />
                     </Button>
                   </div>
                 </div>

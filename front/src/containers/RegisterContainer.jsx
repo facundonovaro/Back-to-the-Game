@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Register from "../components/Register"
-import { registerUser } from "../store/actions/users"
+import Register from "../components/Register";
+import { registerUser } from "../store/actions/users";
 
 const mapStateToProps = (state, ownProps) => {
     return{
@@ -31,16 +31,12 @@ class RegisterContainer extends React.Component {
           passwordBarNow: 10,
           passwordSecurity:'',
           passwordSecurityClass:'',
-          
-
         };
         this.handlerChange = this.handlerChange.bind(this)
         this.submit = this.submit.bind(this)
     }
+
     handlerChange(evt) {
-
-        
-
         this.setState({ [evt.target.name]: evt.target.value })
         const strongRegex = new RegExp(/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/gm);
         const mediumRegex = new RegExp(/^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})/gm);
@@ -77,24 +73,23 @@ class RegisterContainer extends React.Component {
 
     render() {
         return (
-          
+          <div>
             <Register
-              
-              firstName={this.state.firstName}
-              lastName={this.state.lastName}
-              email={this.state.username}
-              password={this.state.password}
-              handlerChange={this.handlerChange}
-              submit={this.submit}
-              passwordValidate={this.state.passwordValidate}
-              error={this.state.error}
-              message={this.props.message}
-                passwordBarNow={this.state.passwordBarNow}
-                passwordBarVariant={this.state.passwordBarVariant}
-                passwordSecurity={this.state.passwordSecurity}
-                passwordSecurityClass={this.state.passwordSecurityClass}
+            firstName={this.state.firstName}
+            lastName={this.state.lastName}
+            email={this.state.username}
+            password={this.state.password}
+            handlerChange={this.handlerChange}
+            submit={this.submit}
+            passwordValidate={this.state.passwordValidate}
+            error={this.state.error}
+            message={this.props.message}
+            passwordBarNow={this.state.passwordBarNow}
+            passwordBarVariant={this.state.passwordBarVariant}
+            passwordSecurity={this.state.passwordSecurity}
+            passwordSecurityClass={this.state.passwordSecurityClass}
             />
-        
+          </div>
         );
     }
 }
