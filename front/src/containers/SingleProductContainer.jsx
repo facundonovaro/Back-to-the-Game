@@ -9,7 +9,7 @@ class SingleProductContainer extends React.Component {
   constructor() {
     super();
     this.state = {
-       description: '',
+       description: 'Hola',
        rate: 3,
        local: false,
        rateAverage: 0,
@@ -115,12 +115,12 @@ class SingleProductContainer extends React.Component {
     objState.productId = productId
     this.props.addReview(objState)
     .then(()=>{
-      this.setState({local: !this.state.local})
+      this.setState({local: !this.state.local, description: ''}) 
     })
   }
 
   render() {
-    const { product, cart, reviews, user, addedBy } = this.props;
+    const { product, cart, reviews, user } = this.props;
     return (
       <div>
         <SingleProduct

@@ -99,10 +99,12 @@ const SingleProduct = ({
             <Form.Group controlId="exampleForm.ControlTextarea1">
               <Form.Label><h5>Escribe una pequeña reseña</h5></Form.Label>
               <Form.Control 
+              value={description}
+              placeholder="Este producto me parecio..."
               as="textarea" 
               rows="3"
               onChange={handlerDescriptionChange}
-              value={description}/>
+              />
             </Form.Group>
         <Button 
           type="submit" 

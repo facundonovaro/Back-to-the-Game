@@ -62035,10 +62035,11 @@ var SingleProduct = function SingleProduct(_ref) {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", null, "1"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", null, "2"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", null, "3"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", null, "4"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", null, "5"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Form"].Group, {
     controlId: "exampleForm.ControlTextarea1"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Form"].Label, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, "Escribe una peque\xF1a rese\xF1a")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Form"].Control, {
+    value: description,
+    placeholder: "Este producto me parecio...",
     as: "textarea",
     rows: "3",
-    onChange: handlerDescriptionChange,
-    value: description
+    onChange: handlerDescriptionChange
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Button"], {
     type: "submit",
     className: "btn btn-dark"
@@ -64280,7 +64281,7 @@ var SingleProductContainer = /*#__PURE__*/function (_React$Component) {
 
     _this = _super.call(this);
     _this.state = {
-      description: '',
+      description: 'Hola',
       rate: 3,
       local: false,
       rateAverage: 0,
@@ -64424,7 +64425,8 @@ var SingleProductContainer = /*#__PURE__*/function (_React$Component) {
       objState.productId = productId;
       this.props.addReview(objState).then(function () {
         _this4.setState({
-          local: !_this4.state.local
+          local: !_this4.state.local,
+          description: ''
         });
       });
     }
@@ -64435,8 +64437,7 @@ var SingleProductContainer = /*#__PURE__*/function (_React$Component) {
           product = _this$props.product,
           cart = _this$props.cart,
           reviews = _this$props.reviews,
-          user = _this$props.user,
-          addedBy = _this$props.addedBy;
+          user = _this$props.user;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_SingleProduct__WEBPACK_IMPORTED_MODULE_2__["default"], {
         product: product,
         handlerSubmitCart: this.handlerSubmitCart,
