@@ -33,9 +33,9 @@
   flex-direction: row;
 }
 
-#productCart {
+.productCart {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   margin: 5px;
   padding: 5px;
   width: 700px;
@@ -44,7 +44,7 @@
   color: #23272b;
 }
 
-#listGroupCart {
+.listGroupCart {
   width: 1000px;
   display: flex;
   flex-direction: row;

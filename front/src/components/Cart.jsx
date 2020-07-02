@@ -11,8 +11,9 @@ const Cart = ({ cart, totalQuantity, handleAddCart, handleSubstractCart, handleD
         <div id="cartContainer">
           <div id="productsCartContainer">
             {cart.map((product) => (
-              <div key={product.id} id="productCart">
-                <div id="listGroupCart">
+              <div>
+              <div key={product.id} className="productCart">
+                <div className="listGroupCart">
                   <div>
                     <h3>{product.name}</h3>
                     <p>Precio individual - ${product.price}</p>
@@ -37,9 +38,6 @@ const Cart = ({ cart, totalQuantity, handleAddCart, handleSubstractCart, handleD
                       />
                     </Button>
                     <div>{product.quantity}</div>
-                    {product.quantity >= product.stock ? (
-                      <Alert variant="primary">Llegaste al máximo stock</Alert>	
-                    ) : null}
                     <Button
                       className="cart-buttons"
                       variant="light"
@@ -68,6 +66,12 @@ const Cart = ({ cart, totalQuantity, handleAddCart, handleSubstractCart, handleD
                       />
                     </Button>
                   </div>
+                </div>
+                <div>
+              </div>
+              {product.quantity >= product.stock ? (
+                      <Alert variant="danger">Llegaste al máximo stock</Alert>	
+                    ) : null}
                 </div>
               </div>
             ))}
