@@ -1,7 +1,9 @@
 import React from "react";
+import { ListGroupItem, ListGroup, Form, Button } from "react-bootstrap"
 
 const AddProduct = ({
   handleSubmit,
+  handleCategoryChange,
   handleImage2Change,
   hangleImage1Change,
   handleStockChange,
@@ -19,10 +21,22 @@ const AddProduct = ({
     <div className="container-fluid" style={{ width: "60%" }}>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
-          <legend>Add Product</legend>
+          <legend>Agregar Producto</legend>
         </div>
         <div className="form-group">
-          <label>Name of Product</label>
+          <div>
+            <label for="exampleFormControlSelect1">Categoria</label>
+            <select onChange={handleCategoryChange} class="form-control" id="exampleFormControlSelect1">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
+          </div>
+
+
+          <label>Nombre de Producto</label>
           <input
             value={nameInput}
             placeholder={nameInput}
@@ -43,7 +57,7 @@ const AddProduct = ({
           />
         </div>
         <div className="form-group">
-          <label>Price</label>
+          <label>Precio</label>
           <input
             value={priceInput}
             onChange={handlePriceChange}
@@ -63,7 +77,7 @@ const AddProduct = ({
           />
         </div>
         <div className="form-group">
-          <label>Image 1</label>
+          <label>Imagen 1</label>
           <input
             value={image1Input}
             onChange={hangleImage1Change}
@@ -73,7 +87,7 @@ const AddProduct = ({
           />
         </div>
         <div className="form-group">
-          <label>Image 2</label>
+          <label>Imagen 2</label>
           <input
             value={image2Input}
             onChange={handleImage2Change}
@@ -83,7 +97,7 @@ const AddProduct = ({
           />
         </div>
         <button type="submit" className="btn btn-primary">
-          Add Product
+          Agregar Producto
         </button>
       </form>
     </div>

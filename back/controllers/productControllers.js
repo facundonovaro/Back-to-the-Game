@@ -12,7 +12,9 @@ const findAllProducts = (req, res) => {
 };
 
 const addProduct = (req, res) => {
-  Product.create(req.body).then((product) => res.send(product));
+  Product.create(req.body)
+    .then((product) => res.send(product));
+
 };
 
 const updateProduct = (req, res) => {

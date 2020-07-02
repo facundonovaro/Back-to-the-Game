@@ -20,6 +20,12 @@ class AddProductContainer extends React.Component {
     this.hangleImage1Change = this.hangleImage1Change.bind(this);
     this.handleImage2Change = this.handleImage2Change.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleCategoryChange = this.handleCategoryChange.bind(this)
+  }
+
+  handleCategoryChange(event) {
+    const value = event.target.value;
+    this.setState({ category: value });
   }
 
   handleNameChange(event) {
@@ -65,10 +71,11 @@ class AddProductContainer extends React.Component {
     });
   }
   render() {
-    const { name, description, price, stock, img1Url, img2Url } = this.state;
+    const { category, name, description, price, stock, img1Url, img2Url } = this.state;
     return (
       <div>
         <AddProduct
+          handleCategoryChange={this.handleCategoryChange}
           handleChooseProduct={this.handleChooseProduct}
           handleSubmit={this.handleSubmit}
           handleImage2Change={this.handleImage2Change}
@@ -77,6 +84,7 @@ class AddProductContainer extends React.Component {
           handlePriceChange={this.handlePriceChange}
           handleDescriptionChange={this.handleDescriptionChange}
           handleNameChange={this.handleNameChange}
+          category={category}
           nameInput={name}
           descriptionInput={description}
           priceInput={price}
