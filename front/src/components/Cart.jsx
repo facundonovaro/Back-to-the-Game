@@ -38,9 +38,8 @@ const Cart = ({ cart, totalQuantity, handleAddCart, handleSubstractCart, handleD
                     </Button>
                     <div>{product.quantity}</div>
                     {product.quantity >= product.stock ? (
-                      <Alert variant="primary">Llegaste al máximo stock</Alert>
+                      <Alert variant="primary">Llegaste al máximo stock</Alert>	
                     ) : null}
-
                     <Button
                       className="cart-buttons"
                       variant="light"
