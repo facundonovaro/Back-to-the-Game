@@ -1,14 +1,16 @@
 const express = require("express");
 const router = express.Router();
-const { Category, Product } = require('../models')
-const { getCategory, addCategory, getCategories } = require('../controllers/categoryControllers')
+const { Category, Product } = require("../models");
+const {
+  getCategory,
+  newCategory,
+  getCategories,
+} = require("../controllers/categoryControllers");
 
-// /api/category
+router.get("/", getCategories);
 
-router.get('/', getCategories)
+router.post("/", newCategory);
 
-router.get('/:category', getCategory)
-
-router.post('/', addCategory)
+router.get("/:category", getCategory);
 
 module.exports = router;

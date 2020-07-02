@@ -46,7 +46,7 @@ const ManageUser = ({
           <select className="form-control" name="product" onChange={changeRole}>
             <option value="user">User</option>
             <option value="admin">Admin</option>
-            <option value="super admin">Super Admin</option>
+            <option value="superAdmin">Super Admin</option>
           </select>
           <button type="submit">Enviar</button>
         </form>
