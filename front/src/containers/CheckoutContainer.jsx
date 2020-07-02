@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import Checkout from '../components/Checkout'
 import { fetchCart } from "../store/actions/cart";
-import { updateOrderStatus, updateOrderAdress, updateStock } from '../store/actions/checkout';
+import { updateOrderStatus, updateOrderAdress, updateStock, thankYouEmail } from '../store/actions/checkout';
 import { fetchProducts } from '../store/actions/products';
 
 
@@ -21,10 +21,12 @@ const mapDispatchToProps = function (dispatch) {
         fetchCart: () => {dispatch(fetchCart())},
         updateOrderAdress: (order) => dispatch(updateOrderAdress(order)),
         updateOrderStatus: (order) => dispatch(updateOrderStatus(order)) ,
+        thankYouEmail: (email) => dispatch(thankYouEmail(email)),
         updateStock : (cart)=> dispatch(updateStock(cart)),
         fetchProducts:() => dispatch(fetchProducts())
         
-    };
+    }
+      
 };
 
 
@@ -36,11 +38,13 @@ class CheckoutContainer extends Component {
             userId: this.props.user.id,
             orderAdress: "",
             orderFinished:false,
+            email: ''
             
 
         }
 
         this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleChangeEmail = this.handleChangeEmail.bind(this)
         this.handleChange = this.handleChange.bind(this)
         
     }
@@ -62,6 +66,12 @@ class CheckoutContainer extends Component {
         })
     }
 
+    handleChangeEmail(evt){
+        const value = evt.target.value
+        this.setState({email: value})  
+        console.log(value)
+       }
+
      handleSubmit(evt) {
         evt.preventDefault();
         this.props.updateOrderAdress(this.state)
@@ -70,20 +80,22 @@ class CheckoutContainer extends Component {
         })
         .then(()=>{
             this.props.updateStock(this.props.cart)
-        })
-        .then(()=>{
-            this.props.fetchProducts();
-        })
-        .then(()=>{
+        }).then(()=>{
+            this.props.fetchProducts(); 
+        }).then(()=>{
             this.props.history.push('/thankyou')
-        })    
+        }).then(()=>{
+            this.props.thankYouEmail(this.props.email)
+        })   
   }
 
 
     render(){
        
         return(
-            <Checkout  
+            <Checkout 
+            email={this.state.email}
+            handleChangeEmail={this.handleChangeEmail}
             cart={this.props.cart}
             total= {this.state.totalQuantity}
             handleSubmit = {this.handleSubmit}
