@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import Checkout from '../components/Checkout'
 import { fetchCart } from "../store/actions/cart";
-import { updateOrderStatus, updateOrderAdress, updateStock, thankYouEmail } from '../store/actions/checkout';
+import { updateOrderStatus, updateOrderAdress, updateStock, /* thankYouEmail */ } from '../store/actions/checkout';
 import { fetchProducts } from '../store/actions/products';
 
 
@@ -84,9 +84,9 @@ class CheckoutContainer extends Component {
             this.props.fetchProducts(); 
         }).then(()=>{
             this.props.history.push('/thankyou')
-        }).then(()=>{
+        })/* .then(()=>{
             this.props.thankYouEmail(this.props.email)
-        })   
+        })   */ 
   }
 
 

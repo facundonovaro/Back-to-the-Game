@@ -16,9 +16,7 @@ const findAllProductReviews = (req, res)=>{
   .then((reviews)=>{
     res.json(reviews).status(200)
   })
-    .then((reviews) => {
-      res.json(reviews).status(200)
-    })
+   
 }
 
 
