@@ -112,6 +112,7 @@ class EditProductContainer extends React.Component {
           stockInput={stock}
           image1Input={img1Url}
           image2Input={img2Url}
+          user={this.props.user}
         />
       </div>
     );
@@ -123,6 +124,7 @@ const mapStateToProps = (state, ownProps) => {
   return {
     products: state.productsReducer.list,
     product: state.productReducer.product,
+    user: state.usersReducer.user,
   };
 };
 

@@ -12,77 +12,69 @@ export default ({
   orderAdress,
   handleChangeEmail,
   email,
+  user,
 }) => {
   return (
-    <div>
-      <h2>Checkout</h2>
-
-      {cart.length !== 0 ? (
+    <>
+      {user.id ? (
         <div>
-            <h2>Checkout</h2>
-
-        {cart.length !== 0 ? (
-          <div>
-            <div className="displayCheckout textProductsForce">
-              {cart.map((cart) => {
-                return (
-                  <div key={cart.orderId}>
-                    <Card style={{ width: "12rem" }}>
-                      <Card.Img variant="top" src={cart.img1Url} />
-                      <Card.Body>
-                        <Card.Title>{cart.name}</Card.Title>
-                        <Card.Text>{cart.description}</Card.Text>
-                        <Card.Subtitle>$ {cart.price}</Card.Subtitle>
-                      </Card.Body>
-                    </Card>
-                  </div>
-                );
-              })}
-            </div>
+          <h2>Checkout</h2>
+          {cart.length !== 0 ? (
             <div>
-              <Form onSubmit={handleSubmit}>
-                
-                <Form.Group>
-                  <Form.Label>Agregá tu dirección de entrega</Form.Label>
-                  <Form.Control
-                    required
-                    type="text"
-                    placeholder="Castillo 1332, CABA, Argentina"
-                    name="orderAdress"
-                    value={orderAdress}
-                    onChange={handleChange}
-                  />
-                  {/*  <Form.Control required type="text" placeholder="Confirmar Email*" value={email} onChange={handleChangeEmail}
+              <div className="displayCheckout textProductsForce">
+                {cart.map((cart) => {
+                  return (
+                    <div key={cart.orderId}>
+                      <Card style={{ width: "12rem" }}>
+                        <Card.Img variant="top" src={cart.img1Url} />
+                        <Card.Body>
+                          <Card.Title>{cart.name}</Card.Title>
+                          <Card.Text>{cart.description}</Card.Text>
+                          <Card.Subtitle>$ {cart.price}</Card.Subtitle>
+                        </Card.Body>
+                      </Card>
+                    </div>
+                  );
+                })}
+              </div>
+              <div>
+                <Form onSubmit={handleSubmit}>
+                  <Form.Group>
+                    <Form.Label>Agregá tu dirección de entrega</Form.Label>
+                    <Form.Control
+                      required
+                      type="text"
+                      placeholder="Castillo 1332, CABA, Argentina"
+                      name="orderAdress"
+                      value={orderAdress}
+                      onChange={handleChange}
+                    />
+                    {/*  <Form.Control required type="text" placeholder="Confirmar Email*" value={email} onChange={handleChangeEmail}
                             name="Email"
                         /> */}
-                </Form.Group>
+                  </Form.Group>
 
-                <li>Factura total: $ {total}</li>
-                <Button type="submit">Confirmar compra</Button>
-              </Form>
+                  <li>Factura total: $ {total}</li>
+                  <Button type="submit">Confirmar compra</Button>
+                </Form>
+              </div>
             </div>
-          </div>
-        ) : (
-          <div>
-            <p> No tenes ordenes nuevas </p>
+          ) : (
+            <div>
+              <p> No tenes ordenes nuevas </p>
 
-            <Link to="/products">
-              <Button> Seguir comprando </Button>
-            </Link>
-            
+              <Link to="/products">
+                <Button> Seguir comprando </Button>
+              </Link>
             </div>
-            )
-        }
+          )}
         </div>
       ) : (
-        <div>
-          <p> No tenes ordenes nuevas </p>
-
-          <Link to="/products">
-            <Button> Seguir comprando </Button>
-          </Link>
-        </div>
+        <img
+          id="imgNotFound"
+          src="https://cdn.optinmonster.com/wp-content/uploads/2018/06/android-404-845x504.png"
+        ></img>
       )}
-    </div>
+    </>
   );
 };

@@ -5,10 +5,10 @@ const path = require("path");
 const morgan = require("morgan");
 const cookieParser = require("cookie-parser");
 const session = require("express-session");
-const passport = require('./config/passportConfig')
+const passport = require("./config/passportConfig");
 const router = require("./routes/index");
 
-require('./config/facebookConfig');
+require("./config/facebookConfig");
 
 app.use(
   session({
