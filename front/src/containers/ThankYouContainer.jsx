@@ -35,7 +35,7 @@ class ThankYouContainer extends Component {
     }
 
     componentDidMount() {
-        console.log("COMPONENTDID")
+        
         this.props.fetchLastOrders();
     }
 

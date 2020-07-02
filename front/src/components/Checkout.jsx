@@ -16,9 +16,10 @@ export default({cart,
 
             {( cart.length !==0 ? (
                 <div>
+                <div className='displayCheckout textProductsForce'>
                     {cart.map(cart => {
                         return (
-                            <div key={cart.orderId}>
+                            <div key={cart.orderId} >
                             <Card style={{ width: '12rem' }} >
                             <Card.Img variant="top" src={cart.img1Url} />
                             <Card.Body>
@@ -32,6 +33,8 @@ export default({cart,
                         </div>
                         );
                     })}
+                </div>
+                <div>
                     <Form onSubmit={handleSubmit}>
                 <Form.Label >Agregá la dirección de entrega</Form.Label>
                 <Form.Group >
@@ -43,8 +46,8 @@ export default({cart,
             <li>Factura total: $ {total}</li>
             <Button type='submit' >Confirmar compra</Button>
             </Form>
-            
-                </div>
+            </div>
+            </div>
             ) 
             
             

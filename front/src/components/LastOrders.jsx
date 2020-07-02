@@ -15,8 +15,11 @@ export default ({orders}) => {
 
             {dates.map(updatedAt=>{
                 return (
+                    
                     <div>
                     <h2>{updatedAt}</h2>
+                    <div className='displayCheckout textProductsForce'>
+                    
                    { orders[updatedAt].map(order=>{
                         return(
                         <div key={order.id}>
@@ -35,6 +38,7 @@ export default ({orders}) => {
                         )
 
                     })}
+                    </div>
                     </div>
                 )     
             })}

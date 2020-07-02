@@ -23,7 +23,7 @@ export default ({ userLogoutEvent, username, orders}) => {
                     {orders[lastItem].map(order => {
 
                         return(
-                        <div>
+                        <div key={order.id}>
                             <Card.Subtitle>{order.product.name}</Card.Subtitle>
                             <Card.Text> {order.product.price} </Card.Text>
                         </div>)
