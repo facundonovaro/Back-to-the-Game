@@ -24,6 +24,8 @@ export const GET_LAST_ORDERS = "GET_LAST_ORDERS";
 // Category
 export const SET_CATEGORY = "SET_CATEOGORY";
 export const GET_CATEGORIES = "GET_CATEGORIES";
+export const ADD_CATEGORY = "ADD_CATEGORY";
+
 //Review
 export const SHOW_ALL_REVIEWS = "SHOW_ALL_REVIEWS";
 export const ADD_REVIEW = "ADD_REVIEW";

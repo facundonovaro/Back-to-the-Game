@@ -6,19 +6,22 @@ const findProduct = (req, res) => {
 };
 
 const findAllProducts = (req, res) => {
-  Product.findAll({order: [["name", "ASC"]]}).then((products) => {
+  Product.findAll({ order: [["name", "ASC"]] }).then((products) => {
     res.json(products);
   });
 };
 
 const addProduct = (req, res) => {
-  Product.create(req.body)
-    .then((product) => res.send(product))
-    .then(() => {
-      Product.findAll().then((products) => {
-        res.json(products);
-      });
+  console.log(req.body, "REQ BODY!!!!!");
+  Product.create(req.body).then((productCreated) => {
+    const product = productCreated;
+    req.body.category.map((cat) => {
+      product.addCategory(cat);
     });
+    Product.findAll().then((products) => {
+      res.status(201).json(products);
+    });
+  });
 };
 
 const updateProduct = (req, res) => {

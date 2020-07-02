@@ -1,5 +1,5 @@
 import React from "react";
-import { ListGroupItem, ListGroup, Form, Button } from "react-bootstrap"
+import { Form, Button } from "react-bootstrap";
 
 const AddProduct = ({
   handleSubmit,
@@ -16,38 +16,49 @@ const AddProduct = ({
   stockInput,
   image1Input,
   image2Input,
-  categories
+  categories,
+  addCat,
+  handleNewCat,
+  handleSubmitNewCat,
 }) => {
   return (
     <div className="container-fluid" style={{ width: "60%" }}>
-      <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <legend>Agregar Producto</legend>
-        </div>
-        <div className="form-group">
-          <div>
-            <label for="exampleFormControlSelect1">Categoria</label>
-
-            <select onChange={handleCategoryChange} class="form-control" id="exampleFormControlSelect1">
-              {categories &&
-                categories.map((category) => (
-                  <option key={category.id}>{category.name}</option>
-                ))}
-
-            </select>
-          </div>
-
-
-          <label>Nombre de Producto</label>
-          <input
-            value={nameInput}
-            placeholder={nameInput}
-            onChange={handleNameChange}
-            type="text"
-            className="form-control"
-            name="name"
+      <div className="form-group">
+        <legend>Agregar Producto</legend>
+      </div>
+      <div className="form-group">
+        <Form>
+          {categories &&
+            categories.map((category) => (
+              <div key={category.id} className="mb-3">
+                <Form.Check
+                  type="checkbox"
+                  id={category.id}
+                  label={category.name}
+                  onChange={handleCategoryChange}
+                  value={category.id}
+                />
+              </div>
+            ))}
+          <Form.Control
+            placeholder="Agregar Categoría"
+            onChange={handleNewCat}
+            value={addCat}
           />
-        </div>
+          <Button onClick={handleSubmitNewCat}>Agregar Categoría</Button>
+        </Form>
+      </div>
+      <form onSubmit={handleSubmit}>
+        <label>Nombre de Producto</label>
+        <input
+          value={nameInput}
+          placeholder={nameInput}
+          onChange={handleNameChange}
+          type="text"
+          className="form-control"
+          name="name"
+        />
+
         <div className="form-group">
           <label>Description</label>
           <input

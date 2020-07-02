@@ -7,7 +7,6 @@ import {
   Form,
   FormControl,
   Button,
-  inputValue,
 } from "react-bootstrap";
 import logo from "../assets/logo.png";
 import { FaShoppingCart, FaSearch } from "react-icons/fa";
@@ -19,6 +18,7 @@ const NavBar = ({
   user,
   disable,
   categories,
+  inputValue,
 }) => (
   <Navbar bg="dark" expand="lg" className="navbar-container">
     <Link to="/products">
