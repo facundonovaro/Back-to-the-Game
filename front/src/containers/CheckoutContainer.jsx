@@ -71,16 +71,12 @@ class CheckoutContainer extends Component {
         .then(()=>{
             this.props.updateStock(this.props.cart)
         })
-
         .then(()=>{
             this.props.fetchProducts();
         })
         .then(()=>{
             this.props.history.push('/thankyou')
-        })
-        
-        
-    
+        })    
   }
 
 

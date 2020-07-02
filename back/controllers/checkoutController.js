@@ -26,7 +26,6 @@ const updateOrderStatus = (req, res) => {
 }
 
 const updateStock = (req, res) => {
-    console.log(req.body, 'REQBODYYYY')
     
     const array = req.body.map(product=>{
        return Product.update({stock: product.stock - product.quantity},
@@ -39,6 +38,7 @@ const updateStock = (req, res) => {
 
 
 const getLastOrders = (req, res) => {
+    console.log(req.user, "REQUSER")
     if (req.user) {
         Order.findAll({
             where: { userId: req.user.id, state: "completed" },
@@ -54,6 +54,7 @@ const getLastOrders = (req, res) => {
             let updatedAtGroups = _.groupBy(cart,function(obj){
                 return obj.updatedAt
             })
+            
             res.send(updatedAtGroups);
         });
     } else res.send([]);
