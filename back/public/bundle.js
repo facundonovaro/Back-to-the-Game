@@ -60850,36 +60850,46 @@ var AddProduct = function AddProduct(_ref) {
       stockInput = _ref.stockInput,
       image1Input = _ref.image1Input,
       image2Input = _ref.image2Input,
-      categories = _ref.categories;
+      categories = _ref.categories,
+      addCat = _ref.addCat,
+      handleNewCat = _ref.handleNewCat,
+      handleSubmitNewCat = _ref.handleSubmitNewCat;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "container-fluid",
     style: {
       width: "60%"
     }
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
-    onSubmit: handleSubmit
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "form-group"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("legend", null, "Agregar Producto")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "form-group"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", {
-    "for": "exampleFormControlSelect1"
-  }, "Categoria"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
-    onChange: handleCategoryChange,
-    "class": "form-control",
-    id: "exampleFormControlSelect1"
-  }, categories && categories.map(function (category) {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-      key: category.id
-    }, category.name);
-  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Nombre de Producto"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Form"], null, categories && categories.map(function (category) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      key: category.id,
+      className: "mb-3"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Form"].Check, {
+      type: "checkbox",
+      id: category.id,
+      label: category.name,
+      onChange: handleCategoryChange,
+      value: category.id
+    }));
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Form"].Control, {
+    placeholder: "Agregar Categor\xEDa",
+    onChange: handleNewCat,
+    value: addCat
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Button"], {
+    onClick: handleSubmitNewCat
+  }, "Agregar Categor\xEDa"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
+    onSubmit: handleSubmit
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Nombre de Producto"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
     value: nameInput,
     placeholder: nameInput,
     onChange: handleNameChange,
     type: "text",
     className: "form-control",
     name: "name"
-  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "form-group"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Description"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
     value: descriptionInput,
@@ -60955,7 +60965,7 @@ var Admin = function Admin(_ref) {
     onSubmit: handleSubmit
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "form-group"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("legend", null, "BIENVENIDO  ADMINISTRADOR")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("legend", null, "BIENVENIDO ADMINISTRADOR")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "form-group"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("legend", null, "Administrar Productos")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
     to: "/admin/add-product"
@@ -60973,7 +60983,7 @@ var Admin = function Admin(_ref) {
     type: "submit",
     className: "btn btn-primary buttonManageUser"
   }, "Eliminar Producto")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
-    to: "/admin/add-product"
+    to: "/admin/manage-users"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     type: "submit",
     className: "btn btn-primary buttonManageUser"
@@ -61755,7 +61765,7 @@ var ManageUser = function ManageUser(_ref) {
   }, "User"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
     value: "admin"
   }, "Admin"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: "super admin"
+    value: "superAdmin"
   }, "Super Admin")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     type: "submit"
   }, "Enviar"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
@@ -61794,7 +61804,8 @@ var NavBar = function NavBar(_ref) {
       userLogout = _ref.userLogout,
       user = _ref.user,
       disable = _ref.disable,
-      categories = _ref.categories;
+      categories = _ref.categories,
+      inputValue = _ref.inputValue;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Navbar"], {
     bg: "dark",
     expand: "lg",
@@ -61854,7 +61865,7 @@ var NavBar = function NavBar(_ref) {
     type: "text",
     placeholder: "Quiero buscar...",
     className: "mr-sm-2",
-    value: react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["inputValue"]
+    value: inputValue
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     disabled: disable,
     type: "submit",
@@ -62209,7 +62220,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _components_AddProduct__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/AddProduct */ "./src/components/AddProduct.jsx");
 /* harmony import */ var _store_actions_products__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../store/actions/products */ "./src/store/actions/products.js");
+/* harmony import */ var _store_actions_category__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../store/actions/category */ "./src/store/actions/category.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -62236,6 +62260,7 @@ function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.g
 
 
 
+
 var AddProductContainer = /*#__PURE__*/function (_React$Component) {
   _inherits(AddProductContainer, _React$Component);
 
@@ -62253,7 +62278,10 @@ var AddProductContainer = /*#__PURE__*/function (_React$Component) {
       price: "",
       stock: "",
       img1Url: "",
-      img2Url: ""
+      img2Url: "",
+      category: [],
+      addCat: "",
+      local: false
     };
     _this.handleNameChange = _this.handleNameChange.bind(_assertThisInitialized(_this));
     _this.handleDescriptionChange = _this.handleDescriptionChange.bind(_assertThisInitialized(_this));
@@ -62263,16 +62291,42 @@ var AddProductContainer = /*#__PURE__*/function (_React$Component) {
     _this.handleImage2Change = _this.handleImage2Change.bind(_assertThisInitialized(_this));
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
     _this.handleCategoryChange = _this.handleCategoryChange.bind(_assertThisInitialized(_this));
+    _this.handleNewCat = _this.handleNewCat.bind(_assertThisInitialized(_this));
+    _this.handleSubmitNewCat = _this.handleSubmitNewCat.bind(_assertThisInitialized(_this));
     return _this;
   }
 
   _createClass(AddProductContainer, [{
+    key: "componentDidMount",
+    value: function componentDidMount() {
+      this.props.getCategories();
+    }
+  }, {
+    key: "componentDidUpdate",
+    value: function componentDidUpdate(prevProps, prevState) {
+      if (this.state.local !== prevState.local) {
+        this.props.getCategories();
+      }
+    }
+  }, {
     key: "handleCategoryChange",
     value: function handleCategoryChange(event) {
       var value = event.target.value;
-      this.setState({
-        category: value
-      });
+
+      if (this.state.category.includes(value)) {
+        var newCat = this.state.category.filter(function (cat) {
+          if (cat !== value) {
+            return cat;
+          }
+        });
+        this.setState({
+          category: newCat
+        });
+      } else {
+        this.setState({
+          category: [].concat(_toConsumableArray(this.state.category), [event.target.value])
+        });
+      }
     }
   }, {
     key: "handleNameChange",
@@ -62326,6 +62380,7 @@ var AddProductContainer = /*#__PURE__*/function (_React$Component) {
     key: "handleSubmit",
     value: function handleSubmit() {
       event.preventDefault();
+      console.log("CATEGORIAS", this.state.category);
       this.props.newProduct(this.state);
       this.setState({
         name: "",
@@ -62333,7 +62388,29 @@ var AddProductContainer = /*#__PURE__*/function (_React$Component) {
         price: "",
         stock: "",
         img1Url: "",
-        img2Url: ""
+        img2Url: "",
+        category: []
+      });
+    }
+  }, {
+    key: "handleNewCat",
+    value: function handleNewCat(event) {
+      var value = event.target.value;
+      this.setState({
+        addCat: value
+      });
+    }
+  }, {
+    key: "handleSubmitNewCat",
+    value: function handleSubmitNewCat(event) {
+      console.log("ESTA ENTRANDO ACA");
+      event.preventDefault();
+      this.props.addCategories({
+        name: this.state.addCat
+      });
+      this.setState({
+        addCat: "",
+        local: !this.state.local
       });
     }
   }, {
@@ -62365,7 +62442,10 @@ var AddProductContainer = /*#__PURE__*/function (_React$Component) {
         priceInput: price,
         stockInput: stock,
         image1Input: img1Url,
-        image2Input: img2Url
+        image2Input: img2Url,
+        handleSubmitNewCat: this.handleSubmitNewCat,
+        addCat: this.state.addCat,
+        handleNewCat: this.handleNewCat
       }));
     }
   }]);
@@ -62383,6 +62463,12 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     newProduct: function newProduct(product) {
       dispatch(Object(_store_actions_products__WEBPACK_IMPORTED_MODULE_3__["newProduct"])(product));
+    },
+    addCategories: function addCategories(cat) {
+      dispatch(Object(_store_actions_category__WEBPACK_IMPORTED_MODULE_4__["addCategories"])(cat));
+    },
+    getCategories: function getCategories() {
+      dispatch(Object(_store_actions_category__WEBPACK_IMPORTED_MODULE_4__["getCategories"])());
     }
   };
 };
@@ -64946,14 +65032,13 @@ var ThankYouContainer = /*#__PURE__*/function (_Component) {
   _createClass(ThankYouContainer, [{
     key: "componentDidMount",
     value: function componentDidMount() {
-      console.log("COMPONENTDID");
       this.props.fetchLastOrders();
     }
   }, {
     key: "userLogoutEvent",
     value: function userLogoutEvent() {
       this.props.userLogout();
-      this.props.history.push('/products');
+      this.props.history.push("/products");
     }
   }, {
     key: "render",
@@ -65186,17 +65271,17 @@ var setCategory = function setCategory(category) {
     });
   };
 };
-var addCategories = function addCategories() {
+var addCategories = function addCategories(category) {
   return function (dispatch) {
-    return axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/api/category').then(function (categories) {
-      console.log(categories.data, "CATEGORIEEEEESSS");
-      return dispatch(newCategories(categories.data));
+    console.log("Llega a entrar en el action");
+    return axios__WEBPACK_IMPORTED_MODULE_0___default.a.post("/api/category", category).then(function (categories) {
+      return dispatch(getCategories(categories.data));
     });
   };
 };
 var getCategories = function getCategories() {
   return function (dispatch) {
-    return axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/api/category').then(function (categories) {
+    return axios__WEBPACK_IMPORTED_MODULE_0___default.a.get("/api/category").then(function (categories) {
       return dispatch(setCategories(categories.data));
     });
   };
@@ -65561,7 +65646,7 @@ var deleteUser = function deleteUser(id) {
 /*!********************************!*\
   !*** ./src/store/constants.js ***!
   \********************************/
-/*! exports provided: LOGIN_USER, LOGOUT_USER, ERROR_MESSAGE, GET_USERS, GET_USER, GET_ALL_PRODUCTS, SEARCH_PRODUCTS, GET_PRODUCT, ADD_PRODUCT, ADD_TO_CART, GET_ALL_CART, TOTAL_CART, GET_LAST_ORDERS, SET_CATEGORY, GET_CATEGORIES, SHOW_ALL_REVIEWS, ADD_REVIEW */
+/*! exports provided: LOGIN_USER, LOGOUT_USER, ERROR_MESSAGE, GET_USERS, GET_USER, GET_ALL_PRODUCTS, SEARCH_PRODUCTS, GET_PRODUCT, ADD_PRODUCT, ADD_TO_CART, GET_ALL_CART, TOTAL_CART, GET_LAST_ORDERS, SET_CATEGORY, GET_CATEGORIES, ADD_CATEGORY, SHOW_ALL_REVIEWS, ADD_REVIEW */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -65581,6 +65666,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GET_LAST_ORDERS", function() { return GET_LAST_ORDERS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SET_CATEGORY", function() { return SET_CATEGORY; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "GET_CATEGORIES", function() { return GET_CATEGORIES; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ADD_CATEGORY", function() { return ADD_CATEGORY; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SHOW_ALL_REVIEWS", function() { return SHOW_ALL_REVIEWS; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ADD_REVIEW", function() { return ADD_REVIEW; });
 // Users
@@ -65603,7 +65689,8 @@ var TOTAL_CART = "TOTAL_CART"; //Checkout
 var GET_LAST_ORDERS = "GET_LAST_ORDERS"; // Category
 
 var SET_CATEGORY = "SET_CATEOGORY";
-var GET_CATEGORIES = "GET_CATEGORIES"; //Review
+var GET_CATEGORIES = "GET_CATEGORIES";
+var ADD_CATEGORY = "ADD_CATEGORY"; //Review
 
 var SHOW_ALL_REVIEWS = "SHOW_ALL_REVIEWS";
 var ADD_REVIEW = "ADD_REVIEW";
