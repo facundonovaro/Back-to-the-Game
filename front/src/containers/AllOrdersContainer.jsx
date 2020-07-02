@@ -29,7 +29,7 @@ class AllOrdersContainer extends Component {
   }
 
   render() {
-    return <AllOrders orders={this.props.orders} />;
+    return <AllOrders orders={this.props.orders} user={this.props.user} />;
   }
 }
 
