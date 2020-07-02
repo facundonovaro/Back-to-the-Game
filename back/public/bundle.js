@@ -61163,13 +61163,16 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+ // import {Mailchimp} from 'react-mailchimp-form'
 
 /* harmony default export */ __webpack_exports__["default"] = (function (_ref) {
   var cart = _ref.cart,
       total = _ref.total,
       handleSubmit = _ref.handleSubmit,
       handleChange = _ref.handleChange,
-      orderAdress = _ref.orderAdress;
+      orderAdress = _ref.orderAdress,
+      handleChangeEmail = _ref.handleChangeEmail,
+      email = _ref.email;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Checkout"), cart.length !== 0 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, cart.map(function (cart) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       key: cart.orderId
@@ -61190,6 +61193,13 @@ __webpack_require__.r(__webpack_exports__);
     name: "orderAdress",
     value: orderAdress,
     onChange: handleChange
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Form"].Control, {
+    required: true,
+    type: "text",
+    placeholder: "Confirmar Email*",
+    value: email,
+    onChange: handleChangeEmail,
+    name: "Email"
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Factura total: $ ", total), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_1__["default"], {
     type: "submit"
   }, "Confirmar compra"))) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, " No tenes ordenes nuevas  "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
@@ -62065,7 +62075,9 @@ var SingleProduct = function SingleProduct(_ref) {
       handlerDescriptionChange = _ref.handlerDescriptionChange,
       handlerRateChange = _ref.handlerRateChange,
       handlerReviewSubmit = _ref.handlerReviewSubmit,
-      rateAverage = _ref.rateAverage;
+      rateAverage = _ref.rateAverage,
+      revCounter = _ref.revCounter,
+      user = _ref.user;
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "container-fluid",
     style: {
@@ -62095,7 +62107,11 @@ var SingleProduct = function SingleProduct(_ref) {
     className: "card-text"
   }, "$ ", product.price), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("small", {
     className: "text-muted"
-  }, "Stock: ", product.stock), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), cart.includes(product.id) ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+  }, "Stock: ", product.stock), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    className: "card-text"
+  }, "Valoraciones: ", revCounter), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+    className: "card-text"
+  }, "Promedio: ", rateAverage)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), cart.includes(product.id) ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     type: "button",
     className: "btn btn-dark",
     onClick: function onClick() {
@@ -62107,36 +62123,49 @@ var SingleProduct = function SingleProduct(_ref) {
     onClick: function onClick() {
       handlerSubmitCart(product.id, product.name, product.description, product.price, product.stock, product.img1Url, product.img2Url);
     }
-  }, "A\xF1adir al Carrito"))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    id: "subTotalCart"
-  }, "Calificaci\xF3n promedio: ".concat(rateAverage))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["ListGroup"], {
-    className: "list-group-flush"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, reviews.length >= 1 ? reviews.map(function (review) {
-    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      key: review.id
-    }, " ", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["ListGroupItem"], null, "Calificaci\xF3n: ".concat(review.rate, " - Descripci\xF3n: ").concat(review.description)));
-  }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, "Este productor a\xFAn no tiene calificaciones"))))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("hr", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Form"], {
+  }, "A\xF1adir al Carrito")))))), user.id ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "reviewCard"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "reviewCardCont"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Form"], {
     onSubmit: function onSubmit(event) {
       return handlerReviewSubmit(event, product.id);
     }
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Form"].Group, {
     controlId: "exampleForm.ControlSelect2"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Form"].Label, null, "Califica el producto"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Form"].Control, {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Form"].Label, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, "Califica el producto")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Form"].Control, {
     as: "select",
     multiple: true,
     onChange: handlerRateChange,
     value: rate
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", null, "1"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", null, "2"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", null, "3"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", null, "4"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", null, "5"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Form"].Group, {
     controlId: "exampleForm.ControlTextarea1"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Form"].Label, null, "Escribe una peque\xF1a rese\xF1a"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Form"].Control, {
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Form"].Label, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, "Escribe una peque\xF1a rese\xF1a")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Form"].Control, {
+    value: description,
+    placeholder: "Este producto me parecio...",
     as: "textarea",
     rows: "3",
-    onChange: handlerDescriptionChange,
-    value: description
+    onChange: handlerDescriptionChange
   })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Button"], {
     type: "submit",
     className: "btn btn-dark"
-  }, "Calificar")))));
+  }, "Calificar"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["ListGroup"], {
+    className: "list-group-flush"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, reviews.length >= 1 ? reviews.map(function (review) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      key: review.id,
+      className: "reviewCards"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["ListGroupItem"], null, "Usuario: ".concat(review.user.firstName), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), "Calificaci\xF3n: ".concat(review.rate), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), "Descripci\xF3n: ".concat(review.description)));
+  }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, "Este productor a\xFAn no tiene calificaciones")))))) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "reviewCard"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["ListGroup"], {
+    className: "list-group-flush"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, reviews.length >= 1 ? reviews.map(function (review) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      key: review.id,
+      className: "reviewCards"
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["ListGroupItem"], null, "Usuario: ".concat(review.user.firstName), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), "Calificaci\xF3n: ".concat(review.rate), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), "Descripci\xF3n: ".concat(review.description)));
+  }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, "Este productor a\xFAn no tiene calificaciones")))))));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (SingleProduct);
@@ -63136,6 +63165,9 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     updateOrderStatus: function updateOrderStatus(order) {
       return dispatch(Object(_store_actions_checkout__WEBPACK_IMPORTED_MODULE_4__["updateOrderStatus"])(order));
     },
+    thankYouEmail: function thankYouEmail(email) {
+      return dispatch(Object(_store_actions_checkout__WEBPACK_IMPORTED_MODULE_4__["thankYouEmail"])(email));
+    },
     updateStock: function updateStock(cart) {
       return dispatch(Object(_store_actions_checkout__WEBPACK_IMPORTED_MODULE_4__["updateStock"])(cart));
     },
@@ -63160,9 +63192,11 @@ var CheckoutContainer = /*#__PURE__*/function (_Component) {
       totalQuantity: 0,
       userId: _this.props.user.id,
       orderAdress: "",
-      orderFinished: false
+      orderFinished: false,
+      email: ''
     };
     _this.handleSubmit = _this.handleSubmit.bind(_assertThisInitialized(_this));
+    _this.handleChangeEmail = _this.handleChangeEmail.bind(_assertThisInitialized(_this));
     _this.handleChange = _this.handleChange.bind(_assertThisInitialized(_this));
     return _this;
   }
@@ -63185,6 +63219,15 @@ var CheckoutContainer = /*#__PURE__*/function (_Component) {
       this.setState(_defineProperty({}, evt.target.name, evt.target.value));
     }
   }, {
+    key: "handleChangeEmail",
+    value: function handleChangeEmail(evt) {
+      var value = evt.target.value;
+      this.setState({
+        email: value
+      });
+      console.log(value);
+    }
+  }, {
     key: "handleSubmit",
     value: function handleSubmit(evt) {
       var _this2 = this;
@@ -63198,12 +63241,16 @@ var CheckoutContainer = /*#__PURE__*/function (_Component) {
         _this2.props.fetchProducts();
       }).then(function () {
         _this2.props.history.push('/thankyou');
+      }).then(function () {
+        _this2.props.thankYouEmail(_this2.props.email);
       });
     }
   }, {
     key: "render",
     value: function render() {
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Checkout__WEBPACK_IMPORTED_MODULE_2__["default"], {
+        email: this.state.email,
+        handleChangeEmail: this.handleChangeEmail,
         cart: this.props.cart,
         total: this.state.totalQuantity,
         handleSubmit: this.handleSubmit,
@@ -64701,30 +64748,44 @@ var SingleProductContainer = /*#__PURE__*/function (_React$Component) {
       this.props.searchReviews(this.props.id).then(function () {
         var total = 0;
         var counter = 0;
+        var result;
 
         _this2.props.reviews.map(function (review) {
           counter++;
           total = total + review.rate;
+          result = (total / counter).toFixed(1);
         });
 
         _this2.setState({
-          rateAverage: total / counter
+          rateAverage: result
+        });
+
+        _this2.setState({
+          revCounter: counter
         });
       });
     }
   }, {
     key: "componentDidUpdate",
-    value: function componentDidUpdate(prevProps, prevState) {
+    value: function componentDidUpdate(prevProp, prevState) {
+      var _this3 = this;
+
       var total = 0;
       var counter = 0;
+      var result;
 
       if (prevState.local !== this.state.local) {
-        this.props.reviews.map(function (review) {
-          counter++;
-          total = total + review.rate;
-        });
-        this.setState({
-          rateAverage: total / counter
+        this.props.searchReviews(this.props.id).then(function (data) {
+          data.reviews.map(function (review) {
+            counter++;
+            total = total + review.rate;
+            result = (total / counter).toFixed(1);
+          });
+
+          _this3.setState({
+            rateAverage: result,
+            revCounter: counter
+          });
         });
       }
     }
@@ -64794,19 +64855,19 @@ var SingleProductContainer = /*#__PURE__*/function (_React$Component) {
       this.setState({
         rate: value
       });
-      console.log(value);
     }
   }, {
     key: "handlerReviewSubmit",
     value: function handlerReviewSubmit(event, productId) {
-      var _this3 = this;
+      var _this4 = this;
 
       event.preventDefault();
       var objState = this.state;
       objState.productId = productId;
       this.props.addReview(objState).then(function () {
-        _this3.setState({
-          local: !_this3.state.local
+        _this4.setState({
+          local: !_this4.state.local,
+          description: ''
         });
       });
     }
@@ -64816,7 +64877,8 @@ var SingleProductContainer = /*#__PURE__*/function (_React$Component) {
       var _this$props = this.props,
           product = _this$props.product,
           cart = _this$props.cart,
-          reviews = _this$props.reviews;
+          reviews = _this$props.reviews,
+          user = _this$props.user;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_SingleProduct__WEBPACK_IMPORTED_MODULE_2__["default"], {
         product: product,
         handlerSubmitCart: this.handlerSubmitCart,
@@ -64824,9 +64886,13 @@ var SingleProductContainer = /*#__PURE__*/function (_React$Component) {
         handlerDescriptionChange: this.handlerDescriptionChange,
         handlerRateChange: this.handlerRateChange,
         handlerReviewSubmit: this.handlerReviewSubmit,
+        handlerFocus: this.handlerFocus,
         cart: cart,
         reviews: reviews,
-        rateAverage: this.state.rateAverage
+        description: this.state.description,
+        rateAverage: this.state.rateAverage,
+        revCounter: this.state.revCounter,
+        user: user
       }));
     }
   }]);
@@ -64840,7 +64906,7 @@ var mapStateToProps = function mapStateToProps(state, ownProps) {
     product: state.productReducer.product,
     cart: state.cartReducer.list,
     reviews: state.reviewsReducer.list,
-    userId: state.usersReducer.user.id
+    user: state.usersReducer.user
   };
 };
 
@@ -65287,13 +65353,14 @@ var getCategories = function getCategories() {
 /*!***************************************!*\
   !*** ./src/store/actions/checkout.js ***!
   \***************************************/
-/*! exports provided: updateOrderAdress, updateOrderStatus, updateStock, fetchLastOrders */
+/*! exports provided: updateOrderAdress, updateOrderStatus, thankYouEmail, updateStock, fetchLastOrders */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateOrderAdress", function() { return updateOrderAdress; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateOrderStatus", function() { return updateOrderStatus; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "thankYouEmail", function() { return thankYouEmail; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "updateStock", function() { return updateStock; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "fetchLastOrders", function() { return fetchLastOrders; });
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
@@ -65322,6 +65389,13 @@ var updateOrderStatus = function updateOrderStatus(order) {
       dispatch(Object(_actions_cart__WEBPACK_IMPORTED_MODULE_2__["allCart"])([]));
     }).then(function () {
       dispatch(Object(_actions_cart__WEBPACK_IMPORTED_MODULE_2__["cartList"])([]));
+    });
+  };
+};
+var thankYouEmail = function thankYouEmail(email) {
+  return function (dispatch) {
+    axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('https://gmail.us10.list-manage.com/subscribe/post?u=1f69ca6d9cfcca001b05fdf5c&amp;id=d8ed59a5f3', {
+      EMAIL: email
     });
   };
 };
@@ -65435,7 +65509,10 @@ var searchReviews = function searchReviews(productId) {
 var addReview = function addReview(review) {
   return function (dispatch) {
     return axios__WEBPACK_IMPORTED_MODULE_0___default.a.post("/api/reviews", review).then(function (res) {
-      dispatch(addReviews(res.data));
+      console.log('RES.DATA', res.data);
+      return res.data;
+    }).then(function (reviews) {
+      return dispatch(addReviews(reviews));
     });
   };
 };

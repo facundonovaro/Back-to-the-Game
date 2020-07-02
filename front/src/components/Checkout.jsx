@@ -2,12 +2,16 @@ import React from 'react'
 import Button from "react-bootstrap/Button"
 import { Card, Form } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
+// import {Mailchimp} from 'react-mailchimp-form'
+
 
 export default({cart,
             total,
             handleSubmit,
             handleChange,
-            orderAdress
+            orderAdress,
+            handleChangeEmail,
+            email
             })=>{
 
     return(
@@ -32,17 +36,24 @@ export default({cart,
                         </div>
                         );
                     })}
-                    <Form onSubmit={handleSubmit}>
+    
+            <Form onSubmit={handleSubmit}>
                 <Form.Label >Agregá la dirección de entrega</Form.Label>
                 <Form.Group >
                     <Form.Label>Dirección</Form.Label>
                         <Form.Control required type="text" placeholder="Dirección*"
-                            name="orderAdress" value={orderAdress} onChange={handleChange} />
+                            name="orderAdress" value={orderAdress} onChange={handleChange}
+                             />
+                        <Form.Control required type="text" placeholder="Confirmar Email*" value={email} onChange={handleChangeEmail}
+                            name="Email"
+                        />
+                        
                 </Form.Group>
 
-            <li>Factura total: $ {total}</li>
-            <Button type='submit' >Confirmar compra</Button>
+                <li>Factura total: $ {total}</li>
+                <Button type='submit' >Confirmar compra</Button>
             </Form>
+        
             
                 </div>
             ) 

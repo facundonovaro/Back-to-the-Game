@@ -33,24 +33,34 @@ class SingleProductContainer extends React.Component {
     this.props.fetchProduct(this.props.id);
     this.props.searchReviews(this.props.id).then(() => {
       let total = 0;
-      let counter = 0;
-      this.props.reviews.map((review) => {
-        counter++;
-        total = total + review.rate;
-      });
-      this.setState({ rateAverage: total / counter });
-    });
+      let counter= 0;
+      let result;
+      this.props.reviews.map(review =>{
+        counter ++
+        total = total + review.rate
+        result = (total/counter).toFixed(1)
+       })
+         this.setState({rateAverage : result})
+         this.setState({revCounter: counter})
+    })
+   
   }
 
-  componentDidUpdate(prevProps, prevState) {
+  componentDidUpdate(prevProp, prevState){
     let total = 0;
-    let counter = 0;
-    if (prevState.local !== this.state.local) {
-      this.props.reviews.map((review) => {
-        counter++;
-        total = total + review.rate;
-      });
-      this.setState({ rateAverage: total / counter });
+    let counter = 0
+    let result;
+    if(prevState.local !== this.state.local){ 
+      this.props.searchReviews(this.props.id)
+      .then((data)=>{
+          data.reviews.map(review =>{
+          counter ++
+          total = total + review.rate
+          result = (total/counter).toFixed(1)
+         })
+           this.setState({rateAverage : result, revCounter: counter})  
+       }
+      )
     }
   }
 
@@ -96,29 +106,33 @@ class SingleProductContainer extends React.Component {
 
   // Review
 
-  handlerDescriptionChange(event) {
-    const value = event.target.value;
-    this.setState({ description: value });
-    console.log(value);
+  handlerDescriptionChange(event){
+   
+    const value =  event.target.value
+    this.setState({description:value})
+    console.log(value)
   }
 
-  handlerRateChange(event) {
-    const value = event.target.value;
-    this.setState({ rate: value });
-    console.log(value);
+  handlerRateChange(event){
+    const value =  event.target.value
+    this.setState({rate:value})
+
   }
 
-  handlerReviewSubmit(event, productId) {
-    event.preventDefault();
-    const objState = this.state;
-    objState.productId = productId;
-    this.props.addReview(objState).then(() => {
-      this.setState({ local: !this.state.local });
-    });
+
+  handlerReviewSubmit(event, productId){
+
+    event.preventDefault()
+    const objState = this.state
+    objState.productId = productId
+    this.props.addReview(objState)
+    .then(()=>{
+      this.setState({local: !this.state.local, description: ''}) 
+    })
   }
 
   render() {
-    const { product, cart, reviews } = this.props;
+    const { product, cart, reviews, user } = this.props;
     return (
       <div>
         <SingleProduct
@@ -128,9 +142,13 @@ class SingleProductContainer extends React.Component {
           handlerDescriptionChange={this.handlerDescriptionChange}
           handlerRateChange={this.handlerRateChange}
           handlerReviewSubmit={this.handlerReviewSubmit}
+          handlerFocus={this.handlerFocus}
           cart={cart}
           reviews={reviews}
+          description={this.state.description}
           rateAverage={this.state.rateAverage}
+          revCounter={this.state.revCounter}
+          user={user}
         />
       </div>
     );
@@ -143,7 +161,7 @@ const mapStateToProps = (state, ownProps) => {
     product: state.productReducer.product,
     cart: state.cartReducer.list,
     reviews: state.reviewsReducer.list,
-    userId: state.usersReducer.user.id,
+    user: state.usersReducer.user
   };
 };
 
