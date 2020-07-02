@@ -11,13 +11,18 @@ export default ({orders}) => {
 
 
         <div>
-            <p>Last Orders</p>
+            <h2>Últimos pedidos</h2>
 
             {dates.map(updatedAt=>{
+                let date = updatedAt.slice(4,15)
+
                 return (
                     <div>
-                    <h2>{updatedAt}</h2>
+                    <h2>{date}</h2>
+                    <div className='displayCheckout textProductsForce'>
+                    
                    { orders[updatedAt].map(order=>{
+                       
                         return(
                         <div key={order.id}>
                             
@@ -35,6 +40,7 @@ export default ({orders}) => {
                         )
 
                     })}
+                    </div>
                     </div>
                 )     
             })}

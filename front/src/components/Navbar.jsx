@@ -16,7 +16,7 @@ const NavBar = ({
   userLogout,
   user,
   disable,
-  categories,
+  categories, 
   inputValue,
 }) => (
   <Navbar bg="dark" expand="lg" className="navbar-container">
