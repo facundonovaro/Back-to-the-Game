@@ -31,15 +31,17 @@ Product.init(
     snippet : {
       type : S.VIRTUAL,
       get (){
-        if(this.name.length <= 20){return this.name}
-        else{return this.name.slice(0, 21) + '...'}
+        if (this.name && this.name.length <= 20) { return  this.name}
+        else if(this.name) { return this.name.slice(0, 21) + '...'}
+        else return ;
   }
 },
  snippetDesc: {
    type: S.VIRTUAL,
    get(){
-     if(this.description.length <= 60){return this.description}
-     else{return this.description.slice(0, 60) + '...'}
+     if (this.getDataValue('description')&&this.getDataValue('description').length <= 60) { return this.getDataValue('description')}
+     else if (this.getDataValue('description')) { return this.getDataValue('description').slice(0, 60) + '...'}
+     else return ;
    }
  }
   },
