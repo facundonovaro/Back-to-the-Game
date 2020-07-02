@@ -1,20 +1,23 @@
-import React from 'react'
-import Button from "react-bootstrap/Button"
-import { Card, Form } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
+import React from "react";
+import Button from "react-bootstrap/Button";
+import { Card, Form } from "react-bootstrap";
+import { Link } from "react-router-dom";
 // import {Mailchimp} from 'react-mailchimp-form'
 
+export default ({
+  cart,
+  total,
+  handleSubmit,
+  handleChange,
+  orderAdress,
+  handleChangeEmail,
+  email,
+}) => {
+  return (
+    <div>
+      <h2>Checkout</h2>
 
-export default({cart,
-            total,
-            handleSubmit,
-            handleChange,
-            orderAdress,
-            handleChangeEmail,
-            email
-            })=>{
-
-    return(
+      {cart.length !== 0 ? (
         <div>
             <h2>Checkout</h2>
 
@@ -52,8 +55,8 @@ export default({cart,
                         
                 </Form.Group>
 
-                <li>Factura total: $ {total}</li>
-                <Button type='submit' >Confirmar compra</Button>
+              <li>Factura total: $ {total}</li>
+              <Button type="submit">Confirmar compra</Button>
             </Form>
             </div>
             </div>
@@ -72,8 +75,15 @@ export default({cart,
             )
         }
         </div>
-        
-    )
-}
+      ) : (
+        <div>
+          <p> No tenes ordenes nuevas </p>
 
-         
+          <Link to="/products">
+            <Button> Seguir comprando </Button>
+          </Link>
+        </div>
+      )}
+    </div>
+  );
+};

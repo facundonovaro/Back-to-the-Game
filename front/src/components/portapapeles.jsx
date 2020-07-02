@@ -5,29 +5,22 @@ import { FaTrash, FaCartPlus, FaCartArrowDown } from "react-icons/fa";
 
 const Cart = ({ cart, totalQuantity, handleAddCart, handleSubstractCart, handleDeleteCart, user }) => {
   return (
-    <div className="cart">
+    <div>
       <h1 id="titleCart">Mi Carrito</h1>
       {cart.length !== 0 ? (
-        <div className="cartContainer">
+        <div id="cartContainer">
           <div id="productsCartContainer">
             {cart.map((product) => (
-              <div>
-              <div key={product.id} className="productCart">
-                <div className="listGroupCart">
+              <div key={product.id} id="productCart">
+                <div id="listGroupCart">
                   <div>
-                    <div>
-                      <h4>{product.name}</h4>
-                      <div className="subTotalCart">
-                        <div className="subTotal">
-                          <p>Precio unitario - ${product.price}</p>
-                          </div>
-                          <div>
-                          Sub Total - ${product.quantity * product.price}
-                          </div>
-                      </div>
-                    </div>
+                    <h3>{product.name}</h3>
+                    <p>Precio individual - ${product.price}</p>
                   </div>
-                  <div className="buttonsCart">
+                  <div id="subTotalCart">
+                    Sub Total - ${product.quantity * product.price}
+                  </div>
+                  <div id="buttonsCart">
                     <Button
                       className= "cart-buttons"
                       variant="light"
@@ -44,6 +37,9 @@ const Cart = ({ cart, totalQuantity, handleAddCart, handleSubstractCart, handleD
                       />
                     </Button>
                     <div>{product.quantity}</div>
+                    {product.quantity >= product.stock ? (
+                      <Alert variant="primary">Llegaste al máximo stock</Alert>	
+                    ) : null}
                     <Button
                       className="cart-buttons"
                       variant="light"
@@ -72,12 +68,6 @@ const Cart = ({ cart, totalQuantity, handleAddCart, handleSubstractCart, handleD
                       />
                     </Button>
                   </div>
-                </div>
-                <div>
-              </div>
-              {product.quantity >= product.stock ? (
-                      <Alert variant="danger">Llegaste al máximo stock</Alert>	
-                    ) : null}
                 </div>
               </div>
             ))}
