@@ -13,7 +13,10 @@ const SingleProduct = ({
   handlerDescriptionChange,
   handlerRateChange,
   handlerReviewSubmit,
-  rateAverage
+  rateAverage,
+  revCounter,
+  user,
+
 
 }) => {
   
@@ -40,6 +43,12 @@ const SingleProduct = ({
               <p className="card-text">{product.description}</p>
               <p className="card-text">$ {product.price}</p>
               <small className="text-muted">Stock: {product.stock}</small>
+              <div>
+              <br/>
+              {<p className="card-text">Valoraciones: {revCounter}</p>}
+              {<p className="card-text">Promedio: {rateAverage}</p>}
+              </div>
+
               <div>
                 <br></br>
                 <br></br>
@@ -68,57 +77,78 @@ const SingleProduct = ({
             </div>
           </div>
         </div>
-        {rateAverage ? <div id="subTotalCart">
-          {`Calificación promedio: ${rateAverage}`}
-        </div> : null}
-      </div>
-      
-      <div>
-      <ListGroup className="list-group-flush">
+      </div>     
+
+{/* REVIEW SECTION  */}
+    {user.id ? 
+    <div className="reviewCard">
+      <div className="reviewCardCont">
+          <Form onSubmit={(event)=>handlerReviewSubmit(event, product.id)}>
+          <Form.Group controlId="exampleForm.ControlSelect2">
+            <Form.Label><h5>Califica el producto</h5></Form.Label>
+            <Form.Control
+            as="select" multiple 
+            onChange={handlerRateChange} 
+            value={rate} >
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </Form.Control>
+          </Form.Group>
+            <Form.Group controlId="exampleForm.ControlTextarea1">
+              <Form.Label><h5>Escribe una pequeña reseña</h5></Form.Label>
+              <Form.Control 
+              value={description}
+              placeholder="Este producto me parecio..."
+              as="textarea" 
+              rows="3"
+              onChange={handlerDescriptionChange}
+              />
+            </Form.Group>
+        <Button 
+          type="submit" 
+          className="btn btn-dark" 
+          >Calificar
+        </Button>
+      </Form>
+    </div>
+
+        <div>
+          <ListGroup className="list-group-flush">
+            <div>{reviews.length >=1 ? reviews.map((review)=>(
+            <div key={review.id} className="reviewCards"><ListGroupItem>
+              {`Usuario: ${review.user.firstName}`}<br></br>
+              {`Calificación: ${review.rate}`}<br></br>
+              {`Descripción: ${review.description}`}
+            </ListGroupItem>
+            </div>
+            )) : <div><h5>Este productor aún no tiene calificaciones</h5></div>}
+            </div>
+            </ListGroup>
+          </div>
+    </div>
+        :
+    <div className="reviewCard">
+     <ListGroup className="list-group-flush">
         <div>{reviews.length >=1 ? reviews.map((review)=>(
-         <div key={review.id}> <ListGroupItem>{`Calificación: ${review.rate}`}{review.description ? ` ${review.description}`: null } </ListGroupItem>
+        <div key={review.id} className="reviewCards">
+        <ListGroupItem>
+          {`Usuario: ${review.user.firstName}`}<br></br>
+          {`Calificación: ${review.rate}`}<br></br>
+          {`Descripción: ${review.description}`}
+          </ListGroupItem>
         </div>
         )) : <div><h5>Este productor aún no tiene calificaciones</h5></div>}
         </div>
-        </ListGroup>
-      </div>
-      <hr/>
-     
-
-     <div>
-     <Form onSubmit={(event)=>handlerReviewSubmit(event, product.id)}>
-  <Form.Group controlId="exampleForm.ControlSelect2">
-    <Form.Label>Califica el producto</Form.Label>
-    <Form.Control 
-    as="select" multiple 
-    onChange={handlerRateChange} 
-    value={rate} >
-      <option>1</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
-    </Form.Control>
-  </Form.Group>
-  <Form.Group controlId="exampleForm.ControlTextarea1">
-    <Form.Label>Escribe una pequeña reseña</Form.Label>
-    <Form.Control 
-    as="textarea" 
-    rows="3"
-    onChange={handlerDescriptionChange}
-    value={description}/>
-  </Form.Group>
-  <Button 
-  type="submit" 
-  className="btn btn-dark" 
-  >Calificar</Button>
-</Form>
-     </div>
-
-
+      </ListGroup>
     </div>
-</div>
+    }
+{/* REVIEW SECTION  */}
 
+  </div>
+</div>
   );
 };
 
