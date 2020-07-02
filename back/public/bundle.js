@@ -61050,9 +61050,7 @@ var Cart = function Cart(_ref) {
       disabled: product.quantity >= product.stock
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_icons_fa__WEBPACK_IMPORTED_MODULE_3__["FaCartPlus"], {
       size: 30
-    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, product.quantity), product.quantity >= product.stock ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Alert"], {
-      variant: "primary"
-    }, "Llegaste al m\xE1ximo stock") : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Button"], {
+    })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, product.quantity), "z", /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Button"], {
       className: "cart-buttons",
       variant: "light",
       onClick: function onClick() {
@@ -64095,7 +64093,8 @@ var NavBarContainer = /*#__PURE__*/function (_React$Component) {
       event.preventDefault();
       searchProducts(this.state.inputValue).then(function () {
         _this2.setState({
-          inputValue: ""
+          inputValue: "",
+          disable: true
         });
 
         _this2.props.history.push("/search");

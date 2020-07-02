@@ -47,6 +47,7 @@ class NavBarContainer extends React.Component {
     searchProducts(this.state.inputValue).then(() => {
       this.setState({
         inputValue: "",
+        disable: true
       });
       this.props.history.push("/search");
     });

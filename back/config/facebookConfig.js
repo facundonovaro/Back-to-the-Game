@@ -1,10 +1,10 @@
-const passport = require('passport');
+/* const passport = require('passport');
 const facebookStrategy = require('passport-facebook').Strategy
 const { User } = require('../models/index');
 
 // Esto debería estar en un archivo .env
-const facebookAppId =  '271924584128887'
-const facebookAppSecret = '78f63a53a3e67684e071f2e068afddc4'
+const facebookAppId 
+const facebookAppSecret
 
 passport.use(
     new facebookStrategy({
@@ -35,4 +35,4 @@ passport.serializeUser((user, done) => {
       .catch(done);
   });
 
-module.exports = passport;
+module.exports = passport; */
