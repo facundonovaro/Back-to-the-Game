@@ -71,7 +71,7 @@ const audioOtherHeadPhones = Product.create({
 });
 
 const juegos = Category.create({
-  name: "Games",
+  name: "Juegos",
 });
 
 const ps4 = Category.create({
@@ -83,7 +83,7 @@ const xbox = Category.create({
 });
 
 const consolas = Category.create({
-  name: "Consoles",
+  name: "Consolas",
 });
 
 const audio = Category.create({

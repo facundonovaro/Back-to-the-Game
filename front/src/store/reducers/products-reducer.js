@@ -1,18 +1,15 @@
-import { GET_ALL_PRODUCTS, ADD_PRODUCT } from '../constants'
+import { GET_ALL_PRODUCTS } from "../constants";
 
 const initialState = {
-    list: [],
-
-}
+  list: [],
+};
 
 const productsReducer = (state = initialState, action) => {
-    switch (action.type) {
-        case GET_ALL_PRODUCTS:
-            return { ...state, list: action.products }
-        case ADD_PRODUCT:
-            return { list: [...state.list, action.product] }
-        default:
-            return state
-    }
-}
+  switch (action.type) {
+    case GET_ALL_PRODUCTS:
+      return { ...state, list: action.products };
+    default:
+      return state;
+  }
+};
 export default productsReducer;

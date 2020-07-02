@@ -28,6 +28,7 @@ class LastOrdersContainer extends Component {
     }
 
     componentDidMount() {
+        console.log('LLRGAAAA')
     this.props.fetchLastOrders();
   }
 

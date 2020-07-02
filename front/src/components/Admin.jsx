@@ -1,15 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 
-const Admin = ({
-  handleSubmit,
-
-}) => {
+const Admin = ({ handleSubmit }) => {
   return (
     <div className="container-fluid" style={{ width: "60%" }}>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
-          <legend>BIENVENIDO  ADMINISTRADOR</legend>
+          <legend>BIENVENIDO ADMINISTRADOR</legend>
         </div>
         <div className="form-group">
           <legend>Administrar Productos</legend>
@@ -18,25 +15,23 @@ const Admin = ({
         <Link to={"/admin/add-product"}>
           <button type="submit" className="btn btn-primary buttonManageUser">
             Agregar Producto
-        </button>
+          </button>
         </Link>
         <Link to={"/admin/edit-product"}>
           <button type="submit" className="btn btn-primary buttonManageUser">
             Modificar Producto
-        </button>
+          </button>
         </Link>
         <Link to={"/admin/delete-product"}>
           <button type="submit" className="btn btn-primary buttonManageUser">
             Eliminar Producto
-        </button>
+          </button>
         </Link>
-        <Link to={"/admin/add-product"}>
+        <Link to={"/admin/manage-users"}>
           <button type="submit" className="btn btn-primary buttonManageUser">
             Administrar Usuarios
-        </button>
+          </button>
         </Link>
-
-
       </form>
     </div>
   );

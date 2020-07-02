@@ -6,26 +6,39 @@ const findProduct = (req, res) => {
 };
 
 const findAllProducts = (req, res) => {
-  Product.findAll().then((products) => {
+  Product.findAll({ order: [["name", "ASC"]] }).then((products) => {
     res.json(products);
   });
 };
 
 const addProduct = (req, res) => {
-  Product.create(req.body).then((product) => res.send(product));
+  console.log(req.body, "REQ BODY!!!!!");
+  Product.create(req.body).then((productCreated) => {
+    const product = productCreated;
+    req.body.category.map((cat) => {
+      product.addCategory(cat);
+    });
+    Product.findAll().then((products) => {
+      res.status(201).json(products);
+    });
+  });
 };
 
 const updateProduct = (req, res) => {
   Product.findByPk(req.params.id)
     .then((product) => product.update(req.body))
-    .then((updatedProduct) => res.send(updatedProduct));
+    .then(() => {
+      Product.findAll().then((products) => {
+        res.json(products);
+      });
+    });
 };
 
 const deleteProduct = (req, res) => {
   Product.findByPk(req.params.id)
     .then((product) => product.destroy())
     .then(() => {
-      Product.findAll().then((products) => {
+      Product.findAll({ order: [["name", "ASC"]] }).then((products) => {
         res.json(products);
       });
     });

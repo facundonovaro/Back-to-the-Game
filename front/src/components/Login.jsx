@@ -1,6 +1,7 @@
 import React from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import { Link } from "react-router-dom"
 
 export default ({ handleChange, handleSubmit, user, username, password, message, error }) => {
   return (
@@ -39,10 +40,12 @@ export default ({ handleChange, handleSubmit, user, username, password, message,
         <Button className="buttonSeparator" variant="primary" type="submit" >
           Ingresá
         </Button>
-
-        <Button href="/users/register" className="buttonLoginRegister" variant="primary" type="submit">
-          Crea un Usuario
+        <Link to={"/users/register"}>
+          <Button className="buttonLoginRegister" variant="primary" type="submit">
+            Crea un Usuario
         </Button>
+
+        </Link>
 
       </Form>
     </div>
