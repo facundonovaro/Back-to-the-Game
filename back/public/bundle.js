@@ -61129,11 +61129,11 @@ var Cart = function Cart(_ref) {
     id: "totalCardCart"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     id: "totalCart"
-  }, "Total del Carrito - $", totalQuantity), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
+  }, "Total del Carrito: $", totalQuantity), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
     to: user.id ? "/checkout" : "/users/login"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Button"], {
     id: "checkoutCart",
-    variant: "dark"
+    variant: "success"
   }, " ", "Finalizar Compra"))))) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "No hay elementos en el Carrito"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Button"], {
     variant: "dark"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
@@ -61214,9 +61214,65 @@ var Category = function Category(_ref) {
   !*** ./src/components/Checkout.jsx ***!
   \*************************************/
 /*! exports provided: default */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /home/flavia/Bootcamp/Back-to-the-Game/front/src/components/Checkout.jsx: Unexpected token (22:1)\n\n\u001b[0m \u001b[90m 20 | \u001b[39m      {cart\u001b[33m.\u001b[39mlength \u001b[33m!==\u001b[39m \u001b[35m0\u001b[39m \u001b[33m?\u001b[39m (\u001b[0m\n\u001b[0m \u001b[90m 21 | \u001b[39m        \u001b[33m<\u001b[39m\u001b[33mdiv\u001b[39m\u001b[33m>\u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 22 | \u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<\u001b[39m \u001b[33mHEAD\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m    | \u001b[39m \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 23 | \u001b[39m          \u001b[33m<\u001b[39m\u001b[33mdiv\u001b[39m className\u001b[33m=\u001b[39m\u001b[32m\"displayCheckout textProductsForce\"\u001b[39m\u001b[33m>\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 24 | \u001b[39m            {cart\u001b[33m.\u001b[39mmap((cart) \u001b[33m=>\u001b[39m {\u001b[0m\n\u001b[0m \u001b[90m 25 | \u001b[39m              \u001b[36mreturn\u001b[39m (\u001b[0m\n    at Object._raise (/home/flavia/Bootcamp/Back-to-the-Game/front/node_modules/@babel/parser/lib/index.js:754:17)\n    at Object.raiseWithData (/home/flavia/Bootcamp/Back-to-the-Game/front/node_modules/@babel/parser/lib/index.js:747:17)\n    at Object.raise (/home/flavia/Bootcamp/Back-to-the-Game/front/node_modules/@babel/parser/lib/index.js:741:17)\n    at Object.unexpected (/home/flavia/Bootcamp/Back-to-the-Game/front/node_modules/@babel/parser/lib/index.js:8844:16)\n    at Object.jsxParseIdentifier (/home/flavia/Bootcamp/Back-to-the-Game/front/node_modules/@babel/parser/lib/index.js:4432:12)\n    at Object.jsxParseNamespacedName (/home/flavia/Bootcamp/Back-to-the-Game/front/node_modules/@babel/parser/lib/index.js:4442:23)\n    at Object.jsxParseElementName (/home/flavia/Bootcamp/Back-to-the-Game/front/node_modules/@babel/parser/lib/index.js:4453:21)\n    at Object.jsxParseOpeningElementAt (/home/flavia/Bootcamp/Back-to-the-Game/front/node_modules/@babel/parser/lib/index.js:4539:22)\n    at Object.jsxParseElementAt (/home/flavia/Bootcamp/Back-to-the-Game/front/node_modules/@babel/parser/lib/index.js:4572:33)\n    at Object.jsxParseElementAt (/home/flavia/Bootcamp/Back-to-the-Game/front/node_modules/@babel/parser/lib/index.js:4588:32)\n    at Object.jsxParseElement (/home/flavia/Bootcamp/Back-to-the-Game/front/node_modules/@babel/parser/lib/index.js:4646:17)\n    at Object.parseExprAtom (/home/flavia/Bootcamp/Back-to-the-Game/front/node_modules/@babel/parser/lib/index.js:4653:19)\n    at Object.parseExprSubscripts (/home/flavia/Bootcamp/Back-to-the-Game/front/node_modules/@babel/parser/lib/index.js:9693:23)\n    at Object.parseMaybeUnary (/home/flavia/Bootcamp/Back-to-the-Game/front/node_modules/@babel/parser/lib/index.js:9673:21)\n    at Object.parseExprOps (/home/flavia/Bootcamp/Back-to-the-Game/front/node_modules/@babel/parser/lib/index.js:9543:23)\n    at Object.parseMaybeConditional (/home/flavia/Bootcamp/Back-to-the-Game/front/node_modules/@babel/parser/lib/index.js:9516:23)\n    at Object.parseMaybeAssign (/home/flavia/Bootcamp/Back-to-the-Game/front/node_modules/@babel/parser/lib/index.js:9471:21)\n    at Object.parseParenAndDistinguishExpression (/home/flavia/Bootcamp/Back-to-the-Game/front/node_modules/@babel/parser/lib/index.js:10304:28)\n    at Object.parseExprAtom (/home/flavia/Bootcamp/Back-to-the-Game/front/node_modules/@babel/parser/lib/index.js:10044:21)\n    at Object.parseExprAtom (/home/flavia/Bootcamp/Back-to-the-Game/front/node_modules/@babel/parser/lib/index.js:4658:20)\n    at Object.parseExprSubscripts (/home/flavia/Bootcamp/Back-to-the-Game/front/node_modules/@babel/parser/lib/index.js:9693:23)\n    at Object.parseMaybeUnary (/home/flavia/Bootcamp/Back-to-the-Game/front/node_modules/@babel/parser/lib/index.js:9673:21)\n    at Object.parseExprOps (/home/flavia/Bootcamp/Back-to-the-Game/front/node_modules/@babel/parser/lib/index.js:9543:23)\n    at Object.parseMaybeConditional (/home/flavia/Bootcamp/Back-to-the-Game/front/node_modules/@babel/parser/lib/index.js:9516:23)\n    at Object.parseMaybeAssign (/home/flavia/Bootcamp/Back-to-the-Game/front/node_modules/@babel/parser/lib/index.js:9471:21)\n    at Object.parseConditional (/home/flavia/Bootcamp/Back-to-the-Game/front/node_modules/@babel/parser/lib/index.js:9530:30)\n    at Object.parseMaybeConditional (/home/flavia/Bootcamp/Back-to-the-Game/front/node_modules/@babel/parser/lib/index.js:9523:17)\n    at Object.parseMaybeAssign (/home/flavia/Bootcamp/Back-to-the-Game/front/node_modules/@babel/parser/lib/index.js:9471:21)\n    at Object.parseExpression (/home/flavia/Bootcamp/Back-to-the-Game/front/node_modules/@babel/parser/lib/index.js:9423:23)\n    at Object.jsxParseExpressionContainer (/home/flavia/Bootcamp/Back-to-the-Game/front/node_modules/@babel/parser/lib/index.js:4509:30)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-bootstrap/Button */ "./node_modules/react-bootstrap/esm/Button.js");
+/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
+
+
+
+ // import {Mailchimp} from 'react-mailchimp-form'
+
+/* harmony default export */ __webpack_exports__["default"] = (function (_ref) {
+  var cart = _ref.cart,
+      total = _ref.total,
+      handleSubmit = _ref.handleSubmit,
+      handleChange = _ref.handleChange,
+      orderAdress = _ref.orderAdress,
+      handleChangeEmail = _ref.handleChangeEmail,
+      email = _ref.email;
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Checkout"), cart.length !== 0 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "Checkout"), cart.length !== 0 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "displayCheckout textProductsForce"
+  }, cart.map(function (cart) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      key: cart.orderId
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Card"], {
+      style: {
+        width: '12rem'
+      }
+    }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Card"].Img, {
+      variant: "top",
+      src: cart.img1Url
+    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Card"].Body, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Card"].Title, null, cart.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Card"].Text, null, cart.description), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Card"].Subtitle, null, "$ ", cart.price))));
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Form"], {
+    onSubmit: handleSubmit
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Form"].Label, null, "Agreg\xE1 la direcci\xF3n de entrega"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Form"].Group, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Form"].Label, null, "Direcci\xF3n"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Form"].Control, {
+    required: true,
+    type: "text",
+    placeholder: "Direcci\xF3n*",
+    name: "orderAdress",
+    value: orderAdress,
+    onChange: handleChange
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Form"].Control, {
+    required: true,
+    type: "text",
+    placeholder: "Confirmar Email*",
+    value: email,
+    onChange: handleChangeEmail,
+    name: "Email"
+  })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Factura total: $ ", total), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_1__["default"], {
+    type: "submit"
+  }, "Confirmar compra")))) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, " No tenes ordenes nuevas  "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
+    to: "/products"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_1__["default"], null, " Seguir comprando ")))) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, " No tenes ordenes nuevas "), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_3__["Link"], {
+    to: "/products"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap_Button__WEBPACK_IMPORTED_MODULE_1__["default"], null, " Seguir comprando "))));
+});
 
 /***/ }),
 
@@ -61810,9 +61866,103 @@ var ManageUser = function ManageUser(_ref) {
   !*** ./src/components/Navbar.jsx ***!
   \***********************************/
 /*! exports provided: default */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: /home/flavia/Bootcamp/Back-to-the-Game/front/src/components/Navbar.jsx: Unexpected token (70:1)\n\n\u001b[0m \u001b[90m 68 | \u001b[39m        {user\u001b[33m.\u001b[39mid \u001b[33m?\u001b[39m (\u001b[0m\n\u001b[0m \u001b[90m 69 | \u001b[39m          \u001b[33m<\u001b[39m\u001b[33mLink\u001b[39m className\u001b[33m=\u001b[39m\u001b[32m\"navbar-links\"\u001b[39m to\u001b[33m=\u001b[39m\u001b[32m\"/lastorders\"\u001b[39m\u001b[33m>\u001b[39m\u001b[0m\n\u001b[0m\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 70 | \u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<<\u001b[39m\u001b[33m<\u001b[39m \u001b[33mHEAD\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m    | \u001b[39m \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 71 | \u001b[39m              \u001b[33mOrdenes\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 72 | \u001b[39m\u001b[33m===\u001b[39m\u001b[33m===\u001b[39m\u001b[33m=\u001b[39m\u001b[0m\n\u001b[0m \u001b[90m 73 | \u001b[39m            \u001b[33mOrdenes\u001b[39m\u001b[0m\n    at Object._raise (/home/flavia/Bootcamp/Back-to-the-Game/front/node_modules/@babel/parser/lib/index.js:754:17)\n    at Object.raiseWithData (/home/flavia/Bootcamp/Back-to-the-Game/front/node_modules/@babel/parser/lib/index.js:747:17)\n    at Object.raise (/home/flavia/Bootcamp/Back-to-the-Game/front/node_modules/@babel/parser/lib/index.js:741:17)\n    at Object.unexpected (/home/flavia/Bootcamp/Back-to-the-Game/front/node_modules/@babel/parser/lib/index.js:8844:16)\n    at Object.jsxParseIdentifier (/home/flavia/Bootcamp/Back-to-the-Game/front/node_modules/@babel/parser/lib/index.js:4432:12)\n    at Object.jsxParseNamespacedName (/home/flavia/Bootcamp/Back-to-the-Game/front/node_modules/@babel/parser/lib/index.js:4442:23)\n    at Object.jsxParseElementName (/home/flavia/Bootcamp/Back-to-the-Game/front/node_modules/@babel/parser/lib/index.js:4453:21)\n    at Object.jsxParseOpeningElementAt (/home/flavia/Bootcamp/Back-to-the-Game/front/node_modules/@babel/parser/lib/index.js:4539:22)\n    at Object.jsxParseElementAt (/home/flavia/Bootcamp/Back-to-the-Game/front/node_modules/@babel/parser/lib/index.js:4572:33)\n    at Object.jsxParseElementAt (/home/flavia/Bootcamp/Back-to-the-Game/front/node_modules/@babel/parser/lib/index.js:4588:32)\n    at Object.jsxParseElement (/home/flavia/Bootcamp/Back-to-the-Game/front/node_modules/@babel/parser/lib/index.js:4646:17)\n    at Object.parseExprAtom (/home/flavia/Bootcamp/Back-to-the-Game/front/node_modules/@babel/parser/lib/index.js:4653:19)\n    at Object.parseExprSubscripts (/home/flavia/Bootcamp/Back-to-the-Game/front/node_modules/@babel/parser/lib/index.js:9693:23)\n    at Object.parseMaybeUnary (/home/flavia/Bootcamp/Back-to-the-Game/front/node_modules/@babel/parser/lib/index.js:9673:21)\n    at Object.parseExprOps (/home/flavia/Bootcamp/Back-to-the-Game/front/node_modules/@babel/parser/lib/index.js:9543:23)\n    at Object.parseMaybeConditional (/home/flavia/Bootcamp/Back-to-the-Game/front/node_modules/@babel/parser/lib/index.js:9516:23)\n    at Object.parseMaybeAssign (/home/flavia/Bootcamp/Back-to-the-Game/front/node_modules/@babel/parser/lib/index.js:9471:21)\n    at Object.parseParenAndDistinguishExpression (/home/flavia/Bootcamp/Back-to-the-Game/front/node_modules/@babel/parser/lib/index.js:10304:28)\n    at Object.parseExprAtom (/home/flavia/Bootcamp/Back-to-the-Game/front/node_modules/@babel/parser/lib/index.js:10044:21)\n    at Object.parseExprAtom (/home/flavia/Bootcamp/Back-to-the-Game/front/node_modules/@babel/parser/lib/index.js:4658:20)\n    at Object.parseExprSubscripts (/home/flavia/Bootcamp/Back-to-the-Game/front/node_modules/@babel/parser/lib/index.js:9693:23)\n    at Object.parseMaybeUnary (/home/flavia/Bootcamp/Back-to-the-Game/front/node_modules/@babel/parser/lib/index.js:9673:21)\n    at Object.parseExprOps (/home/flavia/Bootcamp/Back-to-the-Game/front/node_modules/@babel/parser/lib/index.js:9543:23)\n    at Object.parseMaybeConditional (/home/flavia/Bootcamp/Back-to-the-Game/front/node_modules/@babel/parser/lib/index.js:9516:23)\n    at Object.parseMaybeAssign (/home/flavia/Bootcamp/Back-to-the-Game/front/node_modules/@babel/parser/lib/index.js:9471:21)\n    at Object.parseConditional (/home/flavia/Bootcamp/Back-to-the-Game/front/node_modules/@babel/parser/lib/index.js:9530:30)\n    at Object.parseMaybeConditional (/home/flavia/Bootcamp/Back-to-the-Game/front/node_modules/@babel/parser/lib/index.js:9523:17)\n    at Object.parseMaybeAssign (/home/flavia/Bootcamp/Back-to-the-Game/front/node_modules/@babel/parser/lib/index.js:9471:21)\n    at Object.parseExpression (/home/flavia/Bootcamp/Back-to-the-Game/front/node_modules/@babel/parser/lib/index.js:9423:23)\n    at Object.jsxParseExpressionContainer (/home/flavia/Bootcamp/Back-to-the-Game/front/node_modules/@babel/parser/lib/index.js:4509:30)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/es/index.js");
+/* harmony import */ var react_bootstrap__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-bootstrap */ "./node_modules/react-bootstrap/esm/index.js");
+/* harmony import */ var react_icons_fa__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-icons/fa */ "./node_modules/react-icons/fa/index.esm.js");
+
+
+
+
+
+var NavBar = function NavBar(_ref) {
+  var handlerChange = _ref.handlerChange,
+      handlerSubmitSearch = _ref.handlerSubmitSearch,
+      userLogout = _ref.userLogout,
+      user = _ref.user,
+      disable = _ref.disable,
+      categories = _ref.categories,
+      inputValue = _ref.inputValue;
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Navbar"], {
+    bg: "dark",
+    expand: "lg",
+    className: "navbar-container"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    to: "/products"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Navbar"].Brand, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+    src: "http://localhost:1337/4fabbd3a2224c35302cbc34fa7b89b2f.png",
+    width: "100",
+    height: "100",
+    className: "d-inline-block align-top"
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Navbar"].Toggle, {
+    "aria-controls": "basic-navbar-nav"
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Navbar"].Collapse, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Nav"], {
+    className: "mr-auto"
+  }, user.id ? null : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    className: "navbar-links",
+    to: "/users/register"
+  }, "Registrarse"), user.id ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    style: {
+      display: "flex"
+    }
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_icons_fa__WEBPACK_IMPORTED_MODULE_3__["FaUserCircle"], {
+    size: 40,
+    color: "grey",
+    style: {
+      paddingTop: '10px'
+    }
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    to: "/products",
+    className: "navbar-links"
+  }, " ", "Hola ", user.firstName, "!"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    onClick: userLogout,
+    className: "navbar-links",
+    to: "/products"
+  }, "Cerrar Sesi\xF3n")) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    className: "navbar-links",
+    to: "/users/login"
+  }, "Iniciar Sesi\xF3n"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["NavDropdown"], {
+    title: "Categor\xEDas",
+    id: "navbar-dropdown"
+  }, categories && categories.map(function (category) {
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+      key: category.id,
+      to: "/category/".concat(category.name),
+      className: "dropdown-links"
+    }, category.name);
+  })), user.id ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    className: "navbar-links",
+    to: "/lastorders"
+  }, "Ordenes") : null, user.id && user.role !== "user" ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    className: "navbar-links",
+    to: "/admin"
+  }, "Admin") : null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__["Link"], {
+    className: "navbar-links",
+    to: "/cart"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_icons_fa__WEBPACK_IMPORTED_MODULE_3__["FaShoppingCart"], {
+    className: "shoppingCart-icon"
+  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Form"], {
+    onSubmit: handlerSubmitSearch,
+    inline: true
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["FormControl"], {
+    onChange: handlerChange,
+    type: "text",
+    placeholder: "Quiero buscar...",
+    className: "mr-sm-2",
+    value: inputValue
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    disabled: disable,
+    type: "submit",
+    className: "search-button"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_icons_fa__WEBPACK_IMPORTED_MODULE_3__["FaSearch"], null)))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (NavBar);
 
 /***/ }),
 
@@ -61862,12 +62012,12 @@ var Products = function Products(_ref) {
     }, "Descripti\xF3n: ".concat(product.snippetDesc))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["ListGroup"], {
       className: "list-group-flush"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["ListGroupItem"], null, "Price: ".concat(product.price)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["ListGroupItem"], null, "Stock: ".concat(product.stock))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Card"].Body, null, cart.includes(product.id) ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Button"], {
-      variant: "primary",
+      variant: "secondary",
       onClick: function onClick() {
         handleDeleteCart(product.id);
       }
     }, "Remover del Carrito") : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_2__["Button"], {
-      variant: "primary",
+      variant: "dark",
       onClick: function onClick() {
         handlerSubmitCart(product.id, product.name, product.description, product.price, product.stock, product.img1Url, product.img2Url);
       }
@@ -62046,7 +62196,7 @@ var SingleProduct = function SingleProduct(_ref) {
     className: "card-text"
   }, "Promedio: ", rateAverage)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("br", null), cart.includes(product.id) ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     type: "button",
-    className: "btn btn-dark",
+    className: "btn btn-secondary",
     onClick: function onClick() {
       handleDeleteCart(product.id);
     }

@@ -33,7 +33,7 @@ const Products = ({ products, handlerSubmitCart, handleDeleteCart, cart }) => {
                 cart.includes(product.id) ? (
 
                 <Button
-                  variant="primary"
+                  variant="secondary"
                   onClick={() => {
                     handleDeleteCart(product.id)
                   }}
@@ -42,7 +42,7 @@ const Products = ({ products, handlerSubmitCart, handleDeleteCart, cart }) => {
                 </Button>
               ) : (
                 <Button
-                  variant="primary"
+                  variant="dark"
                   onClick={() => {
                     handlerSubmitCart(product.id, product.name, product.description, product.price, product.stock, product.img1Url, product.img2Url);
                   }}

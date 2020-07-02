@@ -8,7 +8,7 @@ import {
   FormControl,
   Button,
 } from "react-bootstrap";
-import { FaShoppingCart, FaSearch } from "react-icons/fa";
+import { FaShoppingCart, FaSearch, FaUserCircle } from "react-icons/fa";
 
 const NavBar = ({
   handlerChange,
@@ -40,6 +40,7 @@ const NavBar = ({
         )}
         {user.id ? (
           <div style={{ display: "flex" }}>
+            <FaUserCircle size={40} color="grey" style={{paddingTop: '10px'}}/>
             <Link to="/products" className="navbar-links">
               {" "}
               Hola {user.firstName}!
