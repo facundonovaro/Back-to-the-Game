@@ -28,7 +28,6 @@ class NavBarContainer extends React.Component {
     this.props.getCategories();
     const { fetchProducts } = this.props;
     fetchProducts(this.state.inputValue);
-    // agregar loginuser?
   }
 
   handlerChange(evt) {
@@ -46,10 +45,10 @@ class NavBarContainer extends React.Component {
     const { searchProducts } = this.props;
     event.preventDefault();
     searchProducts(this.state.inputValue).then(() => {
+      this.setState({
+        inputValue: "",
+      });
       this.props.history.push("/search");
-    });
-    this.setState({
-      inputValue: "",
     });
   }
 
@@ -76,7 +75,7 @@ const mapStateToProps = (state, ownProps) => {
   return {
     user: state.usersReducer.user,
     history: ownProps.history,
-    categories: state.categoryReducer.categories
+    categories: state.categoryReducer.categories,
   };
 };
 
@@ -88,8 +87,12 @@ const mapDispatchToProps = (dispatch) => {
     userLogout: () => {
       dispatch(userLogout());
     },
-    searchProducts: (name) => {dispatch(searchProducts(name))},
-    getCategories: () => {dispatch(getCategories())}
+    searchProducts: (name) => {
+      return dispatch(searchProducts(name));
+    },
+    getCategories: () => {
+      dispatch(getCategories());
+    },
   };
 };
 

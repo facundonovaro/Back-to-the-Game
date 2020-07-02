@@ -3,7 +3,7 @@ import { Alert, ListGroup, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { FaTrash, FaCartPlus, FaCartArrowDown } from "react-icons/fa";
 
-const Cart = ({ cart, totalQuantity, handleAddCart, handleSubstractCart, handleDeleteCart }) => {
+const Cart = ({ cart, totalQuantity, handleAddCart, handleSubstractCart, handleDeleteCart, user }) => {
   return (
     <div>
       <h1 id="titleCart">Mi Carrito</h1>
@@ -76,7 +76,7 @@ const Cart = ({ cart, totalQuantity, handleAddCart, handleSubstractCart, handleD
           <div id="totalCardCart">
             <div id="totalCart">Total del Carrito - ${totalQuantity}</div>
             <div>
-              <Link to="/checkout">
+              <Link to={user.id ? ("/checkout") : ("/users/login")}>
                 <Button id="checkoutCart" variant="dark">
                   {" "}
                   Finalizar Compra

@@ -19,25 +19,28 @@ import { connect } from "react-redux";
 import { cookieLogger } from "../store/actions/users";
 import DeleteProductContainer from "../containers/DeleteProductContainer";
 import { addLocalStorage, fetchCart } from "../store/actions/cart";
-import FacebookContainer from "../containers/FacebookContainer";
+/* import FacebookContainer from "../containers/FacebookContainer"; */
+import ManageUsersContainer from "../containers/ManageUsersContainer";
+
 class Main extends React.Component {
   constructor(props) {
     super(props);
   }
 
   componentDidMount() {
-    this.props.cookieLogger();
-    if (this.props.userId) {
-      this.props.fetchCart();
-    } else {
-      var products = [];
-      for (var i = 0, len = localStorage.length; i < len; i++) {
-        var key = localStorage.key(i);
-        var value = JSON.parse(localStorage[key]);
-        products.push(value);
+    this.props.cookieLogger().then(() => {
+      if (this.props.userId) {
+        this.props.fetchCart();
+      } else {
+        var products = [];
+        for (var i = 0, len = localStorage.length; i < len; i++) {
+          var key = localStorage.key(i);
+          var value = JSON.parse(localStorage[key]);
+          products.push(value);
+        }
+        this.props.addLocalStorage(products);
       }
-      this.props.addLocalStorage(products);
-    }
+    });
   }
 
   render() {
@@ -57,6 +60,7 @@ class Main extends React.Component {
           <Route exact path="/admin" component={AdminContainer} />
           <Route path="/admin/add-product" component={AddProductContainer} />
           <Route path="/admin/edit-product" component={EditProductContainer} />
+          <Route path="/admin/manage-users" component={ManageUsersContainer} />
           <Route
             path="/admin/delete-product"
             component={DeleteProductContainer}
@@ -65,7 +69,7 @@ class Main extends React.Component {
           <Route path="/users/:id" component={SingleuserContainer} />
           <Route exact path="/cart" component={CartContainer} />
           <Route path="/category/:name" component={CategoryContainer} />
-          <Route path="/facebook" component={FacebookContainer} />
+          {/* <Route path="/facebook" component={FacebookContainer} /> */}
           <Redirect to="/products"></Redirect>
         </Switch>
       </div>

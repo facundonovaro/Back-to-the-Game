@@ -26,7 +26,7 @@ const addToCart = (req, res) => {
 };
 
 const assignCart = (req, res) => {
-  console.log('REQ.BODY ', req.body)
+
   req.body.map(order => {
     Product.findByPk(order.id)
     .then((productFound)=> {
