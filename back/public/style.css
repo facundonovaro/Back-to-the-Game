@@ -112,7 +112,7 @@
   border: 0
 }
 
-#cartContainer {
+.cartContainer {
   border-radius: 0.25rem;
   background: #f8f9fa;
   display: flex;
@@ -121,7 +121,7 @@
   align-items: center;
 }
 
-#buttonsCart {
+.buttonsCart {
   display: flex;
   flex-direction: row;
   margin: 3px;
@@ -315,8 +315,4 @@
 .cart {
   text-align: center;
   padding: 40px;
-}
-
-.checkout {
-  
 }

@@ -8,7 +8,7 @@ const Cart = ({ cart, totalQuantity, handleAddCart, handleSubstractCart, handleD
     <div className="cart">
       <h1 id="titleCart">Mi Carrito</h1>
       {cart.length !== 0 ? (
-        <div id="cartContainer">
+        <div className="cartContainer">
           <div id="productsCartContainer">
             {cart.map((product) => (
               <div>
@@ -21,7 +21,7 @@ const Cart = ({ cart, totalQuantity, handleAddCart, handleSubstractCart, handleD
                   <div id="subTotalCart">
                     Sub Total - ${product.quantity * product.price}
                   </div>
-                  <div id="buttonsCart">
+                  <div className="buttonsCart">
                     <Button
                       className= "cart-buttons"
                       variant="light"

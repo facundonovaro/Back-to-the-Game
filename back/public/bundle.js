@@ -61012,7 +61012,7 @@ var Cart = function Cart(_ref) {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", {
     id: "titleCart"
   }, "Mi Carrito"), cart.length !== 0 ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    id: "cartContainer"
+    className: "cartContainer"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     id: "productsCartContainer"
   }, cart.map(function (product) {
@@ -61024,7 +61024,7 @@ var Cart = function Cart(_ref) {
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h3", null, product.name), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "Precio individual - $", product.price)), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       id: "subTotalCart"
     }, "Sub Total - $", product.quantity * product.price), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      id: "buttonsCart"
+      className: "buttonsCart"
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_bootstrap__WEBPACK_IMPORTED_MODULE_1__["Button"], {
       className: "cart-buttons",
       variant: "light",
@@ -64742,7 +64742,7 @@ var SingleProductContainer = /*#__PURE__*/function (_React$Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      if (this.props.userId) {
+      if (this.props.user.id) {
         this.props.fetchCart();
       }
 
@@ -64794,7 +64794,7 @@ var SingleProductContainer = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "handlerSubmitCart",
     value: function handlerSubmitCart(id, name, description, price, stock, img1Url, img2Url) {
-      if (this.props.userId) {
+      if (this.props.user.id) {
         this.props.addToCart({
           id: id,
           price: price
@@ -64825,7 +64825,7 @@ var SingleProductContainer = /*#__PURE__*/function (_React$Component) {
   }, {
     key: "handleDeleteCart",
     value: function handleDeleteCart(productId) {
-      if (this.props.userId) {
+      if (this.props.user.id) {
         this.props.deleteCart(productId);
       } else {
         localStorage.removeItem(productId);
