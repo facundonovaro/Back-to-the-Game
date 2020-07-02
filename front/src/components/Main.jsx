@@ -19,7 +19,7 @@ import { connect } from "react-redux";
 import { cookieLogger } from "../store/actions/users";
 import DeleteProductContainer from "../containers/DeleteProductContainer";
 import { addLocalStorage, fetchCart } from "../store/actions/cart";
-
+import FacebookContainer from "../containers/FacebookContainer";
 class Main extends React.Component {
   constructor(props) {
     super(props);
@@ -65,6 +65,7 @@ class Main extends React.Component {
           <Route path="/users/:id" component={SingleuserContainer} />
           <Route exact path="/cart" component={CartContainer} />
           <Route path="/category/:name" component={CategoryContainer} />
+          <Route path="/facebook" component={FacebookContainer} />
           <Redirect to="/products"></Redirect>
         </Switch>
       </div>

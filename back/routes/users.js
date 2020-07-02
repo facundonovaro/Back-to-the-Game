@@ -13,6 +13,8 @@ router.post("/register", registerUser);
 
 router.post("/login", passport.authenticate("local"), userLogin);
 
+/* router.get("/facebook", passport.authenticate("facebook")); */
+
 router.post("/logout", userLogout);
 
 router.get("/cookieuser", userCookie);
