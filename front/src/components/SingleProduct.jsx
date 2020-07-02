@@ -55,7 +55,7 @@ const SingleProduct = ({
                 {cart.includes(product.id) ? (
                   <button
                     type="button"
-                    className="btn btn-dark"
+                    className="btn btn-secondary"
                     onClick={() => {
                       handleDeleteCart(product.id)
                     }}

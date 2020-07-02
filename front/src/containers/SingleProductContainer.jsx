@@ -43,7 +43,6 @@ class SingleProductContainer extends React.Component {
          this.setState({rateAverage : result})
          this.setState({revCounter: counter})
     })
-   
   }
 
   componentDidUpdate(prevProp, prevState){

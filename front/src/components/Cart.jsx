@@ -83,10 +83,10 @@ const Cart = ({ cart, totalQuantity, handleAddCart, handleSubstractCart, handleD
             ))}
           </div>
           <div id="totalCardCart">
-            <div id="totalCart">Total del Carrito - ${totalQuantity}</div>
+            <div id="totalCart">Total del Carrito: ${totalQuantity}</div>
             <div>
               <Link to={user.id ? ("/checkout") : ("/users/login")}>
-                <Button id="checkoutCart" variant="dark">
+                <Button id="checkoutCart" variant="success">
                   {" "}
                   Finalizar Compra
                 </Button>

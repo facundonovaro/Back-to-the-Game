@@ -54,7 +54,7 @@
 }
 
 .listGroupCart {
-  width: 1000px;
+  width: 125%;
   display: flex;
   flex-direction: row;
   align-items: center;
