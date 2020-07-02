@@ -5,10 +5,10 @@ const path = require("path");
 const morgan = require("morgan");
 const cookieParser = require("cookie-parser");
 const session = require("express-session");
-const passport = require("passport");
-const LocalStrategy = require("passport-local").Strategy;
-const { User } = require("./models/index");
+const passport = require('./config/passportConfig')
 const router = require("./routes/index");
+
+require('./config/facebookConfig');
 
 app.use(
   session({
@@ -29,38 +29,6 @@ app.use(express.urlencoded());
 
 app.use(passport.initialize());
 app.use(passport.session());
-
-passport.use(
-  new LocalStrategy(function (username, password, done) {
-    User.findOne({ where: { username: username } })
-      .then((user) => {
-        if (!user) {
-          return done(null, false, {
-            message: "usuario incorrecto",
-          });
-        }
-        if (!user.validPassword(password)) {
-          return done(null, false, {
-            message: "contraseña incorrecta",
-          });
-        }
-        return done(null, user);
-      })
-      .catch(done);
-  })
-);
-
-passport.serializeUser((user, done) => {
-  done(null, user);
-});
-
-passport.deserializeUser((user, done) => {
-  User.findByPk(user.id)
-    .then((user) => {
-      done(null, user);
-    })
-    .catch(done);
-});
 
 app.use("/api", router);
 

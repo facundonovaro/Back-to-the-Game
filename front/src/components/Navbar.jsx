@@ -8,7 +8,6 @@ import {
   FormControl,
   Button,
 } from "react-bootstrap";
-import logo from "../assets/logo.png";
 import { FaShoppingCart, FaSearch } from "react-icons/fa";
 
 const NavBar = ({
@@ -17,14 +16,14 @@ const NavBar = ({
   userLogout,
   user,
   disable,
-  categories,
+  categories, 
   inputValue,
 }) => (
   <Navbar bg="dark" expand="lg" className="navbar-container">
     <Link to="/products">
       <Navbar.Brand>
         <img
-          src={logo}
+          src='http://localhost:1337/4fabbd3a2224c35302cbc34fa7b89b2f.png'
           width="100"
           height="100"
           className="d-inline-block align-top"

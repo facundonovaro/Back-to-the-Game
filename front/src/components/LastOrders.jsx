@@ -37,7 +37,7 @@ export default ({ orders, user }) => {
                             ></img>
                           </td>
                           <td>{order.product.name}</td>
-                          <td>{order.product.price}</td>
+                          <td>$ {order.product.price}</td>
                           <td>{order.quantity}</td>
                         </tr>
                       );
