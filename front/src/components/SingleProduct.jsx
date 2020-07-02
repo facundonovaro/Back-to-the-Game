@@ -68,15 +68,15 @@ const SingleProduct = ({
             </div>
           </div>
         </div>
-        <div id="subTotalCart">
-                    {`Calificación promedio: ${rateAverage}`}
-                  </div>
+        {rateAverage ? <div id="subTotalCart">
+          {`Calificación promedio: ${rateAverage}`}
+        </div> : null}
       </div>
       
       <div>
       <ListGroup className="list-group-flush">
         <div>{reviews.length >=1 ? reviews.map((review)=>(
-         <div key={review.id}> <ListGroupItem>{`Calificación: ${review.rate} - Descripción: ${review.description}`}</ListGroupItem>
+         <div key={review.id}> <ListGroupItem>{`Calificación: ${review.rate}`}{review.description ? ` ${review.description}`: null } </ListGroupItem>
         </div>
         )) : <div><h5>Este productor aún no tiene calificaciones</h5></div>}
         </div>

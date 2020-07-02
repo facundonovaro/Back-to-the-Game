@@ -18,5 +18,5 @@ export const searchReviews = (productId) => (dispatch) =>
 
 export const addReview = (review) => (dispatch) =>
   axios.post(`/api/reviews`, review).then((res) => {
-    dispatch(addReviews(res.data));
+    dispatch(allReviews(res.data));
   });
