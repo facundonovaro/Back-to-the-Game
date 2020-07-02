@@ -326,3 +326,19 @@
 .thankyou {
   background-image: url();
 }
+
+#adminAbmButtons {
+  display: flex;
+  width: 900px;
+  margin: auto;
+  justify-content: center;
+}
+
+#adminAbmButton {
+  width: 300px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
