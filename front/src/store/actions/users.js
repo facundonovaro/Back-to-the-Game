@@ -4,8 +4,9 @@ import {
   LOGOUT_USER,
   ERROR_MESSAGE,
   GET_USERS,
+  GET_USER,
 } from "../constants";
-import { allCart } from './cart';
+import { allCart } from "./cart";
 
 const loginUser = (user) => ({
   type: LOGIN_USER,
@@ -22,9 +23,14 @@ const errorMessage = (message) => ({
   message,
 });
 
-const getUsers = () => ({
+const getUsers = (users) => ({
   type: GET_USERS,
   users,
+});
+
+const getUser = (user) => ({
+  type: GET_USER,
+  user,
 });
 
 export const userLogin = function (user) {
@@ -44,7 +50,7 @@ export const userLogout = function (user) {
   return function (dispatch) {
     axios.post("/api/users/logout", user).then(() => {
       dispatch(logoutUser({}));
-      dispatch(allCart([]))
+      dispatch(allCart([]));
     });
   };
 };
@@ -59,16 +65,26 @@ export const registerUser = function (user) {
   };
 };
 
-export const cookieLogger = function () {
-  return function (dispatch) {
-    axios.get("/api/users/cookieuser").then((res) => {
-      dispatch(loginUser(res.data));
-    });
-  };
-};
+export const cookieLogger = () => (dispatch) =>
+  axios.get("/api/users/cookieuser").then((res) => {
+    dispatch(loginUser(res.data));
+  });
 
 export const fetchUsers = function () {
   return function (dispatch) {
     axios.get("/api/users/admin").then((res) => dispatch(getUsers(res.data)));
   };
+};
+
+export const fetchUser = (id) => (dispatch) =>
+  axios
+    .get(`/api/users/admin/${id}`)
+    .then((res) => dispatch(getUser(res.data)));
+
+export const editUser = (id, role) => () => {
+  axios.patch(`/api/users/admin/${id}`, role);
+};
+
+export const deleteUser = (id) => () => {
+  axios.delete(`/api/users/admin/${id}`);
 };

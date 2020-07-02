@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import Checkout from '../components/Checkout'
 import { fetchCart } from "../store/actions/cart";
-import { updateOrderStatus, updateOrderAdress } from '../store/actions/checkout';
+import { updateOrderStatus, updateOrderAdress, thankYouEmail } from '../store/actions/checkout';
 
 
 const mapStateToProps = function (state, ownProps) {
@@ -19,8 +19,10 @@ const mapDispatchToProps = function (dispatch) {
         fetchCart: () => {dispatch(fetchCart())},
         updateOrderAdress: (order) => dispatch(updateOrderAdress(order)),
         updateOrderStatus: (order) => dispatch(updateOrderStatus(order)) ,
+        thankYouEmail: (email) => dispatch(thankYouEmail(email))
         
-    };
+    }
+      
 };
 
 
@@ -32,11 +34,13 @@ class CheckoutContainer extends Component {
             userId: this.props.user.id,
             orderAdress: "",
             orderFinished:false,
+            email: ''
             
 
         }
 
         this.handleSubmit = this.handleSubmit.bind(this)
+        this.handleChangeEmail = this.handleChangeEmail.bind(this)
         this.handleChange = this.handleChange.bind(this)
         
     }
@@ -58,6 +62,12 @@ class CheckoutContainer extends Component {
         })
     }
 
+    handleChangeEmail(evt){
+        const value = evt.target.value
+        this.setState({email: value})  
+        console.log(value)
+       }
+
      handleSubmit(evt) {
         evt.preventDefault();
         this.props.updateOrderAdress(this.state)
@@ -67,8 +77,9 @@ class CheckoutContainer extends Component {
         .then(()=>{
             this.props.history.push('/thankyou')
         })
-        
-        
+        .then(()=>{
+            this.props.thankYouEmail(this.props.email)
+        })   
     
   }
 
@@ -76,7 +87,9 @@ class CheckoutContainer extends Component {
     render(){
        
         return(
-            <Checkout  
+            <Checkout 
+            email={this.state.email}
+            handleChangeEmail={this.handleChangeEmail}
             cart={this.props.cart}
             total= {this.state.totalQuantity}
             handleSubmit = {this.handleSubmit}

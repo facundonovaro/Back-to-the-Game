@@ -1,7 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
 import Cart from "../components/Cart";
-import { fetchCart, deleteCart, updateCart, addLocalStorage } from "../store/actions/cart";
+import {
+  fetchCart,
+  deleteCart,
+  updateCart,
+  addLocalStorage,
+} from "../store/actions/cart";
+import { cookieLogger } from "../store/actions/users";
 
 class CartContainer extends React.Component {
   constructor() {
@@ -9,14 +15,17 @@ class CartContainer extends React.Component {
     this.state = {
       totalQuantity: 0,
     };
-    this.handleAddCart = this.handleAddCart.bind(this)
-    this.handleSubstractCart = this.handleSubstractCart.bind(this)
-    this.handleDeleteCart = this.handleDeleteCart.bind(this)
+    this.handleAddCart = this.handleAddCart.bind(this);
+    this.handleSubstractCart = this.handleSubstractCart.bind(this);
+    this.handleDeleteCart = this.handleDeleteCart.bind(this);
   }
   componentDidMount() {
-    if(this.props.user.id){
-      this.props.fetchCart();
-    }
+    this.props.cookieLogger().then(() => {
+      if (this.props.user.id) {
+        console.log("Está llegando acá");
+        this.props.fetchCart();
+      }
+    });
     let total = 0;
     this.props.cart.map((product) => {
       total = total + product.quantity * product.price;
@@ -34,55 +43,52 @@ class CartContainer extends React.Component {
     }
   }
 
-  handleAddCart(order){
-    if(this.props.user.id){
-      this.props.updateCart(order)
-    }
-    else {
-      let newProduct = JSON.parse(localStorage.getItem(order.id))
-      newProduct.quantity ++
-      localStorage.setItem(order.id, JSON.stringify(newProduct))
-      var products = []
-      for(var i = 0, len = localStorage.length; i < len; i++){
+  handleAddCart(order) {
+    if (this.props.user.id) {
+      this.props.updateCart(order);
+    } else {
+      let newProduct = JSON.parse(localStorage.getItem(order.id));
+      newProduct.quantity++;
+      localStorage.setItem(order.id, JSON.stringify(newProduct));
+      var products = [];
+      for (var i = 0, len = localStorage.length; i < len; i++) {
         var key = localStorage.key(i);
-        var value = JSON.parse(localStorage[key]);  
+        var value = JSON.parse(localStorage[key]);
         products.push(value);
-    }
-      this.props.addLocalStorage(products)
+      }
+      this.props.addLocalStorage(products);
     }
   }
 
-  handleSubstractCart(order){
-    if(this.props.user.id){
-      this.props.updateCart(order)
-    }
-    else {
-      let newProduct = JSON.parse(localStorage.getItem(order.id))
-      newProduct.quantity --
-      localStorage.setItem(order.id, JSON.stringify(newProduct))
-      var products = []
-      for(var i = 0, len = localStorage.length; i < len; i++){
+  handleSubstractCart(order) {
+    if (this.props.user.id) {
+      this.props.updateCart(order);
+    } else {
+      let newProduct = JSON.parse(localStorage.getItem(order.id));
+      newProduct.quantity--;
+      localStorage.setItem(order.id, JSON.stringify(newProduct));
+      var products = [];
+      for (var i = 0, len = localStorage.length; i < len; i++) {
         var key = localStorage.key(i);
-        var value = JSON.parse(localStorage[key]);  
+        var value = JSON.parse(localStorage[key]);
         products.push(value);
-    }
-      this.props.addLocalStorage(products)
+      }
+      this.props.addLocalStorage(products);
     }
   }
 
-  handleDeleteCart(productId){
-    if(this.props.user.id){
+  handleDeleteCart(productId) {
+    if (this.props.user.id) {
       this.props.deleteCart(productId);
-    }
-    else{
-      localStorage.removeItem(productId)
-      var products = []
-      for(var i = 0, len = localStorage.length; i < len; i++){
+    } else {
+      localStorage.removeItem(productId);
+      var products = [];
+      for (var i = 0, len = localStorage.length; i < len; i++) {
         var key = localStorage.key(i);
-        var value = JSON.parse(localStorage[key]);  
+        var value = JSON.parse(localStorage[key]);
         products.push(value);
-    }
-      this.props.addLocalStorage(products)
+      }
+      this.props.addLocalStorage(products);
     }
   }
 
@@ -123,7 +129,10 @@ const mapDispatchToProps = (dispatch) => {
     updateCart: (order) => {
       dispatch(updateCart(order));
     },
-    addLocalStorage: (newCart) => {dispatch(addLocalStorage(newCart))}
+    addLocalStorage: (newCart) => {
+      dispatch(addLocalStorage(newCart));
+    },
+    cookieLogger: () => dispatch(cookieLogger()),
   };
 };
 

@@ -3,11 +3,13 @@ import {
   LOGOUT_USER,
   ERROR_MESSAGE,
   GET_USERS,
+  GET_USER,
 } from "../constants";
 
 const initialState = {
   user: {},
   users: [],
+  userFound: {},
 };
 
 export default (state = initialState, action) => {
@@ -31,6 +33,11 @@ export default (state = initialState, action) => {
       return {
         ...state,
         users: action.users,
+      };
+    case GET_USER:
+      return {
+        ...state,
+        userFound: action.user,
       };
     default:
       return state;

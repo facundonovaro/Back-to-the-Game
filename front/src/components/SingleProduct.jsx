@@ -15,7 +15,8 @@ const SingleProduct = ({
   handlerReviewSubmit,
   rateAverage,
   revCounter,
-  user
+  user,
+
 
 }) => {
   

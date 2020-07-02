@@ -19,8 +19,13 @@ axios.patch("/api/checkout/status", order)
     dispatch(cartList([]))
 })
 
+export const thankYouEmail = (email) => (dispatch)=> {
+axios.post('https://gmail.us10.list-manage.com/subscribe/post?u=1f69ca6d9cfcca001b05fdf5c&amp;id=d8ed59a5f3', {EMAIL: email})
+}
 
 export const fetchLastOrders = () => (dispatch) =>
 axios.get("/api/checkout/lastorders")
 .then(res => res.data)
 .then(orders => dispatch(lastOrders(orders)))
+
+

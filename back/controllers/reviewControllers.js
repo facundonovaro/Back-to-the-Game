@@ -41,7 +41,7 @@ const addReview = (req, res)=>{
         },
       ],
       order: [
-        ['id', 'ASC']
+        ['id', 'DESC']
       ]
       })
     }).then((reviews)=>{
