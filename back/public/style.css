@@ -159,13 +159,18 @@
   font-weight: bold;
 }
 
-#subTotalCart {
-  width: 200px;
-  height: 60px;
+.subTotalCart {
+  width: 500px;
+  height: 20px;
   display: flex;
-  align-items: center;
   text-align: center;
+  justify-content: space-around;
 }
+
+.subTotal{
+
+}
+
 .loginForm {
   width: 50rem;
   margin: 5rem auto;
