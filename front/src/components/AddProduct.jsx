@@ -16,6 +16,7 @@ const AddProduct = ({
   stockInput,
   image1Input,
   image2Input,
+  categories
 }) => {
   return (
     <div className="container-fluid" style={{ width: "60%" }}>
@@ -26,12 +27,13 @@ const AddProduct = ({
         <div className="form-group">
           <div>
             <label for="exampleFormControlSelect1">Categoria</label>
+
             <select onChange={handleCategoryChange} class="form-control" id="exampleFormControlSelect1">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
+              {categories &&
+                categories.map((category) => (
+                  <option key={category.id}>{category.name}</option>
+                ))}
+
             </select>
           </div>
 

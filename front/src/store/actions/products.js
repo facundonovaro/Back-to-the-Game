@@ -1,17 +1,10 @@
 import axios from "axios";
-import { GET_ALL_PRODUCTS, ADD_PRODUCT } from "../constants";
+import { GET_ALL_PRODUCTS } from "../constants";
 
-const allProducts = (products) => ({
+export const allProducts = (products) => ({
   type: GET_ALL_PRODUCTS,
   products,
 });
-
-const addProduct = (product) => {
-  return {
-    type: ADD_PRODUCT,
-    product,
-  };
-};
 
 export const fetchProducts = () => (dispatch) =>
   axios
@@ -22,7 +15,7 @@ export const fetchProducts = () => (dispatch) =>
 export const newProduct = (product) => (dispatch) =>
   axios
     .post("/api/products", product)
-    .then((product) => dispatch(addProduct(product.data)));
+    .then((products) => dispatch(allProducts(products.data)));
 
 export const deleteProduct = (id) => (dispatch) =>
   axios.delete(`/api/products/${id}`).then((res) => {

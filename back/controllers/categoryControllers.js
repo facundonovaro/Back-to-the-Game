@@ -14,6 +14,8 @@ const getCategory = (req, res) => {
 }
 
 const newCategory = (req, res) => {
+    console.log(req.body)
+    console.log(req.body.productId)
     Product.findOne({
         where: {
             id: req.body.productId,
@@ -22,12 +24,17 @@ const newCategory = (req, res) => {
         const product = findProduct;
         Category.create(req.body)
             .then(category => {
-                product.setCategory(category)
+                product.addCategory(category)
             })
     }).then((category) => {
         res.status(200).json(category)
     })
+
 }
 
+const getCategories = (req, res) => {
+    Category.findAll()
+        .then(categories => res.send(categories))
+}
 
-module.exports = { getCategory, newCategory };
+module.exports = { getCategory, newCategory, getCategories };

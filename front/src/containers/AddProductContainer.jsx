@@ -72,6 +72,7 @@ class AddProductContainer extends React.Component {
   }
   render() {
     const { category, name, description, price, stock, img1Url, img2Url } = this.state;
+    const { categories } = this.props
     return (
       <div>
         <AddProduct
@@ -85,6 +86,7 @@ class AddProductContainer extends React.Component {
           handleDescriptionChange={this.handleDescriptionChange}
           handleNameChange={this.handleNameChange}
           category={category}
+          categories={categories}
           nameInput={name}
           descriptionInput={description}
           priceInput={price}
@@ -97,6 +99,12 @@ class AddProductContainer extends React.Component {
   }
 }
 
+const mapStateToProps = (state) => {
+  return {
+    categories: state.categoryReducer.categories
+  }
+}
+
 const mapDispatchToProps = (dispatch) => {
   return {
     newProduct: (product) => {
@@ -105,4 +113,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(null, mapDispatchToProps)(AddProductContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(AddProductContainer);
