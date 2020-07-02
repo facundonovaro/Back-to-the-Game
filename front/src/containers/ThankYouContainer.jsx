@@ -1,29 +1,26 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { userLogout } from '../store/actions/users'
-import ThankYou from '../components/ThankYou';
-import { fetchLastOrders } from '../store/actions/checkout'
-
-
-
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { userLogout } from "../store/actions/users";
+import ThankYou from "../components/ThankYou";
+import { fetchLastOrders } from "../store/actions/checkout";
 
 const mapStateToProps = function (state, ownProps) {
-    return {
-        user: state.usersReducer.user,
-        orders: state.checkoutReducer.orders
-       
-    };
+  return {
+    user: state.usersReducer.user,
+    orders: state.checkoutReducer.orders,
+  };
 };
 
 const mapDispatchToProps = function (dispatch) {
-    return {
-        userLogout: () => { dispatch(userLogout()) },
-        fetchLastOrders: () => {
-            dispatch(fetchLastOrders())
-        }
-    };
+  return {
+    userLogout: () => {
+      dispatch(userLogout());
+    },
+    fetchLastOrders: () => {
+      dispatch(fetchLastOrders());
+    },
+  };
 };
-
 
 class ThankYouContainer extends Component {
     constructor(props) {

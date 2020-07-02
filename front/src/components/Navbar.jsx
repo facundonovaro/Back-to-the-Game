@@ -7,7 +7,6 @@ import {
   Form,
   FormControl,
   Button,
-  
 } from "react-bootstrap";
 import logo from "../assets/logo.png";
 import { FaShoppingCart, FaSearch } from "react-icons/fa";
