@@ -65,17 +65,15 @@ const NavBar = ({
               </Link>
             ))}
         </NavDropdown>
+        {user.id ? (
+          <Link className="navbar-links" to="/lastorders">
+              Ordenes
+          </Link>
+        ) : null}
         <Link className="navbar-links" to="/cart">
           <FaShoppingCart className="shoppingCart-icon" />
         </Link>
-        {user.id ? (
-          <Link to="/lastorders">
-            <Button id="checkoutCart" variant="dark">
-              {" "}
-              Ordenes
-            </Button>
-          </Link>
-        ) : null}
+        
       </Nav>
       <Form onSubmit={handlerSubmitSearch} inline>
         <FormControl
