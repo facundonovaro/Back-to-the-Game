@@ -5,8 +5,7 @@ import { fetchCart } from "../store/actions/cart";
 import {
   updateOrderStatus,
   updateOrderAdress,
-  updateStock,
-  thankYouEmail,
+  updateStock /* thankYouEmail */,
 } from "../store/actions/checkout";
 import { fetchProducts } from "../store/actions/products";
 
@@ -82,10 +81,10 @@ class CheckoutContainer extends Component {
       })
       .then(() => {
         this.props.history.push("/thankyou");
-      })
-      .then(() => {
-        this.props.thankYouEmail(this.props.email);
       });
+    // .then(() => {
+    //   this.props.thankYouEmail(this.props.email);
+    // });
   }
 
   render() {

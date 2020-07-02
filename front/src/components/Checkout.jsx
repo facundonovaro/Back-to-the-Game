@@ -19,7 +19,6 @@ export default ({
       {user.id ? (
         <div>
           <h2>Checkout</h2>
-
           {cart.length !== 0 ? (
             <div>
               <div className="displayCheckout textProductsForce">
@@ -40,25 +39,19 @@ export default ({
               </div>
               <div>
                 <Form onSubmit={handleSubmit}>
-                  <Form.Label>Agregá la dirección de entrega</Form.Label>
                   <Form.Group>
-                    <Form.Label>Dirección</Form.Label>
+                    <Form.Label>Agregá tu dirección de entrega</Form.Label>
                     <Form.Control
                       required
                       type="text"
-                      placeholder="Dirección*"
+                      placeholder="Castillo 1332, CABA, Argentina"
                       name="orderAdress"
                       value={orderAdress}
                       onChange={handleChange}
                     />
-                    <Form.Control
-                      required
-                      type="text"
-                      placeholder="Confirmar Email*"
-                      value={email}
-                      onChange={handleChangeEmail}
-                      name="Email"
-                    />
+                    {/*  <Form.Control required type="text" placeholder="Confirmar Email*" value={email} onChange={handleChangeEmail}
+                            name="Email"
+                        /> */}
                   </Form.Group>
 
                   <li>Factura total: $ {total}</li>
