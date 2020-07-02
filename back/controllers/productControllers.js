@@ -12,13 +12,23 @@ const findAllProducts = (req, res) => {
 };
 
 const addProduct = (req, res) => {
-  Product.create(req.body).then((product) => res.send(product));
+  Product.create(req.body)
+    .then((product) => res.send(product))
+    .then(() => {
+      Product.findAll().then((products) => {
+        res.json(products);
+      });
+    });
 };
 
 const updateProduct = (req, res) => {
   Product.findByPk(req.params.id)
     .then((product) => product.update(req.body))
-    .then((updatedProduct) => res.send(updatedProduct));
+    .then(() => {
+      Product.findAll().then((products) => {
+        res.json(products);
+      });
+    });
 };
 
 const deleteProduct = (req, res) => {
