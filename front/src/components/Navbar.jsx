@@ -69,11 +69,13 @@ const NavBar = ({
           <FaShoppingCart className="shoppingCart-icon" />
         </Link>
         {user.id ? (
-          <Link to="/lastorders">
-            <Button id="checkoutCart" variant="dark">
-              {" "}
-              Ordenes
-            </Button>
+          <Link className="navbar-links" to="/lastorders">
+            Ordenes
+          </Link>
+        ) : null}
+        {user.id && user.role !== "user" ? (
+          <Link className="navbar-links" to="/admin">
+            Admin
           </Link>
         ) : null}
       </Nav>

@@ -20,6 +20,7 @@ export const TOTAL_CART = "TOTAL_CART";
 
 //Checkout
 export const GET_LAST_ORDERS = "GET_LAST_ORDERS";
+export const GET_ALL_ORDERS = "GET_ALL_ORDERS";
 
 // Category
 export const SET_CATEGORY = "SET_CATEOGORY";

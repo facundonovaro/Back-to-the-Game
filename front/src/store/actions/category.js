@@ -15,13 +15,6 @@ const setCategories = (categories) => {
   };
 };
 
-const newCategories = (categories) => {
-  return {
-    type: ADD_CATEGORY,
-    categories,
-  };
-};
-
 export const setCategory = (category) => (dispatch) => {
   axios.get(`/api/category/${category}`).then((category) => {
     dispatch(cartProds(category.data[0].products));
@@ -31,7 +24,7 @@ export const setCategory = (category) => (dispatch) => {
 export const addCategories = (category) => (dispatch) => {
   console.log("Llega a entrar en el action");
   return axios.post("/api/category", category).then((categories) => {
-    return dispatch(getCategories(categories.data));
+    return dispatch(setCategories(categories.data));
   });
 };
 
