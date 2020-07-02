@@ -18,15 +18,20 @@ const Products = ({ products, handlerSubmitCart, handleDeleteCart, cart }) => {
             <Card.Body>
               <Card.Title className="titleCard">{product.snippet}</Card.Title>
               <Card.Text className="descrCard">
-                {`Descriptión: ${product.snippetDesc}`}
+                {` ${product.snippetDesc}`}
               </Card.Text>
             </Card.Body>
             <ListGroup className="list-group-flush">
-              <ListGroupItem>{`Price: ${product.price}`}</ListGroupItem>
-              <ListGroupItem>{`Stock: ${product.stock}`}</ListGroupItem>
+              <ListGroupItem>{`Precio: $ ${product.price}`}</ListGroupItem>
+             { product.stock >=1 ?(null) :
+            ( <Button disabled variant="danger"> Sin Stock</Button>)
+             }
             </ListGroup>
             <Card.Body>
-              {cart.includes(product.id) ? (
+              {product.stock>=1 ? (
+
+                cart.includes(product.id) ? (
+
                 <Button
                   variant="secondary"
                   onClick={() => {
@@ -44,7 +49,9 @@ const Products = ({ products, handlerSubmitCart, handleDeleteCart, cart }) => {
                 >
                  Añadir al Carrito
                 </Button>
-              )}
+              )
+              ): null}
+              
             </Card.Body>
           </Card>
         </div>
