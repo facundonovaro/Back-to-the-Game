@@ -45,7 +45,7 @@ class Main extends React.Component {
 
   render() {
     return (
-      <div id="main" className="container-fluid">
+      <div id="main">
         <div>
           <Route path="/" component={NavBarContainer} />
         </div>

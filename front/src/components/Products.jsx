@@ -4,6 +4,8 @@ import { Card, ListGroupItem, ListGroup, Button } from "react-bootstrap";
 
 const Products = ({ products, handlerSubmitCart, handleDeleteCart, cart }) => {
   return (
+    
+<div>
     <div className="containerProd textProductsForce">
       {products.map((product) => (
         <div key={product.id} className="cards">
@@ -56,6 +58,7 @@ const Products = ({ products, handlerSubmitCart, handleDeleteCart, cart }) => {
           </Card>
         </div>
       ))}
+    </div>
     </div>
   );
 };
