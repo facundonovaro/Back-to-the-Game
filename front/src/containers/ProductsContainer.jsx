@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import Products from "../components/Products";
+import FooterPage from "../components/footer"
 import { addToCart, deleteCart, fetchCart, addLocalStorage } from "../store/actions/cart";
 import Slide from '../components/Slide'
 
@@ -12,34 +13,34 @@ class ProductsContainer extends React.Component {
   }
 
   handlerSubmitCart(id, name, description, price, stock, img1Url, img2Url) {
-    if(this.props.userId){
+    if (this.props.userId) {
       this.props.addToCart({ id: id, price: price });
     }
     else {
-      let product = {id, name, description, price, stock, img1Url, img2Url, quantity: 1}
+      let product = { id, name, description, price, stock, img1Url, img2Url, quantity: 1 }
       localStorage.setItem(id, JSON.stringify(product))
       var products = []
-      for(var i = 0, len = localStorage.length; i < len; i++) {
+      for (var i = 0, len = localStorage.length; i < len; i++) {
         var key = localStorage.key(i);
-        var value = JSON.parse(localStorage[key]);  
+        var value = JSON.parse(localStorage[key]);
         products.push(value);
       }
       this.props.addLocalStorage(products)
     }
   }
 
-  handleDeleteCart(productId){
-    if(this.props.userId){
+  handleDeleteCart(productId) {
+    if (this.props.userId) {
       this.props.deleteCart(productId);
     }
-    else{
+    else {
       localStorage.removeItem(productId)
       var products = []
-      for(var i = 0, len = localStorage.length; i < len; i++){
+      for (var i = 0, len = localStorage.length; i < len; i++) {
         var key = localStorage.key(i);
-        var value = JSON.parse(localStorage[key]);  
+        var value = JSON.parse(localStorage[key]);
         products.push(value);
-    }
+      }
       this.props.addLocalStorage(products)
     }
   }
@@ -48,13 +49,16 @@ class ProductsContainer extends React.Component {
     const { products, cart } = this.props;
     return (
       <div>
-       <div><Slide/></div> 
+        <div><Slide /></div>
         <Products
           products={products}
           handlerSubmitCart={this.handlerSubmitCart}
           handleDeleteCart={this.handleDeleteCart}
           cart={cart}
         />
+        <div>
+          <FooterPage />
+        </div>
       </div>
     );
   }
@@ -78,7 +82,7 @@ const mapDispatchToProps = (dispatch) => {
     fetchCart: () => {
       dispatch(fetchCart());
     },
-    addLocalStorage: (products) => {dispatch(addLocalStorage(products))}
+    addLocalStorage: (products) => { dispatch(addLocalStorage(products)) }
   };
 };
 
