@@ -6,7 +6,8 @@ import {
   GET_USERS,
   GET_USER,
 } from "../constants";
-import { allCart } from "./cart";
+import { allCart, cartList } from "./cart";
+import { fetchCart } from "./cart";
 
 const loginUser = (user) => ({
   type: LOGIN_USER,
@@ -38,6 +39,7 @@ export const userLogin = function (user) {
     return axios
       .post("/api/users/login", user)
       .then((res) => {
+        dispatch(fetchCart());
         return dispatch(loginUser(res.data));
       })
       .catch((err) =>
@@ -51,6 +53,7 @@ export const userLogout = function (user) {
     axios.post("/api/users/logout", user).then(() => {
       dispatch(logoutUser({}));
       dispatch(allCart([]));
+      dispatch(cartList([]));
     });
   };
 };
