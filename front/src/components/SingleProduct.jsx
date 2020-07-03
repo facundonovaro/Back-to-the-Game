@@ -24,7 +24,7 @@ const SingleProduct = ({
   <div>
     <div className="container-fluid" style={{ width: "80%" }}>
       <div className="card mb-3">
-        <div className="row no-gutters">
+        <div className="row no-gutters singlPro">
           <div className="col-md-4">
             <Carousel>
               <Carousel.Item>
@@ -80,11 +80,12 @@ const SingleProduct = ({
       </div>     
 
 {/* REVIEW SECTION  */}
+<div className="cardsContainer">
     {user.id ? 
-    <div className="reviewCard">
+    <div>
       <div className="reviewCardCont">
           <Form onSubmit={(event)=>handlerReviewSubmit(event, product.id)}>
-          <Form.Group controlId="exampleForm.ControlSelect2">
+          <Form.Group  className="inputRate">
             <Form.Label><h5>Califica el producto</h5></Form.Label>
             <Form.Control
             as="select" multiple 
@@ -97,7 +98,7 @@ const SingleProduct = ({
               <option>5</option>
             </Form.Control>
           </Form.Group>
-            <Form.Group controlId="exampleForm.ControlTextarea1">
+            <Form.Group className="input">
               <Form.Label><h5>Escribe una pequeña reseña</h5></Form.Label>
               <Form.Control 
               value={description}
@@ -109,14 +110,14 @@ const SingleProduct = ({
             </Form.Group>
         <Button 
           type="submit" 
-          className="btn btn-dark" 
+          className=" btn-dark calificar" 
           >Calificar
         </Button>
       </Form>
     </div>
 
         <div>
-          <ListGroup className="list-group-flush">
+          <ListGroup>
             <div>{reviews.length >=1 ? reviews.map((review)=>(
             <div key={review.id} className="reviewCards"><ListGroupItem>
               {`Usuario: ${review.user.firstName}`}<br></br>
@@ -127,13 +128,17 @@ const SingleProduct = ({
             )) : <div><h5>Este productor aún no tiene calificaciones</h5></div>}
             </div>
             </ListGroup>
+            {/* <div>
+            {rateAverage}
+            </div> */}
+
           </div>
     </div>
         :
-    <div className="reviewCard">
-     <ListGroup className="list-group-flush">
-        <div>{reviews.length >=1 ? reviews.map((review)=>(
-        <div key={review.id} className="reviewCards">
+    <div>
+     <ListGroup >
+        <div className="cardsContainerNL">{reviews.length >=1 ? reviews.map((review)=>(
+        <div key={review.id} className="reviewCardsNL">
         <ListGroupItem>
           {`Usuario: ${review.user.firstName}`}<br></br>
           {`Calificación: ${review.rate}`}<br></br>
@@ -143,8 +148,12 @@ const SingleProduct = ({
         )) : <div><h5>Este productor aún no tiene calificaciones</h5></div>}
         </div>
       </ListGroup>
+           {/* <div className="rate">
+            {rateAverage}
+            </div> */}
     </div>
-    }
+     }
+    </div>
 {/* REVIEW SECTION  */}
 
   </div>

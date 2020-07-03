@@ -6,7 +6,7 @@ import { FaTrash, FaCartPlus, FaCartArrowDown } from "react-icons/fa";
 const Cart = ({ cart, totalQuantity, handleAddCart, handleSubstractCart, handleDeleteCart, user }) => {
   return (
     <div>
-      <h1 id="titleCart">Mi Carrito</h1>
+      <h1 className="titleCart">Mi Carrito</h1>
       {cart.length !== 0 ? (
         <div id="cartContainer">
           <div id="productsCartContainer">

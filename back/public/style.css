@@ -5,6 +5,8 @@
   flex-direction: row;
   justify-content: center;
   margin: auto 0;
+ padding-bottom: 20px ;
+
 }
 .cards {
   padding: 10px;
@@ -111,14 +113,23 @@
   background-color: #F2F4F5;
   border: 0
 }
+/* Cart */
 
 #cartContainer {
   border-radius: 0.25rem;
-  background: #f8f9fa;
+  border: 1px solid rgb(124, 124, 124);
+  background-color: rgb(251, 251, 251);
+  width: 90%;
+  margin: 0 auto;
   display: flex;
   justify-content: space-around;
   padding-top: 10px;
   align-items: center;
+}
+
+.titleCart {
+  text-align: center;
+  margin: 10px;
 }
 
 #buttonsCart {
@@ -169,7 +180,6 @@
 .loginForm {
   width: 50rem;
   margin: 5rem auto;
-  /* margin-top: "5rem"; */
   padding: 3rem;
   border: solid 1px;
   border-color: #0f0f1a;
@@ -280,27 +290,83 @@
   color: green;
 }
 
-.reviewCards {
-  padding: 20px;
-  border-radius: 30px;
+.singlPro {
+  margin-top: 10px;
+  border: 1px solid rgb(124, 124, 124);
+  background-color: rgb(253, 253, 253);
+
 }
 
-.reviewCard {
-  display: flex;
-  width: 80%;
-  padding: 15px;
+.cardsContainer {
+
+  width: 90%;
   margin: 0 auto;
-  background-color: rgb(248, 248, 248);
+  flex-wrap: nowrap;
+  background-color: rgb(253, 253, 253);
 }
 
-.reviewCardCont{
+.reviewCardCont {
+  border: 1px solid rgb(124, 124, 124);
+
+  padding: 30px; 
+  width: 45%; 
+  flex-wrap: nowrap;
+  float: left;
+  justify-content: center;
+}
+
+.inputRate{  
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  padding: 20px;
+  margin: 3%;
+  flex-direction: column;
+
+
+}
+.input{  
+  display: flex;
+  margin: 3%;
+  flex-direction: column;
 }
 
+.reviewCards {
+  border: 1px solid rgb(124, 124, 124);
+  border-radius: 5px;
+  width: 80%;
+  margin: 10px 10px 10px 10px;
+}
 
+.cardsContainerNL {
+    border-radius: 5px;
+    width: 60%;
+    margin: 0 auto;
+    flex-wrap: nowrap;
+}
+
+.reviewCardsNL {
+  border: 1px solid rgb(124, 124, 124);
+  border-radius: 5px;
+  width: 97%;
+  margin: 10px 10px 10px 10px;
+  float: left;
+}
+
+.calificar {
+  justify-content: center;
+  display: flex;
+}
+
+.rate{
+  font-size: 150px;
+}
+
+.carousel {
+  padding:15px 10px 10px 10px;
+  margin: 0 auto;
+}
+
+.homeContainer {
+  background-color: black;
+}
 
 .boton-verProductos{
   text-decoration: none;
@@ -311,4 +377,21 @@
   text-decoration: none;
   color: #7e7e7e;
 }
+
+/* CheckOut */
+.checkCont{
+}
+
+.checkProd {
+  border: 1px solid rgb(124, 124, 124);
+  margin: 0 auto;
+  width: 30%;
+}
+
+.direCheck{
+  margin: 0 auto;
+  width: 60%;
+  padding: 2px ;
+}
+
 
