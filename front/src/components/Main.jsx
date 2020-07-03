@@ -22,6 +22,7 @@ import { addLocalStorage, fetchCart } from "../store/actions/cart";
 /* import FacebookContainer from "../containers/FacebookContainer"; */
 import ManageUsersContainer from "../containers/ManageUsersContainer";
 import AllOrdersContainer from "../containers/AllOrdersContainer";
+import FooterPage from "./footer";
 class Main extends React.Component {
   constructor(props) {
     super(props);
@@ -46,33 +47,41 @@ class Main extends React.Component {
   render() {
     return (
       <div id="main" className="container-fluid">
+
         <div>
           <Route path="/" component={NavBarContainer} />
         </div>
-        <Switch>
-          <Route path="/search" component={SearchContainer} />
-          <Route path="/checkout" component={CheckoutContainer} />
-          <Route path="/thankyou" component={ThankYouContainer} />
-          <Route path="/lastorders" component={LastOrdersContainer} />
-          <Route exact path="/products" component={ProductsContainer} />
-          <Route path="/users/register" component={RegisterContainer} />
-          <Route path="/users/login" component={LoginContainer} />
-          <Route exact path="/admin" component={AdminContainer} />
-          <Route path="/admin/add-product" component={AddProductContainer} />
-          <Route path="/admin/edit-product" component={EditProductContainer} />
-          <Route path="/admin/manage-users" component={ManageUsersContainer} />
-          <Route path="/admin/all-orders" component={AllOrdersContainer} />
-          <Route
-            path="/admin/delete-product"
-            component={DeleteProductContainer}
-          />
-          <Route path="/products/:id" component={SingleProductContainer} />
-          <Route path="/users/:id" component={SingleuserContainer} />
-          <Route exact path="/cart" component={CartContainer} />
-          <Route path="/category/:name" component={CategoryContainer} />
-          {/* <Route path="/facebook" component={FacebookContainer} /> */}
-          <Redirect to="/products"></Redirect>
-        </Switch>
+        <div>
+
+          <Switch>
+            <Route path="/search" component={SearchContainer} />
+            <Route path="/checkout" component={CheckoutContainer} />
+            <Route path="/thankyou" component={ThankYouContainer} />
+            <Route path="/lastorders" component={LastOrdersContainer} />
+            <Route exact path="/products" component={ProductsContainer} />
+            <Route path="/users/register" component={RegisterContainer} />
+            <Route path="/users/login" component={LoginContainer} />
+            <Route exact path="/admin" component={AdminContainer} />
+            <Route path="/admin/add-product" component={AddProductContainer} />
+            <Route path="/admin/edit-product" component={EditProductContainer} />
+            <Route path="/admin/manage-users" component={ManageUsersContainer} />
+            <Route path="/admin/all-orders" component={AllOrdersContainer} />
+            <Route
+              path="/admin/delete-product"
+              component={DeleteProductContainer}
+            />
+            <Route path="/products/:id" component={SingleProductContainer} />
+            <Route path="/users/:id" component={SingleuserContainer} />
+            <Route exact path="/cart" component={CartContainer} />
+            <Route path="/category/:name" component={CategoryContainer} />
+            {/* <Route path="/facebook" component={FacebookContainer} /> */}
+            <Redirect to="/products"></Redirect>
+          </Switch>
+        </div>
+        <div>
+          <Route path="/" component={FooterPage} />
+        </div>
+
       </div>
     );
   }

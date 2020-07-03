@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import NavBar from "../components/Navbar";
+//import FooterPage from "../components/footer"
 import { fetchProducts } from "../store/actions/products";
 import { searchProducts } from "../store/actions/search";
 import { userLogout } from "../store/actions/users";
@@ -56,17 +57,22 @@ class NavBarContainer extends React.Component {
   render() {
     const { user, categories } = this.props;
     return (
-      <div>
-        <NavBar
-          handlerChange={this.handlerChange}
-          handlerSubmitSearch={this.handlerSubmitSearch}
-          userLogout={this.userLogoutEvent}
-          user={user}
-          disable={this.state.disable}
-          inputValue={this.state.inputValue}
-          categories={categories}
-        />
+      <div className="page-container">
+        <div className="page-wrap">
+          <NavBar
+            handlerChange={this.handlerChange}
+            handlerSubmitSearch={this.handlerSubmitSearch}
+            userLogout={this.userLogoutEvent}
+            user={user}
+            disable={this.state.disable}
+            inputValue={this.state.inputValue}
+            categories={categories}
+          />
+        </div>
+
       </div>
+
+
     );
   }
 }

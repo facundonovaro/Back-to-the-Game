@@ -1,10 +1,12 @@
 .containerProd {
-  padding-top: 20px;
+  padding-top: 70px;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row;
   justify-content: center;
   margin: auto 0;
+  position: absolute;
+
 }
 
 .displayCheckout {
@@ -63,6 +65,10 @@
 }
 .navbar-container {
   height: 70px;
+z-index: 1;
+position: fixed !important;
+width: 100% !important;
+
 }
 
 .navbar-links {
@@ -326,3 +332,17 @@
 .thankyou {
   background-image: url();
 }
+
+.main-footer{
+  color:#7e7e7e;
+  background-color: rgb(18, 18, 26);
+  padding-top: 1em;
+  bottom: 0;
+  width: 100%;
+  position: fixed;
+}
+
+
+ .page-wrap{
+flex: 1;
+ }

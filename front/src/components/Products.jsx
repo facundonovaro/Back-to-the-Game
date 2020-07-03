@@ -36,15 +36,15 @@ const Products = ({ products, handlerSubmitCart, handleDeleteCart, cart }) => {
                   Remover del Carrito
                 </Button>
               ) : (
-                <Button
-                  variant="primary"
-                  onClick={() => {
-                    handlerSubmitCart(product.id, product.name, product.description, product.price, product.stock, product.img1Url, product.img2Url);
-                  }}
-                >
-                 Añadir al Carrito
-                </Button>
-              )}
+                  <Button
+                    variant="primary"
+                    onClick={() => {
+                      handlerSubmitCart(product.id, product.name, product.description, product.price, product.stock, product.img1Url, product.img2Url);
+                    }}
+                  >
+                    Añadir al Carrito
+                  </Button>
+                )}
             </Card.Body>
           </Card>
         </div>

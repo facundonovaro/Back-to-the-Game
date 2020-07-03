@@ -11,34 +11,34 @@ class ProductsContainer extends React.Component {
   }
 
   handlerSubmitCart(id, name, description, price, stock, img1Url, img2Url) {
-    if(this.props.userId){
+    if (this.props.userId) {
       this.props.addToCart({ id: id, price: price });
     }
     else {
-      let product = {id, name, description, price, stock, img1Url, img2Url, quantity: 1}
+      let product = { id, name, description, price, stock, img1Url, img2Url, quantity: 1 }
       localStorage.setItem(id, JSON.stringify(product))
       var products = []
-      for(var i = 0, len = localStorage.length; i < len; i++) {
+      for (var i = 0, len = localStorage.length; i < len; i++) {
         var key = localStorage.key(i);
-        var value = JSON.parse(localStorage[key]);  
+        var value = JSON.parse(localStorage[key]);
         products.push(value);
       }
       this.props.addLocalStorage(products)
     }
   }
 
-  handleDeleteCart(productId){
-    if(this.props.userId){
+  handleDeleteCart(productId) {
+    if (this.props.userId) {
       this.props.deleteCart(productId);
     }
-    else{
+    else {
       localStorage.removeItem(productId)
       var products = []
-      for(var i = 0, len = localStorage.length; i < len; i++){
+      for (var i = 0, len = localStorage.length; i < len; i++) {
         var key = localStorage.key(i);
-        var value = JSON.parse(localStorage[key]);  
+        var value = JSON.parse(localStorage[key]);
         products.push(value);
-    }
+      }
       this.props.addLocalStorage(products)
     }
   }
@@ -76,7 +76,7 @@ const mapDispatchToProps = (dispatch) => {
     fetchCart: () => {
       dispatch(fetchCart());
     },
-    addLocalStorage: (products) => {dispatch(addLocalStorage(products))}
+    addLocalStorage: (products) => { dispatch(addLocalStorage(products)) }
   };
 };
 
