@@ -21,7 +21,7 @@ import DeleteProductContainer from "../containers/DeleteProductContainer";
 import { addLocalStorage, fetchCart } from "../store/actions/cart";
 /* import FacebookContainer from "../containers/FacebookContainer"; */
 import ManageUsersContainer from "../containers/ManageUsersContainer";
-
+import AllOrdersContainer from "../containers/AllOrdersContainer";
 class Main extends React.Component {
   constructor(props) {
     super(props);
@@ -61,6 +61,7 @@ class Main extends React.Component {
           <Route path="/admin/add-product" component={AddProductContainer} />
           <Route path="/admin/edit-product" component={EditProductContainer} />
           <Route path="/admin/manage-users" component={ManageUsersContainer} />
+          <Route path="/admin/all-orders" component={AllOrdersContainer} />
           <Route
             path="/admin/delete-product"
             component={DeleteProductContainer}

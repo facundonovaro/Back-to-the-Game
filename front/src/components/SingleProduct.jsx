@@ -21,7 +21,6 @@ const SingleProduct = ({
 }) => {
   
   return (
-  <div>
     <div className="container-fluid" style={{ width: "80%" }}>
       <div className="card mb-3">
         <div className="row no-gutters singlPro">
@@ -31,57 +30,74 @@ const SingleProduct = ({
                 <img className="d-block w-100" src={product.img1Url} />
               </Carousel.Item>
               {product.img2Url ? (
-                <Carousel.Item>
-                  <img className="d-block w-100" src={product.img2Url} />
-                </Carousel.Item>
-              ) : null}
-            </Carousel>
-          </div>
-          <div className="col-md-8">
-            <div className="card-body">
-              <h5 className="card-title">{product.name}</h5>
-              <p className="card-text">{product.description}</p>
-              <p className="card-text">$ {product.price}</p>
-              <small className="text-muted">Stock: {product.stock}</small>
-              <div>
-              <br/>
-              {<p className="card-text">Valoraciones: {revCounter}</p>}
-              {<p className="card-text">Promedio: {rateAverage}</p>}
-              </div>
+                  <Carousel.Item>
+                    <img className="d-block w-100" src={product.img2Url} />
+                  </Carousel.Item>
+                ) : null}
+              </Carousel>
+            </div>
+            <div className="col-md-8">
+              <div className="card-body">
+                <h5 className="card-title">{product.name}</h5>
+                <p className="card-text">{product.description}</p>
+                <p className="card-text">$ {product.price}</p>
+                <small className="text-muted">Stock: {product.stock}</small>
+                <div>
+                  <br />
+                  {<p className="card-text">Valoraciones: {revCounter}</p>}
+                  {<p className="card-text">Promedio: {rateAverage}</p>}
+                </div>
 
-              <div>
-                <br></br>
-                <br></br>
-                {cart.includes(product.id) ? (
-                  <button
-                    type="button"
-                    className="btn btn-dark"
-                    onClick={() => {
-                      handleDeleteCart(product.id)
-                    }}
-                  >
-                    Remover del Carrito
-                  </button>
-                ) : (
-                  <button
-                    type="button"
-                    className="btn btn-dark"
-                    onClick={() => {
-                      handlerSubmitCart(product.id, product.name, product.description, product.price, product.stock, product.img1Url, product.img2Url);
-                    }}
-                  >
-                    Añadir al Carrito
-                  </button>
-                )}
+                <div>
+                  <br></br>
+                  <br></br>
+
+                  {product.stock >= 1 ? (
+                    cart.includes(product.id) ? (
+                      <button
+                        type="button"
+                        className="btn btn-secondary"
+                        onClick={() => {
+                          handleDeleteCart(product.id);
+                        }}
+                      >
+                        Remover del Carrito
+                      </button>
+                    ) : (
+                      <button
+                        type="button"
+                        className="btn btn-dark"
+                        onClick={() => {
+                          handlerSubmitCart(
+                            product.id,
+                            product.name,
+                            product.description,
+                            product.price,
+                            product.stock,
+                            product.img1Url,
+                            product.img2Url
+                          );
+                        }}
+                      >
+                        Añadir al Carrito
+                      </button>
+                    )
+                  ) : (
+                    <Button disabled variant="danger">
+                      {" "}
+                      Sin Stock
+                    </Button>
+                  )}
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>     
+     
 
 {/* REVIEW SECTION  */}
 <div className="cardsContainer">
-    {user.id ? 
+    {user.id ? (
     <div>
       <div className="reviewCardCont">
           <Form onSubmit={(event)=>handlerReviewSubmit(event, product.id)}>
@@ -118,47 +134,50 @@ const SingleProduct = ({
 
         <div>
           <ListGroup>
-            <div>{reviews.length >=1 ? reviews.map((review)=>(
+            <div>{reviews.length >=1 ? (reviews.map((review)=>(
             <div key={review.id} className="reviewCards"><ListGroupItem>
               {`Usuario: ${review.user.firstName}`}<br></br>
               {`Calificación: ${review.rate}`}<br></br>
               {`Descripción: ${review.description}`}
             </ListGroupItem>
+      </div>
+  ))
+                  ) : (
+                    <div>
+                      <h5>Este producto aún no tiene calificaciones</h5>
+                    </div>
+                  )}
+                </div>
+              </ListGroup>
             </div>
-            )) : <div><h5>Este productor aún no tiene calificaciones</h5></div>}
-            </div>
-            </ListGroup>
-            {/* <div>
-            {rateAverage}
-            </div> */}
-
           </div>
-    </div>
-        :
-    <div>
-     <ListGroup >
-        <div className="cardsContainerNL">{reviews.length >=1 ? reviews.map((review)=>(
-        <div key={review.id} className="reviewCardsNL">
-        <ListGroupItem>
-          {`Usuario: ${review.user.firstName}`}<br></br>
-          {`Calificación: ${review.rate}`}<br></br>
-          {`Descripción: ${review.description}`}
-          </ListGroupItem>
+        ) : (
+          <div className="reviewCard">
+            <ListGroup className="list-group-flush">
+              <div>
+                {reviews.length >= 1 ? (
+                  reviews.map((review) => (
+                    <div key={review.id} className="reviewCards">
+                      <ListGroupItem>
+                        {`Usuario: ${review.user.firstName}`}
+                        <br></br>
+                        {`Calificación: ${review.rate}`}
+                        <br></br>
+                        {`Descripción: ${review.description}`}
+                      </ListGroupItem>
+                    </div>
+                  ))
+                ) : (
+                  <div>
+                    <h5>Este productor aún no tiene calificaciones</h5>
+                  </div>
+                )}
+                </div>
+            </ListGroup>
+            </div>
+        )}
         </div>
-        )) : <div><h5>Este productor aún no tiene calificaciones</h5></div>}
-        </div>
-      </ListGroup>
-           {/* <div className="rate">
-            {rateAverage}
-            </div> */}
-    </div>
-     }
-    </div>
-{/* REVIEW SECTION  */}
-
-  </div>
-</div>
-  );
-};
+      </div>
+  )};
 
 export default SingleProduct;

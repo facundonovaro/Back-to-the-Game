@@ -88,6 +88,7 @@ class ManageUsersContainer extends React.Component {
           chooseUser={this.chooseUser}
           destroyUser={this.destroyUser}
           changeRole={this.changeRole}
+          user={this.props.user}
         />
       </div>
     );
@@ -97,6 +98,7 @@ class ManageUsersContainer extends React.Component {
 const mapStateToProps = (state, ownProps) => {
   return {
     users: state.usersReducer.users,
+    user: state.usersReducer.user,
     foundUser: state.usersReducer.userFound,
   };
 };

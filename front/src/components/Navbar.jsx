@@ -8,7 +8,7 @@ import {
   FormControl,
   Button,
 } from "react-bootstrap";
-import { FaShoppingCart, FaSearch } from "react-icons/fa";
+import { FaShoppingCart, FaSearch, FaUserCircle } from "react-icons/fa";
 
 const NavBar = ({
   handlerChange,
@@ -16,7 +16,7 @@ const NavBar = ({
   userLogout,
   user,
   disable,
-  categories,
+  categories, 
   inputValue,
 }) => (
   <Navbar bg="dark" expand="lg" className="navbar-container">
@@ -40,6 +40,7 @@ const NavBar = ({
         )}
         {user.id ? (
           <div style={{ display: "flex" }}>
+            <FaUserCircle size={40} color="grey" style={{paddingTop: '10px'}}/>
             <Link to="/products" className="navbar-links">
               {" "}
               Hola {user.firstName}!
@@ -65,17 +66,19 @@ const NavBar = ({
               </Link>
             ))}
         </NavDropdown>
+        {user.id ? (
+          <Link className="navbar-links" to="/lastorders">
+            Ordenes
+          </Link>
+        ) : null}
+        {user.id && user.role !== "user" ? (
+          <Link className="navbar-links" to="/admin">
+            Admin
+          </Link>
+        ) : null}
         <Link className="navbar-links" to="/cart">
           <FaShoppingCart className="shoppingCart-icon" />
         </Link>
-        {user.id ? (
-          <Link to="/lastorders">
-            <Button id="checkoutCart" variant="dark">
-              {" "}
-              Ordenes
-            </Button>
-          </Link>
-        ) : null}
       </Nav>
       <Form onSubmit={handlerSubmitSearch} inline>
         <FormControl

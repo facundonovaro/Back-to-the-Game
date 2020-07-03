@@ -27,7 +27,7 @@ class SingleProductContainer extends React.Component {
   }
 
   componentDidMount() {
-    if (this.props.userId) {
+    if (this.props.user.id) {
       this.props.fetchCart();
     }
     this.props.fetchProduct(this.props.id);
@@ -43,7 +43,6 @@ class SingleProductContainer extends React.Component {
          this.setState({rateAverage : result})
          this.setState({revCounter: counter})
     })
-   
   }
 
   componentDidUpdate(prevProp, prevState){
@@ -65,7 +64,7 @@ class SingleProductContainer extends React.Component {
   }
 
   handlerSubmitCart(id, name, description, price, stock, img1Url, img2Url) {
-    if (this.props.userId) {
+    if (this.props.user.id) {
       this.props.addToCart({ id: id, price: price });
     } else {
       let product = {
@@ -90,7 +89,7 @@ class SingleProductContainer extends React.Component {
   }
 
   handleDeleteCart(productId) {
-    if (this.props.userId) {
+    if (this.props.user.id) {
       this.props.deleteCart(productId);
     } else {
       localStorage.removeItem(productId);

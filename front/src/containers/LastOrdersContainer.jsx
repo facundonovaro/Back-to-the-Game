@@ -1,46 +1,39 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import LastOrders from '../components/LastOrders';
-import {fetchLastOrders} from '../store/actions/checkout'
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import LastOrders from "../components/LastOrders";
+import { fetchLastOrders } from "../store/actions/checkout";
 
 const mapStateToProps = function (state, ownProps) {
-    return {
-
-        user: state.usersReducer.user,
-        orders: state.checkoutReducer.orders
-
-    };
+  return {
+    user: state.usersReducer.user,
+    orders: state.checkoutReducer.orders,
+  };
 };
 
 const mapDispatchToProps = function (dispatch) {
-    return {
-        fetchLastOrders: ()=>{
-            dispatch(fetchLastOrders())
-        }
-    };
+  return {
+    fetchLastOrders: () => {
+      dispatch(fetchLastOrders());
+    },
+  };
 };
 
 class LastOrdersContainer extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-        }       
-    }
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
 
-    componentDidMount() {
-        console.log('LLRGAAAA')
+  componentDidMount() {
     this.props.fetchLastOrders();
   }
 
-    render() {
-        
-        return (
-            <LastOrders
-            orders={this.props.orders}
-            />
-        )
-    }
-
+  render() {
+    return <LastOrders orders={this.props.orders} user={this.props.user} />;
+  }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(LastOrdersContainer);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(LastOrdersContainer);
