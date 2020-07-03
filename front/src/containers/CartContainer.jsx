@@ -24,6 +24,14 @@ class CartContainer extends React.Component {
       if (this.props.user.id) {
         console.log("Está llegando acá");
         this.props.fetchCart();
+      } else {
+        var products = [];
+        for (var i = 0, len = localStorage.length; i < len; i++) {
+          var key = localStorage.key(i);
+          var value = JSON.parse(localStorage[key]);
+          products.push(value);
+        }
+        this.props.addLocalStorage(products);
       }
     });
     let total = 0;
