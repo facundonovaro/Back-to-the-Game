@@ -25,35 +25,35 @@ const Products = ({ products, handlerSubmitCart, handleDeleteCart, cart }) => {
             </Card.Body>
             <ListGroup className="list-group-flush">
               <ListGroupItem>{`Precio: $ ${product.price}`}</ListGroupItem>
-             { product.stock >=1 ?(null) :
-            ( <Button disabled variant="danger"> Sin Stock</Button>)
-             }
+              {product.stock >= 1 ? (null) :
+                (<Button disabled variant="danger"> Sin Stock</Button>)
+              }
             </ListGroup>
             <Card.Body>
-              {product.stock>=1 ? (
+              {product.stock >= 1 ? (
 
                 cart.includes(product.id) ? (
 
-                <Button
-                  variant="secondary"
-                  onClick={() => {
-                    handleDeleteCart(product.id)
-                  }}
-                >
-                  Remover del Carrito
-                </Button>
-              ) : (
-                <Button
-                  variant="dark"
-                  onClick={() => {
-                    handlerSubmitCart(product.id, product.name, product.description, product.price, product.stock, product.img1Url, product.img2Url);
-                  }}
-                >
-                 Añadir al Carrito
-                </Button>
-              )
-              ): null}
-              
+                  <Button
+                    variant="secondary"
+                    onClick={() => {
+                      handleDeleteCart(product.id)
+                    }}
+                  >
+                    Remover del Carrito
+                  </Button>
+                ) : (
+                    <Button
+                      variant="dark"
+                      onClick={() => {
+                        handlerSubmitCart(product.id, product.name, product.description, product.price, product.stock, product.img1Url, product.img2Url);
+                      }}
+                    >
+                      Añadir al Carrito
+                    </Button>
+                  )
+              ) : null}
+
             </Card.Body>
           </Card>
         </div>
