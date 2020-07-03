@@ -17,14 +17,14 @@ export default ({
     <>
       {user.id ? (
         <div>
-          <h2>Checkout</h2>
+          <h2 className="titleCart">Checkout</h2>
           {cart.length !== 0 ? (
             <div>
-              <div className="displayCheckout textProductsForce">
+              <div className="checkCont">
                 {cart.map((cart) => {
                   return (
-                    <div key={cart.orderId}>
-                      <Card style={{ width: "12rem" }}>
+                    <div key={cart.orderId} className="checkProd">
+                      <Card >
                         <Card.Img variant="top" src={cart.img1Url} />
                         <Card.Body>
                           <Card.Title>{cart.name}</Card.Title>
@@ -37,7 +37,8 @@ export default ({
                 })}
               </div>
               <div>
-                <Form onSubmit={handleSubmit}>
+              <br/>
+                <Form onSubmit={handleSubmit} className="direCheck">
                   <Form.Group>
                     <Form.Label>Agregá tu dirección de entrega</Form.Label>
                     <Form.Control
@@ -53,6 +54,7 @@ export default ({
                         /> */}
                   </Form.Group>
                   <li>Factura total: $ {total}</li>
+                  <br></br>
                   <Button type="submit">Confirmar compra</Button>
                 </Form>
               </div>
