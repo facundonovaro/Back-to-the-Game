@@ -48,10 +48,10 @@ class Main extends React.Component {
     return (
       <div id="main" className="container-fluid">
 
-        <div>
+        <div className="pad-container">
           <Route path="/" component={NavBarContainer} />
         </div>
-        <div>
+        <div className="container-padding">
 
           <Switch>
             <Route path="/search" component={SearchContainer} />
@@ -77,9 +77,10 @@ class Main extends React.Component {
             {/* <Route path="/facebook" component={FacebookContainer} /> */}
             <Redirect to="/products"></Redirect>
           </Switch>
-        </div>
-        <div>
-          <Route path="/" component={FooterPage} />
+          <div>
+            <Route path="/" component={FooterPage} />
+          </div>
+
         </div>
 
       </div>

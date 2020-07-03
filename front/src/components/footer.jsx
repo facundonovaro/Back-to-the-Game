@@ -13,8 +13,8 @@ const FooterPage = () => (
                     </Link>
                     <ul className="list-unstyled">
                         <li>+54-911-2233-4456</li>
+                        <li>Castillo - 1332</li>
                         <li>Caba,Buenos Aires - Argentina</li>
-                        <li>Juan B. Justo - 3456</li>
                     </ul>
                 </div>
                 {/*Column2*/}
@@ -23,18 +23,18 @@ const FooterPage = () => (
                         <h4>COMPRAS ONLINE</h4>
                     </Link>
                     <ul className="list-unstyled">
-                        <li>Dank meme</li>
-                        <li>old stuff</li>
-                        <li>new stuff</li>
+                        <li>¿No te gusta? ¡Devolvelo!</li>
+                        <li> Envíos Gratis en Miles de Productos</li>
+                        <li>¡Y Siempre es Seguro!</li>
                     </ul>
                 </div>
                 {/*Column3*/}
                 <div className="col">
                     <h4>TERMINOS Y CONDICIONES</h4>
                     <ul className="list-unstyled">
-                        <li>Dank meme</li>
-                        <li>old stuff</li>
-                        <li>new stuff</li>
+                        <li>Seguridad</li>
+                        <li>Garantia</li>
+                        <li>Confianza</li>
                     </ul>
                 </div>
 

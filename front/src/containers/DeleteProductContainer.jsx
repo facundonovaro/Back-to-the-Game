@@ -26,7 +26,7 @@ class EditProductContainer extends React.Component {
     this.props.deleteProduct(id);
   }
   render() {
-    const { product, products } = this.props;
+    const { product, products, user } = this.props;
     return (
       <div>
         <DeleteProduct
@@ -34,6 +34,7 @@ class EditProductContainer extends React.Component {
           handleDelete={this.handleDelete}
           product={product}
           products={products}
+          user={user}
         />
       </div>
     );
@@ -44,6 +45,7 @@ const mapStateToProps = (state) => {
   return {
     products: state.productsReducer.list,
     product: state.productReducer.product,
+    user: state.usersReducer.user,
   };
 };
 

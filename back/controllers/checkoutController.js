@@ -60,7 +60,7 @@ const getLastOrders = (req, res) => {
 
 const getAllOrders = (req, res) => {
   Order.findAll({
-    where: { userId: req.user.id, state: "completed" },
+    where: { state: "completed" },
     include: [
       {
         model: Product,
