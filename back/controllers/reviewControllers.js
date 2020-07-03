@@ -16,7 +16,6 @@ const findAllProductReviews = (req, res)=>{
   .then((reviews)=>{
     res.json(reviews).status(200)
   })
-   
 }
 
 
@@ -44,24 +43,10 @@ const addReview = (req, res)=>{
       order: [
         ['id', 'DESC']
       ]
-      })
-    }).then((reviews)=>{
-      console.log('REVIEWS', reviews)
-      res.json(reviews).status(200)
-    })
-      .then((review) => {
-        product.addReview(review)
-        review.setUser(req.body.userId)
-      }).then(() => {
-        Review.findAll({
-          where: {
-            productId: req.body.productId
-          }
-        })
-          .then((reviews) => {
+      }).then((reviews) => {
             res.json(reviews).status(200)
-          })
       })
+    })
   })
 }
 

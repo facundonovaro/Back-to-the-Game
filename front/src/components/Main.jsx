@@ -22,7 +22,7 @@ import { addLocalStorage, fetchCart } from "../store/actions/cart";
 /* import FacebookContainer from "../containers/FacebookContainer"; */
 import ManageUsersContainer from "../containers/ManageUsersContainer";
 import AllOrdersContainer from "../containers/AllOrdersContainer";
-import FooterPage from "./footer";
+//import FooterPage from "./footer";
 class Main extends React.Component {
   constructor(props) {
     super(props);
@@ -46,7 +46,7 @@ class Main extends React.Component {
 
   render() {
     return (
-      <div id="main" className="container-fluid">
+      <div id="main">
 
         <div className="pad-container">
           <Route path="/" component={NavBarContainer} />
@@ -77,9 +77,7 @@ class Main extends React.Component {
             {/* <Route path="/facebook" component={FacebookContainer} /> */}
             <Redirect to="/products"></Redirect>
           </Switch>
-          <div>
-            <Route path="/" component={FooterPage} />
-          </div>
+
 
         </div>
 

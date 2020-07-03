@@ -10,7 +10,6 @@ position: absolute;
   justify-content: center;
   margin: auto 0;
 
-
 }
 .displayCheckout {
   padding-top: 20px;
@@ -118,14 +117,25 @@ width: 100% !important;
   background-color: #f2f4f5;
   border: 0;
 }
+/* Cart */
+
 .cartContainer {
   border-radius: 0.25rem;
-  background: #f8f9fa;
+  border: 1px solid rgb(124, 124, 124);
+  background-color: rgb(251, 251, 251);
+  width: 90%;
+  margin: 0 auto;
   display: flex;
   justify-content: space-around;
   padding-top: 10px;
   align-items: center;
 }
+
+.titleCart {
+  text-align: center;
+  margin: 10px;
+}
+
 .buttonsCart {
   display: flex;
   flex-direction: row;
@@ -171,7 +181,6 @@ width: 100% !important;
 .loginForm {
   width: 50rem;
   margin: 5rem auto;
-  /* margin-top: "5rem"; */
   padding: 3rem;
   border: solid 1px;
   border-color: #0f0f1a;
@@ -268,27 +277,98 @@ width: 100% !important;
 .passwordHighSecure {
   color: green;
 }
+
+.singlPro {
+  margin-top: 10px;
+  border: 1px solid rgb(124, 124, 124);
+  background-color: rgb(253, 253, 253);
+
+}
+
+.cardsContainer {
+
+  width: 90%;
+  margin: 0 auto;
+  flex-wrap: nowrap;
+  background-color: rgb(253, 253, 253);
+}
+
+.reviewCardCont {
+  border: 1px solid rgb(124, 124, 124);
+  padding: 30px; 
+  width: 45%; 
+  flex-wrap: nowrap;
+  float: left;
+  justify-content: center;
+}
+
+.inputRate{  
+  display: flex;
+  margin: 3%;
+  flex-direction: column;
+
+
+}
+/* .input{ } */
+
 .reviewCards {
   padding: 20px;
   border-radius: 30px;
 }
 .reviewCard {
   display: flex;
-  width: 80%;
-  padding: 15px;
-  margin: 0 auto;
-  background-color: rgb(248, 248, 248);
+  margin: 3%;
+  flex-direction: column;
 }
+
+.reviewCards {
+  border: 1px solid rgb(124, 124, 124);
+  border-radius: 5px;
+  width: 80%;
+  margin: 10px 10px 10px 10px;
+}
+
+.cardsContainerNL {
+    border-radius: 5px;
+    width: 60%;
+    margin: 0 auto;
+    flex-wrap: nowrap;
+}
+
+.reviewCardsNL {
+  border: 1px solid rgb(124, 124, 124);
+  border-radius: 5px;
+  width: 97%;
+  margin: 10px 10px 10px 10px;
+  float: left;
+}
+
+.calificar {
+  justify-content: center;
+}
+
 .reviewCardCont {
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  padding: 20px;
 }
+
+.rate{
+  font-size: 150px;
+}
+
+.carousel {
+  padding:15px 10px 10px 10px;
+  margin: 0 auto;
+}
+
+.homeContainer {
+  background-color: black;
+}
+
 .boton-verProductos {
   text-decoration: none;
   color: #c1c1c1;
 }
+
 .boton-verProductos:hover {
   text-decoration: none;
   color: #7e7e7e;
@@ -325,6 +405,23 @@ flex: 1;
   justify-content: center;
 }
 
+/* CheckOut */
+/* .checkCont{
+} */
+
+.checkProd {
+  border: 1px solid rgb(124, 124, 124);
+  margin: 0 auto;
+  width: 30%;
+}
+
+.direCheck{
+  margin: 0 auto;
+  width: 60%;
+  padding: 2px ;
+}
+
+
 #adminAbmButton {
   width: 300px;
   height: 200px;
@@ -336,5 +433,6 @@ flex: 1;
 
 .container-padding{
   padding-top: 70px !important;
+
 
 }

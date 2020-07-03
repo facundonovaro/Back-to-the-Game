@@ -21,16 +21,15 @@ const SingleProduct = ({
 }) => {
   
   return (
-    <div className= 'textProductsForce'>
-      <div className="container-fluid" style={{ width: "80%" }}>
-        <div className="card mb-3">
-          <div className="row no-gutters">
-            <div className="col-md-4">
-              <Carousel>
-                <Carousel.Item>
-                  <img className="d-block w-100" src={product.img1Url} />
-                </Carousel.Item>
-                {product.img2Url ? (
+    <div className="container-fluid" style={{ width: "80%" }}>
+      <div className="card mb-3">
+        <div className="row no-gutters singlPro">
+          <div className="col-md-4">
+            <Carousel>
+              <Carousel.Item>
+                <img className="d-block w-100" src={product.img1Url} />
+              </Carousel.Item>
+              {product.img2Url ? (
                   <Carousel.Item>
                     <img className="d-block w-100" src={product.img2Url} />
                   </Carousel.Item>
@@ -94,64 +93,55 @@ const SingleProduct = ({
             </div>
           </div>
         </div>
+     
 
-        {/* REVIEW SECTION  */}
-        {user.id ? (
-          <div className="reviewCard">
-            <div className="reviewCardCont">
-              <Form
-                onSubmit={(event) => handlerReviewSubmit(event, product.id)}
-              >
-                <Form.Group controlId="exampleForm.ControlSelect2">
-                  <Form.Label>
-                    <h5>Califica el producto</h5>
-                  </Form.Label>
-                  <Form.Control
-                    as="select"
-                    multiple
-                    onChange={handlerRateChange}
-                    value={rate}
-                  >
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                  </Form.Control>
-                </Form.Group>
-                <Form.Group controlId="exampleForm.ControlTextarea1">
-                  <Form.Label>
-                    <h5>Escribe una pequeña reseña</h5>
-                  </Form.Label>
-                  <Form.Control
-                    value={description}
-                    placeholder="Este producto me parecio..."
-                    as="textarea"
-                    rows="3"
-                    onChange={handlerDescriptionChange}
-                  />
-                </Form.Group>
-                <Button type="submit" className="btn btn-dark">
-                  Calificar
-                </Button>
-              </Form>
-            </div>
+{/* REVIEW SECTION  */}
+<div className="cardsContainer">
+    {user.id ? (
+    <div>
+      <div className="reviewCardCont">
+          <Form onSubmit={(event)=>handlerReviewSubmit(event, product.id)}>
+          <Form.Group  className="inputRate">
+            <Form.Label><h5>Califica el producto</h5></Form.Label>
+            <Form.Control
+            as="select" multiple 
+            onChange={handlerRateChange} 
+            value={rate} >
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </Form.Control>
+          </Form.Group>
+            <Form.Group className="input">
+              <Form.Label><h5>Escribe una pequeña reseña</h5></Form.Label>
+              <Form.Control 
+              value={description}
+              placeholder="Este producto me parecio..."
+              as="textarea" 
+              rows="3"
+              onChange={handlerDescriptionChange}
+              />
+            </Form.Group>
+        <Button 
+          type="submit" 
+          className=" btn-dark calificar" 
+          >Calificar
+        </Button>
+      </Form>
+    </div>
 
-            <div>
-              <ListGroup className="list-group-flush">
-                <div>
-                  {reviews.length >= 1 ? (
-                    reviews.map((review) => (
-                      <div key={review.id} className="reviewCards">
-                        <ListGroupItem>
-                          {`Usuario: ${review.user.firstName}`}
-                          <br></br>
-                          {`Calificación: ${review.rate}`}
-                          <br></br>
-                          {`Descripción: ${review.description}`}
-                        </ListGroupItem>
-                      </div>
-                    ))
+        <div>
+          <ListGroup>
+            <div>{reviews.length >=1 ? (reviews.map((review)=>(
+            <div key={review.id} className="reviewCards"><ListGroupItem>
+              {`Usuario: ${review.user.firstName}`}<br></br>
+              {`Calificación: ${review.rate}`}<br></br>
+              {`Descripción: ${review.description}`}
+            </ListGroupItem>
+      </div>
+  ))
                   ) : (
                     <div>
                       <h5>Este producto aún no tiene calificaciones</h5>
@@ -182,14 +172,12 @@ const SingleProduct = ({
                     <h5>Este productor aún no tiene calificaciones</h5>
                   </div>
                 )}
-              </div>
+                </div>
             </ListGroup>
-          </div>
+            </div>
         )}
-        {/* REVIEW SECTION  */}
+        </div>
       </div>
-    </div>
-  );
-};
+  )};
 
 export default SingleProduct;

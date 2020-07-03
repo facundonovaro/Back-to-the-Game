@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 import { FaTrash, FaCartPlus, FaCartArrowDown } from "react-icons/fa";
 const Cart = ({ cart, totalQuantity, handleAddCart, handleSubstractCart, handleDeleteCart, user }) => {
   return (
-    <div className="cart">
-      <h1 id="titleCart">Mi Carrito</h1>
+    <div>
+      <h1 className="titleCart">Mi Carrito</h1>
       {cart.length !== 0 ? (
         <div className="cartContainer">
           <div id="productsCartContainer">

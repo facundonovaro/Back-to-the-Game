@@ -1,7 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
 import Products from "../components/Products";
+import FooterPage from "../components/footer"
 import { addToCart, deleteCart, fetchCart, addLocalStorage } from "../store/actions/cart";
+import Slide from '../components/Slide'
 
 class ProductsContainer extends React.Component {
   constructor() {
@@ -47,12 +49,16 @@ class ProductsContainer extends React.Component {
     const { products, cart } = this.props;
     return (
       <div>
+        <div><Slide /></div>
         <Products
           products={products}
           handlerSubmitCart={this.handlerSubmitCart}
           handleDeleteCart={this.handleDeleteCart}
           cart={cart}
         />
+        <div>
+          <FooterPage />
+        </div>
       </div>
     );
   }

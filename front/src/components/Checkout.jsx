@@ -3,7 +3,6 @@ import Button from "react-bootstrap/Button";
 import { Card, Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 // import {Mailchimp} from 'react-mailchimp-form'
-
 export default ({
   cart,
   total,
@@ -53,7 +52,6 @@ export default ({
                             name="Email"
                         /> */}
                   </Form.Group>
-
                   <li>Factura total: $ {total}</li>
                   <Button type="submit">Confirmar compra</Button>
                 </Form>
@@ -62,7 +60,6 @@ export default ({
           ) : (
             <div>
               <p> No tenes ordenes nuevas </p>
-
               <Link to="/products">
                 <Button> Seguir comprando </Button>
               </Link>
