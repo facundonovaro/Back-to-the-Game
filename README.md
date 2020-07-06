@@ -14,6 +14,8 @@ Es un eCommerce, que debe cumplir con algunos requisitos, tales como:
 - Iniciar Sesión
 - Vista de admin: Editar productos (Alta, baja y modificación), Manejar accesos de usuarios (en el archivo seed.js se crea un usuario con rol de super admin) y ver historial de órdenes.
 
+Está realizado con React redux, node, express, postgres, sequelize, webpack, passport y react bootstrap principalmente.
+
 This project was a teamwork made by myself (@facundonovaor), Joaquín Gaona, Flavia Cohen, Cristian Chavarro, and Dennis Romero, during our coding bootcamp in Plataforma 5.
 
 It is an eCommerce, that must have some features, such as:
@@ -27,3 +29,4 @@ It is an eCommerce, that must have some features, such as:
 - Sign up
 - Log in
 - Admin views: Edit products (new products, edit, and delete), manage users access (there is a super admin user created on the seed.js file) and see all transactions.
+It is made with React redux, node, express, postgres, sequelize, webpack, passport y react bootstrap mainly.
