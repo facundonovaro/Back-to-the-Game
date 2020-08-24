@@ -1,6 +1,7 @@
 const { Order } = require("../models");
 const { Product } = require("../models");
 const _ = require("lodash");
+const sequelize = require("sequelize");
 
 const updateOrderAdress = (req, res) => {
   Order.update(
@@ -77,10 +78,49 @@ const getAllOrders = (req, res) => {
   });
 };
 
+const productSales = (req, res) => {
+  Order.findAll({
+    where: { state: "completed" },
+    shortDate: {
+      [sequelize.Op.between]: [req.params.firstDate, req.params.lastDate],
+    },
+    attributes: [
+      [sequelize.fn("sum", sequelize.col("quantity")), "total_quantity"],
+      [sequelize.fn("sum", sequelize.col("total")), "total_price"],
+    ],
+    include: [{ model: Product, attributes: ["id", "name"] }],
+    group: ["name", "product.id"],
+  }).then((products) => {
+    res.send(products);
+  });
+};
+
+const salesHistory = (req, res) => {
+  console.log(req.params, "PARAMAS!!!!");
+  Order.findAll({
+    where: {
+      state: "completed",
+      shortDate: {
+        [sequelize.Op.between]: [req.params.firstDate, req.params.lastDate],
+      },
+    },
+    attributes: [
+      [sequelize.col("shortDate"), "short_date"],
+      [sequelize.fn("sum", sequelize.col("quantity")), "total_quantity"],
+      [sequelize.fn("sum", sequelize.col("total")), "total_price"],
+    ],
+    group: ["shortDate"],
+  }).then((cart) => {
+    res.send(cart);
+  });
+};
+
 module.exports = {
   updateOrderAdress,
   updateOrderStatus,
   getLastOrders,
   updateStock,
   getAllOrders,
+  salesHistory,
+  productSales,
 };

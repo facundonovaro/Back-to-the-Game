@@ -22,6 +22,7 @@ import { addLocalStorage, fetchCart } from "../store/actions/cart";
 /* import FacebookContainer from "../containers/FacebookContainer"; */
 import ManageUsersContainer from "../containers/ManageUsersContainer";
 import AllOrdersContainer from "../containers/AllOrdersContainer";
+import DashboardContainer from "../containers/DashboardContainer";
 //import FooterPage from "./footer";
 class Main extends React.Component {
   constructor(props) {
@@ -47,12 +48,10 @@ class Main extends React.Component {
   render() {
     return (
       <div id="main">
-
         <div className="pad-container">
           <Route path="/" component={NavBarContainer} />
         </div>
         <div className="container-padding">
-
           <Switch>
             <Route path="/search" component={SearchContainer} />
             <Route path="/checkout" component={CheckoutContainer} />
@@ -63,9 +62,17 @@ class Main extends React.Component {
             <Route path="/users/login" component={LoginContainer} />
             <Route exact path="/admin" component={AdminContainer} />
             <Route path="/admin/add-product" component={AddProductContainer} />
-            <Route path="/admin/edit-product" component={EditProductContainer} />
-            <Route path="/admin/manage-users" component={ManageUsersContainer} />
+            <Route
+              path="/admin/edit-product"
+              component={EditProductContainer}
+            />
+            <Route
+              path="/admin/manage-users"
+              component={ManageUsersContainer}
+            />
             <Route path="/admin/all-orders" component={AllOrdersContainer} />
+            <Route path="/admin/dashboard" component={DashboardContainer} />
+
             <Route
               path="/admin/delete-product"
               component={DeleteProductContainer}
@@ -77,10 +84,7 @@ class Main extends React.Component {
             {/* <Route path="/facebook" component={FacebookContainer} /> */}
             <Redirect to="/products"></Redirect>
           </Switch>
-
-
         </div>
-
       </div>
     );
   }

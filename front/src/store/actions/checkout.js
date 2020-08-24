@@ -1,5 +1,10 @@
 import axios from "axios";
-import { GET_LAST_ORDERS, GET_ALL_ORDERS } from "../constants";
+import {
+  GET_LAST_ORDERS,
+  GET_ALL_ORDERS,
+  GET_SALES_HISTORY,
+  GET_PRODUCTS_SALES,
+} from "../constants";
 import { allCart, cartList } from "../actions/cart";
 
 const lastOrders = (orders) => ({
@@ -10,6 +15,16 @@ const lastOrders = (orders) => ({
 const allOrders = (orders) => ({
   type: GET_ALL_ORDERS,
   orders,
+});
+
+const salesHistory = (sales) => ({
+  type: GET_SALES_HISTORY,
+  sales,
+});
+
+const productsSales = (productsSales) => ({
+  type: GET_PRODUCTS_SALES,
+  productsSales,
 });
 
 export const updateOrderAdress = (order) => () =>
@@ -25,12 +40,6 @@ export const updateOrderStatus = (order) => (dispatch) =>
       dispatch(cartList([]));
     });
 
-// export const thankYouEmail = (email) => (dispatch) => {
-//   axios.post(
-//     "https://gmail.us10.list-manage.com/subscribe/post?u=1f69ca6d9cfcca001b05fdf5c&amp;id=d8ed59a5f3",
-//     { EMAIL: email }
-//   );
-// };
 export const updateStock = (cart) => () =>
   axios.patch("/api/checkout/stock", cart);
 
@@ -44,3 +53,25 @@ export const fetchAllOrders = () => (dispatch) =>
   axios
     .get("/api/checkout/allorders")
     .then((orders) => dispatch(allOrders(orders.data)));
+
+export const fetchSalesHistory = (array) => (dispatch) =>
+  axios
+    .get(
+      `/api/checkout/saleshistory/${array[0]
+        .toString()
+        .slice(4, 15)}/${array[1].toString().slice(4, 15)}`
+    )
+    .then((sales) => {
+      return dispatch(salesHistory(sales.data));
+    });
+
+export const fetchProductsSales = (array) => (dispatch) =>
+  axios
+    .get(
+      `/api/checkout/productsales/${array[0]
+        .toString()
+        .slice(4, 15)}/${array[1].toString().slice(4, 15)}`
+    )
+    .then((products) => {
+      return dispatch(productsSales(products.data));
+    });

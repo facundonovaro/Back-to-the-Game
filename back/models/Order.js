@@ -25,8 +25,15 @@ Order.init(
       type: S.INTEGER,
       defaultValue: 0,
     },
+    shortDate: {
+      type: S.STRING,
+    },
   },
   { sequelize: db, modelName: "order" }
 );
+
+Order.beforeCreate((order) => {
+  order.shortDate = order.date.toString().slice(4, 15);
+});
 
 module.exports = Order;

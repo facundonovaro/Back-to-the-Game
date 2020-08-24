@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 
 export default ({ orders, user }) => {
   let dates = Object.keys(orders);
+  console.log(orders, "ORDERS");
 
   return (
     <div>
