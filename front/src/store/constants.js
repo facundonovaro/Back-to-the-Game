@@ -21,6 +21,8 @@ export const TOTAL_CART = "TOTAL_CART";
 //Checkout
 export const GET_LAST_ORDERS = "GET_LAST_ORDERS";
 export const GET_ALL_ORDERS = "GET_ALL_ORDERS";
+export const GET_SALES_HISTORY = "GET_SALES_HISTORY";
+export const GET_PRODUCTS_SALES = "GET_PRODUCTS_SALES";
 
 // Category
 export const SET_CATEGORY = "SET_CATEOGORY";

@@ -1,6 +1,6 @@
-.pad-container{
-display: block;
-position: absolute;
+.pad-container {
+  display: block;
+  position: absolute;
 }
 
 .containerProd {
@@ -9,7 +9,6 @@ position: absolute;
   flex-direction: row;
   justify-content: center;
   margin: auto 0;
-
 }
 .displayCheckout {
   padding-top: 20px;
@@ -61,10 +60,9 @@ position: absolute;
 }
 .navbar-container {
   height: 70px;
-z-index: 1;
-position: fixed !important;
-width: 100% !important;
-
+  z-index: 1;
+  position: fixed !important;
+  width: 100% !important;
 }
 .navbar-links {
   display: flex;
@@ -282,11 +280,9 @@ width: 100% !important;
   margin-top: 10px;
   border: 1px solid rgb(124, 124, 124);
   background-color: rgb(253, 253, 253);
-
 }
 
 .cardsContainer {
-
   width: 90%;
   margin: 0 auto;
   flex-wrap: nowrap;
@@ -295,19 +291,17 @@ width: 100% !important;
 
 .reviewCardCont {
   border: 1px solid rgb(124, 124, 124);
-  padding: 30px; 
-  width: 45%; 
+  padding: 30px;
+  width: 45%;
   flex-wrap: nowrap;
   float: left;
   justify-content: center;
 }
 
-.inputRate{  
+.inputRate {
   display: flex;
   margin: 3%;
   flex-direction: column;
-
-
 }
 /* .input{ } */
 
@@ -329,10 +323,10 @@ width: 100% !important;
 }
 
 .cardsContainerNL {
-    border-radius: 5px;
-    width: 60%;
-    margin: 0 auto;
-    flex-wrap: nowrap;
+  border-radius: 5px;
+  width: 60%;
+  margin: 0 auto;
+  flex-wrap: nowrap;
 }
 
 .reviewCardsNL {
@@ -351,12 +345,12 @@ width: 100% !important;
   display: flex;
 }
 
-.rate{
+.rate {
   font-size: 150px;
 }
 
 .carousel {
-  padding:15px 10px 10px 10px;
+  padding: 15px 10px 10px 10px;
   margin: 0 auto;
 }
 
@@ -385,19 +379,17 @@ width: 100% !important;
   background-image: url();
 }
 
-.main-footer{
-  color:#7e7e7e;
+.main-footer {
+  color: #7e7e7e;
   background-color: rgb(18, 18, 26);
   padding-top: 1em;
   bottom: 0;
   width: 100%;
-
 }
 
-
- .page-wrap{
-flex: 1;
- }
+.page-wrap {
+  flex: 1;
+}
 #adminAbmButtons {
   display: flex;
   width: 900px;
@@ -415,12 +407,11 @@ flex: 1;
   width: 30%;
 }
 
-.direCheck{
+.direCheck {
   margin: 0 auto;
   width: 60%;
-  padding: 2px ;
+  padding: 2px;
 }
-
 
 #adminAbmButton {
   width: 300px;
@@ -431,8 +422,127 @@ flex: 1;
   align-items: center;
 }
 
-.container-padding{
+.container-padding {
   padding-top: 70px !important;
+}
+.lineChartContainer {
+  display: flex;
+  flex-wrap: wrap;
+  width: 85%;
+}
+.lineChart {
+  font-family: sans-serif;
+  text-align: center;
+  border: solid 2px;
+  border-radius: 0.25rem;
+  margin-left: 1%;
+  background-color: #ced4da;
+  border-color: #ced4da;
+  margin-bottom: 2%;
+  padding: 2%;
+  width: 100%;
+  margin-right: 5%;
+}
 
+.lineChart :hover {
+  -webkit-box-shadow: 0px 10px 13px -7px #000000,
+    2px 1px 4px 6px rgba(221, 221, 221, 0);
+  box-shadow: 0px 10px 13px -7px #000000, 2px 1px 4px 6px rgba(221, 221, 221, 0);
+}
 
+.salesContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  margin: 1%;
+  margin-bottom: 1%;
+  background-color: #ced4da;
+  padding-left: 1%;
+  border-radius: 0.25rem;
+}
+
+.sales {
+  font-family: sans-serif;
+  text-align: center;
+  border: solid 2px;
+  border-color: rgba(218, 217, 217, 0.554);
+  border-radius: 0.25rem;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 2%;
+}
+
+.calendar {
+  position: absolute;
+  left: 0;
+  top: 24%;
+  z-index: 1;
+  width: 25%;
+}
+
+.calendarIcon {
+  padding-left: 1%;
+}
+.calendarIcon :hover {
+  color: "blue";
+}
+.dashboardMainContainer {
+  display: flex;
+  flex-direction: row;
+}
+
+.dashboardOptionsContainer {
+  width: 15%;
+  background-color: #ced4da;
+  margin-right: 1%;
+  border-radius: 0.25rem;
+  padding: 1%;
+  margin-left: 1%;
+}
+
+.dashboardOptions {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dashboardOptionsText {
+  margin: 0;
+  font-size: 12px;
+}
+.dashboardOptionsTitle {
+  margin-bottom: 1%;
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.chartTitle {
+  margin-bottom: 1%;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+}
+.calendarPreiod {
+  font-size: 12px;
+  font-style: italic;
+  margin: 5%;
+}
+
+.calendarContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.react-calendar {
+  border: none;
+  line-height: 1.125em;
+  border-radius: 0.25rem;
+  color: #343a40;
+  font-weight: bold;
+  margin-left: 1%;
+  padding: 2%;
 }

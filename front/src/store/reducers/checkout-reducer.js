@@ -1,8 +1,15 @@
-import { GET_LAST_ORDERS, GET_ALL_ORDERS } from "../constants";
+import {
+  GET_LAST_ORDERS,
+  GET_ALL_ORDERS,
+  GET_SALES_HISTORY,
+  GET_PRODUCTS_SALES,
+} from "../constants";
 
 const initialState = {
   orders: [],
   allOrders: [],
+  salesHistory: [],
+  productsSales: [],
 };
 
 const checkoutReducer = (state = initialState, action) => {
@@ -11,6 +18,11 @@ const checkoutReducer = (state = initialState, action) => {
       return { ...state, orders: action.orders };
     case GET_ALL_ORDERS:
       return { ...state, allOrders: action.orders };
+    case GET_SALES_HISTORY:
+      return { ...state, salesHistory: action.sales };
+    case GET_PRODUCTS_SALES:
+      return { ...state, productsSales: action.productsSales };
+
     default:
       return state;
   }
